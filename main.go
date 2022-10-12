@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 
+	_ "github.com/gin-gonic/gin"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )

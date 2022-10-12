@@ -37,9 +37,9 @@ func main() {
 	}()
 
 	if err := db.AutoMigrate(&User{}); err != nil {
-		log.Println(err)
+		panic(err)
 	}
 	if err := db.AutoMigrate(&TODO{}); err != nil {
-		log.Println(err)
+		panic(err)
 	}
 }

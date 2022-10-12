@@ -8,6 +8,6 @@ type TODO struct {
 	UserId      uint64 `json:"user_id"`
 	Name        string `json:"name"`
 	Description string `json:"description"`
-	DueDate     uint64 `json:"due_date"`
+	DueDate     int64  `json:"due_date"`
 	Status      bool   `json:"status"`
 }

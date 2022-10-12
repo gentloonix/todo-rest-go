@@ -8,7 +8,9 @@ import (
 	"gorm.io/gorm"
 )
 
-var DB *gorm.DB
+var (
+	DB *gorm.DB = nil
+)
 
 func init() {
 	go func() {
@@ -24,6 +26,8 @@ func init() {
 			if err := sqlDB.Close(); err != nil {
 				log.Println(err)
 			}
+
+			DB = nil
 		}()
 
 		if err := db.AutoMigrate(&models.User{}); err != nil {

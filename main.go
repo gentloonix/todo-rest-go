@@ -7,6 +7,8 @@ import (
 	"os/signal"
 	"syscall"
 
+	_ "main/database"
+
 	"github.com/gin-gonic/gin"
 )
 

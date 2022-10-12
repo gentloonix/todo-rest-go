@@ -1,6 +1,8 @@
 package main
 
 import (
+	"log"
+
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
@@ -28,6 +30,16 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	defer sqlDB.Close()
+	defer func() {
+		if err := sqlDB.Close(); err != nil {
+			log.Println(err)
+		}
+	}()
 
+	if err := db.AutoMigrate(&User{}); err != nil {
+		log.Println(err)
+	}
+	if err := db.AutoMigrate(&TODO{}); err != nil {
+		log.Println(err)
+	}
 }

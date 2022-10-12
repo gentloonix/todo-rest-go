@@ -4,5 +4,5 @@ import "gorm.io/gorm"
 
 type User struct {
 	gorm.Model
-	Id uint64 `gorm:"primaryKey"`
+	Id uint64 `json:"id" gorm:"primaryKey"`
 }

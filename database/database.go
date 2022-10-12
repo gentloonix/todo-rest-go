@@ -9,11 +9,15 @@ import (
 )
 
 var (
-	DB *gorm.DB = nil
+	Close chan struct{} = nil
+	DB    *gorm.DB      = nil
 )
 
 func init() {
 	go func() {
+		Close := make(chan struct{}, 1)
+		defer close(Close)
+
 		db, err := gorm.Open(sqlite.Open("database.db"), &gorm.Config{})
 		if err != nil {
 			panic(err)
@@ -39,7 +43,7 @@ func init() {
 
 		DB = db
 
-		// TODO block until main() begins exiting
+		<-Close
 		// TODO waitGroup for synchronized exiting
 	}()
 }

@@ -3,6 +3,7 @@ package database
 import (
 	"log"
 	"main/database/models"
+	"sync"
 
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
@@ -13,8 +14,14 @@ var (
 	DB    *gorm.DB      = nil
 )
 
-func init() {
+func Initialize(wg *sync.WaitGroup) {
+	if DB != nil {
+		return
+	}
+
 	go func() {
+		defer wg.Done()
+
 		db, err := gorm.Open(sqlite.Open("database.db"), &gorm.Config{})
 		if err != nil {
 			panic(err)
@@ -41,6 +48,5 @@ func init() {
 		DB = db
 
 		<-Close
-		// TODO waitGroup for synchronized exiting
 	}()
 }

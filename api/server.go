@@ -31,6 +31,11 @@ func Initialize(wg *sync.WaitGroup) {
 
 		// based on https://github.com/gin-gonic/gin#manually
 		Router := gin.Default()
+		defer func() {
+			Router = nil
+		}()
+
+		// Routes
 		Router.GET("/", func(c *gin.Context) {
 			c.String(http.StatusOK, "Welcome Gin Server")
 		})
@@ -44,7 +49,7 @@ func Initialize(wg *sync.WaitGroup) {
 		// it won't block the graceful shutdown handling below
 		go func() {
 			if err := srv.ListenAndServe(); err != nil && errors.Is(err, http.ErrServerClosed) {
-				log.Printf("listen: %s\n", err)
+				log.Println("listen:", err)
 			}
 		}()
 
@@ -56,9 +61,9 @@ func Initialize(wg *sync.WaitGroup) {
 		defer cancel()
 
 		if err := srv.Shutdown(ctx); err != nil {
-			log.Fatalln("api::server: forceful shutdown:", err)
+			log.Println("api::server: forceful shutdown:", err)
 		}
 
-		log.Println("api::server: exiting")
+		log.Println("api::server: exit")
 	}()
 }

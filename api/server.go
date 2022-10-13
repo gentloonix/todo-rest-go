@@ -29,6 +29,10 @@ func Initialize(wg *sync.WaitGroup) {
 	go func() {
 		defer wg.Done()
 
+		defer func() {
+			log.Println("api::server: exit")
+		}()
+
 		// based on https://github.com/gin-gonic/gin#manually
 		Router := gin.Default()
 		defer func() {
@@ -63,7 +67,5 @@ func Initialize(wg *sync.WaitGroup) {
 		if err := srv.Shutdown(ctx); err != nil {
 			log.Println("api::server: forceful shutdown:", err)
 		}
-
-		log.Println("api::server: exit")
 	}()
 }

@@ -27,6 +27,10 @@ func Initialize(wg *sync.WaitGroup) {
 	go func() {
 		defer wg.Done()
 
+		defer func() {
+			log.Println("database: exit")
+		}()
+
 		DB, err := gorm.Open(sqlite.Open("database.db"), &gorm.Config{})
 		if err != nil {
 			panic(err)

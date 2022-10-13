@@ -16,11 +16,11 @@ var (
 
 func Initialize(wg *sync.WaitGroup) {
 	if wg == nil {
-		log.Println("database::initialized: nil wg")
+		log.Println("database::Initialize: nil wg")
 		return
 	}
 	if DB != nil {
-		log.Println("database::initialized: already initialized")
+		log.Println("database::Initialize: ignoring")
 		return
 	}
 

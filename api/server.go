@@ -49,7 +49,7 @@ func Initialize(wg *sync.WaitGroup) {
 		// it won't block the graceful shutdown handling below
 		go func() {
 			if err := srv.ListenAndServe(); err != nil && errors.Is(err, http.ErrServerClosed) {
-				log.Println("listen:", err)
+				log.Println("api::server:", err)
 			}
 		}()
 

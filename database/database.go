@@ -9,15 +9,12 @@ import (
 )
 
 var (
-	Close chan struct{} = nil
+	Close chan struct{} = make(chan struct{}, 1)
 	DB    *gorm.DB      = nil
 )
 
 func init() {
 	go func() {
-		Close := make(chan struct{}, 1)
-		defer close(Close)
-
 		db, err := gorm.Open(sqlite.Open("database.db"), &gorm.Config{})
 		if err != nil {
 			panic(err)

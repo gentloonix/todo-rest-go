@@ -26,10 +26,12 @@ func main() {
 	<-c
 
 	// Await async submodules exit
-	log.Println("exiting...")
+	log.Println("submodules exiting...")
 
 	database.Close <- struct{}{}
 	api.Close <- struct{}{}
 
 	wg.Wait()
+
+	log.Println("main exiting...")
 }

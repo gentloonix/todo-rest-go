@@ -27,11 +27,11 @@ func Initialize(wg *sync.WaitGroup) {
 	go func() {
 		defer wg.Done()
 
-		db, err := gorm.Open(sqlite.Open("database.db"), &gorm.Config{})
+		DB, err := gorm.Open(sqlite.Open("database.db"), &gorm.Config{})
 		if err != nil {
 			panic(err)
 		}
-		sqlDB, err := db.DB()
+		sqlDB, err := DB.DB()
 		if err != nil {
 			panic(err)
 		}
@@ -43,14 +43,12 @@ func Initialize(wg *sync.WaitGroup) {
 			DB = nil
 		}()
 
-		if err := db.AutoMigrate(&models.User{}); err != nil {
+		if err := DB.AutoMigrate(&models.User{}); err != nil {
 			panic(err)
 		}
-		if err := db.AutoMigrate(&models.TODO{}); err != nil {
+		if err := DB.AutoMigrate(&models.TODO{}); err != nil {
 			panic(err)
 		}
-
-		DB = db
 
 		<-Close
 	}()

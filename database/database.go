@@ -2,7 +2,7 @@ package database
 
 import (
 	"log"
-	"main/database/models"
+	"main/models"
 	"sync"
 
 	"gorm.io/driver/sqlite"

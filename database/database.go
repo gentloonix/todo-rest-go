@@ -2,7 +2,6 @@ package database
 
 import (
 	"log"
-	"main/models"
 	"sync"
 
 	"gorm.io/driver/sqlite"
@@ -46,13 +45,6 @@ func Initialize(wg *sync.WaitGroup) {
 
 			DB = nil
 		}()
-
-		if err := DB.AutoMigrate(&models.User{}); err != nil {
-			panic(err)
-		}
-		if err := DB.AutoMigrate(&models.TODO{}); err != nil {
-			panic(err)
-		}
 
 		<-Close
 	}()

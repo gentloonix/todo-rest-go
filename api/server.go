@@ -33,6 +33,9 @@ func Initialize(wg *sync.WaitGroup) {
 			log.Println("api::server: exit")
 		}()
 
+		// release mode
+		gin.SetMode(gin.ReleaseMode)
+
 		// based on https://github.com/gin-gonic/gin#manually
 		Router := gin.Default()
 		defer func() {

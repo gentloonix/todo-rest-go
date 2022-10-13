@@ -7,6 +7,7 @@ import (
 	"sync"
 	"syscall"
 
+	"main/api"
 	"main/database"
 )
 
@@ -16,6 +17,8 @@ func main() {
 
 	wg.Add(1)
 	database.Initialize(&wg)
+	wg.Add(1)
+	api.Initialize(&wg)
 
 	// Await SIGINT / SIGTERM
 	c := make(chan os.Signal, 1)
@@ -26,6 +29,7 @@ func main() {
 	log.Println("exiting...")
 
 	database.Close <- struct{}{}
+	api.Close <- struct{}{}
 
 	wg.Wait()
 }

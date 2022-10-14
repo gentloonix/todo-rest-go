@@ -16,8 +16,8 @@ type TODO struct {
 }
 
 func RouteTODO(router *gin.Engine) {
-	router.GET("/todo/", RESTGet[TODO])
-	router.POST("/todo/", RESTPost[TODO])
-	router.PUT("/todo/", RESTPut[TODO])
-	router.DELETE("/todo/", RESTDelete[TODO])
+	router.GET("/todo/", ApiGet[TODO])
+	router.POST("/todo/", ApiPost[TODO])
+	router.PUT("/todo/", ApiPut[TODO])
+	router.DELETE("/todo/", ApiDelete[TODO])
 }

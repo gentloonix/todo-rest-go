@@ -13,7 +13,10 @@ func Create[T ORMModel](objs []T) error {
 
 func Query[T ORMModel](where map[string]interface{}, order map[string]interface{}) ([]T, error) {
 	var objs []T
-	tx := orm.DB.Where(where)
+	tx := orm.DB
+	if len(where) != 0 {
+		tx = tx.Where(where)
+	}
 	if len(order) != 0 {
 		tx = tx.Order(order)
 	}

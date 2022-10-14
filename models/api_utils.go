@@ -8,14 +8,16 @@ import (
 
 func parseApiQuery(c *gin.Context) (where map[string]interface{}, order string, updates map[string]interface{}) {
 	where_tmp := c.Request.URL.Query()
+
 	if order_tmp, ok := where_tmp["sortBy"]; ok {
-		delete(where, "sortBy")
+		delete(where_tmp, "sortBy")
 		if len(order_tmp) != 0 {
 			order = order_tmp[0]
 		}
 	}
+
 	if updates_tmp_slice, ok := where_tmp["replaceWith"]; ok {
-		delete(where, "replaceWith")
+		delete(where_tmp, "replaceWith")
 		if len(updates_tmp_slice) != 0 {
 			updates_tmp := updates_tmp_slice[0]
 			updates = make(map[string]interface{})
@@ -24,10 +26,12 @@ func parseApiQuery(c *gin.Context) (where map[string]interface{}, order string, 
 			}
 		}
 	}
+
 	where = make(map[string]interface{})
 	for k, v := range where_tmp {
 		where[k] = v
 	}
+
 	return where, order, updates
 }
 

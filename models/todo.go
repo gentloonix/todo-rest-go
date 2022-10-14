@@ -1,6 +1,10 @@
 package models
 
-import "gorm.io/gorm"
+import (
+	"main/database"
+
+	"gorm.io/gorm"
+)
 
 type TODO struct {
 	gorm.Model
@@ -10,4 +14,8 @@ type TODO struct {
 	Description string `json:"description,omitempty"`
 	DueDate     int64  `json:"due_date,omitempty"`
 	Status      bool   `json:"status,omitempty"`
+}
+
+func init() {
+	database.DB.AutoMigrate(&TODO{})
 }

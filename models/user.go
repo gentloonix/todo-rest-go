@@ -1,10 +1,8 @@
 package models
 
 import (
-	"fmt"
 	"main/database"
 
-	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 )
 
@@ -13,50 +11,27 @@ type User struct {
 	Id uint64 `json:"id" gorm:"primaryKey"`
 }
 
-func CreateUser(c *gin.Context) {
-	var user User
-	c.BindJSON(&user)
-	database.DB.Create(&user)
-	c.JSON(200, user)
+func init() {
+	database.DB.AutoMigrate(&User{})
 }
 
-func ReadUser(c *gin.Context) {
-	id := c.Params.ByName("id")
-	var user User
-	if err := database.DB.Where("id = ?", id).First(&user).Error; err != nil {
-		c.AbortWithStatus(404)
-		fmt.Println(err)
-	} else {
-		c.JSON(200, user)
-	}
+func Create(user *[]User) error {
+	return database.DB.Create(user).Error
 }
 
-func ReadUsers(c *gin.Context) {
+func Query(ids []int) ([]User, error) {
 	var users []User
-	if err := database.DB.Find(&users).Error; err != nil {
-		c.AbortWithStatus(404)
-		fmt.Println(err)
+	if err := database.DB.Find(&users, ids).Error; err != nil {
+		return nil, err
 	} else {
-		c.JSON(200, users)
+		return users, nil
 	}
 }
 
-func UpdateUser(c *gin.Context) {
-	var user User
-	id := c.Params.ByName("id")
-	if err := database.DB.Where("id = ?", id).First(&user).Error; err != nil {
-		c.AbortWithStatus(404)
-		fmt.Println(err)
-	}
-	c.BindJSON(&user)
-	database.DB.Save(&user)
-	c.JSON(200, user)
+func Update(ids []int, values map[string]interface{}) error {
+	return database.DB.Model(User{}).Where("id IN ?", ids).Updates(values).Error
 }
 
-func DeleteUser(c *gin.Context) {
-	id := c.Params.ByName("id")
-	var user User
-	d := database.DB.Where("id = ?", id).Delete(&user)
-	fmt.Println(d)
-	c.JSON(200, gin.H{"id #" + id: "deleted"})
+func Delete(ids []int) error {
+	return database.DB.Model(User{}).Where("id IN ?", ids).Delete(&User{}).Error
 }

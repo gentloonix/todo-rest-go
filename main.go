@@ -13,6 +13,8 @@ import (
 
 func main() {
 	// Async submodules initialize
+	log.Println("submodules initializing")
+
 	var wg sync.WaitGroup
 
 	wg.Add(1)
@@ -20,18 +22,20 @@ func main() {
 	wg.Add(1)
 	api.Initialize(&wg)
 
+	log.Println("running")
+
 	// Await SIGINT / SIGTERM
 	c := make(chan os.Signal, 1)
 	signal.Notify(c, os.Interrupt, syscall.SIGTERM)
 	<-c
 
 	// Await async submodules exit
-	log.Println("submodules exiting...")
+	log.Println("submodules exiting")
 
 	database.Close <- struct{}{}
 	api.Close <- struct{}{}
 
 	wg.Wait()
 
-	log.Println("main exiting...")
+	log.Println("exiting")
 }

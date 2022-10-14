@@ -11,8 +11,8 @@ type User struct {
 	Id uint64 `json:"id" gorm:"primaryKey"`
 }
 
-func Create(user *[]User) error {
-	return database.DB.Create(user).Error
+func Create(users []User) error {
+	return database.DB.Create(users).Error
 }
 
 func Query(ids []int) ([]User, error) {
@@ -25,9 +25,9 @@ func Query(ids []int) ([]User, error) {
 }
 
 func Update(ids []int, values map[string]interface{}) error {
-	return database.DB.Model(User{}).Where("id IN ?", ids).Updates(values).Error
+	return database.DB.Where("id IN ?", ids).Updates(values).Error
 }
 
 func Delete(ids []int) error {
-	return database.DB.Model(User{}).Where("id IN ?", ids).Delete(&User{}).Error
+	return database.DB.Where("id IN ?", ids).Delete(&User{}).Error
 }

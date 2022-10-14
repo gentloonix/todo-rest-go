@@ -1,6 +1,7 @@
 package models
 
 import (
+	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 )
 
@@ -12,4 +13,11 @@ type TODO struct {
 	Description string `json:"description,omitempty"`
 	DueDate     int64  `json:"due_date,omitempty"`
 	Status      bool   `json:"status,omitempty"`
+}
+
+func RouteTODO(router *gin.Engine) {
+	router.GET("/todo/", RESTGet[TODO])
+	router.POST("/todo/", RESTPost[TODO])
+	router.PUT("/todo/", RESTPut[TODO])
+	router.DELETE("/todo/", RESTDelete[TODO])
 }

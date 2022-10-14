@@ -13,7 +13,7 @@ var (
 	DB    *gorm.DB      = nil
 )
 
-func Initialize(wg *sync.WaitGroup, autoMigrate func(*gorm.DB)) {
+func Initialize(wg *sync.WaitGroup, dsn string, autoMigrate func(*gorm.DB)) {
 	if wg == nil {
 		log.Println("database::Initialize: nil wg")
 		return
@@ -31,7 +31,7 @@ func Initialize(wg *sync.WaitGroup, autoMigrate func(*gorm.DB)) {
 		}()
 
 		var err error
-		DB, err = gorm.Open(sqlite.Open("database.db"), &gorm.Config{
+		DB, err = gorm.Open(sqlite.Open(dsn), &gorm.Config{
 			QueryFields: true,
 		})
 		if err != nil {

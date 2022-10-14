@@ -60,6 +60,7 @@ func Initialize(wg *sync.WaitGroup) {
 			}
 		}()
 
+		log.Println("api::server: running")
 		<-Close
 
 		// The context is used to inform the server it has 30 seconds to finish

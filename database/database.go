@@ -46,6 +46,7 @@ func Initialize(wg *sync.WaitGroup) {
 			DB = nil
 		}()
 
+		log.Println("database: running")
 		<-Close
 	}()
 }

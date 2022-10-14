@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>fieldmaskpb - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/pkg/">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/pkg/">GoDoc</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package fieldmaskpb
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "google.golang.org/protobuf/types/known/fieldmaskpb"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>Package fieldmaskpb contains generated types for google/protobuf/field_mask.proto.
+<p>The FieldMask message represents a set of symbolic field paths.
+The paths are specific to some target message type,
+which is not stored within the FieldMask message itself.
+<h3 id="hdr-Constructing_a_FieldMask">Constructing a FieldMask</h3>
+<p>The New function is used construct a FieldMask:
+<pre>var messageType *descriptorpb.DescriptorProto
+fm, err := fieldmaskpb.New(messageType, &quot;field.name&quot;, &quot;field.number&quot;)
+if err != nil {
+	... // handle error
+}
+... // make use of fm
+</pre>
+<p>The &quot;field.name&quot; and &quot;field.number&quot; paths are valid paths according to the
+google.protobuf.DescriptorProto message. Use of a path that does not correlate
+to valid fields reachable from DescriptorProto would result in an error.
+<p>Once a FieldMask message has been constructed,
+the Append method can be used to insert additional paths to the path set:
+<pre>var messageType *descriptorpb.DescriptorProto
+if err := fm.Append(messageType, &quot;options&quot;); err != nil {
+	... // handle error
+}
+</pre>
+<h3 id="hdr-Type_checking_a_FieldMask">Type checking a FieldMask</h3>
+<p>In order to verify that a FieldMask represents a set of fields that are
+reachable from some target message type, use the IsValid method:
+<pre>var messageType *descriptorpb.DescriptorProto
+if fm.IsValid(messageType) {
+	... // make use of fm
+}
+</pre>
+<p>IsValid needs to be passed the target message type as an input since the
+FieldMask message itself does not store the message type that the set of paths
+are for.
+
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+			
+				
+				<dd><a href="#FieldMask">type FieldMask</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Intersect">func Intersect(mx *FieldMask, my *FieldMask, ms ...*FieldMask) *FieldMask</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#New">func New(m proto.Message, paths ...string) (*FieldMask, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Union">func Union(mx *FieldMask, my *FieldMask, ms ...*FieldMask) *FieldMask</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FieldMask.Append">func (x *FieldMask) Append(m proto.Message, paths ...string) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FieldMask.Descriptor">func (*FieldMask) Descriptor() ([]byte, []int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FieldMask.GetPaths">func (x *FieldMask) GetPaths() []string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FieldMask.IsValid">func (x *FieldMask) IsValid(m proto.Message) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FieldMask.Normalize">func (x *FieldMask) Normalize()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FieldMask.ProtoMessage">func (*FieldMask) ProtoMessage()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FieldMask.ProtoReflect">func (x *FieldMask) ProtoReflect() protoreflect.Message</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FieldMask.Reset">func (x *FieldMask) Reset()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FieldMask.String">func (x *FieldMask) String() string</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/google.golang.org/protobuf/types/known/fieldmaskpb/field_mask.pb.go">field_mask.pb.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				
+				<pre>var <span id="File_google_protobuf_field_mask_proto">File_google_protobuf_field_mask_proto</span> <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FileDescriptor">FileDescriptor</a></pre>
+			
+		
+		
+		
+			
+			
+			<h2 id="FieldMask">type <a href="/src/google.golang.org/protobuf/types/known/fieldmaskpb/field_mask.pb.go?s=9617:9870#L279">FieldMask</a>
+				<a class="permalink" href="#FieldMask">&#xb6;</a>
+				
+				
+			</h2>
+			<p>`FieldMask` represents a set of symbolic field paths, for example:
+<pre>paths: &quot;f.a&quot;
+paths: &quot;f.b.d&quot;
+</pre>
+<p>Here `f` represents a field in some root message, `a` and `b`
+fields in the message found in `f`, and `d` a field found in the
+message in `f.b`.
+<p>Field masks are used to specify a subset of fields that should be
+returned by a get operation or modified by an update operation.
+Field masks also have a custom JSON encoding (see below).
+<h3 id="hdr-Field_Masks_in_Projections">Field Masks in Projections</h3>
+<p>When used in the context of a projection, a response message or
+sub-message is filtered by the API to only contain those fields as
+specified in the mask. For example, if the mask in the previous
+example is applied to a response message as follows:
+<pre>f {
+  a : 22
+  b {
+    d : 1
+    x : 2
+  }
+  y : 13
+}
+z: 8
+</pre>
+<p>The result will not contain specific values for fields x,y and z
+(their value will be set to the default, and omitted in proto text
+output):
+<pre>f {
+  a : 22
+  b {
+    d : 1
+  }
+}
+</pre>
+<p>A repeated field is not allowed except at the last position of a
+paths string.
+<p>If a FieldMask object is not present in a get operation, the
+operation applies to all fields (as if a FieldMask of all fields
+had been specified).
+<p>Note that a field mask does not necessarily apply to the
+top-level response message. In case of a REST get operation, the
+field mask applies directly to the response, but in case of a REST
+list operation, the mask instead applies to each individual message
+in the returned resource list. In case of a REST custom method,
+other definitions may be used. Where the mask applies will be
+clearly documented together with its declaration in the API.  In
+any case, the effect on the returned resource/resources is required
+behavior for APIs.
+<h3 id="hdr-Field_Masks_in_Update_Operations">Field Masks in Update Operations</h3>
+<p>A field mask in update operations specifies which fields of the
+targeted resource are going to be updated. The API is required
+to only change the values of the fields as specified in the mask
+and leave the others untouched. If a resource is passed in to
+describe the updated values, the API ignores the values of all
+fields not covered by the mask.
+<p>If a repeated field is specified for an update operation, new values will
+be appended to the existing repeated field in the target resource. Note that
+a repeated field is only allowed in the last position of a `paths` string.
+<p>If a sub-message is specified in the last position of the field mask for an
+update operation, then new value will be merged into the existing sub-message
+in the target resource.
+<p>For example, given the target message:
+<pre>f {
+  b {
+    d: 1
+    x: 2
+  }
+  c: [1]
+}
+</pre>
+<p>And an update message:
+<pre>f {
+  b {
+    d: 10
+  }
+  c: [2]
+}
+</pre>
+<p>then if the field mask is:
+<pre>paths: [&quot;f.b&quot;, &quot;f.c&quot;]
+</pre>
+<p>then the result will be:
+<pre>f {
+  b {
+    d: 10
+    x: 2
+  }
+  c: [1, 2]
+}
+</pre>
+<p>An implementation may provide options to override this default behavior for
+repeated and message fields.
+<p>In order to reset a field&apos;s value to the default, the field must
+be in the mask and set to the default value in the provided resource.
+Hence, in order to reset all fields of a resource, provide a default
+instance of the resource and set all fields in the mask, or do
+not provide a mask as described below.
+<p>If a field mask is not present on update, the operation applies to
+all fields (as if a field mask of all fields has been specified).
+Note that in the presence of schema evolution, this may mean that
+fields the client does not know and has therefore not filled into
+the request will be reset to their default. If this is unwanted
+behavior, a specific service may require a client to always specify
+a field mask, producing an error if not.
+<p>As with get operations, the location of the resource which
+describes the updated values in the request message depends on the
+operation kind. In any case, the effect of the field mask is
+required to be honored by the API.
+<p>## Considerations for HTTP REST
+<p>The HTTP kind of an update operation which uses a field mask must
+be set to PATCH instead of PUT in order to satisfy HTTP semantics
+(PUT must only be used for full updates).
+<h3 id="hdr-JSON_Encoding_of_Field_Masks">JSON Encoding of Field Masks</h3>
+<p>In JSON, a field mask is encoded as a single string where paths are
+separated by a comma. Fields name in each path are converted
+to/from lower-camel naming conventions.
+<p>As an example, consider the following message declarations:
+<pre>message Profile {
+  User user = 1;
+  Photo photo = 2;
+}
+message User {
+  string display_name = 1;
+  string address = 2;
+}
+</pre>
+<p>In proto a field mask for `Profile` may look as such:
+<pre>mask {
+  paths: &quot;user.display_name&quot;
+  paths: &quot;photo&quot;
+}
+</pre>
+<p>In JSON, the same mask is represented as below:
+<pre>{
+  mask: &quot;user.displayName,photo&quot;
+}
+</pre>
+<h3 id="hdr-Field_Masks_and_Oneof_Fields">Field Masks and Oneof Fields</h3>
+<p>Field masks treat fields in oneofs just as regular fields. Consider the
+following message:
+<pre>message SampleMessage {
+  oneof test_oneof {
+    string name = 4;
+    SubMessage sub_message = 9;
+  }
+}
+</pre>
+<p>The field mask can be:
+<pre>mask {
+  paths: &quot;name&quot;
+}
+</pre>
+<p>Or:
+<pre>mask {
+  paths: &quot;sub_message&quot;
+}
+</pre>
+<p>Note that oneof type names (&quot;test_oneof&quot; in this case) cannot be used in
+paths.
+<p>## Field Mask Verification
+<p>The implementation of any API method which has a FieldMask type field in the
+request should verify the included field paths, and return an
+`INVALID_ARGUMENT` error if any path is unmappable.
+
+			<pre>type FieldMask struct {
+
+    <span class="comment">// The set of field mask paths.</span>
+<span id="FieldMask.Paths"></span>    Paths []<a href="/pkg/builtin/#string">string</a> `protobuf:&#34;bytes,1,rep,name=paths,proto3&#34; json:&#34;paths,omitempty&#34;`
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="Intersect">func <a href="/src/google.golang.org/protobuf/types/known/fieldmaskpb/field_mask.pb.go?s=10555:10628#L307">Intersect</a>
+					<a class="permalink" href="#Intersect">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func Intersect(mx *<a href="#FieldMask">FieldMask</a>, my *<a href="#FieldMask">FieldMask</a>, ms ...*<a href="#FieldMask">FieldMask</a>) *<a href="#FieldMask">FieldMask</a></pre>
+				<p>Intersect returns the intersection of all the paths in the input field masks.
+
+				
+				
+			
+				
+				<h3 id="New">func <a href="/src/google.golang.org/protobuf/types/known/fieldmaskpb/field_mask.pb.go?s=10004:10066#L290">New</a>
+					<a class="permalink" href="#New">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func New(m <a href="/pkg/google.golang.org/protobuf/proto/">proto</a>.<a href="/pkg/google.golang.org/protobuf/proto/#Message">Message</a>, paths ...<a href="/pkg/builtin/#string">string</a>) (*<a href="#FieldMask">FieldMask</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>New constructs a field mask from a list of paths and verifies that
+each one is valid according to the specified message type.
+
+				
+				
+			
+				
+				<h3 id="Union">func <a href="/src/google.golang.org/protobuf/types/known/fieldmaskpb/field_mask.pb.go?s=10196:10265#L296">Union</a>
+					<a class="permalink" href="#Union">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func Union(mx *<a href="#FieldMask">FieldMask</a>, my *<a href="#FieldMask">FieldMask</a>, ms ...*<a href="#FieldMask">FieldMask</a>) *<a href="#FieldMask">FieldMask</a></pre>
+				<p>Union returns the union of all the paths in the input field masks.
+
+				
+				
+			
+
+			
+				
+				<h3 id="FieldMask.Append">func (*FieldMask) <a href="/src/google.golang.org/protobuf/types/known/fieldmaskpb/field_mask.pb.go?s=11904:11970#L350">Append</a>
+					<a class="permalink" href="#FieldMask.Append">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#FieldMask">FieldMask</a>) Append(m <a href="/pkg/google.golang.org/protobuf/proto/">proto</a>.<a href="/pkg/google.golang.org/protobuf/proto/#Message">Message</a>, paths ...<a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>Append appends a list of paths to the mask and verifies that each one
+is valid according to the specified message type.
+An invalid path is not appended and breaks insertion of subsequent paths.
+
+				
+				
+				
+			
+				
+				<h3 id="FieldMask.Descriptor">func (*FieldMask) <a href="/src/google.golang.org/protobuf/types/known/fieldmaskpb/field_mask.pb.go?s=15637:15683#L489">Descriptor</a>
+					<a class="permalink" href="#FieldMask.Descriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#FieldMask">FieldMask</a>) Descriptor() ([]<a href="/pkg/builtin/#byte">byte</a>, []<a href="/pkg/builtin/#int">int</a>)</pre>
+				<p>Deprecated: Use FieldMask.ProtoReflect.Descriptor instead.
+
+				
+				
+				
+			
+				
+				<h3 id="FieldMask.GetPaths">func (*FieldMask) <a href="/src/google.golang.org/protobuf/types/known/fieldmaskpb/field_mask.pb.go?s=15759:15798#L493">GetPaths</a>
+					<a class="permalink" href="#FieldMask.GetPaths">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#FieldMask">FieldMask</a>) GetPaths() []<a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FieldMask.IsValid">func (*FieldMask) <a href="/src/google.golang.org/protobuf/types/known/fieldmaskpb/field_mask.pb.go?s=11565:11614#L342">IsValid</a>
+					<a class="permalink" href="#FieldMask.IsValid">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#FieldMask">FieldMask</a>) IsValid(m <a href="/pkg/google.golang.org/protobuf/proto/">proto</a>.<a href="/pkg/google.golang.org/protobuf/proto/#Message">Message</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>IsValid reports whether all the paths are syntactically valid and
+refer to known fields in the specified message type.
+It reports false for a nil FieldMask.
+
+				
+				
+				
+			
+				
+				<h3 id="FieldMask.Normalize">func (*FieldMask) <a href="/src/google.golang.org/protobuf/types/known/fieldmaskpb/field_mask.pb.go?s=13436:13467#L402">Normalize</a>
+					<a class="permalink" href="#FieldMask.Normalize">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#FieldMask">FieldMask</a>) Normalize()</pre>
+				<p>Normalize converts the mask to its canonical form where all paths are sorted
+and redundant paths are removed.
+
+				
+				
+				
+			
+				
+				<h3 id="FieldMask.ProtoMessage">func (*FieldMask) <a href="/src/google.golang.org/protobuf/types/known/fieldmaskpb/field_mask.pb.go?s=15215:15247#L474">ProtoMessage</a>
+					<a class="permalink" href="#FieldMask.ProtoMessage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#FieldMask">FieldMask</a>) ProtoMessage()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FieldMask.ProtoReflect">func (*FieldMask) <a href="/src/google.golang.org/protobuf/types/known/fieldmaskpb/field_mask.pb.go?s=15252:15307#L476">ProtoReflect</a>
+					<a class="permalink" href="#FieldMask.ProtoReflect">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#FieldMask">FieldMask</a>) ProtoReflect() <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Message">Message</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FieldMask.Reset">func (*FieldMask) <a href="/src/google.golang.org/protobuf/types/known/fieldmaskpb/field_mask.pb.go?s=14909:14936#L461">Reset</a>
+					<a class="permalink" href="#FieldMask.Reset">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#FieldMask">FieldMask</a>) Reset()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="FieldMask.String">func (*FieldMask) <a href="/src/google.golang.org/protobuf/types/known/fieldmaskpb/field_mask.pb.go?s=15135:15170#L470">String</a>
+					<a class="permalink" href="#FieldMask.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#FieldMask">FieldMask</a>) String() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

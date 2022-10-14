@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>dynamicpb - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/pkg/">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/pkg/">GoDoc</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package dynamicpb
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "google.golang.org/protobuf/types/dynamicpb"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>Package dynamicpb creates protocol buffer messages using runtime type information.
+
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#NewEnumType">func NewEnumType(desc pref.EnumDescriptor) pref.EnumType</a></dd>
+			
+				
+				<dd><a href="#NewExtensionType">func NewExtensionType(desc pref.ExtensionDescriptor) pref.ExtensionType</a></dd>
+			
+				
+				<dd><a href="#NewMessageType">func NewMessageType(desc pref.MessageDescriptor) pref.MessageType</a></dd>
+			
+			
+				
+				<dd><a href="#Message">type Message</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewMessage">func NewMessage(desc pref.MessageDescriptor) *Message</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Message.Clear">func (m *Message) Clear(fd pref.FieldDescriptor)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Message.Descriptor">func (m *Message) Descriptor() pref.MessageDescriptor</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Message.Get">func (m *Message) Get(fd pref.FieldDescriptor) pref.Value</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Message.GetUnknown">func (m *Message) GetUnknown() pref.RawFields</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Message.Has">func (m *Message) Has(fd pref.FieldDescriptor) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Message.Interface">func (m *Message) Interface() pref.ProtoMessage</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Message.IsValid">func (m *Message) IsValid() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Message.Mutable">func (m *Message) Mutable(fd pref.FieldDescriptor) pref.Value</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Message.New">func (m *Message) New() pref.Message</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Message.NewField">func (m *Message) NewField(fd pref.FieldDescriptor) pref.Value</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Message.ProtoMessage">func (m *Message) ProtoMessage()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Message.ProtoMethods">func (m *Message) ProtoMethods() *protoiface.Methods</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Message.ProtoReflect">func (m *Message) ProtoReflect() pref.Message</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Message.Range">func (m *Message) Range(f func(pref.FieldDescriptor, pref.Value) bool)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Message.Reset">func (m *Message) Reset()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Message.Set">func (m *Message) Set(fd pref.FieldDescriptor, v pref.Value)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Message.SetUnknown">func (m *Message) SetUnknown(r pref.RawFields)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Message.String">func (m *Message) String() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Message.Type">func (m *Message) Type() pref.MessageType</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Message.WhichOneof">func (m *Message) WhichOneof(od pref.OneofDescriptor) pref.FieldDescriptor</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/google.golang.org/protobuf/types/dynamicpb/dynamic.go">dynamic.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="NewEnumType">func <a href="/src/google.golang.org/protobuf/types/dynamicpb/dynamic.go?s=1193:1249#L28">NewEnumType</a>
+				<a class="permalink" href="#NewEnumType">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewEnumType(desc <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">pref</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#EnumDescriptor">EnumDescriptor</a>) <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">pref</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#EnumType">EnumType</a></pre>
+			<p>NewEnumType creates a new EnumType with the provided descriptor.
+<p>EnumTypes created by this package are equal if their descriptors are equal.
+That is, if ed1 == ed2, then NewEnumType(ed1) == NewEnumType(ed2).
+<p>Enum values created by the EnumType are equal if their numbers are equal.
+
+			
+			
+
+		
+			
+			
+			<h2 id="NewExtensionType">func <a href="/src/google.golang.org/protobuf/types/dynamicpb/dynamic.go?s=18658:18729#L634">NewExtensionType</a>
+				<a class="permalink" href="#NewExtensionType">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewExtensionType(desc <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">pref</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#ExtensionDescriptor">ExtensionDescriptor</a>) <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">pref</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#ExtensionType">ExtensionType</a></pre>
+			<p>NewExtensionType creates a new ExtensionType with the provided descriptor.
+<p>Dynamic ExtensionTypes with the same descriptor compare as equal. That is,
+if xd1 == xd2, then NewExtensionType(xd1) == NewExtensionType(xd2).
+<p>The InterfaceOf and ValueOf methods of the extension type are defined as:
+<pre>func (xt extensionType) ValueOf(iv interface{}) protoreflect.Value {
+	return protoreflect.ValueOf(iv)
+}
+
+func (xt extensionType) InterfaceOf(v protoreflect.Value) interface{} {
+	return v.Interface()
+}
+</pre>
+<p>The Go type used by the proto.GetExtension and proto.SetExtension functions
+is determined by these methods, and is therefore equivalent to the Go type
+used to represent a protoreflect.Value. See the protoreflect.Value
+documentation for more details.
+
+			
+			
+
+		
+			
+			
+			<h2 id="NewMessageType">func <a href="/src/google.golang.org/protobuf/types/dynamicpb/dynamic.go?s=10229:10294#L355">NewMessageType</a>
+				<a class="permalink" href="#NewMessageType">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewMessageType(desc <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">pref</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#MessageDescriptor">MessageDescriptor</a>) <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">pref</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#MessageType">MessageType</a></pre>
+			<p>NewMessageType creates a new MessageType with the provided descriptor.
+<p>MessageTypes created by this package are equal if their descriptors are equal.
+That is, if md1 == md2, then NewMessageType(md1) == NewMessageType(md2).
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Message">type <a href="/src/google.golang.org/protobuf/types/dynamicpb/dynamic.go?s=2315:2475#L55">Message</a>
+				<a class="permalink" href="#Message">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A Message is a dynamically constructed protocol buffer message.
+<p>Message implements the proto.Message interface, and may be used with all
+standard proto package functions such as Marshal, Unmarshal, and so forth.
+<p>Message also implements the protoreflect.Message interface. See the protoreflect
+package documentation for that interface for how to get and set fields and
+otherwise interact with the contents of a Message.
+<p>Reflection API functions which construct messages, such as NewField,
+return new dynamic messages of the appropriate type. Functions which take
+messages, such as Set for a message-value field, will accept any message
+with a compatible type.
+<p>Operations which modify a Message are not safe for concurrent use.
+
+			<pre>type Message struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewMessage">func <a href="/src/google.golang.org/protobuf/types/dynamicpb/dynamic.go?s=2678:2731#L69">NewMessage</a>
+					<a class="permalink" href="#NewMessage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewMessage(desc <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">pref</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#MessageDescriptor">MessageDescriptor</a>) *<a href="#Message">Message</a></pre>
+				<p>NewMessage creates a new message with the provided descriptor.
+
+				
+				
+			
+
+			
+				
+				<h3 id="Message.Clear">func (*Message) <a href="/src/google.golang.org/protobuf/types/dynamicpb/dynamic.go?s=4948:4996#L158">Clear</a>
+					<a class="permalink" href="#Message.Clear">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Message">Message</a>) Clear(fd <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">pref</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FieldDescriptor">FieldDescriptor</a>)</pre>
+				<p>Clear clears a field.
+See protoreflect.Message for details.
+
+				
+				
+				
+			
+				
+				<h3 id="Message.Descriptor">func (*Message) <a href="/src/google.golang.org/protobuf/types/dynamicpb/dynamic.go?s=3530:3583#L98">Descriptor</a>
+					<a class="permalink" href="#Message.Descriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Message">Message</a>) Descriptor() <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">pref</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#MessageDescriptor">MessageDescriptor</a></pre>
+				<p>Descriptor returns the message descriptor.
+
+				
+				
+				
+			
+				
+				<h3 id="Message.Get">func (*Message) <a href="/src/google.golang.org/protobuf/types/dynamicpb/dynamic.go?s=5160:5217#L167">Get</a>
+					<a class="permalink" href="#Message.Get">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Message">Message</a>) Get(fd <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">pref</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FieldDescriptor">FieldDescriptor</a>) <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">pref</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Value">Value</a></pre>
+				<p>Get returns the value of a field.
+See protoreflect.Message for details.
+
+				
+				
+				
+			
+				
+				<h3 id="Message.GetUnknown">func (*Message) <a href="/src/google.golang.org/protobuf/types/dynamicpb/dynamic.go?s=8872:8917#L311">GetUnknown</a>
+					<a class="permalink" href="#Message.GetUnknown">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Message">Message</a>) GetUnknown() <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">pref</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#RawFields">RawFields</a></pre>
+				<p>GetUnknown returns the raw unknown fields.
+See protoreflect.Message for details.
+
+				
+				
+				
+			
+				
+				<h3 id="Message.Has">func (*Message) <a href="/src/google.golang.org/protobuf/types/dynamicpb/dynamic.go?s=4658:4709#L144">Has</a>
+					<a class="permalink" href="#Message.Has">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Message">Message</a>) Has(fd <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">pref</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FieldDescriptor">FieldDescriptor</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>Has reports whether a field is populated.
+See protoreflect.Message for details.
+
+				
+				
+				
+			
+				
+				<h3 id="Message.Interface">func (*Message) <a href="/src/google.golang.org/protobuf/types/dynamicpb/dynamic.go?s=3957:4004#L115">Interface</a>
+					<a class="permalink" href="#Message.Interface">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Message">Message</a>) Interface() <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">pref</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#ProtoMessage">ProtoMessage</a></pre>
+				<p>Interface returns the message.
+See protoreflect.Message for details.
+
+				
+				
+				
+			
+				
+				<h3 id="Message.IsValid">func (*Message) <a href="/src/google.golang.org/protobuf/types/dynamicpb/dynamic.go?s=9290:9322#L326">IsValid</a>
+					<a class="permalink" href="#Message.IsValid">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Message">Message</a>) IsValid() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>IsValid reports whether the message is valid.
+See protoreflect.Message for details.
+
+				
+				
+				
+			
+				
+				<h3 id="Message.Mutable">func (*Message) <a href="/src/google.golang.org/protobuf/types/dynamicpb/dynamic.go?s=6097:6158#L206">Mutable</a>
+					<a class="permalink" href="#Message.Mutable">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Message">Message</a>) Mutable(fd <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">pref</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FieldDescriptor">FieldDescriptor</a>) <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">pref</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Value">Value</a></pre>
+				<p>Mutable returns a mutable reference to a repeated, map, or message field.
+See protoreflect.Message for details.
+
+				
+				
+				
+			
+				
+				<h3 id="Message.New">func (*Message) <a href="/src/google.golang.org/protobuf/types/dynamicpb/dynamic.go?s=3817:3853#L109">New</a>
+					<a class="permalink" href="#Message.New">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Message">Message</a>) New() <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">pref</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Message">Message</a></pre>
+				<p>New returns a newly allocated empty message with the same descriptor.
+See protoreflect.Message for details.
+
+				
+				
+				
+			
+				
+				<h3 id="Message.NewField">func (*Message) <a href="/src/google.golang.org/protobuf/types/dynamicpb/dynamic.go?s=7956:8018#L278">NewField</a>
+					<a class="permalink" href="#Message.NewField">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Message">Message</a>) NewField(fd <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">pref</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FieldDescriptor">FieldDescriptor</a>) <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">pref</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Value">Value</a></pre>
+				<p>NewField returns a new value for assignable to the field of a given descriptor.
+See protoreflect.Message for details.
+
+				
+				
+				
+			
+				
+				<h3 id="Message.ProtoMessage">func (*Message) <a href="/src/google.golang.org/protobuf/types/dynamicpb/dynamic.go?s=2949:2981#L78">ProtoMessage</a>
+					<a class="permalink" href="#Message.ProtoMessage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Message">Message</a>) ProtoMessage()</pre>
+				<p>ProtoMessage implements the legacy message interface.
+
+				
+				
+				
+			
+				
+				<h3 id="Message.ProtoMethods">func (*Message) <a href="/src/google.golang.org/protobuf/types/dynamicpb/dynamic.go?s=4139:4191#L121">ProtoMethods</a>
+					<a class="permalink" href="#Message.ProtoMethods">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Message">Message</a>) ProtoMethods() *<a href="/pkg/google.golang.org/protobuf/runtime/protoiface/">protoiface</a>.<a href="/pkg/google.golang.org/protobuf/runtime/protoiface/#Methods">Methods</a></pre>
+				<p>ProtoMethods is an internal detail of the protoreflect.Message interface.
+Users should never call this directly.
+
+				
+				
+				
+			
+				
+				<h3 id="Message.ProtoReflect">func (*Message) <a href="/src/google.golang.org/protobuf/types/dynamicpb/dynamic.go?s=3054:3099#L81">ProtoReflect</a>
+					<a class="permalink" href="#Message.ProtoReflect">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Message">Message</a>) ProtoReflect() <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">pref</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Message">Message</a></pre>
+				<p>ProtoReflect implements the protoreflect.ProtoMessage interface.
+
+				
+				
+				
+			
+				
+				<h3 id="Message.Range">func (*Message) <a href="/src/google.golang.org/protobuf/types/dynamicpb/dynamic.go?s=4308:4378#L127">Range</a>
+					<a class="permalink" href="#Message.Range">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Message">Message</a>) Range(f func(<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">pref</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FieldDescriptor">FieldDescriptor</a>, <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">pref</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Value">Value</a>) <a href="/pkg/builtin/#bool">bool</a>)</pre>
+				<p>Range visits every populated field in undefined order.
+See protoreflect.Message for details.
+
+				
+				
+				
+			
+				
+				<h3 id="Message.Reset">func (*Message) <a href="/src/google.golang.org/protobuf/types/dynamicpb/dynamic.go?s=3330:3355#L91">Reset</a>
+					<a class="permalink" href="#Message.Reset">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Message">Message</a>) Reset()</pre>
+				<p>Reset clears the message to be empty, but preserves the dynamic message type.
+
+				
+				
+				
+			
+				
+				<h3 id="Message.Set">func (*Message) <a href="/src/google.golang.org/protobuf/types/dynamicpb/dynamic.go?s=6858:6918#L235">Set</a>
+					<a class="permalink" href="#Message.Set">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Message">Message</a>) Set(fd <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">pref</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FieldDescriptor">FieldDescriptor</a>, v <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">pref</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Value">Value</a>)</pre>
+				<p>Set stores a value in a field.
+See protoreflect.Message for details.
+
+				
+				
+				
+			
+				
+				<h3 id="Message.SetUnknown">func (*Message) <a href="/src/google.golang.org/protobuf/types/dynamicpb/dynamic.go?s=9025:9071#L317">SetUnknown</a>
+					<a class="permalink" href="#Message.SetUnknown">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Message">Message</a>) SetUnknown(r <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">pref</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#RawFields">RawFields</a>)</pre>
+				<p>SetUnknown sets the raw unknown fields.
+See protoreflect.Message for details.
+
+				
+				
+				
+			
+				
+				<h3 id="Message.String">func (*Message) <a href="/src/google.golang.org/protobuf/types/dynamicpb/dynamic.go?s=3171:3204#L86">String</a>
+					<a class="permalink" href="#Message.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Message">Message</a>) String() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>String returns a string representation of a message.
+
+				
+				
+				
+			
+				
+				<h3 id="Message.Type">func (*Message) <a href="/src/google.golang.org/protobuf/types/dynamicpb/dynamic.go?s=3642:3683#L103">Type</a>
+					<a class="permalink" href="#Message.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Message">Message</a>) Type() <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">pref</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#MessageType">MessageType</a></pre>
+				<p>Type returns the message type.
+
+				
+				
+				
+			
+				
+				<h3 id="Message.WhichOneof">func (*Message) <a href="/src/google.golang.org/protobuf/types/dynamicpb/dynamic.go?s=8587:8661#L299">WhichOneof</a>
+					<a class="permalink" href="#Message.WhichOneof">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Message">Message</a>) WhichOneof(od <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">pref</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#OneofDescriptor">OneofDescriptor</a>) <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">pref</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FieldDescriptor">FieldDescriptor</a></pre>
+				<p>WhichOneof reports which field in a oneof is populated, returning nil if none are populated.
+See protoreflect.Message for details.
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

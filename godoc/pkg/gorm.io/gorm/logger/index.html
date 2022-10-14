@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>logger - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/pkg/">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/pkg/">GoDoc</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package logger
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "gorm.io/gorm/logger"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+				<dd><a href="#pkg-constants">Constants</a></dd>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+				
+				<dd><a href="#ExplainSQL">func ExplainSQL(sql string, numericPlaceholder *regexp.Regexp, escaper string, avars ...interface{}) string</a></dd>
+			
+			
+				
+				<dd><a href="#Config">type Config</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Interface">type Interface</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#New">func New(writer Writer, config Config) Interface</a></dd>
+				
+				
+			
+				
+				<dd><a href="#LogLevel">type LogLevel</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Writer">type Writer</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/gorm.io/gorm/logger/logger.go">logger.go</a>
+			
+				<a href="/src/gorm.io/gorm/logger/sql.go">sql.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+			<h2 id="pkg-constants">Constants</h2>
+			
+				<p>Colors
+
+				<pre>const (
+    <span id="Reset">Reset</span>       = &#34;\033[0m&#34;
+    <span id="Red">Red</span>         = &#34;\033[31m&#34;
+    <span id="Green">Green</span>       = &#34;\033[32m&#34;
+    <span id="Yellow">Yellow</span>      = &#34;\033[33m&#34;
+    <span id="Blue">Blue</span>        = &#34;\033[34m&#34;
+    <span id="Magenta">Magenta</span>     = &#34;\033[35m&#34;
+    <span id="Cyan">Cyan</span>        = &#34;\033[36m&#34;
+    <span id="White">White</span>       = &#34;\033[37m&#34;
+    <span id="BlueBold">BlueBold</span>    = &#34;\033[34;1m&#34;
+    <span id="MagentaBold">MagentaBold</span> = &#34;\033[35;1m&#34;
+    <span id="RedBold">RedBold</span>     = &#34;\033[31;1m&#34;
+    <span id="YellowBold">YellowBold</span>  = &#34;\033[33;1m&#34;
+)</pre>
+			
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				
+				<pre>var (
+    <span class="comment">// Discard Discard logger will print any log to io.Discard</span>
+    <span id="Discard">Discard</span> = <a href="#New">New</a>(<a href="/pkg/log/">log</a>.<a href="/pkg/log/#New">New</a>(<a href="/pkg/io/">io</a>.<a href="/pkg/io/#Discard">Discard</a>, &#34;&#34;, <a href="/pkg/log/">log</a>.<a href="/pkg/log/#LstdFlags">LstdFlags</a>), <a href="#Config">Config</a>{})
+    <span class="comment">// Default Default logger</span>
+    <span id="Default">Default</span> = <a href="#New">New</a>(<a href="/pkg/log/">log</a>.<a href="/pkg/log/#New">New</a>(<a href="/pkg/os/">os</a>.<a href="/pkg/os/#Stdout">Stdout</a>, &#34;\r\n&#34;, <a href="/pkg/log/">log</a>.<a href="/pkg/log/#LstdFlags">LstdFlags</a>), <a href="#Config">Config</a>{
+        <a href="#Config.SlowThreshold">SlowThreshold</a>:             200 * <a href="/pkg/time/">time</a>.<a href="/pkg/time/#Millisecond">Millisecond</a>,
+        <a href="#Config.LogLevel">LogLevel</a>:                  <a href="#Warn">Warn</a>,
+        <a href="#Config.IgnoreRecordNotFoundError">IgnoreRecordNotFoundError</a>: <a href="/pkg/builtin/#false">false</a>,
+        <a href="#Config.Colorful">Colorful</a>:                  <a href="/pkg/builtin/#true">true</a>,
+    })
+    <span class="comment">// Recorder Recorder logger records running SQL into a recorder instance</span>
+    <span id="Recorder">Recorder</span> = traceRecorder{Interface: <a href="#Default">Default</a>, BeginAt: <a href="/pkg/time/">time</a>.<a href="/pkg/time/#Now">Now</a>()}
+)</pre>
+			
+				<p>ErrRecordNotFound record not found error
+
+				<pre>var <span id="ErrRecordNotFound">ErrRecordNotFound</span> = <a href="/pkg/errors/">errors</a>.<a href="/pkg/errors/#New">New</a>(&#34;record not found&#34;)</pre>
+			
+		
+		
+			
+			
+			<h2 id="ExplainSQL">func <a href="/src/gorm.io/gorm/logger/sql.go?s=718:825#L26">ExplainSQL</a>
+				<a class="permalink" href="#ExplainSQL">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ExplainSQL(sql <a href="/pkg/builtin/#string">string</a>, numericPlaceholder *<a href="/pkg/regexp/">regexp</a>.<a href="/pkg/regexp/#Regexp">Regexp</a>, escaper <a href="/pkg/builtin/#string">string</a>, avars ...interface{}) <a href="/pkg/builtin/#string">string</a></pre>
+			<p>ExplainSQL generate SQL string with given parameters, the generated SQL is expected to be used in logger, execute it might introduce a SQL injection vulnerability
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Config">type <a href="/src/gorm.io/gorm/logger/logger.go?s=861:1024#L44">Config</a>
+				<a class="permalink" href="#Config">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Config logger config
+
+			<pre>type Config struct {
+<span id="Config.SlowThreshold"></span>    SlowThreshold             <a href="/pkg/time/">time</a>.<a href="/pkg/time/#Duration">Duration</a>
+<span id="Config.Colorful"></span>    Colorful                  <a href="/pkg/builtin/#bool">bool</a>
+<span id="Config.IgnoreRecordNotFoundError"></span>    IgnoreRecordNotFoundError <a href="/pkg/builtin/#bool">bool</a>
+<span id="Config.LogLevel"></span>    LogLevel                  <a href="#LogLevel">LogLevel</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Interface">type <a href="/src/gorm.io/gorm/logger/logger.go?s=1056:1355#L52">Interface</a>
+				<a class="permalink" href="#Interface">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Interface logger interface
+
+			<pre>type Interface interface {
+    LogMode(<a href="#LogLevel">LogLevel</a>) <a href="#Interface">Interface</a>
+    Info(<a href="/pkg/context/">context</a>.<a href="/pkg/context/#Context">Context</a>, <a href="/pkg/builtin/#string">string</a>, ...interface{})
+    Warn(<a href="/pkg/context/">context</a>.<a href="/pkg/context/#Context">Context</a>, <a href="/pkg/builtin/#string">string</a>, ...interface{})
+    Error(<a href="/pkg/context/">context</a>.<a href="/pkg/context/#Context">Context</a>, <a href="/pkg/builtin/#string">string</a>, ...interface{})
+    Trace(ctx <a href="/pkg/context/">context</a>.<a href="/pkg/context/#Context">Context</a>, begin <a href="/pkg/time/">time</a>.<a href="/pkg/time/#Time">Time</a>, fc func() (sql <a href="/pkg/builtin/#string">string</a>, rowsAffected <a href="/pkg/builtin/#int64">int64</a>), err <a href="/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="New">func <a href="/src/gorm.io/gorm/logger/logger.go?s=1913:1961#L75">New</a>
+					<a class="permalink" href="#New">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func New(writer <a href="#Writer">Writer</a>, config <a href="#Config">Config</a>) <a href="#Interface">Interface</a></pre>
+				<p>New initialize logger
+
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="LogLevel">type <a href="/src/gorm.io/gorm/logger/logger.go?s=568:585#L25">LogLevel</a>
+				<a class="permalink" href="#LogLevel">&#xb6;</a>
+				
+				
+			</h2>
+			<p>LogLevel log level
+
+			<pre>type LogLevel <a href="/pkg/builtin/#int">int</a></pre>
+
+			
+				
+				<pre>const (
+    <span class="comment">// Silent silent log level</span>
+    <span id="Silent">Silent</span> <a href="#LogLevel">LogLevel</a> = <a href="/pkg/builtin/#iota">iota</a> + 1
+    <span class="comment">// Error error log level</span>
+    <span id="Error">Error</span>
+    <span class="comment">// Warn warn log level</span>
+    <span id="Warn">Warn</span>
+    <span class="comment">// Info info log level</span>
+    <span id="Info">Info</span>
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Writer">type <a href="/src/gorm.io/gorm/logger/logger.go?s=778:835#L39">Writer</a>
+				<a class="permalink" href="#Writer">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Writer log writer interface
+
+			<pre>type Writer interface {
+    Printf(<a href="/pkg/builtin/#string">string</a>, ...interface{})
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

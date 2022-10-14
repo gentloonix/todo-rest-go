@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>protoregistry - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/pkg/">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/pkg/">GoDoc</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package protoregistry
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "google.golang.org/protobuf/reflect/protoregistry"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>Package protoregistry provides data structures to register and lookup
+protobuf descriptor types.
+<p>The Files registry contains file descriptors and provides the ability
+to iterate over the files or lookup a specific descriptor within the files.
+Files only contains protobuf descriptors and has no understanding of Go
+type information that may be associated with each descriptor.
+<p>The Types registry contains descriptor types for which there is a known
+Go type associated with that descriptor. It provides the ability to iterate
+over the registered types or lookup a type by name.
+
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+			
+				
+				<dd><a href="#ExtensionTypeResolver">type ExtensionTypeResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Files">type Files</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Files.FindDescriptorByName">func (r *Files) FindDescriptorByName(name protoreflect.FullName) (protoreflect.Descriptor, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Files.FindFileByPath">func (r *Files) FindFileByPath(path string) (protoreflect.FileDescriptor, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Files.NumFiles">func (r *Files) NumFiles() int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Files.NumFilesByPackage">func (r *Files) NumFilesByPackage(name protoreflect.FullName) int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Files.RangeFiles">func (r *Files) RangeFiles(f func(protoreflect.FileDescriptor) bool)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Files.RangeFilesByPackage">func (r *Files) RangeFilesByPackage(name protoreflect.FullName, f func(protoreflect.FileDescriptor) bool)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Files.RegisterFile">func (r *Files) RegisterFile(file protoreflect.FileDescriptor) error</a></dd>
+				
+			
+				
+				<dd><a href="#MessageTypeResolver">type MessageTypeResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Types">type Types</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Types.FindEnumByName">func (r *Types) FindEnumByName(enum protoreflect.FullName) (protoreflect.EnumType, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Types.FindExtensionByName">func (r *Types) FindExtensionByName(field protoreflect.FullName) (protoreflect.ExtensionType, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Types.FindExtensionByNumber">func (r *Types) FindExtensionByNumber(message protoreflect.FullName, field protoreflect.FieldNumber) (protoreflect.ExtensionType, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Types.FindMessageByName">func (r *Types) FindMessageByName(message protoreflect.FullName) (protoreflect.MessageType, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Types.FindMessageByURL">func (r *Types) FindMessageByURL(url string) (protoreflect.MessageType, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Types.NumEnums">func (r *Types) NumEnums() int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Types.NumExtensions">func (r *Types) NumExtensions() int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Types.NumExtensionsByMessage">func (r *Types) NumExtensionsByMessage(message protoreflect.FullName) int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Types.NumMessages">func (r *Types) NumMessages() int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Types.RangeEnums">func (r *Types) RangeEnums(f func(protoreflect.EnumType) bool)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Types.RangeExtensions">func (r *Types) RangeExtensions(f func(protoreflect.ExtensionType) bool)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Types.RangeExtensionsByMessage">func (r *Types) RangeExtensionsByMessage(message protoreflect.FullName, f func(protoreflect.ExtensionType) bool)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Types.RangeMessages">func (r *Types) RangeMessages(f func(protoreflect.MessageType) bool)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Types.RegisterEnum">func (r *Types) RegisterEnum(et protoreflect.EnumType) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Types.RegisterExtension">func (r *Types) RegisterExtension(xt protoreflect.ExtensionType) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Types.RegisterMessage">func (r *Types) RegisterMessage(mt protoreflect.MessageType) error</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/google.golang.org/protobuf/reflect/protoregistry/registry.go">registry.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				<p>NotFound is a sentinel error value to indicate that the type was not found.
+<p>Since registry lookup can happen in the critical performance path, resolvers
+must return this exact error value, not an error wrapping it.
+
+				<pre>var <span id="NotFound">NotFound</span> = <a href="/pkg/google.golang.org/protobuf/internal/errors/">errors</a>.<a href="/pkg/google.golang.org/protobuf/internal/errors/#New">New</a>(&#34;not found&#34;)</pre>
+			
+		
+		
+		
+			
+			
+			<h2 id="ExtensionTypeResolver">type <a href="/src/google.golang.org/protobuf/reflect/protoregistry/registry.go?s=13528:14257#L443">ExtensionTypeResolver</a>
+				<a class="permalink" href="#ExtensionTypeResolver">&#xb6;</a>
+				
+				
+			</h2>
+			<p>ExtensionTypeResolver is an interface for looking up extensions.
+<p>A compliant implementation must deterministically return the same type
+if no error is encountered.
+<p>The Types type implements this interface.
+
+			<pre>type ExtensionTypeResolver interface {
+    <span class="comment">// FindExtensionByName looks up a extension field by the field&#39;s full name.</span>
+    <span class="comment">// Note that this is the full name of the field as determined by</span>
+    <span class="comment">// where the extension is declared and is unrelated to the full name of the</span>
+    <span class="comment">// message being extended.</span>
+    <span class="comment">//</span>
+    <span class="comment">// This returns (nil, NotFound) if not found.</span>
+    FindExtensionByName(field <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FullName">FullName</a>) (<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#ExtensionType">ExtensionType</a>, <a href="/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// FindExtensionByNumber looks up a extension field by the field number</span>
+    <span class="comment">// within some parent message, identified by full name.</span>
+    <span class="comment">//</span>
+    <span class="comment">// This returns (nil, NotFound) if not found.</span>
+    FindExtensionByNumber(message <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FullName">FullName</a>, field <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FieldNumber">FieldNumber</a>) (<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#ExtensionType">ExtensionType</a>, <a href="/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Files">type <a href="/src/google.golang.org/protobuf/reflect/protoregistry/registry.go?s=3101:3658#L73">Files</a>
+				<a class="permalink" href="#Files">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Files is a registry for looking up or iterating over files and the
+descriptors contained within them.
+The Find and Range methods are safe for concurrent use.
+
+			<pre>type Files struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+				<p>GlobalFiles is a global registry of file descriptors.
+
+				<pre>var <span id="GlobalFiles">GlobalFiles</span> *<a href="#Files">Files</a> = <a href="/pkg/builtin/#new">new</a>(<a href="#Files">Files</a>)</pre>
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Files.FindDescriptorByName">func (*Files) <a href="/src/google.golang.org/protobuf/reflect/protoregistry/registry.go?s=7657:7754#L210">FindDescriptorByName</a>
+					<a class="permalink" href="#Files.FindDescriptorByName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Files">Files</a>) FindDescriptorByName(name <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FullName">FullName</a>) (<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Descriptor">Descriptor</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>FindDescriptorByName looks up a descriptor by the full name.
+<p>This returns (nil, NotFound) if not found.
+
+				
+				
+				
+			
+				
+				<h3 id="Files.FindFileByPath">func (*Files) <a href="/src/google.golang.org/protobuf/reflect/protoregistry/registry.go?s=9954:10034#L303">FindFileByPath</a>
+					<a class="permalink" href="#Files.FindFileByPath">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Files">Files</a>) FindFileByPath(path <a href="/pkg/builtin/#string">string</a>) (<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FileDescriptor">FileDescriptor</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>FindFileByPath looks up a file by the path.
+<p>This returns (nil, NotFound) if not found.
+This returns an error if multiple files have the same path.
+
+				
+				
+				
+			
+				
+				<h3 id="Files.NumFiles">func (*Files) <a href="/src/google.golang.org/protobuf/reflect/protoregistry/registry.go?s=10440:10470#L324">NumFiles</a>
+					<a class="permalink" href="#Files.NumFiles">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Files">Files</a>) NumFiles() <a href="/pkg/builtin/#int">int</a></pre>
+				<p>NumFiles reports the number of registered files,
+including duplicate files with the same name.
+
+				
+				
+				
+			
+				
+				<h3 id="Files.NumFilesByPackage">func (*Files) <a href="/src/google.golang.org/protobuf/reflect/protoregistry/registry.go?s=11158:11223#L356">NumFilesByPackage</a>
+					<a class="permalink" href="#Files.NumFilesByPackage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Files">Files</a>) NumFilesByPackage(name <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FullName">FullName</a>) <a href="/pkg/builtin/#int">int</a></pre>
+				<p>NumFilesByPackage reports the number of registered files in a proto package.
+
+				
+				
+				
+			
+				
+				<h3 id="Files.RangeFiles">func (*Files) <a href="/src/google.golang.org/protobuf/reflect/protoregistry/registry.go?s=10789:10857#L338">RangeFiles</a>
+					<a class="permalink" href="#Files.RangeFiles">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Files">Files</a>) RangeFiles(f func(<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FileDescriptor">FileDescriptor</a>) <a href="/pkg/builtin/#bool">bool</a>)</pre>
+				<p>RangeFiles iterates over all registered files while f returns true.
+If multiple files have the same name, RangeFiles iterates over all of them.
+The iteration order is undefined.
+
+				
+				
+				
+			
+				
+				<h3 id="Files.RangeFilesByPackage">func (*Files) <a href="/src/google.golang.org/protobuf/reflect/protoregistry/registry.go?s=11574:11679#L373">RangeFilesByPackage</a>
+					<a class="permalink" href="#Files.RangeFilesByPackage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Files">Files</a>) RangeFilesByPackage(name <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FullName">FullName</a>, f func(<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FileDescriptor">FileDescriptor</a>) <a href="/pkg/builtin/#bool">bool</a>)</pre>
+				<p>RangeFilesByPackage iterates over all registered files in a given proto package
+while f returns true. The iteration order is undefined.
+
+				
+				
+				
+			
+				
+				<h3 id="Files.RegisterFile">func (*Files) <a href="/src/google.golang.org/protobuf/reflect/protoregistry/registry.go?s=4068:4136#L102">RegisterFile</a>
+					<a class="permalink" href="#Files.RegisterFile">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Files">Files</a>) RegisterFile(file <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FileDescriptor">FileDescriptor</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>RegisterFile registers the provided file descriptor.
+<p>If any descriptor within the file conflicts with the descriptor of any
+previously registered file (e.g., two enums with the same full name),
+then the file is not registered and an error is returned.
+<p>It is permitted for multiple files to have the same file path.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="MessageTypeResolver">type <a href="/src/google.golang.org/protobuf/reflect/protoregistry/registry.go?s=12788:13302#L423">MessageTypeResolver</a>
+				<a class="permalink" href="#MessageTypeResolver">&#xb6;</a>
+				
+				
+			</h2>
+			<p>MessageTypeResolver is an interface for looking up messages.
+<p>A compliant implementation must deterministically return the same type
+if no error is encountered.
+<p>The Types type implements this interface.
+
+			<pre>type MessageTypeResolver interface {
+    <span class="comment">// FindMessageByName looks up a message by its full name.</span>
+    <span class="comment">// E.g., &#34;google.protobuf.Any&#34;</span>
+    <span class="comment">//</span>
+    <span class="comment">// This return (nil, NotFound) if not found.</span>
+    FindMessageByName(message <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FullName">FullName</a>) (<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#MessageType">MessageType</a>, <a href="/pkg/builtin/#error">error</a>)
+
+    <span class="comment">// FindMessageByURL looks up a message by a URL identifier.</span>
+    <span class="comment">// See documentation on google.protobuf.Any.type_url for the URL format.</span>
+    <span class="comment">//</span>
+    <span class="comment">// This returns (nil, NotFound) if not found.</span>
+    FindMessageByURL(url <a href="/pkg/builtin/#string">string</a>) (<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#MessageType">MessageType</a>, <a href="/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Types">type <a href="/src/google.golang.org/protobuf/reflect/protoregistry/registry.go?s=14483:14636#L466">Types</a>
+				<a class="permalink" href="#Types">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Types is a registry for looking up or iterating over descriptor types.
+The Find and Range methods are safe for concurrent use.
+
+			<pre>type Types struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+				<p>GlobalTypes is the registry used by default for type lookups
+unless a local registry is provided by the user.
+
+				<pre>var <span id="GlobalTypes">GlobalTypes</span> *<a href="#Types">Types</a> = <a href="/pkg/builtin/#new">new</a>(<a href="#Types">Types</a>)</pre>
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Types.FindEnumByName">func (*Types) <a href="/src/google.golang.org/protobuf/reflect/protoregistry/registry.go?s=17795:17884#L582">FindEnumByName</a>
+					<a class="permalink" href="#Types.FindEnumByName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Types">Types</a>) FindEnumByName(enum <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FullName">FullName</a>) (<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#EnumType">EnumType</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>FindEnumByName looks up an enum by its full name.
+E.g., &quot;google.protobuf.Field.Kind&quot;.
+<p>This returns (nil, NotFound) if not found.
+
+				
+				
+				
+			
+				
+				<h3 id="Types.FindExtensionByName">func (*Types) <a href="/src/google.golang.org/protobuf/reflect/protoregistry/registry.go?s=19961:20061#L654">FindExtensionByName</a>
+					<a class="permalink" href="#Types.FindExtensionByName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Types">Types</a>) FindExtensionByName(field <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FullName">FullName</a>) (<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#ExtensionType">ExtensionType</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>FindExtensionByName looks up a extension field by the field&apos;s full name.
+Note that this is the full name of the field as determined by
+where the extension is declared and is unrelated to the full name of the
+message being extended.
+<p>This returns (nil, NotFound) if not found.
+
+				
+				
+				
+			
+				
+				<h3 id="Types.FindExtensionByNumber">func (*Types) <a href="/src/google.golang.org/protobuf/reflect/protoregistry/registry.go?s=21278:21414#L695">FindExtensionByNumber</a>
+					<a class="permalink" href="#Types.FindExtensionByNumber">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Types">Types</a>) FindExtensionByNumber(message <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FullName">FullName</a>, field <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FieldNumber">FieldNumber</a>) (<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#ExtensionType">ExtensionType</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>FindExtensionByNumber looks up a extension field by the field number
+within some parent message, identified by full name.
+<p>This returns (nil, NotFound) if not found.
+
+				
+				
+				
+			
+				
+				<h3 id="Types.FindMessageByName">func (*Types) <a href="/src/google.golang.org/protobuf/reflect/protoregistry/registry.go?s=18365:18463#L603">FindMessageByName</a>
+					<a class="permalink" href="#Types.FindMessageByName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Types">Types</a>) FindMessageByName(message <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FullName">FullName</a>) (<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#MessageType">MessageType</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>FindMessageByName looks up a message by its full name,
+e.g. &quot;google.protobuf.Any&quot;.
+<p>This returns (nil, NotFound) if not found.
+
+				
+				
+				
+			
+				
+				<h3 id="Types.FindMessageByURL">func (*Types) <a href="/src/google.golang.org/protobuf/reflect/protoregistry/registry.go?s=18997:19075#L624">FindMessageByURL</a>
+					<a class="permalink" href="#Types.FindMessageByURL">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Types">Types</a>) FindMessageByURL(url <a href="/pkg/builtin/#string">string</a>) (<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#MessageType">MessageType</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>FindMessageByURL looks up a message by a URL identifier.
+See documentation on google.protobuf.Any.type_url for the URL format.
+<p>This returns (nil, NotFound) if not found.
+
+				
+				
+				
+			
+				
+				<h3 id="Types.NumEnums">func (*Types) <a href="/src/google.golang.org/protobuf/reflect/protoregistry/registry.go?s=21691:21721#L710">NumEnums</a>
+					<a class="permalink" href="#Types.NumEnums">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Types">Types</a>) NumEnums() <a href="/pkg/builtin/#int">int</a></pre>
+				<p>NumEnums reports the number of registered enums.
+
+				
+				
+				
+			
+				
+				<h3 id="Types.NumExtensions">func (*Types) <a href="/src/google.golang.org/protobuf/reflect/protoregistry/registry.go?s=22958:22993#L772">NumExtensions</a>
+					<a class="permalink" href="#Types.NumExtensions">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Types">Types</a>) NumExtensions() <a href="/pkg/builtin/#int">int</a></pre>
+				<p>NumExtensions reports the number of registered extensions.
+
+				
+				
+				
+			
+				
+				<h3 id="Types.NumExtensionsByMessage">func (*Types) <a href="/src/google.golang.org/protobuf/reflect/protoregistry/registry.go?s=23655:23728#L804">NumExtensionsByMessage</a>
+					<a class="permalink" href="#Types.NumExtensionsByMessage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Types">Types</a>) NumExtensionsByMessage(message <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FullName">FullName</a>) <a href="/pkg/builtin/#int">int</a></pre>
+				<p>NumExtensionsByMessage reports the number of registered extensions for
+a given message type.
+
+				
+				
+				
+			
+				
+				<h3 id="Types.NumMessages">func (*Types) <a href="/src/google.golang.org/protobuf/reflect/protoregistry/registry.go?s=22312:22345#L741">NumMessages</a>
+					<a class="permalink" href="#Types.NumMessages">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Types">Types</a>) NumMessages() <a href="/pkg/builtin/#int">int</a></pre>
+				<p>NumMessages reports the number of registered messages.
+
+				
+				
+				
+			
+				
+				<h3 id="Types.RangeEnums">func (*Types) <a href="/src/google.golang.org/protobuf/reflect/protoregistry/registry.go?s=21957:22019#L723">RangeEnums</a>
+					<a class="permalink" href="#Types.RangeEnums">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Types">Types</a>) RangeEnums(f func(<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#EnumType">EnumType</a>) <a href="/pkg/builtin/#bool">bool</a>)</pre>
+				<p>RangeEnums iterates over all registered enums while f returns true.
+Iteration order is undefined.
+
+				
+				
+				
+			
+				
+				<h3 id="Types.RangeExtensions">func (*Types) <a href="/src/google.golang.org/protobuf/reflect/protoregistry/registry.go?s=23244:23316#L785">RangeExtensions</a>
+					<a class="permalink" href="#Types.RangeExtensions">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Types">Types</a>) RangeExtensions(f func(<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#ExtensionType">ExtensionType</a>) <a href="/pkg/builtin/#bool">bool</a>)</pre>
+				<p>RangeExtensions iterates over all registered extensions while f returns true.
+Iteration order is undefined.
+
+				
+				
+				
+			
+				
+				<h3 id="Types.RangeExtensionsByMessage">func (*Types) <a href="/src/google.golang.org/protobuf/reflect/protoregistry/registry.go?s=24041:24153#L817">RangeExtensionsByMessage</a>
+					<a class="permalink" href="#Types.RangeExtensionsByMessage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Types">Types</a>) RangeExtensionsByMessage(message <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FullName">FullName</a>, f func(<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#ExtensionType">ExtensionType</a>) <a href="/pkg/builtin/#bool">bool</a>)</pre>
+				<p>RangeExtensionsByMessage iterates over all registered extensions filtered
+by a given message type while f returns true. Iteration order is undefined.
+
+				
+				
+				
+			
+				
+				<h3 id="Types.RangeMessages">func (*Types) <a href="/src/google.golang.org/protobuf/reflect/protoregistry/registry.go?s=22590:22658#L754">RangeMessages</a>
+					<a class="permalink" href="#Types.RangeMessages">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Types">Types</a>) RangeMessages(f func(<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#MessageType">MessageType</a>) <a href="/pkg/builtin/#bool">bool</a>)</pre>
+				<p>RangeMessages iterates over all registered messages while f returns true.
+Iteration order is undefined.
+
+				
+				
+				
+			
+				
+				<h3 id="Types.RegisterEnum">func (*Types) <a href="/src/google.golang.org/protobuf/reflect/protoregistry/registry.go?s=15529:15589#L504">RegisterEnum</a>
+					<a class="permalink" href="#Types.RegisterEnum">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Types">Types</a>) RegisterEnum(et <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#EnumType">EnumType</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>RegisterEnum registers the provided enum type.
+<p>If a naming conflict occurs, the type is not registered and an error is returned.
+
+				
+				
+				
+			
+				
+				<h3 id="Types.RegisterExtension">func (*Types) <a href="/src/google.golang.org/protobuf/reflect/protoregistry/registry.go?s=16062:16132#L524">RegisterExtension</a>
+					<a class="permalink" href="#Types.RegisterExtension">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Types">Types</a>) RegisterExtension(xt <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#ExtensionType">ExtensionType</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>RegisterExtension registers the provided extension type.
+<p>If a naming conflict occurs, the type is not registered and an error is returned.
+
+				
+				
+				
+			
+				
+				<h3 id="Types.RegisterMessage">func (*Types) <a href="/src/google.golang.org/protobuf/reflect/protoregistry/registry.go?s=14994:15060#L484">RegisterMessage</a>
+					<a class="permalink" href="#Types.RegisterMessage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Types">Types</a>) RegisterMessage(mt <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#MessageType">MessageType</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>RegisterMessage registers the provided message type.
+<p>If a naming conflict occurs, the type is not registered and an error is returned.
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

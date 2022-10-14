@@ -1,0 +1,1798 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>language - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/pkg/">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/pkg/">GoDoc</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package language
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "golang.org/x/text/internal/language"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+				<dd><a href="#pkg-subdirectories">Subdirectories</a></dd>
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+				<dd><a href="#pkg-constants">Constants</a></dd>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+				
+				<dd><a href="#ParseExtension">func ParseExtension(s string) (ext string, err error)</a></dd>
+			
+			
+				
+				<dd><a href="#AliasType">type AliasType</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Builder">type Builder</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Builder.AddExt">func (b *Builder) AddExt(e string)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Builder.AddVariant">func (b *Builder) AddVariant(v ...string)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Builder.ClearExtensions">func (b *Builder) ClearExtensions()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Builder.ClearVariants">func (b *Builder) ClearVariants()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Builder.Make">func (b *Builder) Make() Tag</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Builder.SetExt">func (b *Builder) SetExt(e string)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Builder.SetTag">func (b *Builder) SetTag(t Tag)</a></dd>
+				
+			
+				
+				<dd><a href="#CompactCoreInfo">type CompactCoreInfo</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#GetCompactCore">func GetCompactCore(t Tag) (cci CompactCoreInfo, ok bool)</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CompactCoreInfo.Tag">func (c CompactCoreInfo) Tag() Tag</a></dd>
+				
+			
+				
+				<dd><a href="#FromTo">type FromTo</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Language">type Language</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#BaseLanguages">func BaseLanguages() []Language</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MustParseBase">func MustParseBase(s string) Language</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ParseBase">func ParseBase(s string) (Language, error)</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Language.Canonicalize">func (id Language) Canonicalize() (Language, AliasType)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Language.ISO3">func (b Language) ISO3() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Language.IsPrivateUse">func (b Language) IsPrivateUse() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Language.String">func (b Language) String() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Language.StringToBuf">func (id Language) StringToBuf(b []byte) int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Language.SuppressScript">func (b Language) SuppressScript() Script</a></dd>
+				
+			
+				
+				<dd><a href="#Region">type Region</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#EncodeM49">func EncodeM49(r int) (Region, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MustParseRegion">func MustParseRegion(s string) Region</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ParseRegion">func ParseRegion(s string) (Region, error)</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Region.Canonicalize">func (r Region) Canonicalize() Region</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Region.Contains">func (r Region) Contains(c Region) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Region.ISO3">func (r Region) ISO3() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Region.IsCountry">func (r Region) IsCountry() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Region.IsGroup">func (r Region) IsGroup() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Region.IsPrivateUse">func (r Region) IsPrivateUse() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Region.M49">func (r Region) M49() int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Region.String">func (r Region) String() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Region.TLD">func (r Region) TLD() (Region, error)</a></dd>
+				
+			
+				
+				<dd><a href="#Script">type Script</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MustParseScript">func MustParseScript(s string) Script</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ParseScript">func ParseScript(s string) (Script, error)</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Script.IsPrivateUse">func (s Script) IsPrivateUse() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Script.String">func (s Script) String() string</a></dd>
+				
+			
+				
+				<dd><a href="#Tag">type Tag</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Make">func Make(s string) Tag</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MustParse">func MustParse(s string) Tag</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Parse">func Parse(s string) (t Tag, err error)</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Tag.Extension">func (t Tag) Extension(x byte) (ext string, ok bool)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Tag.Extensions">func (t Tag) Extensions() []string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Tag.HasExtensions">func (t Tag) HasExtensions() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Tag.HasString">func (t Tag) HasString() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Tag.HasVariants">func (t Tag) HasVariants() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Tag.IsPrivateUse">func (t Tag) IsPrivateUse() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Tag.IsRoot">func (t Tag) IsRoot() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Tag.MarshalText">func (t Tag) MarshalText() (text []byte, err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Tag.Maximize">func (t Tag) Maximize() (Tag, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Tag.Parent">func (t Tag) Parent() Tag</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Tag.Raw">func (t Tag) Raw() (b Language, s Script, r Region)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Tag.RemakeString">func (t *Tag) RemakeString()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Tag.SetTypeForKey">func (t Tag) SetTypeForKey(key, value string) (Tag, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Tag.String">func (t Tag) String() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Tag.TypeForKey">func (t Tag) TypeForKey(key string) string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Tag.UnmarshalText">func (t *Tag) UnmarshalText(text []byte) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Tag.VariantOrPrivateUseTags">func (t Tag) VariantOrPrivateUseTags() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Tag.Variants">func (t Tag) Variants() string</a></dd>
+				
+			
+				
+				<dd><a href="#ValueError">type ValueError</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewValueError">func NewValueError(tag []byte) ValueError</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ValueError.Error">func (e ValueError) Error() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ValueError.Subtag">func (e ValueError) Subtag() string</a></dd>
+				
+			
+				
+				<dd><a href="#Variant">type Variant</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ParseVariant">func ParseVariant(s string) (Variant, error)</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Variant.String">func (v Variant) String() string</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/golang.org/x/text/internal/language/common.go">common.go</a>
+			
+				<a href="/src/golang.org/x/text/internal/language/compact.go">compact.go</a>
+			
+				<a href="/src/golang.org/x/text/internal/language/compose.go">compose.go</a>
+			
+				<a href="/src/golang.org/x/text/internal/language/coverage.go">coverage.go</a>
+			
+				<a href="/src/golang.org/x/text/internal/language/language.go">language.go</a>
+			
+				<a href="/src/golang.org/x/text/internal/language/lookup.go">lookup.go</a>
+			
+				<a href="/src/golang.org/x/text/internal/language/match.go">match.go</a>
+			
+				<a href="/src/golang.org/x/text/internal/language/parse.go">parse.go</a>
+			
+				<a href="/src/golang.org/x/text/internal/language/tables.go">tables.go</a>
+			
+				<a href="/src/golang.org/x/text/internal/language/tags.go">tags.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+			<h2 id="pkg-constants">Constants</h2>
+			
+				<p>CLDRVersion is the CLDR version from which the tables in this package are derived.
+
+				<pre>const <span id="CLDRVersion">CLDRVersion</span> = &#34;32&#34;</pre>
+			
+				
+				<pre>const <span id="NumLanguages">NumLanguages</span> = 8717</pre>
+			
+				
+				<pre>const <span id="NumRegions">NumRegions</span> = 357</pre>
+			
+				
+				<pre>const <span id="NumScripts">NumScripts</span> = 251</pre>
+			
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				<p>AliasMap maps langIDs to their suggested replacements.
+Size: 704 bytes, 176 elements
+
+				<pre>var <span id="AliasMap">AliasMap</span> = [176]<a href="#FromTo">FromTo</a>{
+    0:   {<a href="#From">From</a>: 0x82, <a href="#To">To</a>: 0x88},
+    1:   {<a href="#From">From</a>: 0x187, <a href="#To">To</a>: 0x1ae},
+    2:   {<a href="#From">From</a>: 0x1f3, <a href="#To">To</a>: 0x1e1},
+    3:   {<a href="#From">From</a>: 0x1fb, <a href="#To">To</a>: 0x1bc},
+    4:   {<a href="#From">From</a>: 0x208, <a href="#To">To</a>: 0x512},
+    5:   {<a href="#From">From</a>: 0x20f, <a href="#To">To</a>: 0x20e},
+    6:   {<a href="#From">From</a>: 0x310, <a href="#To">To</a>: 0x3dc},
+    7:   {<a href="#From">From</a>: 0x347, <a href="#To">To</a>: 0x36f},
+    8:   {<a href="#From">From</a>: 0x407, <a href="#To">To</a>: 0x432},
+    9:   {<a href="#From">From</a>: 0x47a, <a href="#To">To</a>: 0x153},
+    10:  {<a href="#From">From</a>: 0x490, <a href="#To">To</a>: 0x451},
+    11:  {<a href="#From">From</a>: 0x4a2, <a href="#To">To</a>: 0x21},
+    12:  {<a href="#From">From</a>: 0x53e, <a href="#To">To</a>: 0x544},
+    13:  {<a href="#From">From</a>: 0x58f, <a href="#To">To</a>: 0x12d},
+    14:  {<a href="#From">From</a>: 0x630, <a href="#To">To</a>: 0x1eb1},
+    15:  {<a href="#From">From</a>: 0x651, <a href="#To">To</a>: 0x431},
+    16:  {<a href="#From">From</a>: 0x662, <a href="#To">To</a>: 0x431},
+    17:  {<a href="#From">From</a>: 0x6ed, <a href="#To">To</a>: 0x3a},
+    18:  {<a href="#From">From</a>: 0x6f8, <a href="#To">To</a>: 0x1d7},
+    19:  {<a href="#From">From</a>: 0x709, <a href="#To">To</a>: 0x3625},
+    20:  {<a href="#From">From</a>: 0x73e, <a href="#To">To</a>: 0x21a1},
+    21:  {<a href="#From">From</a>: 0x7b3, <a href="#To">To</a>: 0x56},
+    22:  {<a href="#From">From</a>: 0x7b9, <a href="#To">To</a>: 0x299b},
+    23:  {<a href="#From">From</a>: 0x7c5, <a href="#To">To</a>: 0x58},
+    24:  {<a href="#From">From</a>: 0x7e6, <a href="#To">To</a>: 0x145},
+    25:  {<a href="#From">From</a>: 0x80c, <a href="#To">To</a>: 0x5a},
+    26:  {<a href="#From">From</a>: 0x815, <a href="#To">To</a>: 0x8d},
+    27:  {<a href="#From">From</a>: 0x87e, <a href="#To">To</a>: 0x810},
+    28:  {<a href="#From">From</a>: 0x8c3, <a href="#To">To</a>: 0xee3},
+    29:  {<a href="#From">From</a>: 0x9ef, <a href="#To">To</a>: 0x331},
+    30:  {<a href="#From">From</a>: 0xa36, <a href="#To">To</a>: 0x2c5},
+    31:  {<a href="#From">From</a>: 0xa3d, <a href="#To">To</a>: 0xbf},
+    32:  {<a href="#From">From</a>: 0xabe, <a href="#To">To</a>: 0x3322},
+    33:  {<a href="#From">From</a>: 0xb38, <a href="#To">To</a>: 0x529},
+    34:  {<a href="#From">From</a>: 0xb75, <a href="#To">To</a>: 0x265a},
+    35:  {<a href="#From">From</a>: 0xb7e, <a href="#To">To</a>: 0xbc3},
+    36:  {<a href="#From">From</a>: 0xb9b, <a href="#To">To</a>: 0x44e},
+    37:  {<a href="#From">From</a>: 0xbbc, <a href="#To">To</a>: 0x4229},
+    38:  {<a href="#From">From</a>: 0xbbf, <a href="#To">To</a>: 0x529},
+    39:  {<a href="#From">From</a>: 0xbfe, <a href="#To">To</a>: 0x2da7},
+    40:  {<a href="#From">From</a>: 0xc2e, <a href="#To">To</a>: 0x3181},
+    41:  {<a href="#From">From</a>: 0xcb9, <a href="#To">To</a>: 0xf3},
+    42:  {<a href="#From">From</a>: 0xd08, <a href="#To">To</a>: 0xfa},
+    43:  {<a href="#From">From</a>: 0xdc8, <a href="#To">To</a>: 0x11a},
+    44:  {<a href="#From">From</a>: 0xdd7, <a href="#To">To</a>: 0x32d},
+    45:  {<a href="#From">From</a>: 0xdf8, <a href="#To">To</a>: 0xdfb},
+    46:  {<a href="#From">From</a>: 0xdfe, <a href="#To">To</a>: 0x531},
+    47:  {<a href="#From">From</a>: 0xe01, <a href="#To">To</a>: 0xdf3},
+    48:  {<a href="#From">From</a>: 0xedf, <a href="#To">To</a>: 0x205a},
+    49:  {<a href="#From">From</a>: 0xee9, <a href="#To">To</a>: 0x222e},
+    50:  {<a href="#From">From</a>: 0xeee, <a href="#To">To</a>: 0x2e9a},
+    51:  {<a href="#From">From</a>: 0xf39, <a href="#To">To</a>: 0x367},
+    52:  {<a href="#From">From</a>: 0x10d0, <a href="#To">To</a>: 0x140},
+    53:  {<a href="#From">From</a>: 0x1104, <a href="#To">To</a>: 0x2d0},
+    54:  {<a href="#From">From</a>: 0x11a0, <a href="#To">To</a>: 0x1ec},
+    55:  {<a href="#From">From</a>: 0x1279, <a href="#To">To</a>: 0x21},
+    56:  {<a href="#From">From</a>: 0x1424, <a href="#To">To</a>: 0x15e},
+    57:  {<a href="#From">From</a>: 0x1470, <a href="#To">To</a>: 0x14e},
+    58:  {<a href="#From">From</a>: 0x151f, <a href="#To">To</a>: 0xd9b},
+    59:  {<a href="#From">From</a>: 0x1523, <a href="#To">To</a>: 0x390},
+    60:  {<a href="#From">From</a>: 0x1532, <a href="#To">To</a>: 0x19f},
+    61:  {<a href="#From">From</a>: 0x1580, <a href="#To">To</a>: 0x210},
+    62:  {<a href="#From">From</a>: 0x1583, <a href="#To">To</a>: 0x10d},
+    63:  {<a href="#From">From</a>: 0x15a3, <a href="#To">To</a>: 0x3caf},
+    64:  {<a href="#From">From</a>: 0x1630, <a href="#To">To</a>: 0x222e},
+    65:  {<a href="#From">From</a>: 0x166a, <a href="#To">To</a>: 0x19b},
+    66:  {<a href="#From">From</a>: 0x16c8, <a href="#To">To</a>: 0x136},
+    67:  {<a href="#From">From</a>: 0x1700, <a href="#To">To</a>: 0x29f8},
+    68:  {<a href="#From">From</a>: 0x1718, <a href="#To">To</a>: 0x194},
+    69:  {<a href="#From">From</a>: 0x1727, <a href="#To">To</a>: 0xf3f},
+    70:  {<a href="#From">From</a>: 0x177a, <a href="#To">To</a>: 0x178},
+    71:  {<a href="#From">From</a>: 0x1809, <a href="#To">To</a>: 0x17b6},
+    72:  {<a href="#From">From</a>: 0x1816, <a href="#To">To</a>: 0x18f3},
+    73:  {<a href="#From">From</a>: 0x188a, <a href="#To">To</a>: 0x436},
+    74:  {<a href="#From">From</a>: 0x1979, <a href="#To">To</a>: 0x1d01},
+    75:  {<a href="#From">From</a>: 0x1a74, <a href="#To">To</a>: 0x2bb0},
+    76:  {<a href="#From">From</a>: 0x1a8a, <a href="#To">To</a>: 0x1f8},
+    77:  {<a href="#From">From</a>: 0x1b5a, <a href="#To">To</a>: 0x1fa},
+    78:  {<a href="#From">From</a>: 0x1b86, <a href="#To">To</a>: 0x1515},
+    79:  {<a href="#From">From</a>: 0x1d64, <a href="#To">To</a>: 0x2c9b},
+    80:  {<a href="#From">From</a>: 0x2038, <a href="#To">To</a>: 0x37b1},
+    81:  {<a href="#From">From</a>: 0x203d, <a href="#To">To</a>: 0x20dd},
+    82:  {<a href="#From">From</a>: 0x205a, <a href="#To">To</a>: 0x30b},
+    83:  {<a href="#From">From</a>: 0x20e3, <a href="#To">To</a>: 0x274},
+    84:  {<a href="#From">From</a>: 0x20ee, <a href="#To">To</a>: 0x263},
+    85:  {<a href="#From">From</a>: 0x20f2, <a href="#To">To</a>: 0x22d},
+    86:  {<a href="#From">From</a>: 0x20f9, <a href="#To">To</a>: 0x256},
+    87:  {<a href="#From">From</a>: 0x210f, <a href="#To">To</a>: 0x21eb},
+    88:  {<a href="#From">From</a>: 0x2135, <a href="#To">To</a>: 0x27d},
+    89:  {<a href="#From">From</a>: 0x2160, <a href="#To">To</a>: 0x913},
+    90:  {<a href="#From">From</a>: 0x2199, <a href="#To">To</a>: 0x121},
+    91:  {<a href="#From">From</a>: 0x21ce, <a href="#To">To</a>: 0x1561},
+    92:  {<a href="#From">From</a>: 0x21e6, <a href="#To">To</a>: 0x504},
+    93:  {<a href="#From">From</a>: 0x21f4, <a href="#To">To</a>: 0x49f},
+    94:  {<a href="#From">From</a>: 0x21fb, <a href="#To">To</a>: 0x269},
+    95:  {<a href="#From">From</a>: 0x222d, <a href="#To">To</a>: 0x121},
+    96:  {<a href="#From">From</a>: 0x2237, <a href="#To">To</a>: 0x121},
+    97:  {<a href="#From">From</a>: 0x2262, <a href="#To">To</a>: 0x92a},
+    98:  {<a href="#From">From</a>: 0x2316, <a href="#To">To</a>: 0x3226},
+    99:  {<a href="#From">From</a>: 0x236a, <a href="#To">To</a>: 0x2835},
+    100: {<a href="#From">From</a>: 0x2382, <a href="#To">To</a>: 0x3365},
+    101: {<a href="#From">From</a>: 0x2472, <a href="#To">To</a>: 0x2c7},
+    102: {<a href="#From">From</a>: 0x24e4, <a href="#To">To</a>: 0x2ff},
+    103: {<a href="#From">From</a>: 0x24f0, <a href="#To">To</a>: 0x2fa},
+    104: {<a href="#From">From</a>: 0x24fa, <a href="#To">To</a>: 0x31f},
+    105: {<a href="#From">From</a>: 0x2550, <a href="#To">To</a>: 0xb5b},
+    106: {<a href="#From">From</a>: 0x25a9, <a href="#To">To</a>: 0xe2},
+    107: {<a href="#From">From</a>: 0x263e, <a href="#To">To</a>: 0x2d0},
+    108: {<a href="#From">From</a>: 0x26c9, <a href="#To">To</a>: 0x26b4},
+    109: {<a href="#From">From</a>: 0x26f9, <a href="#To">To</a>: 0x3c8},
+    110: {<a href="#From">From</a>: 0x2727, <a href="#To">To</a>: 0x3caf},
+    111: {<a href="#From">From</a>: 0x2755, <a href="#To">To</a>: 0x6a4},
+    112: {<a href="#From">From</a>: 0x2765, <a href="#To">To</a>: 0x26b4},
+    113: {<a href="#From">From</a>: 0x2789, <a href="#To">To</a>: 0x4358},
+    114: {<a href="#From">From</a>: 0x27c9, <a href="#To">To</a>: 0x2001},
+    115: {<a href="#From">From</a>: 0x28ea, <a href="#To">To</a>: 0x27b1},
+    116: {<a href="#From">From</a>: 0x28ef, <a href="#To">To</a>: 0x2837},
+    117: {<a href="#From">From</a>: 0x2914, <a href="#To">To</a>: 0x351},
+    118: {<a href="#From">From</a>: 0x2986, <a href="#To">To</a>: 0x2da7},
+    119: {<a href="#From">From</a>: 0x29f0, <a href="#To">To</a>: 0x96b},
+    120: {<a href="#From">From</a>: 0x2b1a, <a href="#To">To</a>: 0x38d},
+    121: {<a href="#From">From</a>: 0x2bfc, <a href="#To">To</a>: 0x395},
+    122: {<a href="#From">From</a>: 0x2c3f, <a href="#To">To</a>: 0x3caf},
+    123: {<a href="#From">From</a>: 0x2cfc, <a href="#To">To</a>: 0x3be},
+    124: {<a href="#From">From</a>: 0x2d13, <a href="#To">To</a>: 0x597},
+    125: {<a href="#From">From</a>: 0x2d47, <a href="#To">To</a>: 0x148},
+    126: {<a href="#From">From</a>: 0x2d48, <a href="#To">To</a>: 0x148},
+    127: {<a href="#From">From</a>: 0x2dff, <a href="#To">To</a>: 0x2f1},
+    128: {<a href="#From">From</a>: 0x2e08, <a href="#To">To</a>: 0x19cc},
+    129: {<a href="#From">From</a>: 0x2e1a, <a href="#To">To</a>: 0x2d95},
+    130: {<a href="#From">From</a>: 0x2e21, <a href="#To">To</a>: 0x292},
+    131: {<a href="#From">From</a>: 0x2e54, <a href="#To">To</a>: 0x7d},
+    132: {<a href="#From">From</a>: 0x2e65, <a href="#To">To</a>: 0x2282},
+    133: {<a href="#From">From</a>: 0x2ea0, <a href="#To">To</a>: 0x2e9b},
+    134: {<a href="#From">From</a>: 0x2eef, <a href="#To">To</a>: 0x2ed7},
+    135: {<a href="#From">From</a>: 0x3193, <a href="#To">To</a>: 0x3c4},
+    136: {<a href="#From">From</a>: 0x3366, <a href="#To">To</a>: 0x338e},
+    137: {<a href="#From">From</a>: 0x342a, <a href="#To">To</a>: 0x3dc},
+    138: {<a href="#From">From</a>: 0x34ee, <a href="#To">To</a>: 0x18d0},
+    139: {<a href="#From">From</a>: 0x35c8, <a href="#To">To</a>: 0x2c9b},
+    140: {<a href="#From">From</a>: 0x35e6, <a href="#To">To</a>: 0x412},
+    141: {<a href="#From">From</a>: 0x3658, <a href="#To">To</a>: 0x246},
+    142: {<a href="#From">From</a>: 0x3676, <a href="#To">To</a>: 0x3f4},
+    143: {<a href="#From">From</a>: 0x36fd, <a href="#To">To</a>: 0x445},
+    144: {<a href="#From">From</a>: 0x37c0, <a href="#To">To</a>: 0x121},
+    145: {<a href="#From">From</a>: 0x3816, <a href="#To">To</a>: 0x38f2},
+    146: {<a href="#From">From</a>: 0x382a, <a href="#To">To</a>: 0x2b48},
+    147: {<a href="#From">From</a>: 0x382b, <a href="#To">To</a>: 0x2c9b},
+    148: {<a href="#From">From</a>: 0x382f, <a href="#To">To</a>: 0xa9},
+    149: {<a href="#From">From</a>: 0x3832, <a href="#To">To</a>: 0x3228},
+    150: {<a href="#From">From</a>: 0x386c, <a href="#To">To</a>: 0x39a6},
+    151: {<a href="#From">From</a>: 0x3892, <a href="#To">To</a>: 0x3fc0},
+    152: {<a href="#From">From</a>: 0x38a5, <a href="#To">To</a>: 0x39d7},
+    153: {<a href="#From">From</a>: 0x38b4, <a href="#To">To</a>: 0x1fa4},
+    154: {<a href="#From">From</a>: 0x38b5, <a href="#To">To</a>: 0x2e9a},
+    155: {<a href="#From">From</a>: 0x395c, <a href="#To">To</a>: 0x47e},
+    156: {<a href="#From">From</a>: 0x3b4e, <a href="#To">To</a>: 0xd91},
+    157: {<a href="#From">From</a>: 0x3b78, <a href="#To">To</a>: 0x137},
+    158: {<a href="#From">From</a>: 0x3c99, <a href="#To">To</a>: 0x4bc},
+    159: {<a href="#From">From</a>: 0x3fbd, <a href="#To">To</a>: 0x100},
+    160: {<a href="#From">From</a>: 0x4208, <a href="#To">To</a>: 0xa91},
+    161: {<a href="#From">From</a>: 0x42be, <a href="#To">To</a>: 0x573},
+    162: {<a href="#From">From</a>: 0x42f9, <a href="#To">To</a>: 0x3f60},
+    163: {<a href="#From">From</a>: 0x4378, <a href="#To">To</a>: 0x25a},
+    164: {<a href="#From">From</a>: 0x43b8, <a href="#To">To</a>: 0xe6c},
+    165: {<a href="#From">From</a>: 0x43cd, <a href="#To">To</a>: 0x10f},
+    166: {<a href="#From">From</a>: 0x44af, <a href="#To">To</a>: 0x3322},
+    167: {<a href="#From">From</a>: 0x44e3, <a href="#To">To</a>: 0x512},
+    168: {<a href="#From">From</a>: 0x45ca, <a href="#To">To</a>: 0x2409},
+    169: {<a href="#From">From</a>: 0x45dd, <a href="#To">To</a>: 0x26dc},
+    170: {<a href="#From">From</a>: 0x4610, <a href="#To">To</a>: 0x48ae},
+    171: {<a href="#From">From</a>: 0x46ae, <a href="#To">To</a>: 0x46a0},
+    172: {<a href="#From">From</a>: 0x473e, <a href="#To">To</a>: 0x4745},
+    173: {<a href="#From">From</a>: 0x4817, <a href="#To">To</a>: 0x3503},
+    174: {<a href="#From">From</a>: 0x4916, <a href="#To">To</a>: 0x31f},
+    175: {<a href="#From">From</a>: 0x49a7, <a href="#To">To</a>: 0x523},
+}</pre>
+			
+				<p>Size: 176 bytes, 176 elements
+
+				<pre>var <span id="AliasTypes">AliasTypes</span> = [176]<a href="#AliasType">AliasType</a>{
+
+    1, 0, 0, 0, 0, 0, 0, 1, 2, 2, 0, 1, 0, 0, 1, 2,
+    1, 1, 2, 0, 0, 1, 0, 1, 2, 1, 1, 0, 0, 2, 1, 1,
+    0, 2, 0, 0, 1, 0, 1, 0, 0, 1, 2, 1, 1, 1, 1, 0,
+    0, 0, 0, 2, 1, 1, 1, 1, 2, 1, 0, 1, 1, 2, 2, 0,
+
+    0, 1, 2, 0, 1, 0, 1, 1, 1, 1, 0, 0, 2, 1, 0, 0,
+    0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0,
+    0, 1, 0, 0, 0, 1, 2, 2, 2, 0, 1, 1, 0, 1, 0, 0,
+    0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 2, 1, 1,
+
+    0, 0, 1, 0, 0, 0, 0, 1, 1, 2, 0, 0, 2, 1, 1, 1,
+    0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 2,
+    0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1,
+}</pre>
+			
+				<p>ErrDuplicateKey is returned when a tag contains the same key twice with
+different values in the -u section.
+
+				<pre>var <span id="ErrDuplicateKey">ErrDuplicateKey</span> = <a href="/pkg/errors/">errors</a>.<a href="/pkg/errors/#New">New</a>(&#34;language: different values for same key in -u extension&#34;)</pre>
+			
+				<p>ErrMissingLikelyTagsData indicates no information was available
+to compute likely values of missing tags.
+
+				<pre>var <span id="ErrMissingLikelyTagsData">ErrMissingLikelyTagsData</span> = <a href="/pkg/errors/">errors</a>.<a href="/pkg/errors/#New">New</a>(&#34;missing likely tags data&#34;)</pre>
+			
+				<p>ErrSyntax is returned by any of the parsing functions when the
+input is not well-formed, according to BCP 47.
+TODO: return the position at which the syntax error occurred?
+
+				<pre>var <span id="ErrSyntax">ErrSyntax</span> = <a href="/pkg/errors/">errors</a>.<a href="/pkg/errors/#New">New</a>(&#34;language: tag is not well-formed&#34;)</pre>
+			
+		
+		
+			
+			
+			<h2 id="ParseExtension">func <a href="/src/golang.org/x/text/internal/language/language.go?s=7512:7565#L243">ParseExtension</a>
+				<a class="permalink" href="#ParseExtension">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ParseExtension(s <a href="/pkg/builtin/#string">string</a>) (ext <a href="/pkg/builtin/#string">string</a>, err <a href="/pkg/builtin/#error">error</a>)</pre>
+			<p>ParseExtension parses s as an extension and returns it on success.
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="AliasType">type <a href="/src/golang.org/x/text/internal/language/common.go?s=225:244#L1">AliasType</a>
+				<a class="permalink" href="#AliasType">&#xb6;</a>
+				
+				
+			</h2>
+			<p>AliasType is the type of an alias in AliasMap.
+
+			<pre>type AliasType <a href="/pkg/builtin/#int8">int8</a></pre>
+
+			
+				
+				<pre>const (
+    <span id="Deprecated">Deprecated</span> <a href="#AliasType">AliasType</a> = <a href="/pkg/builtin/#iota">iota</a>
+    <span id="Macro">Macro</span>
+    <span id="Legacy">Legacy</span>
+
+    <span id="AliasTypeUnknown">AliasTypeUnknown</span> <a href="#AliasType">AliasType</a> = -1
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Builder">type <a href="/src/golang.org/x/text/internal/language/compose.go?s=339:452#L4">Builder</a>
+				<a class="permalink" href="#Builder">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A Builder allows constructing a Tag from individual components.
+Its main user is Compose in the top-level language package.
+
+			<pre>type Builder struct {
+<span id="Builder.Tag"></span>    Tag <a href="#Tag">Tag</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Builder.AddExt">func (*Builder) <a href="/src/golang.org/x/text/internal/language/compose.go?s=2033:2067#L66">AddExt</a>
+					<a class="permalink" href="#Builder.AddExt">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b *<a href="#Builder">Builder</a>) AddExt(e <a href="/pkg/builtin/#string">string</a>)</pre>
+				<p>AddExt adds extension e to the tag. e must be a valid extension as returned
+by Tag.Extension. If the extension already exists, it will be discarded,
+except for a -u extension, where non-existing key-type pairs will added.
+
+				
+				
+				
+			
+				
+				<h3 id="Builder.AddVariant">func (*Builder) <a href="/src/golang.org/x/text/internal/language/compose.go?s=2888:2929#L107">AddVariant</a>
+					<a class="permalink" href="#Builder.AddVariant">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b *<a href="#Builder">Builder</a>) AddVariant(v ...<a href="/pkg/builtin/#string">string</a>)</pre>
+				<p>AddVariant adds any number of variants.
+
+				
+				
+				
+			
+				
+				<h3 id="Builder.ClearExtensions">func (*Builder) <a href="/src/golang.org/x/text/internal/language/compose.go?s=3298:3333#L123">ClearExtensions</a>
+					<a class="permalink" href="#Builder.ClearExtensions">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b *<a href="#Builder">Builder</a>) ClearExtensions()</pre>
+				<p>ClearExtensions removes any extensions previously added, including those
+copied from a Tag in SetTag.
+
+				
+				
+				
+			
+				
+				<h3 id="Builder.ClearVariants">func (*Builder) <a href="/src/golang.org/x/text/internal/language/compose.go?s=3122:3155#L117">ClearVariants</a>
+					<a class="permalink" href="#Builder.ClearVariants">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b *<a href="#Builder">Builder</a>) ClearVariants()</pre>
+				<p>ClearVariants removes any variants previously added, including those
+copied from a Tag in SetTag.
+
+				
+				
+				
+			
+				
+				<h3 id="Builder.Make">func (*Builder) <a href="/src/golang.org/x/text/internal/language/compose.go?s=507:535#L13">Make</a>
+					<a class="permalink" href="#Builder.Make">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b *<a href="#Builder">Builder</a>) Make() <a href="#Tag">Tag</a></pre>
+				<p>Make returns a new Tag from the current settings.
+
+				
+				
+				
+			
+				
+				<h3 id="Builder.SetExt">func (*Builder) <a href="/src/golang.org/x/text/internal/language/compose.go?s=2555:2589#L88">SetExt</a>
+					<a class="permalink" href="#Builder.SetExt">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b *<a href="#Builder">Builder</a>) SetExt(e <a href="/pkg/builtin/#string">string</a>)</pre>
+				<p>SetExt sets the extension e to the tag. e must be a valid extension as
+returned by Tag.Extension. If the extension already exists, it will be
+overwritten, except for a -u extension, where the individual key-type pairs
+will be set.
+
+				
+				
+				
+			
+				
+				<h3 id="Builder.SetTag">func (*Builder) <a href="/src/golang.org/x/text/internal/language/compose.go?s=1384:1415#L46">SetTag</a>
+					<a class="permalink" href="#Builder.SetTag">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b *<a href="#Builder">Builder</a>) SetTag(t <a href="#Tag">Tag</a>)</pre>
+				<p>SetTag copies all the settings from a given Tag. Any previously set values
+are discarded.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="CompactCoreInfo">type <a href="/src/golang.org/x/text/internal/language/compact.go?s=252:279#L1">CompactCoreInfo</a>
+				<a class="permalink" href="#CompactCoreInfo">&#xb6;</a>
+				
+				
+			</h2>
+			<p>CompactCoreInfo is a compact integer with the three core tags encoded.
+
+			<pre>type CompactCoreInfo <a href="/pkg/builtin/#uint32">uint32</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="GetCompactCore">func <a href="/src/golang.org/x/text/internal/language/compact.go?s=410:467#L2">GetCompactCore</a>
+					<a class="permalink" href="#GetCompactCore">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func GetCompactCore(t <a href="#Tag">Tag</a>) (cci <a href="#CompactCoreInfo">CompactCoreInfo</a>, ok <a href="/pkg/builtin/#bool">bool</a>)</pre>
+				<p>GetCompactCore generates a uint32 value that is guaranteed to be unique for
+different language, region, and script values.
+
+				
+				
+			
+
+			
+				
+				<h3 id="CompactCoreInfo.Tag">func (CompactCoreInfo) <a href="/src/golang.org/x/text/internal/language/compact.go?s=702:736#L13">Tag</a>
+					<a class="permalink" href="#CompactCoreInfo.Tag">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c <a href="#CompactCoreInfo">CompactCoreInfo</a>) Tag() <a href="#Tag">Tag</a></pre>
+				<p>Tag generates a tag from c.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="FromTo">type <a href="/src/golang.org/x/text/internal/language/tables.go?s=325:373#L6">FromTo</a>
+				<a class="permalink" href="#FromTo">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type FromTo struct {
+<span id="FromTo.From"></span>    From <a href="/pkg/builtin/#uint16">uint16</a>
+<span id="FromTo.To"></span>    To   <a href="/pkg/builtin/#uint16">uint16</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Language">type <a href="/src/golang.org/x/text/internal/language/lookup.go?s=722:742#L25">Language</a>
+				<a class="permalink" href="#Language">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Language <a href="/pkg/builtin/#uint16">uint16</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="BaseLanguages">func <a href="/src/golang.org/x/text/internal/language/coverage.go?s=309:340#L1">BaseLanguages</a>
+					<a class="permalink" href="#BaseLanguages">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func BaseLanguages() []<a href="#Language">Language</a></pre>
+				<p>BaseLanguages returns the list of all supported base languages. It generates
+the list by traversing the internal structures.
+
+				
+				
+			
+				
+				<h3 id="MustParseBase">func <a href="/src/golang.org/x/text/internal/language/tags.go?s=544:581#L9">MustParseBase</a>
+					<a class="permalink" href="#MustParseBase">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func MustParseBase(s <a href="/pkg/builtin/#string">string</a>) <a href="#Language">Language</a></pre>
+				<p>MustParseBase is like ParseBase, but panics if the given base cannot be parsed.
+It simplifies safe initialization of Base values.
+
+				
+				
+			
+				
+				<h3 id="ParseBase">func <a href="/src/golang.org/x/text/internal/language/language.go?s=13063:13105#L454">ParseBase</a>
+					<a class="permalink" href="#ParseBase">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func ParseBase(s <a href="/pkg/builtin/#string">string</a>) (<a href="#Language">Language</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>ParseBase parses a 2- or 3-letter ISO 639 code.
+It returns a ValueError if s is a well-formed but unknown language identifier
+or another error if another error occurred.
+
+				
+				
+			
+
+			
+				
+				<h3 id="Language.Canonicalize">func (Language) <a href="/src/golang.org/x/text/internal/language/lookup.go?s=1129:1184#L39">Canonicalize</a>
+					<a class="permalink" href="#Language.Canonicalize">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (id <a href="#Language">Language</a>) Canonicalize() (<a href="#Language">Language</a>, <a href="#AliasType">AliasType</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Language.ISO3">func (Language) <a href="/src/golang.org/x/text/internal/language/lookup.go?s=4314:4345#L157">ISO3</a>
+					<a class="permalink" href="#Language.ISO3">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b <a href="#Language">Language</a>) ISO3() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>ISO3 returns the ISO 639-3 language code.
+
+				
+				
+				
+			
+				
+				<h3 id="Language.IsPrivateUse">func (Language) <a href="/src/golang.org/x/text/internal/language/lookup.go?s=4755:4792#L173">IsPrivateUse</a>
+					<a class="permalink" href="#Language.IsPrivateUse">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b <a href="#Language">Language</a>) IsPrivateUse() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>IsPrivateUse reports whether this language code is reserved for private use.
+
+				
+				
+				
+			
+				
+				<h3 id="Language.String">func (Language) <a href="/src/golang.org/x/text/internal/language/lookup.go?s=3995:4028#L140">String</a>
+					<a class="permalink" href="#Language.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b <a href="#Language">Language</a>) String() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>String returns the BCP 47 representation of the langID.
+Use b as variable name, instead of id, to ensure the variable
+used is consistent with that of Base in which this type is embedded.
+
+				
+				
+				
+			
+				
+				<h3 id="Language.StringToBuf">func (Language) <a href="/src/golang.org/x/text/internal/language/lookup.go?s=3529:3573#L123">StringToBuf</a>
+					<a class="permalink" href="#Language.StringToBuf">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (id <a href="#Language">Language</a>) StringToBuf(b []<a href="/pkg/builtin/#byte">byte</a>) <a href="/pkg/builtin/#int">int</a></pre>
+				<p>StringToBuf writes the string to b and returns the number of bytes
+written.  cap(b) must be &gt;= 3.
+
+				
+				
+				
+			
+				
+				<h3 id="Language.SuppressScript">func (Language) <a href="/src/golang.org/x/text/internal/language/lookup.go?s=4986:5027#L179">SuppressScript</a>
+					<a class="permalink" href="#Language.SuppressScript">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b <a href="#Language">Language</a>) SuppressScript() <a href="#Script">Script</a></pre>
+				<p>SuppressScript returns the script marked as SuppressScript in the IANA
+language tag repository, or 0 if there is no such script.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Region">type <a href="/src/golang.org/x/text/internal/language/lookup.go?s=5109:5127#L186">Region</a>
+				<a class="permalink" href="#Region">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Region <a href="/pkg/builtin/#uint16">uint16</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="EncodeM49">func <a href="/src/golang.org/x/text/internal/language/language.go?s=13671:13708#L475">EncodeM49</a>
+					<a class="permalink" href="#EncodeM49">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func EncodeM49(r <a href="/pkg/builtin/#int">int</a>) (<a href="#Region">Region</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>EncodeM49 returns the Region for the given UN M.49 code.
+It returns an error if r is not a valid code.
+
+				
+				
+			
+				
+				<h3 id="MustParseRegion">func <a href="/src/golang.org/x/text/internal/language/tags.go?s=1058:1095#L29">MustParseRegion</a>
+					<a class="permalink" href="#MustParseRegion">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func MustParseRegion(s <a href="/pkg/builtin/#string">string</a>) <a href="#Region">Region</a></pre>
+				<p>MustParseRegion is like ParseRegion, but panics if the given region cannot be
+parsed. It simplifies safe initialization of Region values.
+
+				
+				
+			
+				
+				<h3 id="ParseRegion">func <a href="/src/golang.org/x/text/internal/language/language.go?s=13933:13975#L482">ParseRegion</a>
+					<a class="permalink" href="#ParseRegion">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func ParseRegion(s <a href="/pkg/builtin/#string">string</a>) (<a href="#Region">Region</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>ParseRegion parses a 2- or 3-letter ISO 3166-1 or a UN M.49 code.
+It returns a ValueError if s is a well-formed but unknown region identifier
+or another error if another error occurred.
+
+				
+				
+			
+
+			
+				
+				<h3 id="Region.Canonicalize">func (Region) <a href="/src/golang.org/x/text/internal/language/language.go?s=16119:16156#L556">Canonicalize</a>
+					<a class="permalink" href="#Region.Canonicalize">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#Region">Region</a>) Canonicalize() <a href="#Region">Region</a></pre>
+				<p>Canonicalize returns the region or a possible replacement if the region is
+deprecated. It will not return a replacement for deprecated regions that
+are split into multiple regions.
+
+				
+				
+				
+			
+				
+				<h3 id="Region.Contains">func (Region) <a href="/src/golang.org/x/text/internal/language/language.go?s=14698:14737#L510">Contains</a>
+					<a class="permalink" href="#Region.Contains">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#Region">Region</a>) Contains(c <a href="#Region">Region</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>Contains returns whether Region c is contained by Region r. It returns true
+if c == r.
+
+				
+				
+				
+			
+				
+				<h3 id="Region.ISO3">func (Region) <a href="/src/golang.org/x/text/internal/language/lookup.go?s=7935:7964#L293">ISO3</a>
+					<a class="permalink" href="#Region.ISO3">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#Region">Region</a>) ISO3() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>ISO3 returns the 3-letter ISO code of r.
+Note that not all regions have a 3-letter ISO code.
+In such cases this method returns &quot;ZZZ&quot;.
+
+				
+				
+				
+			
+				
+				<h3 id="Region.IsCountry">func (Region) <a href="/src/golang.org/x/text/internal/language/language.go?s=14227:14259#L492">IsCountry</a>
+					<a class="permalink" href="#Region.IsCountry">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#Region">Region</a>) IsCountry() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>IsCountry returns whether this region is a country or autonomous area. This
+includes non-standard definitions from CLDR.
+
+				
+				
+				
+			
+				
+				<h3 id="Region.IsGroup">func (Region) <a href="/src/golang.org/x/text/internal/language/language.go?s=14481:14511#L501">IsGroup</a>
+					<a class="permalink" href="#Region.IsGroup">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#Region">Region</a>) IsGroup() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>IsGroup returns whether this region defines a collection of regions. This
+includes non-standard definitions from CLDR.
+
+				
+				
+				
+			
+				
+				<h3 id="Region.IsPrivateUse">func (Region) <a href="/src/golang.org/x/text/internal/language/lookup.go?s=8556:8591#L317">IsPrivateUse</a>
+					<a class="permalink" href="#Region.IsPrivateUse">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#Region">Region</a>) IsPrivateUse() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>IsPrivateUse reports whether r has the ISO 3166 User-assigned status. This
+may include private-use tags that are assigned by CLDR and used in this
+implementation. So IsPrivateUse and IsCountry can be simultaneously true.
+
+				
+				
+				
+			
+				
+				<h3 id="Region.M49">func (Region) <a href="/src/golang.org/x/text/internal/language/lookup.go?s=8275:8300#L310">M49</a>
+					<a class="permalink" href="#Region.M49">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#Region">Region</a>) M49() <a href="/pkg/builtin/#int">int</a></pre>
+				<p>M49 returns the UN M.49 encoding of r, or 0 if this encoding
+is not defined for r.
+
+				
+				
+				
+			
+				
+				<h3 id="Region.String">func (Region) <a href="/src/golang.org/x/text/internal/language/lookup.go?s=7598:7629#L279">String</a>
+					<a class="permalink" href="#Region.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#Region">Region</a>) String() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>String returns the BCP 47 representation for the region.
+It returns &quot;ZZ&quot; for an unspecified region.
+
+				
+				
+				
+			
+				
+				<h3 id="Region.TLD">func (Region) <a href="/src/golang.org/x/text/internal/language/language.go?s=15665:15702#L541">TLD</a>
+					<a class="permalink" href="#Region.TLD">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#Region">Region</a>) TLD() (<a href="#Region">Region</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>TLD returns the country code top-level domain (ccTLD). UK is returned for GB.
+In all other cases it returns either the region itself or an error.
+<p>This method may return an error for a region for which there exists a
+canonical form with a ccTLD. To get that ccTLD canonicalize r first. The
+region will already be canonicalized it was obtained from a Tag that was
+obtained using any of the default methods.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Script">type <a href="/src/golang.org/x/text/internal/language/lookup.go?s=8638:8655#L321">Script</a>
+				<a class="permalink" href="#Script">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Script <a href="/pkg/builtin/#uint8">uint8</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="MustParseScript">func <a href="/src/golang.org/x/text/internal/language/tags.go?s=798:835#L19">MustParseScript</a>
+					<a class="permalink" href="#MustParseScript">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func MustParseScript(s <a href="/pkg/builtin/#string">string</a>) <a href="#Script">Script</a></pre>
+				<p>MustParseScript is like ParseScript, but panics if the given script cannot be
+parsed. It simplifies safe initialization of Script values.
+
+				
+				
+			
+				
+				<h3 id="ParseScript">func <a href="/src/golang.org/x/text/internal/language/language.go?s=13403:13445#L465">ParseScript</a>
+					<a class="permalink" href="#ParseScript">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func ParseScript(s <a href="/pkg/builtin/#string">string</a>) (<a href="#Script">Script</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>ParseScript parses a 4-letter ISO 15924 code.
+It returns a ValueError if s is a well-formed but unknown script identifier
+or another error if another error occurred.
+
+				
+				
+			
+
+			
+				
+				<h3 id="Script.IsPrivateUse">func (Script) <a href="/src/golang.org/x/text/internal/language/lookup.go?s=9156:9191#L340">IsPrivateUse</a>
+					<a class="permalink" href="#Script.IsPrivateUse">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s <a href="#Script">Script</a>) IsPrivateUse() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>IsPrivateUse reports whether this script code is reserved for private use.
+
+				
+				
+				
+			
+				
+				<h3 id="Script.String">func (Script) <a href="/src/golang.org/x/text/internal/language/lookup.go?s=8981:9012#L332">String</a>
+					<a class="permalink" href="#Script.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s <a href="#Script">Script</a>) String() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>String returns the script code in title case.
+It returns &quot;Zzzz&quot; for an unspecified script.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Tag">type <a href="/src/golang.org/x/text/internal/language/language.go?s=1167:2245#L25">Tag</a>
+				<a class="permalink" href="#Tag">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Tag represents a BCP 47 language tag. It is used to specify an instance of a
+specific language or locale. All language tag values are guaranteed to be
+well-formed. The zero value of Tag is Und.
+
+			<pre>type Tag struct {
+<span id="Tag.LangID"></span>    LangID   <a href="#Language">Language</a>
+<span id="Tag.RegionID"></span>    RegionID <a href="#Region">Region</a>
+    <span class="comment">// TODO: we will soon run out of positions for ScriptID. Idea: instead of</span>
+    <span class="comment">// storing lang, region, and ScriptID codes, store only the compact index and</span>
+    <span class="comment">// have a lookup table from this code to its expansion. This greatly speeds</span>
+    <span class="comment">// up table lookup, speed up common variant cases.</span>
+    <span class="comment">// This will also immediately free up 3 extra bytes. Also, the pVariant</span>
+    <span class="comment">// field can now be moved to the lookup table, as the compact index uniquely</span>
+    <span class="comment">// determines the offset of a possible variant.</span>
+<span id="Tag.ScriptID"></span>    ScriptID <a href="#Script">Script</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+				<p>Und is the root language.
+
+				<pre>var <span id="Und">Und</span> <a href="#Tag">Tag</a></pre>
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="Make">func <a href="/src/golang.org/x/text/internal/language/language.go?s=2368:2391#L51">Make</a>
+					<a class="permalink" href="#Make">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func Make(s <a href="/pkg/builtin/#string">string</a>) <a href="#Tag">Tag</a></pre>
+				<p>Make is a convenience wrapper for Parse that omits the error.
+In case of an error, a sensible default is returned.
+
+				
+				
+			
+				
+				<h3 id="MustParse">func <a href="/src/golang.org/x/text/internal/language/tags.go?s=311:339#L1">MustParse</a>
+					<a class="permalink" href="#MustParse">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func MustParse(s <a href="/pkg/builtin/#string">string</a>) <a href="#Tag">Tag</a></pre>
+				<p>MustParse is like Parse, but panics if the given BCP 47 tag cannot be parsed.
+It simplifies safe initialization of Tag values.
+
+				
+				
+			
+				
+				<h3 id="Parse">func <a href="/src/golang.org/x/text/internal/language/parse.go?s=5931:5970#L220">Parse</a>
+					<a class="permalink" href="#Parse">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func Parse(s <a href="/pkg/builtin/#string">string</a>) (t <a href="#Tag">Tag</a>, err <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>Parse parses the given BCP 47 string and returns a valid Tag. If parsing
+failed it returns an error and any part of the tag that could be parsed.
+If parsing succeeded but an unknown value was found, it returns
+ValueError. The Tag returned in this case is just stripped of the unknown
+value. All other values are preserved. It accepts tags in the BCP 47 format
+and extensions to this standard defined in
+<a href="https://www.unicode.org/reports/tr35/#Unicode_Language_and_Locale_Identifiers">https://www.unicode.org/reports/tr35/#Unicode_Language_and_Locale_Identifiers</a>.
+
+				
+				
+			
+
+			
+				
+				<h3 id="Tag.Extension">func (Tag) <a href="/src/golang.org/x/text/internal/language/language.go?s=8238:8290#L270">Extension</a>
+					<a class="permalink" href="#Tag.Extension">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t <a href="#Tag">Tag</a>) Extension(x <a href="/pkg/builtin/#byte">byte</a>) (ext <a href="/pkg/builtin/#string">string</a>, ok <a href="/pkg/builtin/#bool">bool</a>)</pre>
+				<p>Extension returns the extension of type x for tag t. It will return
+false for ok if t does not have the requested extension. The returned
+extension will be invalid in this case.
+
+				
+				
+				
+			
+				
+				<h3 id="Tag.Extensions">func (Tag) <a href="/src/golang.org/x/text/internal/language/language.go?s=8497:8531#L282">Extensions</a>
+					<a class="permalink" href="#Tag.Extensions">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t <a href="#Tag">Tag</a>) Extensions() []<a href="/pkg/builtin/#string">string</a></pre>
+				<p>Extensions returns all extensions of t.
+
+				
+				
+				
+			
+				
+				<h3 id="Tag.HasExtensions">func (Tag) <a href="/src/golang.org/x/text/internal/language/language.go?s=7979:8012#L263">HasExtensions</a>
+					<a class="permalink" href="#Tag.HasExtensions">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t <a href="#Tag">Tag</a>) HasExtensions() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>HasExtensions reports whether t has extensions.
+
+				
+				
+				
+			
+				
+				<h3 id="Tag.HasString">func (Tag) <a href="/src/golang.org/x/text/internal/language/language.go?s=5769:5798#L181">HasString</a>
+					<a class="permalink" href="#Tag.HasString">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t <a href="#Tag">Tag</a>) HasString() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>HasString reports whether this tag defines more than just the raw
+components.
+
+				
+				
+				
+			
+				
+				<h3 id="Tag.HasVariants">func (Tag) <a href="/src/golang.org/x/text/internal/language/language.go?s=7855:7886#L258">HasVariants</a>
+					<a class="permalink" href="#Tag.HasVariants">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t <a href="#Tag">Tag</a>) HasVariants() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>HasVariants reports whether t has variants.
+
+				
+				
+				
+			
+				
+				<h3 id="Tag.IsPrivateUse">func (Tag) <a href="/src/golang.org/x/text/internal/language/language.go?s=3101:3133#L78">IsPrivateUse</a>
+					<a class="permalink" href="#Tag.IsPrivateUse">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t <a href="#Tag">Tag</a>) IsPrivateUse() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>IsPrivateUse reports whether the Tag consists solely of an IsPrivateUse use
+tag.
+
+				
+				
+				
+			
+				
+				<h3 id="Tag.IsRoot">func (Tag) <a href="/src/golang.org/x/text/internal/language/language.go?s=2904:2930#L69">IsRoot</a>
+					<a class="permalink" href="#Tag.IsRoot">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t <a href="#Tag">Tag</a>) IsRoot() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>IsRoot returns true if t is equal to language &quot;und&quot;.
+
+				
+				
+				
+			
+				
+				<h3 id="Tag.MarshalText">func (Tag) <a href="/src/golang.org/x/text/internal/language/language.go?s=4806:4857#L143">MarshalText</a>
+					<a class="permalink" href="#Tag.MarshalText">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t <a href="#Tag">Tag</a>) MarshalText() (text []<a href="/pkg/builtin/#byte">byte</a>, err <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>MarshalText implements encoding.TextMarshaler.
+
+				
+				
+				
+			
+				
+				<h3 id="Tag.Maximize">func (Tag) <a href="/src/golang.org/x/text/internal/language/match.go?s=1611:1647#L57">Maximize</a>
+					<a class="permalink" href="#Tag.Maximize">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t <a href="#Tag">Tag</a>) Maximize() (<a href="#Tag">Tag</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>Maximize returns a new tag with missing tags filled in.
+
+				
+				
+				
+			
+				
+				<h3 id="Tag.Parent">func (Tag) <a href="/src/golang.org/x/text/internal/language/language.go?s=6045:6070#L188">Parent</a>
+					<a class="permalink" href="#Tag.Parent">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t <a href="#Tag">Tag</a>) Parent() <a href="#Tag">Tag</a></pre>
+				<p>Parent returns the CLDR parent of t. In CLDR, missing fields in data for a
+specific language are substituted with fields from the parent language.
+The parent for a language may change for newer versions of CLDR.
+
+				
+				
+				
+			
+				
+				<h3 id="Tag.Raw">func (Tag) <a href="/src/golang.org/x/text/internal/language/language.go?s=2561:2612#L59">Raw</a>
+					<a class="permalink" href="#Tag.Raw">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t <a href="#Tag">Tag</a>) Raw() (b <a href="#Language">Language</a>, s <a href="#Script">Script</a>, r <a href="#Region">Region</a>)</pre>
+				<p>Raw returns the raw base language, script and region, without making an
+attempt to infer their values.
+TODO: consider removing
+
+				
+				
+				
+			
+				
+				<h3 id="Tag.RemakeString">func (*Tag) <a href="/src/golang.org/x/text/internal/language/language.go?s=3351:3379#L85">RemakeString</a>
+					<a class="permalink" href="#Tag.RemakeString">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t *<a href="#Tag">Tag</a>) RemakeString()</pre>
+				<p>RemakeString is used to update t.str in case lang, script or region changed.
+It is assumed that pExt and pVariant still point to the start of the
+respective parts.
+
+				
+				
+				
+			
+				
+				<h3 id="Tag.SetTypeForKey">func (Tag) <a href="/src/golang.org/x/text/internal/language/language.go?s=9834:9892#L320">SetTypeForKey</a>
+					<a class="permalink" href="#Tag.SetTypeForKey">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t <a href="#Tag">Tag</a>) SetTypeForKey(key, value <a href="/pkg/builtin/#string">string</a>) (<a href="#Tag">Tag</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>SetTypeForKey returns a new Tag with the key set to type, where key and type
+are of the allowed values defined for the Unicode locale extension (&apos;u&apos;) in
+<a href="https://www.unicode.org/reports/tr35/#Unicode_Language_and_Locale_Identifiers">https://www.unicode.org/reports/tr35/#Unicode_Language_and_Locale_Identifiers</a>.
+An empty value removes an existing pair with the same key.
+
+				
+				
+				
+			
+				
+				<h3 id="Tag.String">func (Tag) <a href="/src/golang.org/x/text/internal/language/language.go?s=4542:4570#L131">String</a>
+					<a class="permalink" href="#Tag.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t <a href="#Tag">Tag</a>) String() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>String returns the canonical string representation of the language tag.
+
+				
+				
+				
+			
+				
+				<h3 id="Tag.TypeForKey">func (Tag) <a href="/src/golang.org/x/text/internal/language/language.go?s=9168:9210#L300">TypeForKey</a>
+					<a class="permalink" href="#Tag.TypeForKey">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t <a href="#Tag">Tag</a>) TypeForKey(key <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#string">string</a></pre>
+				<p>TypeForKey returns the type associated with the given key, where key and type
+are of the allowed values defined for the Unicode locale extension (&apos;u&apos;) in
+<a href="https://www.unicode.org/reports/tr35/#Unicode_Language_and_Locale_Identifiers">https://www.unicode.org/reports/tr35/#Unicode_Language_and_Locale_Identifiers</a>.
+TypeForKey will traverse the inheritance chain to get the correct value.
+<p>If there are multiple types associated with a key, only the first will be
+returned. If there is no type associated with a key, it returns the empty
+string.
+
+				
+				
+				
+			
+				
+				<h3 id="Tag.UnmarshalText">func (*Tag) <a href="/src/golang.org/x/text/internal/language/language.go?s=5157:5203#L156">UnmarshalText</a>
+					<a class="permalink" href="#Tag.UnmarshalText">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t *<a href="#Tag">Tag</a>) UnmarshalText(text []<a href="/pkg/builtin/#byte">byte</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>UnmarshalText implements encoding.TextUnmarshaler.
+
+				
+				
+				
+			
+				
+				<h3 id="Tag.VariantOrPrivateUseTags">func (Tag) <a href="/src/golang.org/x/text/internal/language/language.go?s=5553:5598#L172">VariantOrPrivateUseTags</a>
+					<a class="permalink" href="#Tag.VariantOrPrivateUseTags">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t <a href="#Tag">Tag</a>) VariantOrPrivateUseTags() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>VariantOrPrivateUseTags returns variants or private use tags.
+
+				
+				
+				
+			
+				
+				<h3 id="Tag.Variants">func (Tag) <a href="/src/golang.org/x/text/internal/language/language.go?s=5382:5412#L164">Variants</a>
+					<a class="permalink" href="#Tag.Variants">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t <a href="#Tag">Tag</a>) Variants() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>Variants returns the part of the tag holding all variants or the empty string
+if there are no variants defined.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ValueError">type <a href="/src/golang.org/x/text/internal/language/parse.go?s=1259:1296#L34">ValueError</a>
+				<a class="permalink" href="#ValueError">&#xb6;</a>
+				
+				
+			</h2>
+			<p>ValueError is returned by any of the parsing functions when the
+input is well-formed but the respective subtag is not recognized
+as a valid value.
+
+			<pre>type ValueError struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewValueError">func <a href="/src/golang.org/x/text/internal/language/parse.go?s=1341:1382#L39">NewValueError</a>
+					<a class="permalink" href="#NewValueError">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewValueError(tag []<a href="/pkg/builtin/#byte">byte</a>) <a href="#ValueError">ValueError</a></pre>
+				<p>NewValueError creates a new ValueError.
+
+				
+				
+			
+
+			
+				
+				<h3 id="ValueError.Error">func (ValueError) <a href="/src/golang.org/x/text/internal/language/parse.go?s=1588:1622#L54">Error</a>
+					<a class="permalink" href="#ValueError.Error">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e <a href="#ValueError">ValueError</a>) Error() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>Error implements the error interface.
+
+				
+				
+				
+			
+				
+				<h3 id="ValueError.Subtag">func (ValueError) <a href="/src/golang.org/x/text/internal/language/parse.go?s=1766:1801#L59">Subtag</a>
+					<a class="permalink" href="#ValueError.Subtag">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e <a href="#ValueError">ValueError</a>) Subtag() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>Subtag returns the subtag for which the error occurred.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Variant">type <a href="/src/golang.org/x/text/internal/language/language.go?s=16301:16347#L564">Variant</a>
+				<a class="permalink" href="#Variant">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Variant represents a registered variant of a language as defined by BCP 47.
+
+			<pre>type Variant struct {
+<span id="Variant.ID"></span>    ID <a href="/pkg/builtin/#uint8">uint8</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="ParseVariant">func <a href="/src/golang.org/x/text/internal/language/language.go?s=16448:16492#L571">ParseVariant</a>
+					<a class="permalink" href="#ParseVariant">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func ParseVariant(s <a href="/pkg/builtin/#string">string</a>) (<a href="#Variant">Variant</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>ParseVariant parses and returns a Variant. An error is returned if s is not
+a valid variant.
+
+				
+				
+			
+
+			
+				
+				<h3 id="Variant.String">func (Variant) <a href="/src/golang.org/x/text/internal/language/language.go?s=16694:16726#L580">String</a>
+					<a class="permalink" href="#Variant.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (v <a href="#Variant">Variant</a>) String() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>String returns the string representation of the variant.
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+	
+	
+		<h2 id="pkg-subdirectories">Subdirectories</h2>
+	
+	<div class="pkg-dir">
+		<table>
+			<tr>
+				<th class="pkg-name">Name</th>
+				<th class="pkg-synopsis">Synopsis</th>
+			</tr>
+
+			
+			<tr>
+				<td colspan="2"><a href="..">..</a></td>
+			</tr>
+			
+
+			
+		</table>
+	</div>
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

@@ -1,0 +1,3553 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>jsoniter - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/pkg/">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/pkg/">GoDoc</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package jsoniter
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/json-iterator/go"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+				<dd><a href="#pkg-examples" class="examplesLink">Examples</a></dd>
+			
+			
+				<dd><a href="#pkg-subdirectories">Subdirectories</a></dd>
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>Package jsoniter implements encoding and decoding of JSON as defined in
+RFC 4627 and provides interfaces with identical syntax of standard lib encoding/json.
+Converting from encoding/json to jsoniter is no more than replacing the package with jsoniter
+and variable type declarations (if any).
+jsoniter interfaces gives 100% compatibility with code using standard lib.
+<p>&quot;JSON and Go&quot;
+(<a href="https://golang.org/doc/articles/json_and_go.html">https://golang.org/doc/articles/json_and_go.html</a>)
+gives a description of how Marshal/Unmarshal operate
+between arbitrary or predefined json objects and bytes,
+and it applies to jsoniter.Marshal/Unmarshal as well.
+<p>Besides, jsoniter.Iterator provides a different set of interfaces
+iterating given bytes/string/reader
+and yielding parsed elements one by one.
+This set of interfaces reads input as required and gives
+better performance.
+
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+				
+				<dd><a href="#CastJsonNumber">func CastJsonNumber(val interface{}) (string, bool)</a></dd>
+			
+				
+				<dd><a href="#Marshal">func Marshal(v interface{}) ([]byte, error)</a></dd>
+			
+				
+				<dd><a href="#MarshalIndent">func MarshalIndent(v interface{}, prefix, indent string) ([]byte, error)</a></dd>
+			
+				
+				<dd><a href="#MarshalToString">func MarshalToString(v interface{}) (string, error)</a></dd>
+			
+				
+				<dd><a href="#RegisterExtension">func RegisterExtension(extension Extension)</a></dd>
+			
+				
+				<dd><a href="#RegisterFieldDecoder">func RegisterFieldDecoder(typ string, field string, decoder ValDecoder)</a></dd>
+			
+				
+				<dd><a href="#RegisterFieldDecoderFunc">func RegisterFieldDecoderFunc(typ string, field string, fun DecoderFunc)</a></dd>
+			
+				
+				<dd><a href="#RegisterFieldEncoder">func RegisterFieldEncoder(typ string, field string, encoder ValEncoder)</a></dd>
+			
+				
+				<dd><a href="#RegisterFieldEncoderFunc">func RegisterFieldEncoderFunc(typ string, field string, fun EncoderFunc, isEmptyFunc func(unsafe.Pointer) bool)</a></dd>
+			
+				
+				<dd><a href="#RegisterTypeDecoder">func RegisterTypeDecoder(typ string, decoder ValDecoder)</a></dd>
+			
+				
+				<dd><a href="#RegisterTypeDecoderFunc">func RegisterTypeDecoderFunc(typ string, fun DecoderFunc)</a></dd>
+			
+				
+				<dd><a href="#RegisterTypeEncoder">func RegisterTypeEncoder(typ string, encoder ValEncoder)</a></dd>
+			
+				
+				<dd><a href="#RegisterTypeEncoderFunc">func RegisterTypeEncoderFunc(typ string, fun EncoderFunc, isEmptyFunc func(unsafe.Pointer) bool)</a></dd>
+			
+				
+				<dd><a href="#Unmarshal">func Unmarshal(data []byte, v interface{}) error</a></dd>
+			
+				
+				<dd><a href="#UnmarshalFromString">func UnmarshalFromString(str string, v interface{}) error</a></dd>
+			
+				
+				<dd><a href="#Valid">func Valid(data []byte) bool</a></dd>
+			
+			
+				
+				<dd><a href="#API">type API</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Any">type Any</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Get">func Get(data []byte, path ...interface{}) Any</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Wrap">func Wrap(val interface{}) Any</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#WrapFloat64">func WrapFloat64(val float64) Any</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#WrapInt32">func WrapInt32(val int32) Any</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#WrapInt64">func WrapInt64(val int64) Any</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#WrapString">func WrapString(val string) Any</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#WrapUint32">func WrapUint32(val uint32) Any</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#WrapUint64">func WrapUint64(val uint64) Any</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Binding">type Binding</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Config">type Config</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Config.Froze">func (cfg Config) Froze() API</a></dd>
+				
+			
+				
+				<dd><a href="#Decoder">type Decoder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewDecoder">func NewDecoder(reader io.Reader) *Decoder</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Decoder.Buffered">func (adapter *Decoder) Buffered() io.Reader</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Decoder.Decode">func (adapter *Decoder) Decode(obj interface{}) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Decoder.DisallowUnknownFields">func (adapter *Decoder) DisallowUnknownFields()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Decoder.More">func (adapter *Decoder) More() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Decoder.UseNumber">func (adapter *Decoder) UseNumber()</a></dd>
+				
+			
+				
+				<dd><a href="#DecoderExtension">type DecoderExtension</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#DecoderExtension.CreateDecoder">func (extension DecoderExtension) CreateDecoder(typ reflect2.Type) ValDecoder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#DecoderExtension.CreateEncoder">func (extension DecoderExtension) CreateEncoder(typ reflect2.Type) ValEncoder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#DecoderExtension.CreateMapKeyDecoder">func (extension DecoderExtension) CreateMapKeyDecoder(typ reflect2.Type) ValDecoder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#DecoderExtension.CreateMapKeyEncoder">func (extension DecoderExtension) CreateMapKeyEncoder(typ reflect2.Type) ValEncoder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#DecoderExtension.DecorateDecoder">func (extension DecoderExtension) DecorateDecoder(typ reflect2.Type, decoder ValDecoder) ValDecoder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#DecoderExtension.DecorateEncoder">func (extension DecoderExtension) DecorateEncoder(typ reflect2.Type, encoder ValEncoder) ValEncoder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#DecoderExtension.UpdateStructDescriptor">func (extension DecoderExtension) UpdateStructDescriptor(structDescriptor *StructDescriptor)</a></dd>
+				
+			
+				
+				<dd><a href="#DecoderFunc">type DecoderFunc</a></dd>
+				
+				
+			
+				
+				<dd><a href="#DummyExtension">type DummyExtension</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#DummyExtension.CreateDecoder">func (extension *DummyExtension) CreateDecoder(typ reflect2.Type) ValDecoder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#DummyExtension.CreateEncoder">func (extension *DummyExtension) CreateEncoder(typ reflect2.Type) ValEncoder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#DummyExtension.CreateMapKeyDecoder">func (extension *DummyExtension) CreateMapKeyDecoder(typ reflect2.Type) ValDecoder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#DummyExtension.CreateMapKeyEncoder">func (extension *DummyExtension) CreateMapKeyEncoder(typ reflect2.Type) ValEncoder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#DummyExtension.DecorateDecoder">func (extension *DummyExtension) DecorateDecoder(typ reflect2.Type, decoder ValDecoder) ValDecoder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#DummyExtension.DecorateEncoder">func (extension *DummyExtension) DecorateEncoder(typ reflect2.Type, encoder ValEncoder) ValEncoder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#DummyExtension.UpdateStructDescriptor">func (extension *DummyExtension) UpdateStructDescriptor(structDescriptor *StructDescriptor)</a></dd>
+				
+			
+				
+				<dd><a href="#Encoder">type Encoder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewEncoder">func NewEncoder(writer io.Writer) *Encoder</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Encoder.Encode">func (adapter *Encoder) Encode(val interface{}) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Encoder.SetEscapeHTML">func (adapter *Encoder) SetEscapeHTML(escapeHTML bool)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Encoder.SetIndent">func (adapter *Encoder) SetIndent(prefix, indent string)</a></dd>
+				
+			
+				
+				<dd><a href="#EncoderExtension">type EncoderExtension</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#EncoderExtension.CreateDecoder">func (extension EncoderExtension) CreateDecoder(typ reflect2.Type) ValDecoder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#EncoderExtension.CreateEncoder">func (extension EncoderExtension) CreateEncoder(typ reflect2.Type) ValEncoder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#EncoderExtension.CreateMapKeyDecoder">func (extension EncoderExtension) CreateMapKeyDecoder(typ reflect2.Type) ValDecoder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#EncoderExtension.CreateMapKeyEncoder">func (extension EncoderExtension) CreateMapKeyEncoder(typ reflect2.Type) ValEncoder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#EncoderExtension.DecorateDecoder">func (extension EncoderExtension) DecorateDecoder(typ reflect2.Type, decoder ValDecoder) ValDecoder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#EncoderExtension.DecorateEncoder">func (extension EncoderExtension) DecorateEncoder(typ reflect2.Type, encoder ValEncoder) ValEncoder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#EncoderExtension.UpdateStructDescriptor">func (extension EncoderExtension) UpdateStructDescriptor(structDescriptor *StructDescriptor)</a></dd>
+				
+			
+				
+				<dd><a href="#EncoderFunc">type EncoderFunc</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Extension">type Extension</a></dd>
+				
+				
+			
+				
+				<dd><a href="#IsEmbeddedPtrNil">type IsEmbeddedPtrNil</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Iterator">type Iterator</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewIterator">func NewIterator(cfg API) *Iterator</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Parse">func Parse(cfg API, reader io.Reader, bufSize int) *Iterator</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ParseBytes">func ParseBytes(cfg API, input []byte) *Iterator</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ParseString">func ParseString(cfg API, input string) *Iterator</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.CurrentBuffer">func (iter *Iterator) CurrentBuffer() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.Pool">func (iter *Iterator) Pool() IteratorPool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.Read">func (iter *Iterator) Read() interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.ReadAny">func (iter *Iterator) ReadAny() Any</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.ReadArray">func (iter *Iterator) ReadArray() (ret bool)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.ReadArrayCB">func (iter *Iterator) ReadArrayCB(callback func(*Iterator) bool) (ret bool)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.ReadBigFloat">func (iter *Iterator) ReadBigFloat() (ret *big.Float)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.ReadBigInt">func (iter *Iterator) ReadBigInt() (ret *big.Int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.ReadBool">func (iter *Iterator) ReadBool() (ret bool)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.ReadFloat32">func (iter *Iterator) ReadFloat32() (ret float32)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.ReadFloat64">func (iter *Iterator) ReadFloat64() (ret float64)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.ReadInt">func (iter *Iterator) ReadInt() int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.ReadInt16">func (iter *Iterator) ReadInt16() (ret int16)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.ReadInt32">func (iter *Iterator) ReadInt32() (ret int32)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.ReadInt64">func (iter *Iterator) ReadInt64() (ret int64)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.ReadInt8">func (iter *Iterator) ReadInt8() (ret int8)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.ReadMapCB">func (iter *Iterator) ReadMapCB(callback func(*Iterator, string) bool) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.ReadNil">func (iter *Iterator) ReadNil() (ret bool)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.ReadNumber">func (iter *Iterator) ReadNumber() (ret json.Number)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.ReadObject">func (iter *Iterator) ReadObject() (ret string)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.ReadObjectCB">func (iter *Iterator) ReadObjectCB(callback func(*Iterator, string) bool) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.ReadString">func (iter *Iterator) ReadString() (ret string)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.ReadStringAsSlice">func (iter *Iterator) ReadStringAsSlice() (ret []byte)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.ReadUint">func (iter *Iterator) ReadUint() uint</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.ReadUint16">func (iter *Iterator) ReadUint16() (ret uint16)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.ReadUint32">func (iter *Iterator) ReadUint32() (ret uint32)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.ReadUint64">func (iter *Iterator) ReadUint64() uint64</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.ReadUint8">func (iter *Iterator) ReadUint8() (ret uint8)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.ReadVal">func (iter *Iterator) ReadVal(obj interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.ReportError">func (iter *Iterator) ReportError(operation string, msg string)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.Reset">func (iter *Iterator) Reset(reader io.Reader) *Iterator</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.ResetBytes">func (iter *Iterator) ResetBytes(input []byte) *Iterator</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.Skip">func (iter *Iterator) Skip()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.SkipAndAppendBytes">func (iter *Iterator) SkipAndAppendBytes(buf []byte) []byte</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.SkipAndReturnBytes">func (iter *Iterator) SkipAndReturnBytes() []byte</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Iterator.WhatIsNext">func (iter *Iterator) WhatIsNext() ValueType</a></dd>
+				
+			
+				
+				<dd><a href="#IteratorPool">type IteratorPool</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Number">type Number</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Number.Float64">func (n Number) Float64() (float64, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Number.Int64">func (n Number) Int64() (int64, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Number.String">func (n Number) String() string</a></dd>
+				
+			
+				
+				<dd><a href="#OptionalDecoder">type OptionalDecoder</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#OptionalDecoder.Decode">func (decoder *OptionalDecoder) Decode(ptr unsafe.Pointer, iter *Iterator)</a></dd>
+				
+			
+				
+				<dd><a href="#OptionalEncoder">type OptionalEncoder</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#OptionalEncoder.Encode">func (encoder *OptionalEncoder) Encode(ptr unsafe.Pointer, stream *Stream)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#OptionalEncoder.IsEmpty">func (encoder *OptionalEncoder) IsEmpty(ptr unsafe.Pointer) bool</a></dd>
+				
+			
+				
+				<dd><a href="#RawMessage">type RawMessage</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Stream">type Stream</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewStream">func NewStream(cfg API, out io.Writer, bufSize int) *Stream</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.Available">func (stream *Stream) Available() int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.Buffer">func (stream *Stream) Buffer() []byte</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.Buffered">func (stream *Stream) Buffered() int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.Flush">func (stream *Stream) Flush() error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.Pool">func (stream *Stream) Pool() StreamPool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.Reset">func (stream *Stream) Reset(out io.Writer)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.SetBuffer">func (stream *Stream) SetBuffer(buf []byte)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.Write">func (stream *Stream) Write(p []byte) (nn int, err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteArrayEnd">func (stream *Stream) WriteArrayEnd()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteArrayStart">func (stream *Stream) WriteArrayStart()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteBool">func (stream *Stream) WriteBool(val bool)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteEmptyArray">func (stream *Stream) WriteEmptyArray()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteEmptyObject">func (stream *Stream) WriteEmptyObject()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteFalse">func (stream *Stream) WriteFalse()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteFloat32">func (stream *Stream) WriteFloat32(val float32)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteFloat32Lossy">func (stream *Stream) WriteFloat32Lossy(val float32)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteFloat64">func (stream *Stream) WriteFloat64(val float64)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteFloat64Lossy">func (stream *Stream) WriteFloat64Lossy(val float64)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteInt">func (stream *Stream) WriteInt(val int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteInt16">func (stream *Stream) WriteInt16(nval int16)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteInt32">func (stream *Stream) WriteInt32(nval int32)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteInt64">func (stream *Stream) WriteInt64(nval int64)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteInt8">func (stream *Stream) WriteInt8(nval int8)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteMore">func (stream *Stream) WriteMore()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteNil">func (stream *Stream) WriteNil()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteObjectEnd">func (stream *Stream) WriteObjectEnd()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteObjectField">func (stream *Stream) WriteObjectField(field string)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteObjectStart">func (stream *Stream) WriteObjectStart()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteRaw">func (stream *Stream) WriteRaw(s string)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteString">func (stream *Stream) WriteString(s string)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteStringWithHTMLEscaped">func (stream *Stream) WriteStringWithHTMLEscaped(s string)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteTrue">func (stream *Stream) WriteTrue()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteUint">func (stream *Stream) WriteUint(val uint)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteUint16">func (stream *Stream) WriteUint16(val uint16)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteUint32">func (stream *Stream) WriteUint32(val uint32)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteUint64">func (stream *Stream) WriteUint64(val uint64)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteUint8">func (stream *Stream) WriteUint8(val uint8)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Stream.WriteVal">func (stream *Stream) WriteVal(val interface{})</a></dd>
+				
+			
+				
+				<dd><a href="#StreamPool">type StreamPool</a></dd>
+				
+				
+			
+				
+				<dd><a href="#StructDescriptor">type StructDescriptor</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#StructDescriptor.GetField">func (structDescriptor *StructDescriptor) GetField(fieldName string) *Binding</a></dd>
+				
+			
+				
+				<dd><a href="#ValDecoder">type ValDecoder</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ValEncoder">type ValEncoder</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ValueType">type ValueType</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+		<div id="pkg-examples">
+			<h3>Examples</h3>
+			<div class="js-expandAll expandAll collapsed">(Expand All)</div>
+			<dl>
+			
+			<dd><a class="exampleLink" href="#example_Get">Get</a></dd>
+			
+			<dd><a class="exampleLink" href="#example_Marshal">Marshal</a></dd>
+			
+			<dd><a class="exampleLink" href="#example_Unmarshal">Unmarshal</a></dd>
+			
+			</dl>
+		</div>
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/github.com/json-iterator/go/adapter.go">adapter.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/any.go">any.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/any_array.go">any_array.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/any_bool.go">any_bool.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/any_float.go">any_float.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/any_int32.go">any_int32.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/any_int64.go">any_int64.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/any_invalid.go">any_invalid.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/any_nil.go">any_nil.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/any_number.go">any_number.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/any_object.go">any_object.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/any_str.go">any_str.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/any_uint32.go">any_uint32.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/any_uint64.go">any_uint64.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/config.go">config.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/iter.go">iter.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/iter_array.go">iter_array.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/iter_float.go">iter_float.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/iter_int.go">iter_int.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/iter_object.go">iter_object.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/iter_skip.go">iter_skip.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/iter_skip_strict.go">iter_skip_strict.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/iter_str.go">iter_str.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/jsoniter.go">jsoniter.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/pool.go">pool.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/reflect.go">reflect.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/reflect_array.go">reflect_array.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/reflect_dynamic.go">reflect_dynamic.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/reflect_extension.go">reflect_extension.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/reflect_json_number.go">reflect_json_number.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/reflect_json_raw_message.go">reflect_json_raw_message.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/reflect_map.go">reflect_map.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/reflect_marshaler.go">reflect_marshaler.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/reflect_native.go">reflect_native.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/reflect_optional.go">reflect_optional.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/reflect_slice.go">reflect_slice.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/reflect_struct_decoder.go">reflect_struct_decoder.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/reflect_struct_encoder.go">reflect_struct_encoder.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/stream.go">stream.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/stream_float.go">stream_float.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/stream_int.go">stream_int.go</a>
+			
+				<a href="/src/github.com/json-iterator/go/stream_str.go">stream_str.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				<p>ConfigCompatibleWithStandardLibrary tries to be 100% compatible with standard library behavior
+
+				<pre>var <span id="ConfigCompatibleWithStandardLibrary">ConfigCompatibleWithStandardLibrary</span> = <a href="#Config">Config</a>{
+    <a href="#Config.EscapeHTML">EscapeHTML</a>:             <a href="/pkg/builtin/#true">true</a>,
+    <a href="#Config.SortMapKeys">SortMapKeys</a>:            <a href="/pkg/builtin/#true">true</a>,
+    <a href="#Config.ValidateJsonRawMessage">ValidateJsonRawMessage</a>: <a href="/pkg/builtin/#true">true</a>,
+}.<a href="#Froze">Froze</a>()</pre>
+			
+				<p>ConfigDefault the default API
+
+				<pre>var <span id="ConfigDefault">ConfigDefault</span> = <a href="#Config">Config</a>{
+    <a href="#Config.EscapeHTML">EscapeHTML</a>: <a href="/pkg/builtin/#true">true</a>,
+}.<a href="#Froze">Froze</a>()</pre>
+			
+				<p>ConfigFastest marshals float with only 6 digits precision
+
+				<pre>var <span id="ConfigFastest">ConfigFastest</span> = <a href="#Config">Config</a>{
+    <a href="#Config.EscapeHTML">EscapeHTML</a>:                    <a href="/pkg/builtin/#false">false</a>,
+    <a href="#Config.MarshalFloatWith6Digits">MarshalFloatWith6Digits</a>:       <a href="/pkg/builtin/#true">true</a>,
+    <a href="#Config.ObjectFieldMustBeSimpleString">ObjectFieldMustBeSimpleString</a>: <a href="/pkg/builtin/#true">true</a>,
+}.<a href="#Froze">Froze</a>()</pre>
+			
+		
+		
+			
+			
+			<h2 id="CastJsonNumber">func <a href="/src/github.com/json-iterator/go/reflect_json_number.go?s=488:539#L15">CastJsonNumber</a>
+				<a class="permalink" href="#CastJsonNumber">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func CastJsonNumber(val interface{}) (<a href="/pkg/builtin/#string">string</a>, <a href="/pkg/builtin/#bool">bool</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="Marshal">func <a href="/src/github.com/json-iterator/go/adapter.go?s=995:1038#L23">Marshal</a>
+				<a class="permalink" href="#Marshal">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Marshal(v interface{}) ([]<a href="/pkg/builtin/#byte">byte</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+			<p>Marshal adapts to json/encoding Marshal API
+<p>Marshal returns the JSON encoding of v, adapts to json/encoding Marshal API
+Refer to <a href="https://godoc.org/encoding/json#Marshal">https://godoc.org/encoding/json#Marshal</a> for more information
+
+			<div id="example_Marshal" class="toggle">
+	<div class="collapsed">
+		<p class="exampleHeading toggleButton">▹ <span class="text">Example</span></p>
+	</div>
+	<div class="expanded">
+		<p class="exampleHeading toggleButton">▾ <span class="text">Example</span></p>
+		
+		
+		
+			<p>Code:</p>
+			<pre class="code">type ColorGroup struct {
+    ID     int
+    Name   string
+    Colors []string
+}
+group := ColorGroup{
+    ID:     1,
+    Name:   &#34;Reds&#34;,
+    Colors: []string{&#34;Crimson&#34;, &#34;Red&#34;, &#34;Ruby&#34;, &#34;Maroon&#34;},
+}
+b, err := Marshal(group)
+if err != nil {
+    fmt.Println(&#34;error:&#34;, err)
+}
+os.Stdout.Write(b)
+<span class="comment"></pre>
+			
+			<p>Output:</p>
+			<pre class="output">{&#34;ID&#34;:1,&#34;Name&#34;:&#34;Reds&#34;,&#34;Colors&#34;:[&#34;Crimson&#34;,&#34;Red&#34;,&#34;Ruby&#34;,&#34;Maroon&#34;]}
+</pre>
+			
+		
+	</div>
+</div>
+
+			
+
+		
+			
+			
+			<h2 id="MarshalIndent">func <a href="/src/github.com/json-iterator/go/adapter.go?s=1147:1219#L28">MarshalIndent</a>
+				<a class="permalink" href="#MarshalIndent">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func MarshalIndent(v interface{}, prefix, indent <a href="/pkg/builtin/#string">string</a>) ([]<a href="/pkg/builtin/#byte">byte</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+			<p>MarshalIndent same as json.MarshalIndent. Prefix is not supported.
+
+			
+			
+
+		
+			
+			
+			<h2 id="MarshalToString">func <a href="/src/github.com/json-iterator/go/adapter.go?s=1354:1405#L33">MarshalToString</a>
+				<a class="permalink" href="#MarshalToString">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func MarshalToString(v interface{}) (<a href="/pkg/builtin/#string">string</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+			<p>MarshalToString convenient method to write as string instead of []byte
+
+			
+			
+
+		
+			
+			
+			<h2 id="RegisterExtension">func <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=6955:6998#L229">RegisterExtension</a>
+				<a class="permalink" href="#RegisterExtension">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func RegisterExtension(extension <a href="#Extension">Extension</a>)</pre>
+			<p>RegisterExtension register extension
+
+			
+			
+
+		
+			
+			
+			<h2 id="RegisterFieldDecoder">func <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=5911:5982#L204">RegisterFieldDecoder</a>
+				<a class="permalink" href="#RegisterFieldDecoder">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func RegisterFieldDecoder(typ <a href="/pkg/builtin/#string">string</a>, field <a href="/pkg/builtin/#string">string</a>, decoder <a href="#ValDecoder">ValDecoder</a>)</pre>
+			<p>RegisterFieldDecoder register TypeDecoder for a struct field
+
+			
+			
+
+		
+			
+			
+			<h2 id="RegisterFieldDecoderFunc">func <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=5716:5788#L199">RegisterFieldDecoderFunc</a>
+				<a class="permalink" href="#RegisterFieldDecoderFunc">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func RegisterFieldDecoderFunc(typ <a href="/pkg/builtin/#string">string</a>, field <a href="/pkg/builtin/#string">string</a>, fun <a href="#DecoderFunc">DecoderFunc</a>)</pre>
+			<p>RegisterFieldDecoderFunc register TypeDecoder for a struct field with function
+
+			
+			
+
+		
+			
+			
+			<h2 id="RegisterFieldEncoder">func <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=6779:6850#L224">RegisterFieldEncoder</a>
+				<a class="permalink" href="#RegisterFieldEncoder">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func RegisterFieldEncoder(typ <a href="/pkg/builtin/#string">string</a>, field <a href="/pkg/builtin/#string">string</a>, encoder <a href="#ValEncoder">ValEncoder</a>)</pre>
+			<p>RegisterFieldEncoder register TypeEncoder for a struct field
+
+			
+			
+
+		
+			
+			
+			<h2 id="RegisterFieldEncoderFunc">func <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=6532:6643#L219">RegisterFieldEncoderFunc</a>
+				<a class="permalink" href="#RegisterFieldEncoderFunc">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func RegisterFieldEncoderFunc(typ <a href="/pkg/builtin/#string">string</a>, field <a href="/pkg/builtin/#string">string</a>, fun <a href="#EncoderFunc">EncoderFunc</a>, isEmptyFunc func(<a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) <a href="/pkg/builtin/#bool">bool</a>)</pre>
+			<p>RegisterFieldEncoderFunc register TypeEncoder for a struct field with encode/isEmpty function
+
+			
+			
+
+		
+			
+			
+			<h2 id="RegisterTypeDecoder">func <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=5543:5599#L194">RegisterTypeDecoder</a>
+				<a class="permalink" href="#RegisterTypeDecoder">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func RegisterTypeDecoder(typ <a href="/pkg/builtin/#string">string</a>, decoder <a href="#ValDecoder">ValDecoder</a>)</pre>
+			<p>RegisterTypeDecoder register TypeDecoder for a typ
+
+			
+			
+
+		
+			
+			
+			<h2 id="RegisterTypeDecoderFunc">func <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=5387:5444#L189">RegisterTypeDecoderFunc</a>
+				<a class="permalink" href="#RegisterTypeDecoderFunc">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func RegisterTypeDecoderFunc(typ <a href="/pkg/builtin/#string">string</a>, fun <a href="#DecoderFunc">DecoderFunc</a>)</pre>
+			<p>RegisterTypeDecoderFunc register TypeDecoder for a type with function
+
+			
+			
+
+		
+			
+			
+			<h2 id="RegisterTypeEncoder">func <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=6344:6400#L214">RegisterTypeEncoder</a>
+				<a class="permalink" href="#RegisterTypeEncoder">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func RegisterTypeEncoder(typ <a href="/pkg/builtin/#string">string</a>, encoder <a href="#ValEncoder">ValEncoder</a>)</pre>
+			<p>RegisterTypeEncoder register TypeEncoder for a type
+
+			
+			
+
+		
+			
+			
+			<h2 id="RegisterTypeEncoderFunc">func <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=6135:6231#L209">RegisterTypeEncoderFunc</a>
+				<a class="permalink" href="#RegisterTypeEncoderFunc">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func RegisterTypeEncoderFunc(typ <a href="/pkg/builtin/#string">string</a>, fun <a href="#EncoderFunc">EncoderFunc</a>, isEmptyFunc func(<a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) <a href="/pkg/builtin/#bool">bool</a>)</pre>
+			<p>RegisterTypeEncoderFunc register TypeEncoder for a type with encode/isEmpty function
+
+			
+			
+
+		
+			
+			
+			<h2 id="Unmarshal">func <a href="/src/github.com/json-iterator/go/adapter.go?s=341:389#L5">Unmarshal</a>
+				<a class="permalink" href="#Unmarshal">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Unmarshal(data []<a href="/pkg/builtin/#byte">byte</a>, v interface{}) <a href="/pkg/builtin/#error">error</a></pre>
+			<p>Unmarshal adapts to json/encoding Unmarshal API
+<p>Unmarshal parses the JSON-encoded data and stores the result in the value pointed to by v.
+Refer to <a href="https://godoc.org/encoding/json#Unmarshal">https://godoc.org/encoding/json#Unmarshal</a> for more information
+
+			<div id="example_Unmarshal" class="toggle">
+	<div class="collapsed">
+		<p class="exampleHeading toggleButton">▹ <span class="text">Example</span></p>
+	</div>
+	<div class="expanded">
+		<p class="exampleHeading toggleButton">▾ <span class="text">Example</span></p>
+		
+		
+		
+			<p>Code:</p>
+			<pre class="code">var jsonBlob = []byte(`[
+        {&#34;Name&#34;: &#34;Platypus&#34;, &#34;Order&#34;: &#34;Monotremata&#34;},
+        {&#34;Name&#34;: &#34;Quoll&#34;,    &#34;Order&#34;: &#34;Dasyuromorphia&#34;}
+    ]`)
+type Animal struct {
+    Name  string
+    Order string
+}
+var animals []Animal
+err := Unmarshal(jsonBlob, &amp;animals)
+if err != nil {
+    fmt.Println(&#34;error:&#34;, err)
+}
+fmt.Printf(&#34;%+v&#34;, animals)
+<span class="comment"></pre>
+			
+			<p>Output:</p>
+			<pre class="output">[{Name:Platypus Order:Monotremata} {Name:Quoll Order:Dasyuromorphia}]
+</pre>
+			
+		
+	</div>
+</div>
+
+			
+
+		
+			
+			
+			<h2 id="UnmarshalFromString">func <a href="/src/github.com/json-iterator/go/adapter.go?s=520:577#L10">UnmarshalFromString</a>
+				<a class="permalink" href="#UnmarshalFromString">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func UnmarshalFromString(str <a href="/pkg/builtin/#string">string</a>, v interface{}) <a href="/pkg/builtin/#error">error</a></pre>
+			<p>UnmarshalFromString is a convenient method to read from string instead of []byte
+
+			
+			
+
+		
+			
+			
+			<h2 id="Valid">func <a href="/src/github.com/json-iterator/go/adapter.go?s=4531:4559#L138">Valid</a>
+				<a class="permalink" href="#Valid">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Valid(data []<a href="/pkg/builtin/#byte">byte</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+			<p>Valid reports whether data is a valid JSON encoding.
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="API">type <a href="/src/github.com/json-iterator/go/config.go?s=742:1314#L22">API</a>
+				<a class="permalink" href="#API">&#xb6;</a>
+				
+				
+			</h2>
+			<p>API the public interface of this package.
+Primary Marshal and Unmarshal.
+
+			<pre>type API interface {
+    <a href="#IteratorPool">IteratorPool</a>
+    <a href="#StreamPool">StreamPool</a>
+    MarshalToString(v interface{}) (<a href="/pkg/builtin/#string">string</a>, <a href="/pkg/builtin/#error">error</a>)
+    Marshal(v interface{}) ([]<a href="/pkg/builtin/#byte">byte</a>, <a href="/pkg/builtin/#error">error</a>)
+    MarshalIndent(v interface{}, prefix, indent <a href="/pkg/builtin/#string">string</a>) ([]<a href="/pkg/builtin/#byte">byte</a>, <a href="/pkg/builtin/#error">error</a>)
+    UnmarshalFromString(str <a href="/pkg/builtin/#string">string</a>, v interface{}) <a href="/pkg/builtin/#error">error</a>
+    Unmarshal(data []<a href="/pkg/builtin/#byte">byte</a>, v interface{}) <a href="/pkg/builtin/#error">error</a>
+    Get(data []<a href="/pkg/builtin/#byte">byte</a>, path ...interface{}) <a href="#Any">Any</a>
+    NewEncoder(writer <a href="/pkg/io/">io</a>.<a href="/pkg/io/#Writer">Writer</a>) *<a href="#Encoder">Encoder</a>
+    NewDecoder(reader <a href="/pkg/io/">io</a>.<a href="/pkg/io/#Reader">Reader</a>) *<a href="#Decoder">Decoder</a>
+    Valid(data []<a href="/pkg/builtin/#byte">byte</a>) <a href="/pkg/builtin/#bool">bool</a>
+    RegisterExtension(extension <a href="#Extension">Extension</a>)
+    DecoderOf(typ <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>) <a href="#ValDecoder">ValDecoder</a>
+    EncoderOf(typ <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>) <a href="#ValEncoder">ValEncoder</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Any">type <a href="/src/github.com/json-iterator/go/any.go?s=219:614#L5">Any</a>
+				<a class="permalink" href="#Any">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Any generic object representation.
+The lazy json implementation holds []byte and parse lazily.
+
+			<pre>type Any interface {
+    LastError() <a href="/pkg/builtin/#error">error</a>
+    ValueType() <a href="#ValueType">ValueType</a>
+    MustBeValid() <a href="#Any">Any</a>
+    ToBool() <a href="/pkg/builtin/#bool">bool</a>
+    ToInt() <a href="/pkg/builtin/#int">int</a>
+    ToInt32() <a href="/pkg/builtin/#int32">int32</a>
+    ToInt64() <a href="/pkg/builtin/#int64">int64</a>
+    ToUint() <a href="/pkg/builtin/#uint">uint</a>
+    ToUint32() <a href="/pkg/builtin/#uint32">uint32</a>
+    ToUint64() <a href="/pkg/builtin/#uint64">uint64</a>
+    ToFloat32() <a href="/pkg/builtin/#float32">float32</a>
+    ToFloat64() <a href="/pkg/builtin/#float64">float64</a>
+    ToString() <a href="/pkg/builtin/#string">string</a>
+    ToVal(val interface{})
+    Get(path ...interface{}) <a href="#Any">Any</a>
+    Size() <a href="/pkg/builtin/#int">int</a>
+    Keys() []<a href="/pkg/builtin/#string">string</a>
+    GetInterface() interface{}
+    WriteTo(stream *<a href="#Stream">Stream</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="Get">func <a href="/src/github.com/json-iterator/go/adapter.go?s=700:746#L15">Get</a>
+					<a class="permalink" href="#Get">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func Get(data []<a href="/pkg/builtin/#byte">byte</a>, path ...interface{}) <a href="#Any">Any</a></pre>
+				<p>Get quick method to get value from deeply nested JSON structure
+
+				<div id="example_Get" class="toggle">
+	<div class="collapsed">
+		<p class="exampleHeading toggleButton">▹ <span class="text">Example</span></p>
+	</div>
+	<div class="expanded">
+		<p class="exampleHeading toggleButton">▾ <span class="text">Example</span></p>
+		
+		
+		
+			<p>Code:</p>
+			<pre class="code">val := []byte(`{&#34;ID&#34;:1,&#34;Name&#34;:&#34;Reds&#34;,&#34;Colors&#34;:[&#34;Crimson&#34;,&#34;Red&#34;,&#34;Ruby&#34;,&#34;Maroon&#34;]}`)
+fmt.Printf(Get(val, &#34;Colors&#34;, 0).ToString())
+<span class="comment"></pre>
+			
+			<p>Output:</p>
+			<pre class="output">Crimson
+</pre>
+			
+		
+	</div>
+</div>
+
+				
+			
+				
+				<h3 id="Wrap">func <a href="/src/github.com/json-iterator/go/any.go?s=1694:1724#L76">Wrap</a>
+					<a class="permalink" href="#Wrap">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func Wrap(val interface{}) <a href="#Any">Any</a></pre>
+				<p>Wrap turn a go object into Any interface
+
+				
+				
+			
+				
+				<h3 id="WrapFloat64">func <a href="/src/github.com/json-iterator/go/any.go?s=1460:1493#L66">WrapFloat64</a>
+					<a class="permalink" href="#WrapFloat64">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func WrapFloat64(val <a href="/pkg/builtin/#float64">float64</a>) <a href="#Any">Any</a></pre>
+				<p>WrapFloat64 turn float64 into Any interface
+
+				
+				
+			
+				
+				<h3 id="WrapInt32">func <a href="/src/github.com/json-iterator/go/any.go?s=998:1027#L46">WrapInt32</a>
+					<a class="permalink" href="#WrapInt32">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func WrapInt32(val <a href="/pkg/builtin/#int32">int32</a>) <a href="#Any">Any</a></pre>
+				<p>WrapInt32 turn int32 into Any interface
+
+				
+				
+			
+				
+				<h3 id="WrapInt64">func <a href="/src/github.com/json-iterator/go/any.go?s=1110:1139#L51">WrapInt64</a>
+					<a class="permalink" href="#WrapInt64">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func WrapInt64(val <a href="/pkg/builtin/#int64">int64</a>) <a href="#Any">Any</a></pre>
+				<p>WrapInt64 turn int64 into Any interface
+
+				
+				
+			
+				
+				<h3 id="WrapString">func <a href="/src/github.com/json-iterator/go/any.go?s=1578:1609#L71">WrapString</a>
+					<a class="permalink" href="#WrapString">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func WrapString(val <a href="/pkg/builtin/#string">string</a>) <a href="#Any">Any</a></pre>
+				<p>WrapString turn string into Any interface
+
+				
+				
+			
+				
+				<h3 id="WrapUint32">func <a href="/src/github.com/json-iterator/go/any.go?s=1224:1255#L56">WrapUint32</a>
+					<a class="permalink" href="#WrapUint32">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func WrapUint32(val <a href="/pkg/builtin/#uint32">uint32</a>) <a href="#Any">Any</a></pre>
+				<p>WrapUint32 turn uint32 into Any interface
+
+				
+				
+			
+				
+				<h3 id="WrapUint64">func <a href="/src/github.com/json-iterator/go/any.go?s=1341:1372#L61">WrapUint64</a>
+					<a class="permalink" href="#WrapUint64">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func WrapUint64(val <a href="/pkg/builtin/#uint64">uint64</a>) <a href="#Any">Any</a></pre>
+				<p>WrapUint64 turn uint64 into Any interface
+
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="Binding">type <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=852:1008#L27">Binding</a>
+				<a class="permalink" href="#Binding">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Binding describe how should we encode/decode the struct field
+
+			<pre>type Binding struct {
+<span id="Binding.Field"></span>    Field     <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#StructField">StructField</a>
+<span id="Binding.FromNames"></span>    FromNames []<a href="/pkg/builtin/#string">string</a>
+<span id="Binding.ToNames"></span>    ToNames   []<a href="/pkg/builtin/#string">string</a>
+<span id="Binding.Encoder"></span>    Encoder   <a href="#ValEncoder">ValEncoder</a>
+<span id="Binding.Decoder"></span>    Decoder   <a href="#ValDecoder">ValDecoder</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Config">type <a href="/src/github.com/json-iterator/go/config.go?s=242:661#L6">Config</a>
+				<a class="permalink" href="#Config">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Config customize how the API should behave.
+The API is created from Config by Froze.
+
+			<pre>type Config struct {
+<span id="Config.IndentionStep"></span>    IndentionStep                 <a href="/pkg/builtin/#int">int</a>
+<span id="Config.MarshalFloatWith6Digits"></span>    MarshalFloatWith6Digits       <a href="/pkg/builtin/#bool">bool</a>
+<span id="Config.EscapeHTML"></span>    EscapeHTML                    <a href="/pkg/builtin/#bool">bool</a>
+<span id="Config.SortMapKeys"></span>    SortMapKeys                   <a href="/pkg/builtin/#bool">bool</a>
+<span id="Config.UseNumber"></span>    UseNumber                     <a href="/pkg/builtin/#bool">bool</a>
+<span id="Config.DisallowUnknownFields"></span>    DisallowUnknownFields         <a href="/pkg/builtin/#bool">bool</a>
+<span id="Config.TagKey"></span>    TagKey                        <a href="/pkg/builtin/#string">string</a>
+<span id="Config.OnlyTaggedField"></span>    OnlyTaggedField               <a href="/pkg/builtin/#bool">bool</a>
+<span id="Config.ValidateJsonRawMessage"></span>    ValidateJsonRawMessage        <a href="/pkg/builtin/#bool">bool</a>
+<span id="Config.ObjectFieldMustBeSimpleString"></span>    ObjectFieldMustBeSimpleString <a href="/pkg/builtin/#bool">bool</a>
+<span id="Config.CaseSensitive"></span>    CaseSensitive                 <a href="/pkg/builtin/#bool">bool</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Config.Froze">func (Config) <a href="/src/github.com/json-iterator/go/config.go?s=3596:3625#L119">Froze</a>
+					<a class="permalink" href="#Config.Froze">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (cfg <a href="#Config">Config</a>) Froze() <a href="#API">API</a></pre>
+				<p>Froze forge API from config
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Decoder">type <a href="/src/github.com/json-iterator/go/adapter.go?s=1957:1996#L49">Decoder</a>
+				<a class="permalink" href="#Decoder">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Decoder reads and decodes JSON values from an input stream.
+Decoder provides identical APIs with json/stream Decoder (Token() and UseNumber() are in progress)
+
+			<pre>type Decoder struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewDecoder">func <a href="/src/github.com/json-iterator/go/adapter.go?s=1703:1745#L43">NewDecoder</a>
+					<a class="permalink" href="#NewDecoder">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewDecoder(reader <a href="/pkg/io/">io</a>.<a href="/pkg/io/#Reader">Reader</a>) *<a href="#Decoder">Decoder</a></pre>
+				<p>NewDecoder adapts to json/stream NewDecoder API.
+<p>NewDecoder returns a new decoder that reads from r.
+<p>Instead of a json/encoding Decoder, an Decoder is returned
+Refer to <a href="https://godoc.org/encoding/json#NewDecoder">https://godoc.org/encoding/json#NewDecoder</a> for more information
+
+				
+				
+			
+
+			
+				
+				<h3 id="Decoder.Buffered">func (*Decoder) <a href="/src/github.com/json-iterator/go/adapter.go?s=2603:2647#L83">Buffered</a>
+					<a class="permalink" href="#Decoder.Buffered">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (adapter *<a href="#Decoder">Decoder</a>) Buffered() <a href="/pkg/io/">io</a>.<a href="/pkg/io/#Reader">Reader</a></pre>
+				<p>Buffered remaining buffer
+
+				
+				
+				
+			
+				
+				<h3 id="Decoder.Decode">func (*Decoder) <a href="/src/github.com/json-iterator/go/adapter.go?s=2037:2090#L54">Decode</a>
+					<a class="permalink" href="#Decoder.Decode">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (adapter *<a href="#Decoder">Decoder</a>) Decode(obj interface{}) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>Decode decode JSON into interface{}
+
+				
+				
+				
+			
+				
+				<h3 id="Decoder.DisallowUnknownFields">func (*Decoder) <a href="/src/github.com/json-iterator/go/adapter.go?s=3264:3311#L99">DisallowUnknownFields</a>
+					<a class="permalink" href="#Decoder.DisallowUnknownFields">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (adapter *<a href="#Decoder">Decoder</a>) DisallowUnknownFields()</pre>
+				<p>DisallowUnknownFields causes the Decoder to return an error when the destination
+is a struct and the input contains object keys which do not match any
+non-ignored, exported fields in the destination.
+
+				
+				
+				
+			
+				
+				<h3 id="Decoder.More">func (*Decoder) <a href="/src/github.com/json-iterator/go/adapter.go?s=2367:2402#L69">More</a>
+					<a class="permalink" href="#Decoder.More">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (adapter *<a href="#Decoder">Decoder</a>) More() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>More is there more?
+
+				
+				
+				
+			
+				
+				<h3 id="Decoder.UseNumber">func (*Decoder) <a href="/src/github.com/json-iterator/go/adapter.go?s=2870:2905#L90">UseNumber</a>
+					<a class="permalink" href="#Decoder.UseNumber">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (adapter *<a href="#Decoder">Decoder</a>) UseNumber()</pre>
+				<p>UseNumber causes the Decoder to unmarshal a number into an interface{} as a
+Number instead of as a float64.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="DecoderExtension">type <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=3609:3659#L122">DecoderExtension</a>
+				<a class="permalink" href="#DecoderExtension">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type DecoderExtension map[<a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>]<a href="#ValDecoder">ValDecoder</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="DecoderExtension.CreateDecoder">func (DecoderExtension) <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=4089:4166#L139">CreateDecoder</a>
+					<a class="permalink" href="#DecoderExtension.CreateDecoder">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (extension <a href="#DecoderExtension">DecoderExtension</a>) CreateDecoder(typ <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>) <a href="#ValDecoder">ValDecoder</a></pre>
+				<p>CreateDecoder get decoder from map
+
+				
+				
+				
+			
+				
+				<h3 id="DecoderExtension.CreateEncoder">func (DecoderExtension) <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=4218:4295#L144">CreateEncoder</a>
+					<a class="permalink" href="#DecoderExtension.CreateEncoder">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (extension <a href="#DecoderExtension">DecoderExtension</a>) CreateEncoder(typ <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>) <a href="#ValEncoder">ValEncoder</a></pre>
+				<p>CreateEncoder No-op
+
+				
+				
+				
+			
+				
+				<h3 id="DecoderExtension.CreateMapKeyDecoder">func (DecoderExtension) <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=3820:3903#L129">CreateMapKeyDecoder</a>
+					<a class="permalink" href="#DecoderExtension.CreateMapKeyDecoder">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (extension <a href="#DecoderExtension">DecoderExtension</a>) CreateMapKeyDecoder(typ <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>) <a href="#ValDecoder">ValDecoder</a></pre>
+				<p>CreateMapKeyDecoder No-op
+
+				
+				
+				
+			
+				
+				<h3 id="DecoderExtension.CreateMapKeyEncoder">func (DecoderExtension) <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=3950:4033#L134">CreateMapKeyEncoder</a>
+					<a class="permalink" href="#DecoderExtension.CreateMapKeyEncoder">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (extension <a href="#DecoderExtension">DecoderExtension</a>) CreateMapKeyEncoder(typ <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>) <a href="#ValEncoder">ValEncoder</a></pre>
+				<p>CreateMapKeyEncoder No-op
+
+				
+				
+				
+			
+				
+				<h3 id="DecoderExtension.DecorateDecoder">func (DecoderExtension) <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=4338:4437#L149">DecorateDecoder</a>
+					<a class="permalink" href="#DecoderExtension.DecorateDecoder">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (extension <a href="#DecoderExtension">DecoderExtension</a>) DecorateDecoder(typ <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>, decoder <a href="#ValDecoder">ValDecoder</a>) <a href="#ValDecoder">ValDecoder</a></pre>
+				<p>DecorateDecoder No-op
+
+				
+				
+				
+			
+				
+				<h3 id="DecoderExtension.DecorateEncoder">func (DecoderExtension) <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=4484:4583#L154">DecorateEncoder</a>
+					<a class="permalink" href="#DecoderExtension.DecorateEncoder">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (extension <a href="#DecoderExtension">DecoderExtension</a>) DecorateEncoder(typ <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>, encoder <a href="#ValEncoder">ValEncoder</a>) <a href="#ValEncoder">ValEncoder</a></pre>
+				<p>DecorateEncoder No-op
+
+				
+				
+				
+			
+				
+				<h3 id="DecoderExtension.UpdateStructDescriptor">func (DecoderExtension) <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=3693:3785#L125">UpdateStructDescriptor</a>
+					<a class="permalink" href="#DecoderExtension.UpdateStructDescriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (extension <a href="#DecoderExtension">DecoderExtension</a>) UpdateStructDescriptor(structDescriptor *<a href="#StructDescriptor">StructDescriptor</a>)</pre>
+				<p>UpdateStructDescriptor No-op
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="DecoderFunc">type <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=5148:5205#L183">DecoderFunc</a>
+				<a class="permalink" href="#DecoderFunc">&#xb6;</a>
+				
+				
+			</h2>
+			<p>DecoderFunc the function form of TypeDecoder
+
+			<pre>type DecoderFunc func(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, iter *<a href="#Iterator">Iterator</a>)</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="DummyExtension">type <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=1670:1700#L49">DummyExtension</a>
+				<a class="permalink" href="#DummyExtension">&#xb6;</a>
+				
+				
+			</h2>
+			<p>DummyExtension embed this type get dummy implementation for all methods of Extension
+
+			<pre>type DummyExtension struct {
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="DummyExtension.CreateDecoder">func (*DummyExtension) <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=2112:2188#L67">CreateDecoder</a>
+					<a class="permalink" href="#DummyExtension.CreateDecoder">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (extension *<a href="#DummyExtension">DummyExtension</a>) CreateDecoder(typ <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>) <a href="#ValDecoder">ValDecoder</a></pre>
+				<p>CreateDecoder No-op
+
+				
+				
+				
+			
+				
+				<h3 id="DummyExtension.CreateEncoder">func (*DummyExtension) <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=2229:2305#L72">CreateEncoder</a>
+					<a class="permalink" href="#DummyExtension.CreateEncoder">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (extension *<a href="#DummyExtension">DummyExtension</a>) CreateEncoder(typ <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>) <a href="#ValEncoder">ValEncoder</a></pre>
+				<p>CreateEncoder No-op
+
+				
+				
+				
+			
+				
+				<h3 id="DummyExtension.CreateMapKeyDecoder">func (*DummyExtension) <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=1860:1942#L57">CreateMapKeyDecoder</a>
+					<a class="permalink" href="#DummyExtension.CreateMapKeyDecoder">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (extension *<a href="#DummyExtension">DummyExtension</a>) CreateMapKeyDecoder(typ <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>) <a href="#ValDecoder">ValDecoder</a></pre>
+				<p>CreateMapKeyDecoder No-op
+
+				
+				
+				
+			
+				
+				<h3 id="DummyExtension.CreateMapKeyEncoder">func (*DummyExtension) <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=1989:2071#L62">CreateMapKeyEncoder</a>
+					<a class="permalink" href="#DummyExtension.CreateMapKeyEncoder">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (extension *<a href="#DummyExtension">DummyExtension</a>) CreateMapKeyEncoder(typ <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>) <a href="#ValEncoder">ValEncoder</a></pre>
+				<p>CreateMapKeyEncoder No-op
+
+				
+				
+				
+			
+				
+				<h3 id="DummyExtension.DecorateDecoder">func (*DummyExtension) <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=2348:2446#L77">DecorateDecoder</a>
+					<a class="permalink" href="#DummyExtension.DecorateDecoder">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (extension *<a href="#DummyExtension">DummyExtension</a>) DecorateDecoder(typ <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>, decoder <a href="#ValDecoder">ValDecoder</a>) <a href="#ValDecoder">ValDecoder</a></pre>
+				<p>DecorateDecoder No-op
+
+				
+				
+				
+			
+				
+				<h3 id="DummyExtension.DecorateEncoder">func (*DummyExtension) <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=2493:2591#L82">DecorateEncoder</a>
+					<a class="permalink" href="#DummyExtension.DecorateEncoder">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (extension *<a href="#DummyExtension">DummyExtension</a>) DecorateEncoder(typ <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>, encoder <a href="#ValEncoder">ValEncoder</a>) <a href="#ValEncoder">ValEncoder</a></pre>
+				<p>DecorateEncoder No-op
+
+				
+				
+				
+			
+				
+				<h3 id="DummyExtension.UpdateStructDescriptor">func (*DummyExtension) <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=1734:1825#L53">UpdateStructDescriptor</a>
+					<a class="permalink" href="#DummyExtension.UpdateStructDescriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (extension *<a href="#DummyExtension">DummyExtension</a>) UpdateStructDescriptor(structDescriptor *<a href="#StructDescriptor">StructDescriptor</a>)</pre>
+				<p>UpdateStructDescriptor No-op
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Encoder">type <a href="/src/github.com/json-iterator/go/adapter.go?s=3632:3671#L111">Encoder</a>
+				<a class="permalink" href="#Encoder">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Encoder same as json.Encoder
+
+			<pre>type Encoder struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewEncoder">func <a href="/src/github.com/json-iterator/go/adapter.go?s=3511:3553#L106">NewEncoder</a>
+					<a class="permalink" href="#NewEncoder">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewEncoder(writer <a href="/pkg/io/">io</a>.<a href="/pkg/io/#Writer">Writer</a>) *<a href="#Encoder">Encoder</a></pre>
+				<p>NewEncoder same as json.NewEncoder
+
+				
+				
+			
+
+			
+				
+				<h3 id="Encoder.Encode">func (*Encoder) <a href="/src/github.com/json-iterator/go/adapter.go?s=3723:3776#L116">Encode</a>
+					<a class="permalink" href="#Encoder.Encode">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (adapter *<a href="#Encoder">Encoder</a>) Encode(val interface{}) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>Encode encode interface{} as JSON to io.Writer
+
+				
+				
+				
+			
+				
+				<h3 id="Encoder.SetEscapeHTML">func (*Encoder) <a href="/src/github.com/json-iterator/go/adapter.go?s=4249:4303#L131">SetEscapeHTML</a>
+					<a class="permalink" href="#Encoder.SetEscapeHTML">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (adapter *<a href="#Encoder">Encoder</a>) SetEscapeHTML(escapeHTML <a href="/pkg/builtin/#bool">bool</a>)</pre>
+				<p>SetEscapeHTML escape html by default, set to false to disable
+
+				
+				
+				
+			
+				
+				<h3 id="Encoder.SetIndent">func (*Encoder) <a href="/src/github.com/json-iterator/go/adapter.go?s=3952:4008#L124">SetIndent</a>
+					<a class="permalink" href="#Encoder.SetIndent">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (adapter *<a href="#Encoder">Encoder</a>) SetIndent(prefix, indent <a href="/pkg/builtin/#string">string</a>)</pre>
+				<p>SetIndent set the indention. Prefix is not supported
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="EncoderExtension">type <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=2613:2663#L86">EncoderExtension</a>
+				<a class="permalink" href="#EncoderExtension">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type EncoderExtension map[<a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>]<a href="#ValEncoder">ValEncoder</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="EncoderExtension.CreateDecoder">func (EncoderExtension) <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=2818:2895#L93">CreateDecoder</a>
+					<a class="permalink" href="#EncoderExtension.CreateDecoder">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (extension <a href="#EncoderExtension">EncoderExtension</a>) CreateDecoder(typ <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>) <a href="#ValDecoder">ValDecoder</a></pre>
+				<p>CreateDecoder No-op
+
+				
+				
+				
+			
+				
+				<h3 id="EncoderExtension.CreateEncoder">func (EncoderExtension) <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=2951:3028#L98">CreateEncoder</a>
+					<a class="permalink" href="#EncoderExtension.CreateEncoder">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (extension <a href="#EncoderExtension">EncoderExtension</a>) CreateEncoder(typ <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>) <a href="#ValEncoder">ValEncoder</a></pre>
+				<p>CreateEncoder get encoder from map
+
+				
+				
+				
+			
+				
+				<h3 id="EncoderExtension.CreateMapKeyDecoder">func (EncoderExtension) <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=3086:3169#L103">CreateMapKeyDecoder</a>
+					<a class="permalink" href="#EncoderExtension.CreateMapKeyDecoder">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (extension <a href="#EncoderExtension">EncoderExtension</a>) CreateMapKeyDecoder(typ <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>) <a href="#ValDecoder">ValDecoder</a></pre>
+				<p>CreateMapKeyDecoder No-op
+
+				
+				
+				
+			
+				
+				<h3 id="EncoderExtension.CreateMapKeyEncoder">func (EncoderExtension) <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=3216:3299#L108">CreateMapKeyEncoder</a>
+					<a class="permalink" href="#EncoderExtension.CreateMapKeyEncoder">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (extension <a href="#EncoderExtension">EncoderExtension</a>) CreateMapKeyEncoder(typ <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>) <a href="#ValEncoder">ValEncoder</a></pre>
+				<p>CreateMapKeyEncoder No-op
+
+				
+				
+				
+			
+				
+				<h3 id="EncoderExtension.DecorateDecoder">func (EncoderExtension) <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=3342:3441#L113">DecorateDecoder</a>
+					<a class="permalink" href="#EncoderExtension.DecorateDecoder">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (extension <a href="#EncoderExtension">EncoderExtension</a>) DecorateDecoder(typ <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>, decoder <a href="#ValDecoder">ValDecoder</a>) <a href="#ValDecoder">ValDecoder</a></pre>
+				<p>DecorateDecoder No-op
+
+				
+				
+				
+			
+				
+				<h3 id="EncoderExtension.DecorateEncoder">func (EncoderExtension) <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=3488:3587#L118">DecorateEncoder</a>
+					<a class="permalink" href="#EncoderExtension.DecorateEncoder">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (extension <a href="#EncoderExtension">EncoderExtension</a>) DecorateEncoder(typ <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>, encoder <a href="#ValEncoder">ValEncoder</a>) <a href="#ValEncoder">ValEncoder</a></pre>
+				<p>DecorateEncoder No-op
+
+				
+				
+				
+			
+				
+				<h3 id="EncoderExtension.UpdateStructDescriptor">func (EncoderExtension) <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=2697:2789#L89">UpdateStructDescriptor</a>
+					<a class="permalink" href="#EncoderExtension.UpdateStructDescriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (extension <a href="#EncoderExtension">EncoderExtension</a>) UpdateStructDescriptor(structDescriptor *<a href="#StructDescriptor">StructDescriptor</a>)</pre>
+				<p>UpdateStructDescriptor No-op
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="EncoderFunc">type <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=5255:5312#L186">EncoderFunc</a>
+				<a class="permalink" href="#EncoderFunc">&#xb6;</a>
+				
+				
+			</h2>
+			<p>EncoderFunc the function form of TypeEncoder
+
+			<pre>type EncoderFunc func(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, stream *<a href="#Stream">Stream</a>)</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Extension">type <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=1166:1580#L38">Extension</a>
+				<a class="permalink" href="#Extension">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Extension the one for all SPI. Customize encoding/decoding by specifying alternate encoder/decoder.
+Can also rename fields by UpdateStructDescriptor.
+
+			<pre>type Extension interface {
+    UpdateStructDescriptor(structDescriptor *<a href="#StructDescriptor">StructDescriptor</a>)
+    CreateMapKeyDecoder(typ <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>) <a href="#ValDecoder">ValDecoder</a>
+    CreateMapKeyEncoder(typ <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>) <a href="#ValEncoder">ValEncoder</a>
+    CreateDecoder(typ <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>) <a href="#ValDecoder">ValDecoder</a>
+    CreateEncoder(typ <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>) <a href="#ValEncoder">ValEncoder</a>
+    DecorateDecoder(typ <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>, decoder <a href="#ValDecoder">ValDecoder</a>) <a href="#ValDecoder">ValDecoder</a>
+    DecorateEncoder(typ <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>, encoder <a href="#ValEncoder">ValEncoder</a>) <a href="#ValEncoder">ValEncoder</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="IsEmbeddedPtrNil">type <a href="/src/github.com/json-iterator/go/reflect_struct_encoder.go?s=3267:3345#L120">IsEmbeddedPtrNil</a>
+				<a class="permalink" href="#IsEmbeddedPtrNil">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type IsEmbeddedPtrNil interface {
+    IsEmbeddedPtrNil(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) <a href="/pkg/builtin/#bool">bool</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Iterator">type <a href="/src/github.com/json-iterator/go/iter.go?s=1655:1962#L61">Iterator</a>
+				<a class="permalink" href="#Iterator">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Iterator is a io.Reader like object, with JSON specific read functions.
+Error is not returned as return value, but stored as Error member on this iterator instance.
+
+			<pre>type Iterator struct {
+<span id="Iterator.Error"></span>    Error      <a href="/pkg/builtin/#error">error</a>
+<span id="Iterator.Attachment"></span>    Attachment interface{} <span class="comment">// open for customized decoder</span>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewIterator">func <a href="/src/github.com/json-iterator/go/iter.go?s=2014:2049#L75">NewIterator</a>
+					<a class="permalink" href="#NewIterator">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewIterator(cfg <a href="#API">API</a>) *<a href="#Iterator">Iterator</a></pre>
+				<p>NewIterator creates an empty Iterator instance
+
+				
+				
+			
+				
+				<h3 id="Parse">func <a href="/src/github.com/json-iterator/go/iter.go?s=2230:2290#L87">Parse</a>
+					<a class="permalink" href="#Parse">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func Parse(cfg <a href="#API">API</a>, reader <a href="/pkg/io/">io</a>.<a href="/pkg/io/#Reader">Reader</a>, bufSize <a href="/pkg/builtin/#int">int</a>) *<a href="#Iterator">Iterator</a></pre>
+				<p>Parse creates an Iterator instance from io.Reader
+
+				
+				
+			
+				
+				<h3 id="ParseBytes">func <a href="/src/github.com/json-iterator/go/iter.go?s=2498:2546#L99">ParseBytes</a>
+					<a class="permalink" href="#ParseBytes">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func ParseBytes(cfg <a href="#API">API</a>, input []<a href="/pkg/builtin/#byte">byte</a>) *<a href="#Iterator">Iterator</a></pre>
+				<p>ParseBytes creates an Iterator instance from byte array
+
+				
+				
+			
+				
+				<h3 id="ParseString">func <a href="/src/github.com/json-iterator/go/iter.go?s=2741:2790#L111">ParseString</a>
+					<a class="permalink" href="#ParseString">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func ParseString(cfg <a href="#API">API</a>, input <a href="/pkg/builtin/#string">string</a>) *<a href="#Iterator">Iterator</a></pre>
+				<p>ParseString creates an Iterator instance from string
+
+				
+				
+			
+
+			
+				
+				<h3 id="Iterator.CurrentBuffer">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter.go?s=5275:5319#L219">CurrentBuffer</a>
+					<a class="permalink" href="#Iterator.CurrentBuffer">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) CurrentBuffer() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>CurrentBuffer gets current buffer as string for debugging purpose
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.Pool">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter.go?s=2908:2949#L116">Pool</a>
+					<a class="permalink" href="#Iterator.Pool">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) Pool() <a href="#IteratorPool">IteratorPool</a></pre>
+				<p>Pool returns a pool can provide more iterator with same configuration
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.Read">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter.go?s=6478:6518#L281">Read</a>
+					<a class="permalink" href="#Iterator.Read">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) Read() interface{}</pre>
+				<p>Read read the next JSON element as generic interface{}.
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.ReadAny">func (*Iterator) <a href="/src/github.com/json-iterator/go/any.go?s=3309:3344#L139">ReadAny</a>
+					<a class="permalink" href="#Iterator.ReadAny">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) ReadAny() <a href="#Any">Any</a></pre>
+				<p>ReadAny read next JSON element as an Any object. It is a better json.RawMessage.
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.ReadArray">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter_array.go?s=96:140#L1">ReadArray</a>
+					<a class="permalink" href="#Iterator.ReadArray">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) ReadArray() (ret <a href="/pkg/builtin/#bool">bool</a>)</pre>
+				<p>ReadArray read array element, tells if the array has more element to read.
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.ReadArrayCB">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter_array.go?s=559:634#L18">ReadArrayCB</a>
+					<a class="permalink" href="#Iterator.ReadArrayCB">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) ReadArrayCB(callback func(*<a href="#Iterator">Iterator</a>) <a href="/pkg/builtin/#bool">bool</a>) (ret <a href="/pkg/builtin/#bool">bool</a>)</pre>
+				<p>ReadArrayCB read array with callback
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.ReadBigFloat">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter_float.go?s=688:741#L26">ReadBigFloat</a>
+					<a class="permalink" href="#Iterator.ReadBigFloat">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) ReadBigFloat() (ret *<a href="/pkg/math/big/">big</a>.<a href="/pkg/math/big/#Float">Float</a>)</pre>
+				<p>ReadBigFloat read big.Float
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.ReadBigInt">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter_float.go?s=1055:1104#L44">ReadBigInt</a>
+					<a class="permalink" href="#Iterator.ReadBigInt">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) ReadBigInt() (ret *<a href="/pkg/math/big/">big</a>.<a href="/pkg/math/big/#Int">Int</a>)</pre>
+				<p>ReadBigInt read big.Int
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.ReadBool">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter_skip.go?s=337:380#L8">ReadBool</a>
+					<a class="permalink" href="#Iterator.ReadBool">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) ReadBool() (ret <a href="/pkg/builtin/#bool">bool</a>)</pre>
+				<p>ReadBool reads a json object as BoolValue
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.ReadFloat32">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter_float.go?s=1408:1457#L60">ReadFloat32</a>
+					<a class="permalink" href="#Iterator.ReadFloat32">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) ReadFloat32() (ret <a href="/pkg/builtin/#float32">float32</a>)</pre>
+				<p>ReadFloat32 read float32
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.ReadFloat64">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter_float.go?s=4508:4557#L197">ReadFloat64</a>
+					<a class="permalink" href="#Iterator.ReadFloat64">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) ReadFloat64() (ret <a href="/pkg/builtin/#float64">float64</a>)</pre>
+				<p>ReadFloat64 read float64
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.ReadInt">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter_int.go?s=609:644#L23">ReadInt</a>
+					<a class="permalink" href="#Iterator.ReadInt">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) ReadInt() <a href="/pkg/builtin/#int">int</a></pre>
+				<p>ReadInt read int
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.ReadInt16">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter_int.go?s=1477:1522#L60">ReadInt16</a>
+					<a class="permalink" href="#Iterator.ReadInt16">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) ReadInt16() (ret <a href="/pkg/builtin/#int16">int16</a>)</pre>
+				<p>ReadInt16 read int16
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.ReadInt32">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter_int.go?s=2205:2250#L89">ReadInt32</a>
+					<a class="permalink" href="#Iterator.ReadInt32">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) ReadInt32() (ret <a href="/pkg/builtin/#int32">int32</a>)</pre>
+				<p>ReadInt32 read int32
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.ReadInt64">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter_int.go?s=5415:5460#L211">ReadInt64</a>
+					<a class="permalink" href="#Iterator.ReadInt64">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) ReadInt64() (ret <a href="/pkg/builtin/#int64">int64</a>)</pre>
+				<p>ReadInt64 read int64
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.ReadInt8">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter_int.go?s=764:807#L31">ReadInt8</a>
+					<a class="permalink" href="#Iterator.ReadInt8">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) ReadInt8() (ret <a href="/pkg/builtin/#int8">int8</a>)</pre>
+				<p>ReadInt8 read int8
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.ReadMapCB">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter_object.go?s=3983:4058#L156">ReadMapCB</a>
+					<a class="permalink" href="#Iterator.ReadMapCB">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) ReadMapCB(callback func(*<a href="#Iterator">Iterator</a>, <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#bool">bool</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>ReadMapCB read map with callback, the key can be any string
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.ReadNil">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter_skip.go?s=111:153#L1">ReadNil</a>
+					<a class="permalink" href="#Iterator.ReadNil">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) ReadNil() (ret <a href="/pkg/builtin/#bool">bool</a>)</pre>
+				<p>ReadNil reads a json object as nil and
+returns whether it&apos;s a nil or not
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.ReadNumber">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter_float.go?s=7537:7589#L330">ReadNumber</a>
+					<a class="permalink" href="#Iterator.ReadNumber">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) ReadNumber() (ret <a href="/pkg/encoding/json/">json</a>.<a href="/pkg/encoding/json/#Number">Number</a>)</pre>
+				<p>ReadNumber read json.Number
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.ReadObject">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter_object.go?s=170:217#L1">ReadObject</a>
+					<a class="permalink" href="#Iterator.ReadObject">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) ReadObject() (ret <a href="/pkg/builtin/#string">string</a>)</pre>
+				<p>ReadObject read one field from object.
+If object ended, returns empty string.
+Otherwise, returns the field name.
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.ReadObjectCB">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter_object.go?s=2573:2651#L101">ReadObjectCB</a>
+					<a class="permalink" href="#Iterator.ReadObjectCB">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) ReadObjectCB(callback func(*<a href="#Iterator">Iterator</a>, <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#bool">bool</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>ReadObjectCB read object with callback, the key is ascii only and field name not copied
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.ReadString">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter_str.go?s=94:141#L1">ReadString</a>
+					<a class="permalink" href="#Iterator.ReadString">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) ReadString() (ret <a href="/pkg/builtin/#string">string</a>)</pre>
+				<p>ReadString read string from iterator
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.ReadStringAsSlice">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter_str.go?s=2398:2452#L106">ReadStringAsSlice</a>
+					<a class="permalink" href="#Iterator.ReadStringAsSlice">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) ReadStringAsSlice() (ret []<a href="/pkg/builtin/#byte">byte</a>)</pre>
+				<p>ReadStringAsSlice read string from iterator without copying into string form.
+The []byte can not be kept, as it will change after next iterator call.
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.ReadUint">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter_int.go?s=450:487#L15">ReadUint</a>
+					<a class="permalink" href="#Iterator.ReadUint">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) ReadUint() <a href="/pkg/builtin/#uint">uint</a></pre>
+				<p>ReadUint read uint
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.ReadUint16">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter_int.go?s=1946:1993#L79">ReadUint16</a>
+					<a class="permalink" href="#Iterator.ReadUint16">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) ReadUint16() (ret <a href="/pkg/builtin/#uint16">uint16</a>)</pre>
+				<p>ReadUint16 read uint16
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.ReadUint32">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter_int.go?s=2674:2721#L108">ReadUint32</a>
+					<a class="permalink" href="#Iterator.ReadUint32">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) ReadUint32() (ret <a href="/pkg/builtin/#uint32">uint32</a>)</pre>
+				<p>ReadUint32 read uint32
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.ReadUint64">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter_int.go?s=5888:5929#L230">ReadUint64</a>
+					<a class="permalink" href="#Iterator.ReadUint64">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) ReadUint64() <a href="/pkg/builtin/#uint64">uint64</a></pre>
+				<p>ReadUint64 read uint64
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.ReadUint8">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter_int.go?s=1223:1268#L50">ReadUint8</a>
+					<a class="permalink" href="#Iterator.ReadUint8">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) ReadUint8() (ret <a href="/pkg/builtin/#uint8">uint8</a>)</pre>
+				<p>ReadUint8 read uint8
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.ReadVal">func (*Iterator) <a href="/src/github.com/json-iterator/go/reflect.go?s=1811:1857#L52">ReadVal</a>
+					<a class="permalink" href="#Iterator.ReadVal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) ReadVal(obj interface{})</pre>
+				<p>ReadVal copy the underlying JSON into go interface, same as json.Unmarshal
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.ReportError">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter.go?s=4498:4561#L190">ReportError</a>
+					<a class="permalink" href="#Iterator.ReportError">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) ReportError(operation <a href="/pkg/builtin/#string">string</a>, msg <a href="/pkg/builtin/#string">string</a>)</pre>
+				<p>ReportError record a error in iterator instance with current position.
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.Reset">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter.go?s=3034:3089#L121">Reset</a>
+					<a class="permalink" href="#Iterator.Reset">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) Reset(reader <a href="/pkg/io/">io</a>.<a href="/pkg/io/#Reader">Reader</a>) *<a href="#Iterator">Iterator</a></pre>
+				<p>Reset reuse iterator instance by specifying another reader
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.ResetBytes">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter.go?s=3256:3312#L130">ResetBytes</a>
+					<a class="permalink" href="#Iterator.ResetBytes">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) ResetBytes(input []<a href="/pkg/builtin/#byte">byte</a>) *<a href="#Iterator">Iterator</a></pre>
+				<p>ResetBytes reuse iterator instance by specifying another byte array as input
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.Skip">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter_skip.go?s=1822:1850#L62">Skip</a>
+					<a class="permalink" href="#Iterator.Skip">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) Skip()</pre>
+				<p>Skip skips a json object and positions to relatively the next json object
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.SkipAndAppendBytes">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter_skip.go?s=997:1056#L32">SkipAndAppendBytes</a>
+					<a class="permalink" href="#Iterator.SkipAndAppendBytes">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) SkipAndAppendBytes(buf []<a href="/pkg/builtin/#byte">byte</a>) []<a href="/pkg/builtin/#byte">byte</a></pre>
+				<p>SkipAndAppendBytes skips next JSON element and appends its content to
+buffer, returning the result.
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.SkipAndReturnBytes">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter_skip.go?s=766:815#L24">SkipAndReturnBytes</a>
+					<a class="permalink" href="#Iterator.SkipAndReturnBytes">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) SkipAndReturnBytes() []<a href="/pkg/builtin/#byte">byte</a></pre>
+				<p>SkipAndReturnBytes skip next JSON element, and return its content as []byte.
+The []byte can be kept, it is a copy of data.
+
+				
+				
+				
+			
+				
+				<h3 id="Iterator.WhatIsNext">func (*Iterator) <a href="/src/github.com/json-iterator/go/iter.go?s=3484:3528#L140">WhatIsNext</a>
+					<a class="permalink" href="#Iterator.WhatIsNext">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#Iterator">Iterator</a>) WhatIsNext() <a href="#ValueType">ValueType</a></pre>
+				<p>WhatIsNext gets ValueType of relatively next json element
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="IteratorPool">type <a href="/src/github.com/json-iterator/go/pool.go?s=108:210#L1">IteratorPool</a>
+				<a class="permalink" href="#IteratorPool">&#xb6;</a>
+				
+				
+			</h2>
+			<p>IteratorPool a thread safe pool of iterators with same configuration
+
+			<pre>type IteratorPool interface {
+    BorrowIterator(data []<a href="/pkg/builtin/#byte">byte</a>) *<a href="#Iterator">Iterator</a>
+    ReturnIterator(iter *<a href="#Iterator">Iterator</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Number">type <a href="/src/github.com/json-iterator/go/reflect_json_number.go?s=101:119#L1">Number</a>
+				<a class="permalink" href="#Number">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Number <a href="/pkg/builtin/#string">string</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Number.Float64">func (Number) <a href="/src/github.com/json-iterator/go/reflect_json_number.go?s=269:311#L6">Float64</a>
+					<a class="permalink" href="#Number.Float64">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (n <a href="#Number">Number</a>) Float64() (<a href="/pkg/builtin/#float64">float64</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>Float64 returns the number as a float64.
+
+				
+				
+				
+			
+				
+				<h3 id="Number.Int64">func (Number) <a href="/src/github.com/json-iterator/go/reflect_json_number.go?s=400:438#L11">Int64</a>
+					<a class="permalink" href="#Number.Int64">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (n <a href="#Number">Number</a>) Int64() (<a href="/pkg/builtin/#int64">int64</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>Int64 returns the number as an int64.
+
+				
+				
+				
+			
+				
+				<h3 id="Number.String">func (Number) <a href="/src/github.com/json-iterator/go/reflect_json_number.go?s=171:202#L3">String</a>
+					<a class="permalink" href="#Number.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (n <a href="#Number">Number</a>) String() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>String returns the literal text of the number.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="OptionalDecoder">type <a href="/src/github.com/json-iterator/go/reflect_optional.go?s=537:621#L13">OptionalDecoder</a>
+				<a class="permalink" href="#OptionalDecoder">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type OptionalDecoder struct {
+<span id="OptionalDecoder.ValueType"></span>    ValueType    <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>
+<span id="OptionalDecoder.ValueDecoder"></span>    ValueDecoder <a href="#ValDecoder">ValDecoder</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="OptionalDecoder.Decode">func (*OptionalDecoder) <a href="/src/github.com/json-iterator/go/reflect_optional.go?s=623:697#L18">Decode</a>
+					<a class="permalink" href="#OptionalDecoder.Decode">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (decoder *<a href="#OptionalDecoder">OptionalDecoder</a>) Decode(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, iter *<a href="#Iterator">Iterator</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="OptionalEncoder">type <a href="/src/github.com/json-iterator/go/reflect_optional.go?s=1648:1704#L52">OptionalEncoder</a>
+				<a class="permalink" href="#OptionalEncoder">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type OptionalEncoder struct {
+<span id="OptionalEncoder.ValueEncoder"></span>    ValueEncoder <a href="#ValEncoder">ValEncoder</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="OptionalEncoder.Encode">func (*OptionalEncoder) <a href="/src/github.com/json-iterator/go/reflect_optional.go?s=1706:1780#L56">Encode</a>
+					<a class="permalink" href="#OptionalEncoder.Encode">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (encoder *<a href="#OptionalEncoder">OptionalEncoder</a>) Encode(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, stream *<a href="#Stream">Stream</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="OptionalEncoder.IsEmpty">func (*OptionalEncoder) <a href="/src/github.com/json-iterator/go/reflect_optional.go?s=1923:1987#L64">IsEmpty</a>
+					<a class="permalink" href="#OptionalEncoder.IsEmpty">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (encoder *<a href="#OptionalEncoder">OptionalEncoder</a>) IsEmpty(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="RawMessage">type <a href="/src/github.com/json-iterator/go/adapter.go?s=94:116#L1">RawMessage</a>
+				<a class="permalink" href="#RawMessage">&#xb6;</a>
+				
+				
+			</h2>
+			<p>RawMessage to make replace json with jsoniter
+
+			<pre>type RawMessage []<a href="/pkg/builtin/#byte">byte</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Stream">type <a href="/src/github.com/json-iterator/go/stream.go?s=204:382#L1">Stream</a>
+				<a class="permalink" href="#Stream">&#xb6;</a>
+				
+				
+			</h2>
+			<p>stream is a io.Writer like object, with JSON specific write functions.
+Error is not returned as return value, but stored as Error member on this stream instance.
+
+			<pre>type Stream struct {
+<span id="Stream.Error"></span>    Error <a href="/pkg/builtin/#error">error</a>
+
+<span id="Stream.Attachment"></span>    Attachment interface{} <span class="comment">// open for customized encoder</span>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewStream">func <a href="/src/github.com/json-iterator/go/stream.go?s=575:634#L12">NewStream</a>
+					<a class="permalink" href="#NewStream">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewStream(cfg <a href="#API">API</a>, out <a href="/pkg/io/">io</a>.<a href="/pkg/io/#Writer">Writer</a>, bufSize <a href="/pkg/builtin/#int">int</a>) *<a href="#Stream">Stream</a></pre>
+				<p>NewStream create new stream instance.
+cfg can be jsoniter.ConfigDefault.
+out can be nil if write to internal buffer.
+bufSize is the initial size for the internal buffer in bytes.
+
+				
+				
+			
+
+			
+				
+				<h3 id="Stream.Available">func (*Stream) <a href="/src/github.com/json-iterator/go/stream.go?s=1136:1173#L34">Available</a>
+					<a class="permalink" href="#Stream.Available">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) Available() <a href="/pkg/builtin/#int">int</a></pre>
+				<p>Available returns how many bytes are unused in the buffer.
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.Buffer">func (*Stream) <a href="/src/github.com/json-iterator/go/stream.go?s=1438:1475#L44">Buffer</a>
+					<a class="permalink" href="#Stream.Buffer">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) Buffer() []<a href="/pkg/builtin/#byte">byte</a></pre>
+				<p>Buffer if writer is nil, use this method to take the result
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.Buffered">func (*Stream) <a href="/src/github.com/json-iterator/go/stream.go?s=1309:1345#L39">Buffered</a>
+					<a class="permalink" href="#Stream.Buffered">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) Buffered() <a href="/pkg/builtin/#int">int</a></pre>
+				<p>Buffered returns the number of bytes that have been written into the current buffer.
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.Flush">func (*Stream) <a href="/src/github.com/json-iterator/go/stream.go?s=2696:2731#L89">Flush</a>
+					<a class="permalink" href="#Stream.Flush">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) Flush() <a href="/pkg/builtin/#error">error</a></pre>
+				<p>Flush writes any buffered data to the underlying io.Writer.
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.Pool">func (*Stream) <a href="/src/github.com/json-iterator/go/stream.go?s=856:895#L23">Pool</a>
+					<a class="permalink" href="#Stream.Pool">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) Pool() <a href="#StreamPool">StreamPool</a></pre>
+				<p>Pool returns a pool can provide more stream with same configuration
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.Reset">func (*Stream) <a href="/src/github.com/json-iterator/go/stream.go?s=979:1021#L28">Reset</a>
+					<a class="permalink" href="#Stream.Reset">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) Reset(out <a href="/pkg/io/">io</a>.<a href="/pkg/io/#Writer">Writer</a>)</pre>
+				<p>Reset reuse this stream instance by assign a new writer
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.SetBuffer">func (*Stream) <a href="/src/github.com/json-iterator/go/stream.go?s=1562:1605#L49">SetBuffer</a>
+					<a class="permalink" href="#Stream.SetBuffer">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) SetBuffer(buf []<a href="/pkg/builtin/#byte">byte</a>)</pre>
+				<p>SetBuffer allows to append to the internal buffer directly
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.Write">func (*Stream) <a href="/src/github.com/json-iterator/go/stream.go?s=1805:1862#L57">Write</a>
+					<a class="permalink" href="#Stream.Write">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) Write(p []<a href="/pkg/builtin/#byte">byte</a>) (nn <a href="/pkg/builtin/#int">int</a>, err <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>Write writes the contents of p into the buffer.
+It returns the number of bytes written.
+If nn &lt; len(p), it also returns an error explaining
+why the write is short.
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteArrayEnd">func (*Stream) <a href="/src/github.com/json-iterator/go/stream.go?s=4899:4936#L185">WriteArrayEnd</a>
+					<a class="permalink" href="#Stream.WriteArrayEnd">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteArrayEnd()</pre>
+				<p>WriteArrayEnd write ] with possible indention
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteArrayStart">func (*Stream) <a href="/src/github.com/json-iterator/go/stream.go?s=4605:4644#L173">WriteArrayStart</a>
+					<a class="permalink" href="#Stream.WriteArrayStart">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteArrayStart()</pre>
+				<p>WriteArrayStart write [ with possible indention
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteBool">func (*Stream) <a href="/src/github.com/json-iterator/go/stream.go?s=3541:3582#L128">WriteBool</a>
+					<a class="permalink" href="#Stream.WriteBool">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteBool(val <a href="/pkg/builtin/#bool">bool</a>)</pre>
+				<p>WriteBool write true or false into stream
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteEmptyArray">func (*Stream) <a href="/src/github.com/json-iterator/go/stream.go?s=4773:4812#L180">WriteEmptyArray</a>
+					<a class="permalink" href="#Stream.WriteEmptyArray">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteEmptyArray()</pre>
+				<p>WriteEmptyArray write []
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteEmptyObject">func (*Stream) <a href="/src/github.com/json-iterator/go/stream.go?s=4329:4369#L161">WriteEmptyObject</a>
+					<a class="permalink" href="#Stream.WriteEmptyObject">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteEmptyObject()</pre>
+				<p>WriteEmptyObject write {}
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteFalse">func (*Stream) <a href="/src/github.com/json-iterator/go/stream.go?s=3408:3442#L123">WriteFalse</a>
+					<a class="permalink" href="#Stream.WriteFalse">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteFalse()</pre>
+				<p>WriteFalse write false to stream
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteFloat32">func (*Stream) <a href="/src/github.com/json-iterator/go/stream_float.go?s=193:240#L6">WriteFloat32</a>
+					<a class="permalink" href="#Stream.WriteFloat32">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteFloat32(val <a href="/pkg/builtin/#float32">float32</a>)</pre>
+				<p>WriteFloat32 write float32 to stream
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteFloat32Lossy">func (*Stream) <a href="/src/github.com/json-iterator/go/stream_float.go?s=784:836#L23">WriteFloat32Lossy</a>
+					<a class="permalink" href="#Stream.WriteFloat32Lossy">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteFloat32Lossy(val <a href="/pkg/builtin/#float32">float32</a>)</pre>
+				<p>WriteFloat32Lossy write float32 to stream with ONLY 6 digits precision although much much faster
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteFloat64">func (*Stream) <a href="/src/github.com/json-iterator/go/stream_float.go?s=1529:1576#L55">WriteFloat64</a>
+					<a class="permalink" href="#Stream.WriteFloat64">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteFloat64(val <a href="/pkg/builtin/#float64">float64</a>)</pre>
+				<p>WriteFloat64 write float64 to stream
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteFloat64Lossy">func (*Stream) <a href="/src/github.com/json-iterator/go/stream_float.go?s=2075:2127#L72">WriteFloat64Lossy</a>
+					<a class="permalink" href="#Stream.WriteFloat64Lossy">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteFloat64Lossy(val <a href="/pkg/builtin/#float64">float64</a>)</pre>
+				<p>WriteFloat64Lossy write float64 to stream with ONLY 6 digits precision although much much faster
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteInt">func (*Stream) <a href="/src/github.com/json-iterator/go/stream_int.go?s=4391:4430#L173">WriteInt</a>
+					<a class="permalink" href="#Stream.WriteInt">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteInt(val <a href="/pkg/builtin/#int">int</a>)</pre>
+				<p>WriteInt write int to stream
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteInt16">func (*Stream) <a href="/src/github.com/json-iterator/go/stream_int.go?s=1398:1442#L53">WriteInt16</a>
+					<a class="permalink" href="#Stream.WriteInt16">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteInt16(nval <a href="/pkg/builtin/#int16">int16</a>)</pre>
+				<p>WriteInt16 write int16 to stream
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteInt32">func (*Stream) <a href="/src/github.com/json-iterator/go/stream_int.go?s=2315:2359#L92">WriteInt32</a>
+					<a class="permalink" href="#Stream.WriteInt32">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteInt32(nval <a href="/pkg/builtin/#int32">int32</a>)</pre>
+				<p>WriteInt32 write int32 to stream
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteInt64">func (*Stream) <a href="/src/github.com/json-iterator/go/stream_int.go?s=4158:4202#L161">WriteInt64</a>
+					<a class="permalink" href="#Stream.WriteInt64">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteInt64(nval <a href="/pkg/builtin/#int64">int64</a>)</pre>
+				<p>WriteInt64 write int64 to stream
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteInt8">func (*Stream) <a href="/src/github.com/json-iterator/go/stream_int.go?s=823:865#L28">WriteInt8</a>
+					<a class="permalink" href="#Stream.WriteInt8">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteInt8(nval <a href="/pkg/builtin/#int8">int8</a>)</pre>
+				<p>WriteInt8 write int8 to stream
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteMore">func (*Stream) <a href="/src/github.com/json-iterator/go/stream.go?s=4466:4499#L167">WriteMore</a>
+					<a class="permalink" href="#Stream.WriteMore">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteMore()</pre>
+				<p>WriteMore write , with possible indention
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteNil">func (*Stream) <a href="/src/github.com/json-iterator/go/stream.go?s=3175:3207#L113">WriteNil</a>
+					<a class="permalink" href="#Stream.WriteNil">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteNil()</pre>
+				<p>WriteNil write null to stream
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteObjectEnd">func (*Stream) <a href="/src/github.com/json-iterator/go/stream.go?s=4138:4176#L154">WriteObjectEnd</a>
+					<a class="permalink" href="#Stream.WriteObjectEnd">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteObjectEnd()</pre>
+				<p>WriteObjectEnd write } with possible indention
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteObjectField">func (*Stream) <a href="/src/github.com/json-iterator/go/stream.go?s=3906:3958#L144">WriteObjectField</a>
+					<a class="permalink" href="#Stream.WriteObjectField">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteObjectField(field <a href="/pkg/builtin/#string">string</a>)</pre>
+				<p>WriteObjectField write &quot;field&quot;: with possible indention
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteObjectStart">func (*Stream) <a href="/src/github.com/json-iterator/go/stream.go?s=3706:3746#L137">WriteObjectStart</a>
+					<a class="permalink" href="#Stream.WriteObjectStart">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteObjectStart()</pre>
+				<p>WriteObjectStart write { with possible indention
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteRaw">func (*Stream) <a href="/src/github.com/json-iterator/go/stream.go?s=3057:3097#L108">WriteRaw</a>
+					<a class="permalink" href="#Stream.WriteRaw">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteRaw(s <a href="/pkg/builtin/#string">string</a>)</pre>
+				<p>WriteRaw write string out without quotes, just like []byte
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteString">func (*Stream) <a href="/src/github.com/json-iterator/go/stream_str.go?s=6557:6600#L301">WriteString</a>
+					<a class="permalink" href="#Stream.WriteString">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteString(s <a href="/pkg/builtin/#string">string</a>)</pre>
+				<p>WriteString write string to stream without html escape
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteStringWithHTMLEscaped">func (*Stream) <a href="/src/github.com/json-iterator/go/stream_str.go?s=4230:4288#L211">WriteStringWithHTMLEscaped</a>
+					<a class="permalink" href="#Stream.WriteStringWithHTMLEscaped">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteStringWithHTMLEscaped(s <a href="/pkg/builtin/#string">string</a>)</pre>
+				<p>WriteStringWithHTMLEscaped write string to stream with html special characters escaped
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteTrue">func (*Stream) <a href="/src/github.com/json-iterator/go/stream.go?s=3290:3323#L118">WriteTrue</a>
+					<a class="permalink" href="#Stream.WriteTrue">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteTrue()</pre>
+				<p>WriteTrue write true to stream
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteUint">func (*Stream) <a href="/src/github.com/json-iterator/go/stream_int.go?s=4501:4542#L178">WriteUint</a>
+					<a class="permalink" href="#Stream.WriteUint">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteUint(val <a href="/pkg/builtin/#uint">uint</a>)</pre>
+				<p>WriteUint write uint to stream
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteUint16">func (*Stream) <a href="/src/github.com/json-iterator/go/stream_int.go?s=1085:1130#L40">WriteUint16</a>
+					<a class="permalink" href="#Stream.WriteUint16">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteUint16(val <a href="/pkg/builtin/#uint16">uint16</a>)</pre>
+				<p>WriteUint16 write uint16 to stream
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteUint32">func (*Stream) <a href="/src/github.com/json-iterator/go/stream_int.go?s=1637:1682#L65">WriteUint32</a>
+					<a class="permalink" href="#Stream.WriteUint32">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteUint32(val <a href="/pkg/builtin/#uint32">uint32</a>)</pre>
+				<p>WriteUint32 write uint32 to stream
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteUint64">func (*Stream) <a href="/src/github.com/json-iterator/go/stream_int.go?s=2554:2599#L104">WriteUint64</a>
+					<a class="permalink" href="#Stream.WriteUint64">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteUint64(val <a href="/pkg/builtin/#uint64">uint64</a>)</pre>
+				<p>WriteUint64 write uint64 to stream
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteUint8">func (*Stream) <a href="/src/github.com/json-iterator/go/stream_int.go?s=687:730#L23">WriteUint8</a>
+					<a class="permalink" href="#Stream.WriteUint8">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteUint8(val <a href="/pkg/builtin/#uint8">uint8</a>)</pre>
+				<p>WriteUint8 write uint8 to stream
+
+				
+				
+				
+			
+				
+				<h3 id="Stream.WriteVal">func (*Stream) <a href="/src/github.com/json-iterator/go/reflect.go?s=2512:2559#L77">WriteVal</a>
+					<a class="permalink" href="#Stream.WriteVal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stream *<a href="#Stream">Stream</a>) WriteVal(val interface{})</pre>
+				<p>WriteVal copy the go interface into underlying JSON, same as json.Marshal
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="StreamPool">type <a href="/src/github.com/json-iterator/go/pool.go?s=280:379#L4">StreamPool</a>
+				<a class="permalink" href="#StreamPool">&#xb6;</a>
+				
+				
+			</h2>
+			<p>StreamPool a thread safe pool of streams with same configuration
+
+			<pre>type StreamPool interface {
+    BorrowStream(writer <a href="/pkg/io/">io</a>.<a href="/pkg/io/#Writer">Writer</a>) *<a href="#Stream">Stream</a>
+    ReturnStream(stream *<a href="#Stream">Stream</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="StructDescriptor">type <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=395:468#L10">StructDescriptor</a>
+				<a class="permalink" href="#StructDescriptor">&#xb6;</a>
+				
+				
+			</h2>
+			<p>StructDescriptor describe how should we encode/decode the struct
+
+			<pre>type StructDescriptor struct {
+<span id="StructDescriptor.Type"></span>    Type   <a href="/pkg/github.com/modern-go/reflect2/">reflect2</a>.<a href="/pkg/github.com/modern-go/reflect2/#Type">Type</a>
+<span id="StructDescriptor.Fields"></span>    Fields []*<a href="#Binding">Binding</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="StructDescriptor.GetField">func (*StructDescriptor) <a href="/src/github.com/json-iterator/go/reflect_extension.go?s=575:652#L17">GetField</a>
+					<a class="permalink" href="#StructDescriptor.GetField">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (structDescriptor *<a href="#StructDescriptor">StructDescriptor</a>) GetField(fieldName <a href="/pkg/builtin/#string">string</a>) *<a href="#Binding">Binding</a></pre>
+				<p>GetField get one field from the descriptor by its name.
+Can not use map here to keep field orders.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ValDecoder">type <a href="/src/github.com/json-iterator/go/reflect.go?s=800:873#L11">ValDecoder</a>
+				<a class="permalink" href="#ValDecoder">&#xb6;</a>
+				
+				
+			</h2>
+			<p>ValDecoder is an internal type registered to cache as needed.
+Don&apos;t confuse jsoniter.ValDecoder with json.Decoder.
+For json.Decoder&apos;s adapter, refer to jsoniter.AdapterDecoder(todo link).
+<p>Reflection on type to create decoders, which is then cached
+Reflection on value is avoided as we can, as the reflect.Value itself will allocate, with following exceptions
+1. create instance of new value, for example *int will need a int to be allocated
+2. append to slice, if the existing cap is not enough, allocate will be done using Reflect.New
+3. assignment to map, both key and value will be reflect.Value
+For a simple struct binding, it will be reflect.Value free and allocation free
+
+			<pre>type ValDecoder interface {
+    Decode(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, iter *<a href="#Iterator">Iterator</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ValEncoder">type <a href="/src/github.com/json-iterator/go/reflect.go?s=1078:1185#L18">ValEncoder</a>
+				<a class="permalink" href="#ValEncoder">&#xb6;</a>
+				
+				
+			</h2>
+			<p>ValEncoder is an internal type registered to cache as needed.
+Don&apos;t confuse jsoniter.ValEncoder with json.Encoder.
+For json.Encoder&apos;s adapter, refer to jsoniter.AdapterEncoder(todo godoc link).
+
+			<pre>type ValEncoder interface {
+    IsEmpty(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) <a href="/pkg/builtin/#bool">bool</a>
+    Encode(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, stream *<a href="#Stream">Stream</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ValueType">type <a href="/src/github.com/json-iterator/go/iter.go?s=99:117#L1">ValueType</a>
+				<a class="permalink" href="#ValueType">&#xb6;</a>
+				
+				
+			</h2>
+			<p>ValueType the type for JSON element
+
+			<pre>type ValueType <a href="/pkg/builtin/#int">int</a></pre>
+
+			
+				
+				<pre>const (
+    <span class="comment">// InvalidValue invalid JSON element</span>
+    <span id="InvalidValue">InvalidValue</span> <a href="#ValueType">ValueType</a> = <a href="/pkg/builtin/#iota">iota</a>
+    <span class="comment">// StringValue JSON element &#34;string&#34;</span>
+    <span id="StringValue">StringValue</span>
+    <span class="comment">// NumberValue JSON element 100 or 0.10</span>
+    <span id="NumberValue">NumberValue</span>
+    <span class="comment">// NilValue JSON element null</span>
+    <span id="NilValue">NilValue</span>
+    <span class="comment">// BoolValue JSON element true or false</span>
+    <span id="BoolValue">BoolValue</span>
+    <span class="comment">// ArrayValue JSON element []</span>
+    <span id="ArrayValue">ArrayValue</span>
+    <span class="comment">// ObjectValue JSON element {}</span>
+    <span id="ObjectValue">ObjectValue</span>
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+	
+	
+		<h2 id="pkg-subdirectories">Subdirectories</h2>
+	
+	<div class="pkg-dir">
+		<table>
+			<tr>
+				<th class="pkg-name">Name</th>
+				<th class="pkg-synopsis">Synopsis</th>
+			</tr>
+
+			
+			<tr>
+				<td colspan="2"><a href="..">..</a></td>
+			</tr>
+			
+
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="extra/">extra</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+		</table>
+	</div>
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

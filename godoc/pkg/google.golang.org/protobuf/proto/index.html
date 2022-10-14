@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>proto - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/pkg/">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/pkg/">GoDoc</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package proto
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "google.golang.org/protobuf/proto"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>Package proto provides functions operating on protocol buffer messages.
+<p>For documentation on protocol buffers in general, see:
+<pre>https://developers.google.com/protocol-buffers
+</pre>
+<p>For a tutorial on using protocol buffers with Go, see:
+<pre>https://developers.google.com/protocol-buffers/docs/gotutorial
+</pre>
+<p>For a guide to generated Go protocol buffer code, see:
+<pre>https://developers.google.com/protocol-buffers/docs/reference/go-generated
+</pre>
+<h3 id="hdr-Binary_serialization">Binary serialization</h3>
+<p>This package contains functions to convert to and from the wire format,
+an efficient binary serialization of protocol buffers.
+<p>• Size reports the size of a message in the wire format.
+<p>• Marshal converts a message to the wire format.
+The MarshalOptions type provides more control over wire marshaling.
+<p>• Unmarshal converts a message from the wire format.
+The UnmarshalOptions type provides more control over wire unmarshaling.
+<h3 id="hdr-Basic_message_operations">Basic message operations</h3>
+<p>• Clone makes a deep copy of a message.
+<p>• Merge merges the content of a message into another.
+<p>• Equal compares two messages. For more control over comparisons
+and detailed reporting of differences, see package
+&quot;google.golang.org/protobuf/testing/protocmp&quot;.
+<p>• Reset clears the content of a message.
+<p>• CheckInitialized reports whether all required fields in a message are set.
+<h3 id="hdr-Optional_scalar_constructors">Optional scalar constructors</h3>
+<p>The API for some generated messages represents optional scalar fields
+as pointers to a value. For example, an optional string field has the
+Go type *string.
+<p>• Bool, Int32, Int64, Uint32, Uint64, Float32, Float64, and String
+take a value and return a pointer to a new instance of it,
+to simplify construction of optional field values.
+<p>Generated enum types usually have an Enum method which performs the
+same operation.
+<p>Optional scalar fields are only supported in proto2.
+<h3 id="hdr-Extension_accessors">Extension accessors</h3>
+<p>• HasExtension, GetExtension, SetExtension, and ClearExtension
+access extension field values in a protocol buffer message.
+<p>Extension fields are only supported in proto2.
+<h3 id="hdr-Related_packages">Related packages</h3>
+<p>• Package &quot;google.golang.org/protobuf/encoding/protojson&quot; converts messages to
+and from JSON.
+<p>• Package &quot;google.golang.org/protobuf/encoding/prototext&quot; converts messages to
+and from the text format.
+<p>• Package &quot;google.golang.org/protobuf/reflect/protoreflect&quot; provides a
+reflection interface for protocol buffer data types.
+<p>• Package &quot;google.golang.org/protobuf/testing/protocmp&quot; provides features
+to compare protocol buffer messages with the &quot;github.com/google/go-cmp/cmp&quot;
+package.
+<p>• Package &quot;google.golang.org/protobuf/types/dynamicpb&quot; provides a dynamic
+message type, suitable for working with messages where the protocol buffer
+type is only known at runtime.
+<p>This module contains additional packages for more specialized use cases.
+Consult the individual package documentation for details.
+
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+				
+				<dd><a href="#Bool">func Bool(v bool) *bool</a></dd>
+			
+				
+				<dd><a href="#CheckInitialized">func CheckInitialized(m Message) error</a></dd>
+			
+				
+				<dd><a href="#ClearExtension">func ClearExtension(m Message, xt protoreflect.ExtensionType)</a></dd>
+			
+				
+				<dd><a href="#Equal">func Equal(x, y Message) bool</a></dd>
+			
+				
+				<dd><a href="#Float32">func Float32(v float32) *float32</a></dd>
+			
+				
+				<dd><a href="#Float64">func Float64(v float64) *float64</a></dd>
+			
+				
+				<dd><a href="#GetExtension">func GetExtension(m Message, xt protoreflect.ExtensionType) interface{}</a></dd>
+			
+				
+				<dd><a href="#HasExtension">func HasExtension(m Message, xt protoreflect.ExtensionType) bool</a></dd>
+			
+				
+				<dd><a href="#Int32">func Int32(v int32) *int32</a></dd>
+			
+				
+				<dd><a href="#Int64">func Int64(v int64) *int64</a></dd>
+			
+				
+				<dd><a href="#Marshal">func Marshal(m Message) ([]byte, error)</a></dd>
+			
+				
+				<dd><a href="#Merge">func Merge(dst, src Message)</a></dd>
+			
+				
+				<dd><a href="#MessageName">func MessageName(m Message) protoreflect.FullName</a></dd>
+			
+				
+				<dd><a href="#RangeExtensions">func RangeExtensions(m Message, f func(protoreflect.ExtensionType, interface{}) bool)</a></dd>
+			
+				
+				<dd><a href="#Reset">func Reset(m Message)</a></dd>
+			
+				
+				<dd><a href="#SetExtension">func SetExtension(m Message, xt protoreflect.ExtensionType, v interface{})</a></dd>
+			
+				
+				<dd><a href="#Size">func Size(m Message) int</a></dd>
+			
+				
+				<dd><a href="#String">func String(v string) *string</a></dd>
+			
+				
+				<dd><a href="#Uint32">func Uint32(v uint32) *uint32</a></dd>
+			
+				
+				<dd><a href="#Uint64">func Uint64(v uint64) *uint64</a></dd>
+			
+				
+				<dd><a href="#Unmarshal">func Unmarshal(b []byte, m Message) error</a></dd>
+			
+			
+				
+				<dd><a href="#MarshalOptions">type MarshalOptions</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MarshalOptions.Marshal">func (o MarshalOptions) Marshal(m Message) ([]byte, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MarshalOptions.MarshalAppend">func (o MarshalOptions) MarshalAppend(b []byte, m Message) ([]byte, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MarshalOptions.MarshalState">func (o MarshalOptions) MarshalState(in protoiface.MarshalInput) (protoiface.MarshalOutput, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MarshalOptions.Size">func (o MarshalOptions) Size(m Message) int</a></dd>
+				
+			
+				
+				<dd><a href="#Message">type Message</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Clone">func Clone(m Message) Message</a></dd>
+				
+				
+			
+				
+				<dd><a href="#UnmarshalOptions">type UnmarshalOptions</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnmarshalOptions.Unmarshal">func (o UnmarshalOptions) Unmarshal(b []byte, m Message) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnmarshalOptions.UnmarshalState">func (o UnmarshalOptions) UnmarshalState(in protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error)</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/google.golang.org/protobuf/proto/checkinit.go">checkinit.go</a>
+			
+				<a href="/src/google.golang.org/protobuf/proto/decode.go">decode.go</a>
+			
+				<a href="/src/google.golang.org/protobuf/proto/decode_gen.go">decode_gen.go</a>
+			
+				<a href="/src/google.golang.org/protobuf/proto/doc.go">doc.go</a>
+			
+				<a href="/src/google.golang.org/protobuf/proto/encode.go">encode.go</a>
+			
+				<a href="/src/google.golang.org/protobuf/proto/encode_gen.go">encode_gen.go</a>
+			
+				<a href="/src/google.golang.org/protobuf/proto/equal.go">equal.go</a>
+			
+				<a href="/src/google.golang.org/protobuf/proto/extension.go">extension.go</a>
+			
+				<a href="/src/google.golang.org/protobuf/proto/merge.go">merge.go</a>
+			
+				<a href="/src/google.golang.org/protobuf/proto/messageset.go">messageset.go</a>
+			
+				<a href="/src/google.golang.org/protobuf/proto/proto.go">proto.go</a>
+			
+				<a href="/src/google.golang.org/protobuf/proto/proto_methods.go">proto_methods.go</a>
+			
+				<a href="/src/google.golang.org/protobuf/proto/reset.go">reset.go</a>
+			
+				<a href="/src/google.golang.org/protobuf/proto/size.go">size.go</a>
+			
+				<a href="/src/google.golang.org/protobuf/proto/size_gen.go">size_gen.go</a>
+			
+				<a href="/src/google.golang.org/protobuf/proto/wrappers.go">wrappers.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				<p>Error matches all errors produced by packages in the protobuf module.
+<p>That is, errors.Is(err, Error) reports whether an error is produced
+by this module.
+
+				<pre>var <span id="Error">Error</span> <a href="/pkg/builtin/#error">error</a></pre>
+			
+		
+		
+			
+			
+			<h2 id="Bool">func <a href="/src/google.golang.org/protobuf/proto/wrappers.go?s=241:264#L1">Bool</a>
+				<a class="permalink" href="#Bool">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Bool(v <a href="/pkg/builtin/#bool">bool</a>) *<a href="/pkg/builtin/#bool">bool</a></pre>
+			<p>Bool stores v in a new bool value and returns a pointer to it.
+
+			
+			
+
+		
+			
+			
+			<h2 id="CheckInitialized">func <a href="/src/google.golang.org/protobuf/proto/checkinit.go?s=411:449#L4">CheckInitialized</a>
+				<a class="permalink" href="#CheckInitialized">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func CheckInitialized(m <a href="#Message">Message</a>) <a href="/pkg/builtin/#error">error</a></pre>
+			<p>CheckInitialized returns an error if any required fields in m are not set.
+
+			
+			
+
+		
+			
+			
+			<h2 id="ClearExtension">func <a href="/src/google.golang.org/protobuf/proto/extension.go?s=988:1049#L21">ClearExtension</a>
+				<a class="permalink" href="#ClearExtension">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ClearExtension(m <a href="#Message">Message</a>, xt <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#ExtensionType">ExtensionType</a>)</pre>
+			<p>ClearExtension clears an extension field such that subsequent
+HasExtension calls return false.
+It panics if m is invalid or if xt does not extend m.
+
+			
+			
+
+		
+			
+			
+			<h2 id="Equal">func <a href="/src/google.golang.org/protobuf/proto/equal.go?s=1217:1246#L22">Equal</a>
+				<a class="permalink" href="#Equal">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Equal(x, y <a href="#Message">Message</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+			<p>Equal reports whether two messages are equal.
+If two messages marshal to the same bytes under deterministic serialization,
+then Equal is guaranteed to report true.
+<p>Two messages are equal if they belong to the same message descriptor,
+have the same set of populated known and extension field values,
+and the same set of unknown fields values. If either of the top-level
+messages are invalid, then Equal reports true only if both are invalid.
+<p>Scalar values are compared with the equivalent of the == operator in Go,
+except bytes values which are compared using bytes.Equal and
+floating point values which specially treat NaNs as equal.
+Message values are compared by recursively calling Equal.
+Lists are equal if each element value is also equal.
+Maps are equal if they have the same set of keys, where the pair of values
+for each key is also equal.
+
+			
+			
+
+		
+			
+			
+			<h2 id="Float32">func <a href="/src/google.golang.org/protobuf/proto/wrappers.go?s=572:604#L7">Float32</a>
+				<a class="permalink" href="#Float32">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Float32(v <a href="/pkg/builtin/#float32">float32</a>) *<a href="/pkg/builtin/#float32">float32</a></pre>
+			<p>Float32 stores v in a new float32 value and returns a pointer to it.
+
+			
+			
+
+		
+			
+			
+			<h2 id="Float64">func <a href="/src/google.golang.org/protobuf/proto/wrappers.go?s=692:724#L10">Float64</a>
+				<a class="permalink" href="#Float64">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Float64(v <a href="/pkg/builtin/#float64">float64</a>) *<a href="/pkg/builtin/#float64">float64</a></pre>
+			<p>Float64 stores v in a new float64 value and returns a pointer to it.
+
+			
+			
+
+		
+			
+			
+			<h2 id="GetExtension">func <a href="/src/google.golang.org/protobuf/proto/extension.go?s=1327:1398#L29">GetExtension</a>
+				<a class="permalink" href="#GetExtension">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func GetExtension(m <a href="#Message">Message</a>, xt <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#ExtensionType">ExtensionType</a>) interface{}</pre>
+			<p>GetExtension retrieves the value for an extension field.
+If the field is unpopulated, it returns the default value for
+scalars and an immutable, empty value for lists or messages.
+It panics if xt does not extend m.
+
+			
+			
+
+		
+			
+			
+			<h2 id="HasExtension">func <a href="/src/google.golang.org/protobuf/proto/extension.go?s=367:431#L3">HasExtension</a>
+				<a class="permalink" href="#HasExtension">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func HasExtension(m <a href="#Message">Message</a>, xt <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#ExtensionType">ExtensionType</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+			<p>HasExtension reports whether an extension field is populated.
+It returns false if m is invalid or if xt does not extend m.
+
+			
+			
+
+		
+			
+			
+			<h2 id="Int32">func <a href="/src/google.golang.org/protobuf/proto/wrappers.go?s=348:374#L1">Int32</a>
+				<a class="permalink" href="#Int32">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Int32(v <a href="/pkg/builtin/#int32">int32</a>) *<a href="/pkg/builtin/#int32">int32</a></pre>
+			<p>Int32 stores v in a new int32 value and returns a pointer to it.
+
+			
+			
+
+		
+			
+			
+			<h2 id="Int64">func <a href="/src/google.golang.org/protobuf/proto/wrappers.go?s=458:484#L4">Int64</a>
+				<a class="permalink" href="#Int64">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Int64(v <a href="/pkg/builtin/#int64">int64</a>) *<a href="/pkg/builtin/#int64">int64</a></pre>
+			<p>Int64 stores v in a new int64 value and returns a pointer to it.
+
+			
+			
+
+		
+			
+			
+			<h2 id="Marshal">func <a href="/src/google.golang.org/protobuf/proto/encode.go?s=2913:2952#L63">Marshal</a>
+				<a class="permalink" href="#Marshal">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Marshal(m <a href="#Message">Message</a>) ([]<a href="/pkg/builtin/#byte">byte</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+			<p>Marshal returns the wire-format encoding of m.
+
+			
+			
+
+		
+			
+			
+			<h2 id="Merge">func <a href="/src/google.golang.org/protobuf/proto/merge.go?s=962:990#L15">Merge</a>
+				<a class="permalink" href="#Merge">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Merge(dst, src <a href="#Message">Message</a>)</pre>
+			<p>Merge merges src into dst, which must be a message with the same descriptor.
+<p>Populated scalar fields in src are copied to dst, while populated
+singular messages in src are merged into dst by recursively calling Merge.
+The elements of every list field in src is appended to the corresponded
+list fields in dst. The entries of every map field in src is copied into
+the corresponding map field in dst, possibly replacing existing entries.
+The unknown fields of src are appended to the unknown fields of dst.
+<p>It is semantically equivalent to unmarshaling the encoded form of src
+into dst with the UnmarshalOptions.Merge option specified.
+
+			
+			
+
+		
+			
+			
+			<h2 id="MessageName">func <a href="/src/google.golang.org/protobuf/proto/proto.go?s=1258:1307#L28">MessageName</a>
+				<a class="permalink" href="#MessageName">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func MessageName(m <a href="#Message">Message</a>) <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FullName">FullName</a></pre>
+			<p>MessageName returns the full name of m.
+If m is nil, it returns an empty string.
+
+			
+			
+
+		
+			
+			
+			<h2 id="RangeExtensions">func <a href="/src/google.golang.org/protobuf/proto/extension.go?s=2537:2622#L68">RangeExtensions</a>
+				<a class="permalink" href="#RangeExtensions">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func RangeExtensions(m <a href="#Message">Message</a>, f func(<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#ExtensionType">ExtensionType</a>, interface{}) <a href="/pkg/builtin/#bool">bool</a>)</pre>
+			<p>RangeExtensions iterates over every populated extension field in m in an
+undefined order, calling f for each extension type and value encountered.
+It returns immediately if f returns false.
+While iterating, mutating operations may only be performed
+on the current extension field.
+
+			
+			
+
+		
+			
+			
+			<h2 id="Reset">func <a href="/src/google.golang.org/protobuf/proto/reset.go?s=416:437#L6">Reset</a>
+				<a class="permalink" href="#Reset">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Reset(m <a href="#Message">Message</a>)</pre>
+			<p>Reset clears every field in the message.
+The resulting message shares no observable memory with its previous state
+other than the memory for the message itself.
+
+			
+			
+
+		
+			
+			
+			<h2 id="SetExtension">func <a href="/src/google.golang.org/protobuf/proto/extension.go?s=1770:1844#L41">SetExtension</a>
+				<a class="permalink" href="#SetExtension">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func SetExtension(m <a href="#Message">Message</a>, xt <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#ExtensionType">ExtensionType</a>, v interface{})</pre>
+			<p>SetExtension stores the value of an extension field.
+It panics if m is invalid, xt does not extend m, or if type of v
+is invalid for the specified extension field.
+
+			
+			
+
+		
+			
+			
+			<h2 id="Size">func <a href="/src/google.golang.org/protobuf/proto/size.go?s=463:487#L5">Size</a>
+				<a class="permalink" href="#Size">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Size(m <a href="#Message">Message</a>) <a href="/pkg/builtin/#int">int</a></pre>
+			<p>Size returns the size in bytes of the wire-format encoding of m.
+
+			
+			
+
+		
+			
+			
+			<h2 id="String">func <a href="/src/google.golang.org/protobuf/proto/wrappers.go?s=1040:1069#L19">String</a>
+				<a class="permalink" href="#String">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func String(v <a href="/pkg/builtin/#string">string</a>) *<a href="/pkg/builtin/#string">string</a></pre>
+			<p>String stores v in a new string value and returns a pointer to it.
+
+			
+			
+
+		
+			
+			
+			<h2 id="Uint32">func <a href="/src/google.golang.org/protobuf/proto/wrappers.go?s=810:839#L13">Uint32</a>
+				<a class="permalink" href="#Uint32">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Uint32(v <a href="/pkg/builtin/#uint32">uint32</a>) *<a href="/pkg/builtin/#uint32">uint32</a></pre>
+			<p>Uint32 stores v in a new uint32 value and returns a pointer to it.
+
+			
+			
+
+		
+			
+			
+			<h2 id="Uint64">func <a href="/src/google.golang.org/protobuf/proto/wrappers.go?s=925:954#L16">Uint64</a>
+				<a class="permalink" href="#Uint64">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Uint64(v <a href="/pkg/builtin/#uint64">uint64</a>) *<a href="/pkg/builtin/#uint64">uint64</a></pre>
+			<p>Uint64 stores v in a new uint64 value and returns a pointer to it.
+
+			
+			
+
+		
+			
+			
+			<h2 id="Unmarshal">func <a href="/src/google.golang.org/protobuf/proto/decode.go?s=1969:2010#L43">Unmarshal</a>
+				<a class="permalink" href="#Unmarshal">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Unmarshal(b []<a href="/pkg/builtin/#byte">byte</a>, m <a href="#Message">Message</a>) <a href="/pkg/builtin/#error">error</a></pre>
+			<p>Unmarshal parses the wire-format message in b and places the result in m.
+The provided message must be mutable (e.g., a non-nil pointer to a message).
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="MarshalOptions">type <a href="/src/google.golang.org/protobuf/proto/encode.go?s=613:2861#L10">MarshalOptions</a>
+				<a class="permalink" href="#MarshalOptions">&#xb6;</a>
+				
+				
+			</h2>
+			<p>MarshalOptions configures the marshaler.
+<p>Example usage:
+<pre>b, err := MarshalOptions{Deterministic: true}.Marshal(m)
+</pre>
+
+			<pre>type MarshalOptions struct {
+    <a href="/pkg/google.golang.org/protobuf/internal/pragma/">pragma</a>.<a href="/pkg/google.golang.org/protobuf/internal/pragma/#NoUnkeyedLiterals">NoUnkeyedLiterals</a>
+
+<span id="MarshalOptions.AllowPartial"></span>    <span class="comment">// AllowPartial allows messages that have missing required fields to marshal</span>
+    <span class="comment">// without returning an error. If AllowPartial is false (the default),</span>
+    <span class="comment">// Marshal will return an error if there are any missing required fields.</span>
+    AllowPartial <a href="/pkg/builtin/#bool">bool</a>
+
+<span id="MarshalOptions.Deterministic"></span>    <span class="comment">// Deterministic controls whether the same message will always be</span>
+    <span class="comment">// serialized to the same bytes within the same binary.</span>
+    <span class="comment">//</span>
+    <span class="comment">// Setting this option guarantees that repeated serialization of</span>
+    <span class="comment">// the same message will return the same bytes, and that different</span>
+    <span class="comment">// processes of the same binary (which may be executing on different</span>
+    <span class="comment">// machines) will serialize equal messages to the same bytes.</span>
+    <span class="comment">// It has no effect on the resulting size of the encoded message compared</span>
+    <span class="comment">// to a non-deterministic marshal.</span>
+    <span class="comment">//</span>
+    <span class="comment">// Note that the deterministic serialization is NOT canonical across</span>
+    <span class="comment">// languages. It is not guaranteed to remain stable over time. It is</span>
+    <span class="comment">// unstable across different builds with schema changes due to unknown</span>
+    <span class="comment">// fields. Users who need canonical serialization (e.g., persistent</span>
+    <span class="comment">// storage in a canonical form, fingerprinting, etc.) must define</span>
+    <span class="comment">// their own canonicalization specification and implement their own</span>
+    <span class="comment">// serializer rather than relying on this API.</span>
+    <span class="comment">//</span>
+    <span class="comment">// If deterministic serialization is requested, map entries will be</span>
+    <span class="comment">// sorted by keys in lexographical order. This is an implementation</span>
+    <span class="comment">// detail and subject to change.</span>
+    Deterministic <a href="/pkg/builtin/#bool">bool</a>
+
+<span id="MarshalOptions.UseCachedSize"></span>    <span class="comment">// UseCachedSize indicates that the result of a previous Size call</span>
+    <span class="comment">// may be reused.</span>
+    <span class="comment">//</span>
+    <span class="comment">// Setting this option asserts that:</span>
+    <span class="comment">//</span>
+    <span class="comment">// 1. Size has previously been called on this message with identical</span>
+    <span class="comment">// options (except for UseCachedSize itself).</span>
+    <span class="comment">//</span>
+    <span class="comment">// 2. The message and all its submessages have not changed in any</span>
+    <span class="comment">// way since the Size call.</span>
+    <span class="comment">//</span>
+    <span class="comment">// If either of these invariants is violated,</span>
+    <span class="comment">// the results are undefined and may include panics or corrupted output.</span>
+    <span class="comment">//</span>
+    <span class="comment">// Implementations MAY take this option into account to provide</span>
+    <span class="comment">// better performance, but there is no guarantee that they will do so.</span>
+    <span class="comment">// There is absolutely no guarantee that Size followed by Marshal with</span>
+    <span class="comment">// UseCachedSize set will perform equivalently to Marshal alone.</span>
+    UseCachedSize <a href="/pkg/builtin/#bool">bool</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="MarshalOptions.Marshal">func (MarshalOptions) <a href="/src/google.golang.org/protobuf/proto/encode.go?s=3276:3334#L77">Marshal</a>
+					<a class="permalink" href="#MarshalOptions.Marshal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (o <a href="#MarshalOptions">MarshalOptions</a>) Marshal(m <a href="#Message">Message</a>) ([]<a href="/pkg/builtin/#byte">byte</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>Marshal returns the wire-format encoding of m.
+
+				
+				
+				
+			
+				
+				<h3 id="MarshalOptions.MarshalAppend">func (MarshalOptions) <a href="/src/google.golang.org/protobuf/proto/encode.go?s=4161:4235#L106">MarshalAppend</a>
+					<a class="permalink" href="#MarshalOptions.MarshalAppend">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (o <a href="#MarshalOptions">MarshalOptions</a>) MarshalAppend(b []<a href="/pkg/builtin/#byte">byte</a>, m <a href="#Message">Message</a>) ([]<a href="/pkg/builtin/#byte">byte</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>MarshalAppend appends the wire-format encoding of m to b,
+returning the result.
+
+				
+				
+				
+			
+				
+				<h3 id="MarshalOptions.MarshalState">func (MarshalOptions) <a href="/src/google.golang.org/protobuf/proto/encode.go?s=4585:4683#L120">MarshalState</a>
+					<a class="permalink" href="#MarshalOptions.MarshalState">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (o <a href="#MarshalOptions">MarshalOptions</a>) MarshalState(in <a href="/pkg/google.golang.org/protobuf/runtime/protoiface/">protoiface</a>.<a href="/pkg/google.golang.org/protobuf/runtime/protoiface/#MarshalInput">MarshalInput</a>) (<a href="/pkg/google.golang.org/protobuf/runtime/protoiface/">protoiface</a>.<a href="/pkg/google.golang.org/protobuf/runtime/protoiface/#MarshalOutput">MarshalOutput</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>MarshalState returns the wire-format encoding of a message.
+<p>This method permits fine-grained control over the marshaler.
+Most users should use Marshal instead.
+
+				
+				
+				
+			
+				
+				<h3 id="MarshalOptions.Size">func (MarshalOptions) <a href="/src/google.golang.org/protobuf/proto/size.go?s=594:637#L10">Size</a>
+					<a class="permalink" href="#MarshalOptions.Size">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (o <a href="#MarshalOptions">MarshalOptions</a>) Size(m <a href="#Message">Message</a>) <a href="/pkg/builtin/#int">int</a></pre>
+				<p>Size returns the size in bytes of the wire-format encoding of m.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Message">type <a href="/src/google.golang.org/protobuf/proto/proto.go?s=907:947#L14">Message</a>
+				<a class="permalink" href="#Message">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Message is the top-level interface that all messages must implement.
+It provides access to a reflective view of a message.
+Any implementation of this interface may be used with all functions in the
+protobuf module that accept a Message, except where otherwise specified.
+<p>This is the v2 interface definition for protobuf messages.
+The v1 interface definition is &quot;github.com/golang/protobuf/proto&quot;.Message.
+<p>To convert a v1 message to a v2 message,
+use &quot;github.com/golang/protobuf/proto&quot;.MessageV2.
+To convert a v2 message to a v1 message,
+use &quot;github.com/golang/protobuf/proto&quot;.MessageV1.
+
+			<pre>type Message = <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#ProtoMessage">ProtoMessage</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="Clone">func <a href="/src/google.golang.org/protobuf/proto/merge.go?s=1592:1621#L31">Clone</a>
+					<a class="permalink" href="#Clone">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func Clone(m <a href="#Message">Message</a>) <a href="#Message">Message</a></pre>
+				<p>Clone returns a deep copy of m.
+If the top-level message is invalid, it returns an invalid message as well.
+
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="UnmarshalOptions">type <a href="/src/google.golang.org/protobuf/proto/decode.go?s=765:1810#L13">UnmarshalOptions</a>
+				<a class="permalink" href="#UnmarshalOptions">&#xb6;</a>
+				
+				
+			</h2>
+			<p>UnmarshalOptions configures the unmarshaler.
+<p>Example usage:
+<pre>err := UnmarshalOptions{DiscardUnknown: true}.Unmarshal(b, m)
+</pre>
+
+			<pre>type UnmarshalOptions struct {
+    <a href="/pkg/google.golang.org/protobuf/internal/pragma/">pragma</a>.<a href="/pkg/google.golang.org/protobuf/internal/pragma/#NoUnkeyedLiterals">NoUnkeyedLiterals</a>
+
+<span id="UnmarshalOptions.Merge"></span>    <span class="comment">// Merge merges the input into the destination message.</span>
+    <span class="comment">// The default behavior is to always reset the message before unmarshaling,</span>
+    <span class="comment">// unless Merge is specified.</span>
+    Merge <a href="/pkg/builtin/#bool">bool</a>
+
+<span id="UnmarshalOptions.AllowPartial"></span>    <span class="comment">// AllowPartial accepts input for messages that will result in missing</span>
+    <span class="comment">// required fields. If AllowPartial is false (the default), Unmarshal will</span>
+    <span class="comment">// return an error if there are any missing required fields.</span>
+    AllowPartial <a href="/pkg/builtin/#bool">bool</a>
+
+    <span class="comment">// If DiscardUnknown is set, unknown fields are ignored.</span>
+<span id="UnmarshalOptions.DiscardUnknown"></span>    DiscardUnknown <a href="/pkg/builtin/#bool">bool</a>
+
+<span id="UnmarshalOptions.Resolver"></span>    <span class="comment">// Resolver is used for looking up types when unmarshaling extension fields.</span>
+    <span class="comment">// If nil, this defaults to using protoregistry.GlobalTypes.</span>
+    Resolver interface {
+        FindExtensionByName(field <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FullName">FullName</a>) (<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#ExtensionType">ExtensionType</a>, <a href="/pkg/builtin/#error">error</a>)
+        FindExtensionByNumber(message <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FullName">FullName</a>, field <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FieldNumber">FieldNumber</a>) (<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#ExtensionType">ExtensionType</a>, <a href="/pkg/builtin/#error">error</a>)
+    }
+
+<span id="UnmarshalOptions.RecursionLimit"></span>    <span class="comment">// RecursionLimit limits how deeply messages may be nested.</span>
+    <span class="comment">// If zero, a default limit is applied.</span>
+    RecursionLimit <a href="/pkg/builtin/#int">int</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="UnmarshalOptions.Unmarshal">func (UnmarshalOptions) <a href="/src/google.golang.org/protobuf/proto/decode.go?s=2293:2355#L50">Unmarshal</a>
+					<a class="permalink" href="#UnmarshalOptions.Unmarshal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (o <a href="#UnmarshalOptions">UnmarshalOptions</a>) Unmarshal(b []<a href="/pkg/builtin/#byte">byte</a>, m <a href="#Message">Message</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>Unmarshal parses the wire-format message in b and places the result in m.
+The provided message must be mutable (e.g., a non-nil pointer to a message).
+
+				
+				
+				
+			
+				
+				<h3 id="UnmarshalOptions.UnmarshalState">func (UnmarshalOptions) <a href="/src/google.golang.org/protobuf/proto/decode.go?s=2689:2795#L62">UnmarshalState</a>
+					<a class="permalink" href="#UnmarshalOptions.UnmarshalState">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (o <a href="#UnmarshalOptions">UnmarshalOptions</a>) UnmarshalState(in <a href="/pkg/google.golang.org/protobuf/runtime/protoiface/">protoiface</a>.<a href="/pkg/google.golang.org/protobuf/runtime/protoiface/#UnmarshalInput">UnmarshalInput</a>) (<a href="/pkg/google.golang.org/protobuf/runtime/protoiface/">protoiface</a>.<a href="/pkg/google.golang.org/protobuf/runtime/protoiface/#UnmarshalOutput">UnmarshalOutput</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>UnmarshalState parses a wire-format message and places the result in m.
+<p>This method permits fine-grained control over the unmarshaler.
+Most users should use Unmarshal instead.
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

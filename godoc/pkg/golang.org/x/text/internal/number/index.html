@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>number - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/pkg/">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/pkg/">GoDoc</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package number
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "golang.org/x/text/internal/number"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>Package number contains tools and data for formatting numbers.
+
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+				<dd><a href="#pkg-constants">Constants</a></dd>
+			
+			
+			
+			
+				
+				<dd><a href="#Converter">type Converter</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Decimal">type Decimal</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Decimal.Convert">func (d *Decimal) Convert(r RoundingContext, number interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Decimal.ConvertFloat">func (d *Decimal) ConvertFloat(r RoundingContext, x float64, size int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Decimal.ConvertInt">func (d *Decimal) ConvertInt(r RoundingContext, signed bool, x uint64)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Decimal.String">func (x *Decimal) String() string</a></dd>
+				
+			
+				
+				<dd><a href="#Digits">type Digits</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#FormatDigits">func FormatDigits(d *Decimal, r RoundingContext) Digits</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Digits.NumFracDigits">func (d *Digits) NumFracDigits() int</a></dd>
+				
+			
+				
+				<dd><a href="#Formatter">type Formatter</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Formatter.Append">func (f *Formatter) Append(dst []byte, x interface{}) []byte</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Formatter.Format">func (f *Formatter) Format(dst []byte, d *Decimal) []byte</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Formatter.InitDecimal">func (f *Formatter) InitDecimal(t language.Tag)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Formatter.InitEngineering">func (f *Formatter) InitEngineering(t language.Tag)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Formatter.InitPattern">func (f *Formatter) InitPattern(t language.Tag, pat *Pattern)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Formatter.InitPerMille">func (f *Formatter) InitPerMille(t language.Tag)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Formatter.InitPercent">func (f *Formatter) InitPercent(t language.Tag)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Formatter.InitScientific">func (f *Formatter) InitScientific(t language.Tag)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Formatter.Render">func (f *Formatter) Render(dst []byte, d Digits) []byte</a></dd>
+				
+			
+				
+				<dd><a href="#Info">type Info</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InfoFromLangID">func InfoFromLangID(compactIndex compact.ID, numberSystem string) Info</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InfoFromTag">func InfoFromTag(t language.Tag) Info</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Info.AppendDigit">func (n Info) AppendDigit(dst []byte, digit byte) []byte</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Info.Digit">func (n Info) Digit(asciiDigit rune) rune</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Info.IsDecimal">func (n Info) IsDecimal() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Info.Symbol">func (n Info) Symbol(t SymbolType) string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Info.WriteDigit">func (n Info) WriteDigit(dst []byte, asciiDigit rune) int</a></dd>
+				
+			
+				
+				<dd><a href="#Pattern">type Pattern</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ParsePattern">func ParsePattern(s string) (f *Pattern, err error)</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PatternFlag">type PatternFlag</a></dd>
+				
+				
+			
+				
+				<dd><a href="#RoundingContext">type RoundingContext</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#RoundingContext.RoundFractionDigits">func (r *RoundingContext) RoundFractionDigits() (n int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#RoundingContext.RoundSignificantDigits">func (r *RoundingContext) RoundSignificantDigits() (n int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#RoundingContext.SetPrecision">func (r *RoundingContext) SetPrecision(prec int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#RoundingContext.SetScale">func (r *RoundingContext) SetScale(scale int)</a></dd>
+				
+			
+				
+				<dd><a href="#RoundingMode">type RoundingMode</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#RoundingMode.String">func (i RoundingMode) String() string</a></dd>
+				
+			
+				
+				<dd><a href="#SymbolType">type SymbolType</a></dd>
+				
+				
+			
+				
+				<dd><a href="#VisibleDigits">type VisibleDigits</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/golang.org/x/text/internal/number/common.go">common.go</a>
+			
+				<a href="/src/golang.org/x/text/internal/number/decimal.go">decimal.go</a>
+			
+				<a href="/src/golang.org/x/text/internal/number/format.go">format.go</a>
+			
+				<a href="/src/golang.org/x/text/internal/number/number.go">number.go</a>
+			
+				<a href="/src/golang.org/x/text/internal/number/pattern.go">pattern.go</a>
+			
+				<a href="/src/golang.org/x/text/internal/number/roundingmode_string.go">roundingmode_string.go</a>
+			
+				<a href="/src/golang.org/x/text/internal/number/tables.go">tables.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+			<h2 id="pkg-constants">Constants</h2>
+			
+				
+				<pre>const (
+    <span id="AlwaysSign">AlwaysSign</span> <a href="#PatternFlag">PatternFlag</a> = 1 &lt;&lt; <a href="/pkg/builtin/#iota">iota</a>
+    <span id="ElideSign">ElideSign</span>              <span class="comment">// Use space instead of plus sign. AlwaysSign must be true.</span>
+    <span id="AlwaysExpSign">AlwaysExpSign</span>
+    <span id="AlwaysDecimalSeparator">AlwaysDecimalSeparator</span>
+    <span id="ParenthesisForNegative">ParenthesisForNegative</span> <span class="comment">// Common pattern. Saves space.</span>
+
+    <span id="PadAfterNumber">PadAfterNumber</span>
+    <span id="PadAfterAffix">PadAfterAffix</span>
+
+    <span id="PadBeforePrefix">PadBeforePrefix</span> = 0 <span class="comment">// Default</span>
+    <span id="PadAfterPrefix">PadAfterPrefix</span>  = <a href="#PadAfterAffix">PadAfterAffix</a>
+    <span id="PadBeforeSuffix">PadBeforeSuffix</span> = <a href="#PadAfterNumber">PadAfterNumber</a>
+    <span id="PadAfterSuffix">PadAfterSuffix</span>  = <a href="#PadAfterNumber">PadAfterNumber</a> | <a href="#PadAfterAffix">PadAfterAffix</a>
+    <span id="PadMask">PadMask</span>         = <a href="#PadAfterNumber">PadAfterNumber</a> | <a href="#PadAfterAffix">PadAfterAffix</a>
+)</pre>
+			
+				<p>CLDRVersion is the CLDR version from which the tables in this package are derived.
+
+				<pre>const <span id="CLDRVersion">CLDRVersion</span> = &#34;32&#34;</pre>
+			
+		
+		
+		
+		
+			
+			
+			<h2 id="Converter">type <a href="/src/golang.org/x/text/internal/number/decimal.go?s=7480:7548#L287">Converter</a>
+				<a class="permalink" href="#Converter">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A Converter converts a number into decimals according to the given rounding
+criteria.
+
+			<pre>type Converter interface {
+    Convert(d *<a href="#Decimal">Decimal</a>, r <a href="#RoundingContext">RoundingContext</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Decimal">type <a href="/src/golang.org/x/text/internal/number/decimal.go?s=1554:1610#L33">Decimal</a>
+				<a class="permalink" href="#Decimal">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A Decimal represents a floating point number in decimal format.
+Digits represents a number [0, 1.0), and the absolute value represented by
+Decimal is Digits * 10^Exp. Leading and trailing zeros may be omitted and Exp
+may point outside a valid position in Digits.
+<p>Examples:
+<pre>Number     Decimal
+12345      Digits: [1, 2, 3, 4, 5], Exp: 5
+12.345     Digits: [1, 2, 3, 4, 5], Exp: 2
+12000      Digits: [1, 2],          Exp: 5
+12000.00   Digits: [1, 2],          Exp: 5
+0.00123    Digits: [1, 2, 3],       Exp: -2
+0          Digits: [],              Exp: 0
+</pre>
+
+			<pre>type Decimal struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Decimal.Convert">func (*Decimal) <a href="/src/golang.org/x/text/internal/number/decimal.go?s=7702:7766#L298">Convert</a>
+					<a class="permalink" href="#Decimal.Convert">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (d *<a href="#Decimal">Decimal</a>) Convert(r <a href="#RoundingContext">RoundingContext</a>, number interface{})</pre>
+				<p>Convert converts the given number to the decimal representation using the
+supplied RoundingContext.
+
+				
+				
+				
+			
+				
+				<h3 id="Decimal.ConvertFloat">func (*Decimal) <a href="/src/golang.org/x/text/internal/number/decimal.go?s=9252:9322#L362">ConvertFloat</a>
+					<a class="permalink" href="#Decimal.ConvertFloat">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (d *<a href="#Decimal">Decimal</a>) ConvertFloat(r <a href="#RoundingContext">RoundingContext</a>, x <a href="/pkg/builtin/#float64">float64</a>, size <a href="/pkg/builtin/#int">int</a>)</pre>
+				<p>ConvertFloat converts a floating point number to decimals.
+
+				
+				
+				
+			
+				
+				<h3 id="Decimal.ConvertInt">func (*Decimal) <a href="/src/golang.org/x/text/internal/number/decimal.go?s=8782:8852#L342">ConvertInt</a>
+					<a class="permalink" href="#Decimal.ConvertInt">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (d *<a href="#Decimal">Decimal</a>) ConvertInt(r <a href="#RoundingContext">RoundingContext</a>, signed <a href="/pkg/builtin/#bool">bool</a>, x <a href="/pkg/builtin/#uint64">uint64</a>)</pre>
+				<p>ConvertInt converts an integer to decimals.
+
+				
+				
+				
+			
+				
+				<h3 id="Decimal.String">func (*Decimal) <a href="/src/golang.org/x/text/internal/number/decimal.go?s=4032:4065#L117">String</a>
+					<a class="permalink" href="#Decimal.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Decimal">Decimal</a>) String() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Digits">type <a href="/src/golang.org/x/text/internal/number/decimal.go?s=2989:3393#L69">Digits</a>
+				<a class="permalink" href="#Digits">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Digits represents a floating point number represented in digits of the
+base in which a number is to be displayed. It is similar to Decimal, but
+keeps track of trailing fraction zeros and the comma placement for
+engineering notation. Digits must have at least one digit.
+<p>Examples:
+<pre>  Number     Decimal
+decimal
+  12345      Digits: [1, 2, 3, 4, 5], Exp: 5  End: 5
+  12.345     Digits: [1, 2, 3, 4, 5], Exp: 2  End: 5
+  12000      Digits: [1, 2],          Exp: 5  End: 5
+  12000.00   Digits: [1, 2],          Exp: 5  End: 7
+  0.00123    Digits: [1, 2, 3],       Exp: -2 End: 3
+  0          Digits: [],              Exp: 0  End: 1
+scientific (actual exp is Exp - Comma)
+  0e0        Digits: [0],             Exp: 1, End: 1, Comma: 1
+  .0e0       Digits: [0],             Exp: 0, End: 1, Comma: 0
+  0.0e0      Digits: [0],             Exp: 1, End: 2, Comma: 1
+  1.23e4     Digits: [1, 2, 3],       Exp: 5, End: 3, Comma: 1
+  .123e5     Digits: [1, 2, 3],       Exp: 5, End: 3, Comma: 0
+engineering
+  12.3e3     Digits: [1, 2, 3],       Exp: 5, End: 3, Comma: 2
+</pre>
+
+			<pre>type Digits struct {
+
+<span id="Digits.End"></span>    <span class="comment">// End indicates the end position of the number.</span>
+    End <a href="/pkg/builtin/#int32">int32</a> <span class="comment">// For decimals Exp &lt;= End. For scientific len(Digits) &lt;= End.</span>
+<span id="Digits.Comma"></span>    <span class="comment">// Comma is used for the comma position for scientific (always 0 or 1) and</span>
+    <span class="comment">// engineering notation (always 0, 1, 2, or 3).</span>
+    Comma <a href="/pkg/builtin/#uint8">uint8</a>
+<span id="Digits.IsScientific"></span>    <span class="comment">// IsScientific indicates whether this number is to be rendered as a</span>
+    <span class="comment">// scientific number.</span>
+    IsScientific <a href="/pkg/builtin/#bool">bool</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="FormatDigits">func <a href="/src/golang.org/x/text/internal/number/format.go?s=2725:2780#L85">FormatDigits</a>
+					<a class="permalink" href="#FormatDigits">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func FormatDigits(d *<a href="#Decimal">Decimal</a>, r <a href="#RoundingContext">RoundingContext</a>) <a href="#Digits">Digits</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="Digits.NumFracDigits">func (*Digits) <a href="/src/golang.org/x/text/internal/number/decimal.go?s=3395:3431#L81">NumFracDigits</a>
+					<a class="permalink" href="#Digits.NumFracDigits">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (d *<a href="#Digits">Digits</a>) NumFracDigits() <a href="/pkg/builtin/#int">int</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Formatter">type <a href="/src/golang.org/x/text/internal/number/format.go?s=1124:1164#L25">Formatter</a>
+				<a class="permalink" href="#Formatter">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Formatter contains all the information needed to render a number.
+
+			<pre>type Formatter struct {
+    <a href="#Pattern">Pattern</a>
+    <a href="#Info">Info</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Formatter.Append">func (*Formatter) <a href="/src/golang.org/x/text/internal/number/format.go?s=2560:2620#L78">Append</a>
+					<a class="permalink" href="#Formatter.Append">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (f *<a href="#Formatter">Formatter</a>) Append(dst []<a href="/pkg/builtin/#byte">byte</a>, x interface{}) []<a href="/pkg/builtin/#byte">byte</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Formatter.Format">func (*Formatter) <a href="/src/golang.org/x/text/internal/number/format.go?s=2886:2943#L92">Format</a>
+					<a class="permalink" href="#Formatter.Format">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (f *<a href="#Formatter">Formatter</a>) Format(dst []<a href="/pkg/builtin/#byte">byte</a>, d *<a href="#Decimal">Decimal</a>) []<a href="/pkg/builtin/#byte">byte</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Formatter.InitDecimal">func (*Formatter) <a href="/src/golang.org/x/text/internal/number/format.go?s=1556:1603#L43">InitDecimal</a>
+					<a class="permalink" href="#Formatter.InitDecimal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (f *<a href="#Formatter">Formatter</a>) InitDecimal(t <a href="/pkg/golang.org/x/text/language/">language</a>.<a href="/pkg/golang.org/x/text/language/#Tag">Tag</a>)</pre>
+				<p>InitDecimal initializes a Formatter using the default Pattern for the given
+language.
+
+				
+				
+				
+			
+				
+				<h3 id="Formatter.InitEngineering">func (*Formatter) <a href="/src/golang.org/x/text/internal/number/format.go?s=1976:2027#L57">InitEngineering</a>
+					<a class="permalink" href="#Formatter.InitEngineering">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (f *<a href="#Formatter">Formatter</a>) InitEngineering(t <a href="/pkg/golang.org/x/text/language/">language</a>.<a href="/pkg/golang.org/x/text/language/#Tag">Tag</a>)</pre>
+				<p>InitEngineering initializes a Formatter using the default Pattern for the
+given language.
+
+				
+				
+				
+			
+				
+				<h3 id="Formatter.InitPattern">func (*Formatter) <a href="/src/golang.org/x/text/internal/number/format.go?s=1354:1415#L36">InitPattern</a>
+					<a class="permalink" href="#Formatter.InitPattern">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (f *<a href="#Formatter">Formatter</a>) InitPattern(t <a href="/pkg/golang.org/x/text/language/">language</a>.<a href="/pkg/golang.org/x/text/language/#Tag">Tag</a>, pat *<a href="#Pattern">Pattern</a>)</pre>
+				<p>InitPattern initializes a Formatter for the given Pattern.
+
+				
+				
+				
+			
+				
+				<h3 id="Formatter.InitPerMille">func (*Formatter) <a href="/src/golang.org/x/text/internal/number/format.go?s=2455:2503#L73">InitPerMille</a>
+					<a class="permalink" href="#Formatter.InitPerMille">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (f *<a href="#Formatter">Formatter</a>) InitPerMille(t <a href="/pkg/golang.org/x/text/language/">language</a>.<a href="/pkg/golang.org/x/text/language/#Tag">Tag</a>)</pre>
+				<p>InitPerMille initializes a Formatter using the default Pattern for the given
+language.
+
+				
+				
+				
+			
+				
+				<h3 id="Formatter.InitPercent">func (*Formatter) <a href="/src/golang.org/x/text/internal/number/format.go?s=2284:2331#L67">InitPercent</a>
+					<a class="permalink" href="#Formatter.InitPercent">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (f *<a href="#Formatter">Formatter</a>) InitPercent(t <a href="/pkg/golang.org/x/text/language/">language</a>.<a href="/pkg/golang.org/x/text/language/#Tag">Tag</a>)</pre>
+				<p>InitPercent initializes a Formatter using the default Pattern for the given
+language.
+
+				
+				
+				
+			
+				
+				<h3 id="Formatter.InitScientific">func (*Formatter) <a href="/src/golang.org/x/text/internal/number/format.go?s=1729:1779#L49">InitScientific</a>
+					<a class="permalink" href="#Formatter.InitScientific">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (f *<a href="#Formatter">Formatter</a>) InitScientific(t <a href="/pkg/golang.org/x/text/language/">language</a>.<a href="/pkg/golang.org/x/text/language/#Tag">Tag</a>)</pre>
+				<p>InitScientific initializes a Formatter using the default Pattern for the
+given language.
+
+				
+				
+				
+			
+				
+				<h3 id="Formatter.Render">func (*Formatter) <a href="/src/golang.org/x/text/internal/number/format.go?s=3007:3062#L96">Render</a>
+					<a class="permalink" href="#Formatter.Render">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (f *<a href="#Formatter">Formatter</a>) Render(dst []<a href="/pkg/builtin/#byte">byte</a>, d <a href="#Digits">Digits</a>) []<a href="/pkg/builtin/#byte">byte</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Info">type <a href="/src/golang.org/x/text/internal/number/number.go?s=443:557#L8">Info</a>
+				<a class="permalink" href="#Info">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Info holds number formatting configuration data.
+
+			<pre>type Info struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="InfoFromLangID">func <a href="/src/golang.org/x/text/internal/number/number.go?s=766:836#L16">InfoFromLangID</a>
+					<a class="permalink" href="#InfoFromLangID">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func InfoFromLangID(compactIndex <a href="/pkg/golang.org/x/text/internal/language/compact/">compact</a>.<a href="/pkg/golang.org/x/text/internal/language/compact/#ID">ID</a>, numberSystem <a href="/pkg/builtin/#string">string</a>) <a href="#Info">Info</a></pre>
+				<p>InfoFromLangID returns a Info for the given compact language identifier and
+numbering system identifier. If system is the empty string, the default
+numbering system will be taken for that language.
+
+				
+				
+			
+				
+				<h3 id="InfoFromTag">func <a href="/src/golang.org/x/text/internal/number/number.go?s=3041:3078#L92">InfoFromTag</a>
+					<a class="permalink" href="#InfoFromTag">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func InfoFromTag(t <a href="/pkg/golang.org/x/text/language/">language</a>.<a href="/pkg/golang.org/x/text/language/#Tag">Tag</a>) <a href="#Info">Info</a></pre>
+				<p>InfoFromTag returns a Info for the given language tag.
+
+				
+				
+			
+
+			
+				
+				<h3 id="Info.AppendDigit">func (Info) <a href="/src/golang.org/x/text/internal/number/number.go?s=3937:3993#L114">AppendDigit</a>
+					<a class="permalink" href="#Info.AppendDigit">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (n <a href="#Info">Info</a>) AppendDigit(dst []<a href="/pkg/builtin/#byte">byte</a>, digit <a href="/pkg/builtin/#byte">byte</a>) []<a href="/pkg/builtin/#byte">byte</a></pre>
+				<p>AppendDigit appends the UTF-8 sequence for n corresponding to the given digit
+to dst and reports the number of bytes written. dst must be large enough to
+hold the rune (can be up to utf8.UTFMax bytes).
+
+				
+				
+				
+			
+				
+				<h3 id="Info.Digit">func (Info) <a href="/src/golang.org/x/text/internal/number/number.go?s=4329:4370#L123">Digit</a>
+					<a class="permalink" href="#Info.Digit">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (n <a href="#Info">Info</a>) Digit(asciiDigit <a href="/pkg/builtin/#rune">rune</a>) <a href="/pkg/builtin/#rune">rune</a></pre>
+				<p>Digit returns the digit for the numbering system for the corresponding ASCII
+value. For example, ni.Digit(&apos;3&apos;) could return &apos;三&apos;. Note that the argument
+is the rune constant &apos;3&apos;, which equals 51, not the integer constant 3.
+
+				
+				
+				
+			
+				
+				<h3 id="Info.IsDecimal">func (Info) <a href="/src/golang.org/x/text/internal/number/number.go?s=3237:3267#L98">IsDecimal</a>
+					<a class="permalink" href="#Info.IsDecimal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (n <a href="#Info">Info</a>) IsDecimal() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>IsDecimal reports if the numbering system can convert decimal to native
+symbols one-to-one.
+
+				
+				
+				
+			
+				
+				<h3 id="Info.Symbol">func (Info) <a href="/src/golang.org/x/text/internal/number/number.go?s=4530:4571#L131">Symbol</a>
+					<a class="permalink" href="#Info.Symbol">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (n <a href="#Info">Info</a>) Symbol(t <a href="#SymbolType">SymbolType</a>) <a href="/pkg/builtin/#string">string</a></pre>
+				<p>Symbol returns the string for the given symbol type.
+
+				
+				
+				
+			
+				
+				<h3 id="Info.WriteDigit">func (Info) <a href="/src/golang.org/x/text/internal/number/number.go?s=3531:3588#L105">WriteDigit</a>
+					<a class="permalink" href="#Info.WriteDigit">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (n <a href="#Info">Info</a>) WriteDigit(dst []<a href="/pkg/builtin/#byte">byte</a>, asciiDigit <a href="/pkg/builtin/#rune">rune</a>) <a href="/pkg/builtin/#int">int</a></pre>
+				<p>WriteDigit writes the UTF-8 sequence for n corresponding to the given ASCII
+digit to dst and reports the number of bytes written. dst must be large
+enough to hold the rune (can be up to utf8.UTFMax bytes).
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Pattern">type <a href="/src/golang.org/x/text/internal/number/pattern.go?s=1351:1701#L31">Pattern</a>
+				<a class="permalink" href="#Pattern">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Pattern holds information for formatting numbers. It is designed to hold
+information from CLDR number patterns.
+<p>This pattern is precompiled  for all patterns for all languages. Even though
+the number of patterns is not very large, we want to keep this small.
+<p>This type is only intended for internal use.
+
+			<pre>type Pattern struct {
+    <a href="#RoundingContext">RoundingContext</a>
+
+<span id="Pattern.Affix"></span>    Affix       <a href="/pkg/builtin/#string">string</a> <span class="comment">// includes prefix and suffix. First byte is prefix length.</span>
+<span id="Pattern.Offset"></span>    Offset      <a href="/pkg/builtin/#uint16">uint16</a> <span class="comment">// Offset into Affix for prefix and suffix</span>
+<span id="Pattern.NegOffset"></span>    NegOffset   <a href="/pkg/builtin/#uint16">uint16</a> <span class="comment">// Offset into Affix for negative prefix and suffix or 0.</span>
+<span id="Pattern.PadRune"></span>    PadRune     <a href="/pkg/builtin/#rune">rune</a>
+<span id="Pattern.FormatWidth"></span>    FormatWidth <a href="/pkg/builtin/#uint16">uint16</a>
+
+<span id="Pattern.GroupingSize"></span>    GroupingSize [2]<a href="/pkg/builtin/#uint8">uint8</a>
+<span id="Pattern.Flags"></span>    Flags        <a href="#PatternFlag">PatternFlag</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="ParsePattern">func <a href="/src/golang.org/x/text/internal/number/pattern.go?s=6052:6103#L195">ParsePattern</a>
+					<a class="permalink" href="#ParsePattern">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func ParsePattern(s <a href="/pkg/builtin/#string">string</a>) (f *<a href="#Pattern">Pattern</a>, err <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>ParsePattern extracts formatting information from a CLDR number pattern.
+<p>See <a href="https://unicode.org/reports/tr35/tr35-numbers.html#Number_Format_Patterns">https://unicode.org/reports/tr35/tr35-numbers.html#Number_Format_Patterns</a>.
+
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="PatternFlag">type <a href="/src/golang.org/x/text/internal/number/pattern.go?s=4294:4316#L133">PatternFlag</a>
+				<a class="permalink" href="#PatternFlag">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A PatternFlag is a bit mask for the flag field of a Pattern.
+
+			<pre>type PatternFlag <a href="/pkg/builtin/#uint8">uint8</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="RoundingContext">type <a href="/src/golang.org/x/text/internal/number/pattern.go?s=1893:2457#L47">RoundingContext</a>
+				<a class="permalink" href="#RoundingContext">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A RoundingContext indicates how a number should be converted to digits.
+It contains all information needed to determine the &quot;visible digits&quot; as
+required by the pluralization rules.
+
+			<pre>type RoundingContext struct {
+    <span class="comment">// TODO: unify these two fields so that there is a more unambiguous meaning</span>
+    <span class="comment">// of how precision is handled.</span>
+<span id="RoundingContext.MaxSignificantDigits"></span>    MaxSignificantDigits <a href="/pkg/builtin/#int16">int16</a> <span class="comment">// -1 is unlimited</span>
+<span id="RoundingContext.MaxFractionDigits"></span>    MaxFractionDigits    <a href="/pkg/builtin/#int16">int16</a> <span class="comment">// -1 is unlimited</span>
+
+<span id="RoundingContext.Increment"></span>    Increment      <a href="/pkg/builtin/#uint32">uint32</a>
+<span id="RoundingContext.IncrementScale"></span>    IncrementScale <a href="/pkg/builtin/#uint8">uint8</a> <span class="comment">// May differ from printed scale.</span>
+
+<span id="RoundingContext.Mode"></span>    Mode <a href="#RoundingMode">RoundingMode</a>
+
+<span id="RoundingContext.DigitShift"></span>    DigitShift <a href="/pkg/builtin/#uint8">uint8</a> <span class="comment">// Number of decimals to shift. Used for % and ‰.</span>
+
+    <span class="comment">// Number of digits.</span>
+<span id="RoundingContext.MinIntegerDigits"></span>    MinIntegerDigits <a href="/pkg/builtin/#uint8">uint8</a>
+
+<span id="RoundingContext.MaxIntegerDigits"></span>    MaxIntegerDigits     <a href="/pkg/builtin/#uint8">uint8</a>
+<span id="RoundingContext.MinFractionDigits"></span>    MinFractionDigits    <a href="/pkg/builtin/#uint8">uint8</a>
+<span id="RoundingContext.MinSignificantDigits"></span>    MinSignificantDigits <a href="/pkg/builtin/#uint8">uint8</a>
+
+<span id="RoundingContext.MinExponentDigits"></span>    MinExponentDigits <a href="/pkg/builtin/#uint8">uint8</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="RoundingContext.RoundFractionDigits">func (*RoundingContext) <a href="/src/golang.org/x/text/internal/number/pattern.go?s=3252:3307#L89">RoundFractionDigits</a>
+					<a class="permalink" href="#RoundingContext.RoundFractionDigits">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#RoundingContext">RoundingContext</a>) RoundFractionDigits() (n <a href="/pkg/builtin/#int">int</a>)</pre>
+				<p>RoundFractionDigits returns the number of fraction digits an implementation
+of Convert may round to or n &lt; 0 if there is no maximum or a maximum is not
+recommended.
+
+				
+				
+				
+			
+				
+				<h3 id="RoundingContext.RoundSignificantDigits">func (*RoundingContext) <a href="/src/golang.org/x/text/internal/number/pattern.go?s=2639:2697#L73">RoundSignificantDigits</a>
+					<a class="permalink" href="#RoundingContext.RoundSignificantDigits">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#RoundingContext">RoundingContext</a>) RoundSignificantDigits() (n <a href="/pkg/builtin/#int">int</a>)</pre>
+				<p>RoundSignificantDigits returns the number of significant digits an
+implementation of Convert may round to or n &lt; 0 if there is no maximum or
+a maximum is not recommended.
+
+				
+				
+				
+			
+				
+				<h3 id="RoundingContext.SetPrecision">func (*RoundingContext) <a href="/src/golang.org/x/text/internal/number/pattern.go?s=3674:3722#L104">SetPrecision</a>
+					<a class="permalink" href="#RoundingContext.SetPrecision">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#RoundingContext">RoundingContext</a>) SetPrecision(prec <a href="/pkg/builtin/#int">int</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="RoundingContext.SetScale">func (*RoundingContext) <a href="/src/golang.org/x/text/internal/number/pattern.go?s=3551:3596#L99">SetScale</a>
+					<a class="permalink" href="#RoundingContext.SetScale">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#RoundingContext">RoundingContext</a>) SetScale(scale <a href="/pkg/builtin/#int">int</a>)</pre>
+				<p>SetScale fixes the RoundingContext to a fixed number of fraction digits.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="RoundingMode">type <a href="/src/golang.org/x/text/internal/number/decimal.go?s=327:349#L5">RoundingMode</a>
+				<a class="permalink" href="#RoundingMode">&#xb6;</a>
+				
+				
+			</h2>
+			<p>RoundingMode determines how a number is rounded to the desired precision.
+
+			<pre>type RoundingMode <a href="/pkg/builtin/#byte">byte</a></pre>
+
+			
+				
+				<pre>const (
+    <span id="ToNearestEven">ToNearestEven</span> <a href="#RoundingMode">RoundingMode</a> = <a href="/pkg/builtin/#iota">iota</a> <span class="comment">// towards the nearest integer, or towards an even number if equidistant.</span>
+    <span id="ToNearestZero">ToNearestZero</span>                     <span class="comment">// towards the nearest integer, or towards zero if equidistant.</span>
+    <span id="ToNearestAway">ToNearestAway</span>                     <span class="comment">// towards the nearest integer, or away from zero if equidistant.</span>
+    <span id="ToPositiveInf">ToPositiveInf</span>                     <span class="comment">// towards infinity</span>
+    <span id="ToNegativeInf">ToNegativeInf</span>                     <span class="comment">// towards negative infinity</span>
+    <span id="ToZero">ToZero</span>                            <span class="comment">// towards zero</span>
+    <span id="AwayFromZero">AwayFromZero</span>                      <span class="comment">// away from zero</span>
+
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="RoundingMode.String">func (RoundingMode) <a href="/src/golang.org/x/text/internal/number/roundingmode_string.go?s=656:693#L15">String</a>
+					<a class="permalink" href="#RoundingMode.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (i <a href="#RoundingMode">RoundingMode</a>) String() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="SymbolType">type <a href="/src/golang.org/x/text/internal/number/common.go?s=465:484#L11">SymbolType</a>
+				<a class="permalink" href="#SymbolType">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A SymbolType identifies a symbol of a specific kind.
+
+			<pre>type SymbolType <a href="/pkg/builtin/#int">int</a></pre>
+
+			
+				
+				<pre>const (
+    <span id="SymDecimal">SymDecimal</span> <a href="#SymbolType">SymbolType</a> = <a href="/pkg/builtin/#iota">iota</a>
+    <span id="SymGroup">SymGroup</span>
+    <span id="SymList">SymList</span>
+    <span id="SymPercentSign">SymPercentSign</span>
+    <span id="SymPlusSign">SymPlusSign</span>
+    <span id="SymMinusSign">SymMinusSign</span>
+    <span id="SymExponential">SymExponential</span>
+    <span id="SymSuperscriptingExponent">SymSuperscriptingExponent</span>
+    <span id="SymPerMille">SymPerMille</span>
+    <span id="SymInfinity">SymInfinity</span>
+    <span id="SymNan">SymNan</span>
+    <span id="SymTimeSeparator">SymTimeSeparator</span>
+
+    <span id="NumSymbolTypes">NumSymbolTypes</span>
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="VisibleDigits">type <a href="/src/golang.org/x/text/internal/number/format.go?s=507:659#L11">VisibleDigits</a>
+				<a class="permalink" href="#VisibleDigits">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A VisibleDigits computes digits, comma placement and trailing zeros as they
+will be shown to the user.
+
+			<pre>type VisibleDigits interface {
+    Digits(buf []<a href="/pkg/builtin/#byte">byte</a>, t <a href="/pkg/golang.org/x/text/language/">language</a>.<a href="/pkg/golang.org/x/text/language/#Tag">Tag</a>, scale <a href="/pkg/builtin/#int">int</a>) <a href="#Digits">Digits</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

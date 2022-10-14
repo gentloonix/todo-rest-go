@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>protowire - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/pkg/">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/pkg/">GoDoc</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package protowire
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "google.golang.org/protobuf/encoding/protowire"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>Package protowire parses and formats the raw wire encoding.
+See <a href="https://developers.google.com/protocol-buffers/docs/encoding">https://developers.google.com/protocol-buffers/docs/encoding</a>.
+<p>For marshaling and unmarshaling entire protobuf messages,
+use the &quot;google.golang.org/protobuf/proto&quot; package instead.
+
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#AppendBytes">func AppendBytes(b []byte, v []byte) []byte</a></dd>
+			
+				
+				<dd><a href="#AppendFixed32">func AppendFixed32(b []byte, v uint32) []byte</a></dd>
+			
+				
+				<dd><a href="#AppendFixed64">func AppendFixed64(b []byte, v uint64) []byte</a></dd>
+			
+				
+				<dd><a href="#AppendGroup">func AppendGroup(b []byte, num Number, v []byte) []byte</a></dd>
+			
+				
+				<dd><a href="#AppendString">func AppendString(b []byte, v string) []byte</a></dd>
+			
+				
+				<dd><a href="#AppendTag">func AppendTag(b []byte, num Number, typ Type) []byte</a></dd>
+			
+				
+				<dd><a href="#AppendVarint">func AppendVarint(b []byte, v uint64) []byte</a></dd>
+			
+				
+				<dd><a href="#ConsumeBytes">func ConsumeBytes(b []byte) (v []byte, n int)</a></dd>
+			
+				
+				<dd><a href="#ConsumeField">func ConsumeField(b []byte) (Number, Type, int)</a></dd>
+			
+				
+				<dd><a href="#ConsumeFieldValue">func ConsumeFieldValue(num Number, typ Type, b []byte) (n int)</a></dd>
+			
+				
+				<dd><a href="#ConsumeFixed32">func ConsumeFixed32(b []byte) (v uint32, n int)</a></dd>
+			
+				
+				<dd><a href="#ConsumeFixed64">func ConsumeFixed64(b []byte) (v uint64, n int)</a></dd>
+			
+				
+				<dd><a href="#ConsumeGroup">func ConsumeGroup(num Number, b []byte) (v []byte, n int)</a></dd>
+			
+				
+				<dd><a href="#ConsumeString">func ConsumeString(b []byte) (v string, n int)</a></dd>
+			
+				
+				<dd><a href="#ConsumeTag">func ConsumeTag(b []byte) (Number, Type, int)</a></dd>
+			
+				
+				<dd><a href="#ConsumeVarint">func ConsumeVarint(b []byte) (v uint64, n int)</a></dd>
+			
+				
+				<dd><a href="#DecodeBool">func DecodeBool(x uint64) bool</a></dd>
+			
+				
+				<dd><a href="#DecodeTag">func DecodeTag(x uint64) (Number, Type)</a></dd>
+			
+				
+				<dd><a href="#DecodeZigZag">func DecodeZigZag(x uint64) int64</a></dd>
+			
+				
+				<dd><a href="#EncodeBool">func EncodeBool(x bool) uint64</a></dd>
+			
+				
+				<dd><a href="#EncodeTag">func EncodeTag(num Number, typ Type) uint64</a></dd>
+			
+				
+				<dd><a href="#EncodeZigZag">func EncodeZigZag(x int64) uint64</a></dd>
+			
+				
+				<dd><a href="#ParseError">func ParseError(n int) error</a></dd>
+			
+				
+				<dd><a href="#SizeBytes">func SizeBytes(n int) int</a></dd>
+			
+				
+				<dd><a href="#SizeFixed32">func SizeFixed32() int</a></dd>
+			
+				
+				<dd><a href="#SizeFixed64">func SizeFixed64() int</a></dd>
+			
+				
+				<dd><a href="#SizeGroup">func SizeGroup(num Number, n int) int</a></dd>
+			
+				
+				<dd><a href="#SizeTag">func SizeTag(num Number) int</a></dd>
+			
+				
+				<dd><a href="#SizeVarint">func SizeVarint(v uint64) int</a></dd>
+			
+			
+				
+				<dd><a href="#Number">type Number</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Number.IsValid">func (n Number) IsValid() bool</a></dd>
+				
+			
+				
+				<dd><a href="#Type">type Type</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go">wire.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="AppendBytes">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=9926:9969#L424">AppendBytes</a>
+				<a class="permalink" href="#AppendBytes">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func AppendBytes(b []<a href="/pkg/builtin/#byte">byte</a>, v []<a href="/pkg/builtin/#byte">byte</a>) []<a href="/pkg/builtin/#byte">byte</a></pre>
+			<p>AppendBytes appends v to b as a length-prefixed bytes value.
+
+			
+			
+
+		
+			
+			
+			<h2 id="AppendFixed32">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=8523:8568#L372">AppendFixed32</a>
+				<a class="permalink" href="#AppendFixed32">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func AppendFixed32(b []<a href="/pkg/builtin/#byte">byte</a>, v <a href="/pkg/builtin/#uint32">uint32</a>) []<a href="/pkg/builtin/#byte">byte</a></pre>
+			<p>AppendFixed32 appends v to b as a little-endian uint32.
+
+			
+			
+
+		
+			
+			
+			<h2 id="AppendFixed64">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=9154:9199#L396">AppendFixed64</a>
+				<a class="permalink" href="#AppendFixed64">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func AppendFixed64(b []<a href="/pkg/builtin/#byte">byte</a>, v <a href="/pkg/builtin/#uint64">uint64</a>) []<a href="/pkg/builtin/#byte">byte</a></pre>
+			<p>AppendFixed64 appends v to b as a little-endian uint64.
+
+			
+			
+
+		
+			
+			
+			<h2 id="AppendGroup">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=11107:11162#L461">AppendGroup</a>
+				<a class="permalink" href="#AppendGroup">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func AppendGroup(b []<a href="/pkg/builtin/#byte">byte</a>, num <a href="#Number">Number</a>, v []<a href="/pkg/builtin/#byte">byte</a>) []<a href="/pkg/builtin/#byte">byte</a></pre>
+			<p>AppendGroup appends v to b as group value, with a trailing end group marker.
+The value v must not contain the end marker.
+
+			
+			
+
+		
+			
+			
+			<h2 id="AppendString">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=10627:10671#L448">AppendString</a>
+				<a class="permalink" href="#AppendString">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func AppendString(b []<a href="/pkg/builtin/#byte">byte</a>, v <a href="/pkg/builtin/#string">string</a>) []<a href="/pkg/builtin/#byte">byte</a></pre>
+			<p>AppendString appends v to b as a length-prefixed bytes value.
+
+			
+			
+
+		
+			
+			
+			<h2 id="AppendTag">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=4242:4295#L156">AppendTag</a>
+				<a class="permalink" href="#AppendTag">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func AppendTag(b []<a href="/pkg/builtin/#byte">byte</a>, num <a href="#Number">Number</a>, typ <a href="#Type">Type</a>) []<a href="/pkg/builtin/#byte">byte</a></pre>
+			<p>AppendTag encodes num and typ as a varint-encoded tag and appends it to b.
+
+			
+			
+
+		
+			
+			
+			<h2 id="AppendVarint">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=4889:4933#L179">AppendVarint</a>
+				<a class="permalink" href="#AppendVarint">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func AppendVarint(b []<a href="/pkg/builtin/#byte">byte</a>, v <a href="/pkg/builtin/#uint64">uint64</a>) []<a href="/pkg/builtin/#byte">byte</a></pre>
+			<p>AppendVarint appends v to b as a varint-encoded uint64.
+
+			
+			
+
+		
+			
+			
+			<h2 id="ConsumeBytes">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=10176:10221#L430">ConsumeBytes</a>
+				<a class="permalink" href="#ConsumeBytes">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ConsumeBytes(b []<a href="/pkg/builtin/#byte">byte</a>) (v []<a href="/pkg/builtin/#byte">byte</a>, n <a href="/pkg/builtin/#int">int</a>)</pre>
+			<p>ConsumeBytes parses b as a length-prefixed bytes value, reporting its length.
+This returns a negative length upon an error (see ParseError).
+
+			
+			
+
+		
+			
+			
+			<h2 id="ConsumeField">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=2597:2644#L88">ConsumeField</a>
+				<a class="permalink" href="#ConsumeField">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ConsumeField(b []<a href="/pkg/builtin/#byte">byte</a>) (<a href="#Number">Number</a>, <a href="#Type">Type</a>, <a href="/pkg/builtin/#int">int</a>)</pre>
+			<p>ConsumeField parses an entire field record (both tag and value) and returns
+the field number, the wire type, and the total length.
+This returns a negative length upon an error (see ParseError).
+<p>The total length includes the tag header and the end group marker (if the
+field is a group).
+
+			
+			
+
+		
+			
+			
+			<h2 id="ConsumeFieldValue">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=3201:3263#L106">ConsumeFieldValue</a>
+				<a class="permalink" href="#ConsumeFieldValue">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ConsumeFieldValue(num <a href="#Number">Number</a>, typ <a href="#Type">Type</a>, b []<a href="/pkg/builtin/#byte">byte</a>) (n <a href="/pkg/builtin/#int">int</a>)</pre>
+			<p>ConsumeFieldValue parses a field value and returns its length.
+This assumes that the field Number and wire Type have already been parsed.
+This returns a negative length upon an error (see ParseError).
+<p>When parsing a group, the length includes the end group marker and
+the end group is verified to match the starting field number.
+
+			
+			
+
+		
+			
+			
+			<h2 id="ConsumeFixed32">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=8792:8839#L382">ConsumeFixed32</a>
+				<a class="permalink" href="#ConsumeFixed32">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ConsumeFixed32(b []<a href="/pkg/builtin/#byte">byte</a>) (v <a href="/pkg/builtin/#uint32">uint32</a>, n <a href="/pkg/builtin/#int">int</a>)</pre>
+			<p>ConsumeFixed32 parses b as a little-endian uint32, reporting its length.
+This returns a negative length upon an error (see ParseError).
+
+			
+			
+
+		
+			
+			
+			<h2 id="ConsumeFixed64">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=9483:9530#L410">ConsumeFixed64</a>
+				<a class="permalink" href="#ConsumeFixed64">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ConsumeFixed64(b []<a href="/pkg/builtin/#byte">byte</a>) (v <a href="/pkg/builtin/#uint64">uint64</a>, n <a href="/pkg/builtin/#int">int</a>)</pre>
+			<p>ConsumeFixed64 parses b as a little-endian uint64, reporting its length.
+This returns a negative length upon an error (see ParseError).
+
+			
+			
+
+		
+			
+			
+			<h2 id="ConsumeGroup">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=11537:11594#L469">ConsumeGroup</a>
+				<a class="permalink" href="#ConsumeGroup">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ConsumeGroup(num <a href="#Number">Number</a>, b []<a href="/pkg/builtin/#byte">byte</a>) (v []<a href="/pkg/builtin/#byte">byte</a>, n <a href="/pkg/builtin/#int">int</a>)</pre>
+			<p>ConsumeGroup parses b as a group value until the trailing end group marker,
+and verifies that the end marker matches the provided num. The value v
+does not contain the end marker, while the length does contain the end marker.
+This returns a negative length upon an error (see ParseError).
+
+			
+			
+
+		
+			
+			
+			<h2 id="ConsumeString">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=10879:10925#L454">ConsumeString</a>
+				<a class="permalink" href="#ConsumeString">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ConsumeString(b []<a href="/pkg/builtin/#byte">byte</a>) (v <a href="/pkg/builtin/#string">string</a>, n <a href="/pkg/builtin/#int">int</a>)</pre>
+			<p>ConsumeString parses b as a length-prefixed bytes value, reporting its length.
+This returns a negative length upon an error (see ParseError).
+
+			
+			
+
+		
+			
+			
+			<h2 id="ConsumeTag">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=4482:4527#L162">ConsumeTag</a>
+				<a class="permalink" href="#ConsumeTag">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ConsumeTag(b []<a href="/pkg/builtin/#byte">byte</a>) (<a href="#Number">Number</a>, <a href="#Type">Type</a>, <a href="/pkg/builtin/#int">int</a>)</pre>
+			<p>ConsumeTag parses b as a varint-encoded tag, reporting its length.
+This returns a negative length upon an error (see ParseError).
+
+			
+			
+
+		
+			
+			
+			<h2 id="ConsumeVarint">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=6811:6857#L261">ConsumeVarint</a>
+				<a class="permalink" href="#ConsumeVarint">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ConsumeVarint(b []<a href="/pkg/builtin/#byte">byte</a>) (v <a href="/pkg/builtin/#uint64">uint64</a>, n <a href="/pkg/builtin/#int">int</a>)</pre>
+			<p>ConsumeVarint parses b as a varint-encoded uint64, reporting its length.
+This returns a negative length upon an error (see ParseError).
+
+			
+			
+
+		
+			
+			
+			<h2 id="DecodeBool">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=13419:13449#L525">DecodeBool</a>
+				<a class="permalink" href="#DecodeBool">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func DecodeBool(x <a href="/pkg/builtin/#uint64">uint64</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+			<p>DecodeBool decodes a uint64 as a bool.
+<pre>Input:  {    0,    1,    2, …}
+Output: {false, true, true, …}
+</pre>
+
+			
+			
+
+		
+			
+			
+			<h2 id="DecodeTag">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=12464:12503#L495">DecodeTag</a>
+				<a class="permalink" href="#DecodeTag">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func DecodeTag(x <a href="/pkg/builtin/#uint64">uint64</a>) (<a href="#Number">Number</a>, <a href="#Type">Type</a>)</pre>
+			<p>DecodeTag decodes the field Number and wire Type from its unified form.
+The Number is -1 if the decoded field number overflows int32.
+Other than overflow, this does not check for field number validity.
+
+			
+			
+
+		
+			
+			
+			<h2 id="DecodeZigZag">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=12989:13022#L511">DecodeZigZag</a>
+				<a class="permalink" href="#DecodeZigZag">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func DecodeZigZag(x <a href="/pkg/builtin/#uint64">uint64</a>) <a href="/pkg/builtin/#int64">int64</a></pre>
+			<p>DecodeZigZag decodes a zig-zag-encoded uint64 as an int64.
+<pre>Input:  {…,  5,  3,  1,  0,  2,  4,  6, …}
+Output: {…, -3, -2, -1,  0, +1, +2, +3, …}
+</pre>
+
+			
+			
+
+		
+			
+			
+			<h2 id="EncodeBool">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=13562:13592#L532">EncodeBool</a>
+				<a class="permalink" href="#EncodeBool">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func EncodeBool(x <a href="/pkg/builtin/#bool">bool</a>) <a href="/pkg/builtin/#uint64">uint64</a></pre>
+			<p>EncodeBool encodes a bool as a uint64.
+<pre>Input:  {false, true}
+Output: {    0,    1}
+</pre>
+
+			
+			
+
+		
+			
+			
+			<h2 id="EncodeTag">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=12739:12782#L504">EncodeTag</a>
+				<a class="permalink" href="#EncodeTag">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func EncodeTag(num <a href="#Number">Number</a>, typ <a href="#Type">Type</a>) <a href="/pkg/builtin/#uint64">uint64</a></pre>
+			<p>EncodeTag encodes the field Number and wire Type into its unified form.
+
+			
+			
+
+		
+			
+			
+			<h2 id="EncodeZigZag">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=13229:13262#L518">EncodeZigZag</a>
+				<a class="permalink" href="#EncodeZigZag">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func EncodeZigZag(x <a href="/pkg/builtin/#int64">int64</a>) <a href="/pkg/builtin/#uint64">uint64</a></pre>
+			<p>EncodeZigZag encodes an int64 as a zig-zag-encoded uint64.
+<pre>Input:  {…, -3, -2, -1,  0, +1, +2, +3, …}
+Output: {…,  5,  3,  1,  0,  2,  4,  6, …}
+</pre>
+
+			
+			
+
+		
+			
+			
+			<h2 id="ParseError">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=1951:1979#L62">ParseError</a>
+				<a class="permalink" href="#ParseError">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ParseError(n <a href="/pkg/builtin/#int">int</a>) <a href="/pkg/builtin/#error">error</a></pre>
+			<p>ParseError converts an error code into an error value.
+This returns nil if n is a non-negative number.
+
+			
+			
+
+		
+			
+			
+			<h2 id="SizeBytes">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=10497:10522#L443">SizeBytes</a>
+				<a class="permalink" href="#SizeBytes">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func SizeBytes(n <a href="/pkg/builtin/#int">int</a>) <a href="/pkg/builtin/#int">int</a></pre>
+			<p>SizeBytes returns the encoded size of a length-prefixed bytes value,
+given only the length.
+
+			
+			
+
+		
+			
+			
+			<h2 id="SizeFixed32">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=9057:9079#L391">SizeFixed32</a>
+				<a class="permalink" href="#SizeFixed32">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func SizeFixed32() <a href="/pkg/builtin/#int">int</a></pre>
+			<p>SizeFixed32 returns the encoded size of a fixed32; which is always 4.
+
+			
+			
+
+		
+			
+			
+			<h2 id="SizeFixed64">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=9824:9846#L419">SizeFixed64</a>
+				<a class="permalink" href="#SizeFixed64">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func SizeFixed64() <a href="/pkg/builtin/#int">int</a></pre>
+			<p>SizeFixed64 returns the encoded size of a fixed64; which is always 8.
+
+			
+			
+
+		
+			
+			
+			<h2 id="SizeGroup">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=12185:12222#L488">SizeGroup</a>
+				<a class="permalink" href="#SizeGroup">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func SizeGroup(num <a href="#Number">Number</a>, n <a href="/pkg/builtin/#int">int</a>) <a href="/pkg/builtin/#int">int</a></pre>
+			<p>SizeGroup returns the encoded size of a group, given only the length.
+
+			
+			
+
+		
+			
+			
+			<h2 id="SizeTag">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=4723:4751#L174">SizeTag</a>
+				<a class="permalink" href="#SizeTag">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func SizeTag(num <a href="#Number">Number</a>) <a href="/pkg/builtin/#int">int</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="SizeVarint">func <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=8294:8323#L365">SizeVarint</a>
+				<a class="permalink" href="#SizeVarint">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func SizeVarint(v <a href="/pkg/builtin/#uint64">uint64</a>) <a href="/pkg/builtin/#int">int</a></pre>
+			<p>SizeVarint returns the encoded size of a varint.
+The size is guaranteed to be within 1 and 10, inclusive.
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Number">type <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=563:580#L11">Number</a>
+				<a class="permalink" href="#Number">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Number represents the field number.
+
+			<pre>type Number <a href="/pkg/builtin/#int32">int32</a></pre>
+
+			
+				
+				<pre>const (
+    <span id="MinValidNumber">MinValidNumber</span>        <a href="#Number">Number</a> = 1
+    <span id="FirstReservedNumber">FirstReservedNumber</span>   <a href="#Number">Number</a> = 19000
+    <span id="LastReservedNumber">LastReservedNumber</span>    <a href="#Number">Number</a> = 19999
+    <span id="MaxValidNumber">MaxValidNumber</span>        <a href="#Number">Number</a> = 1&lt;&lt;29 - 1
+    <span id="DefaultRecursionLimit">DefaultRecursionLimit</span>        = 10000
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Number.IsValid">func (Number) <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=1061:1091#L26">IsValid</a>
+					<a class="permalink" href="#Number.IsValid">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (n <a href="#Number">Number</a>) IsValid() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>IsValid reports whether the field number is semantically valid.
+<p>Note that while numbers within the reserved range are semantically invalid,
+they are syntactically valid in the wire format.
+Implementations may treat records with reserved field numbers as unknown.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Type">type <a href="/src/google.golang.org/protobuf/encoding/protowire/wire.go?s=1235:1249#L31">Type</a>
+				<a class="permalink" href="#Type">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Type represents the wire type.
+
+			<pre>type Type <a href="/pkg/builtin/#int8">int8</a></pre>
+
+			
+				
+				<pre>const (
+    <span id="VarintType">VarintType</span>     <a href="#Type">Type</a> = 0
+    <span id="Fixed32Type">Fixed32Type</span>    <a href="#Type">Type</a> = 5
+    <span id="Fixed64Type">Fixed64Type</span>    <a href="#Type">Type</a> = 1
+    <span id="BytesType">BytesType</span>      <a href="#Type">Type</a> = 2
+    <span id="StartGroupType">StartGroupType</span> <a href="#Type">Type</a> = 3
+    <span id="EndGroupType">EndGroupType</span>   <a href="#Type">Type</a> = 4
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

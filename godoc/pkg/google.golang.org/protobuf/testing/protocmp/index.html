@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>protocmp - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/pkg/">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/pkg/">GoDoc</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package protocmp
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "google.golang.org/protobuf/testing/protocmp"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>Package protocmp provides protobuf specific options for the
+&quot;github.com/google/go-cmp/cmp&quot; package.
+<p>The primary feature is the Transform option, which transform proto.Message
+types into a Message map that is suitable for cmp to introspect upon.
+All other options in this package must be used in conjunction with Transform.
+
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#FilterDescriptor">func FilterDescriptor(desc protoreflect.Descriptor, opt cmp.Option) cmp.Option</a></dd>
+			
+				
+				<dd><a href="#FilterEnum">func FilterEnum(enum protoreflect.Enum, opt cmp.Option) cmp.Option</a></dd>
+			
+				
+				<dd><a href="#FilterField">func FilterField(message proto.Message, name protoreflect.Name, opt cmp.Option) cmp.Option</a></dd>
+			
+				
+				<dd><a href="#FilterMessage">func FilterMessage(message proto.Message, opt cmp.Option) cmp.Option</a></dd>
+			
+				
+				<dd><a href="#FilterOneof">func FilterOneof(message proto.Message, name protoreflect.Name, opt cmp.Option) cmp.Option</a></dd>
+			
+				
+				<dd><a href="#IgnoreDefaultScalars">func IgnoreDefaultScalars() cmp.Option</a></dd>
+			
+				
+				<dd><a href="#IgnoreDescriptors">func IgnoreDescriptors(descs ...protoreflect.Descriptor) cmp.Option</a></dd>
+			
+				
+				<dd><a href="#IgnoreEmptyMessages">func IgnoreEmptyMessages() cmp.Option</a></dd>
+			
+				
+				<dd><a href="#IgnoreEnums">func IgnoreEnums(enums ...protoreflect.Enum) cmp.Option</a></dd>
+			
+				
+				<dd><a href="#IgnoreFields">func IgnoreFields(message proto.Message, names ...protoreflect.Name) cmp.Option</a></dd>
+			
+				
+				<dd><a href="#IgnoreMessages">func IgnoreMessages(messages ...proto.Message) cmp.Option</a></dd>
+			
+				
+				<dd><a href="#IgnoreOneofs">func IgnoreOneofs(message proto.Message, names ...protoreflect.Name) cmp.Option</a></dd>
+			
+				
+				<dd><a href="#IgnoreUnknown">func IgnoreUnknown() cmp.Option</a></dd>
+			
+				
+				<dd><a href="#SortRepeated">func SortRepeated(lessFunc interface{}) cmp.Option</a></dd>
+			
+				
+				<dd><a href="#SortRepeatedFields">func SortRepeatedFields(message proto.Message, names ...protoreflect.Name) cmp.Option</a></dd>
+			
+				
+				<dd><a href="#Transform">func Transform(...option) cmp.Option</a></dd>
+			
+			
+				
+				<dd><a href="#Enum">type Enum</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Enum.Descriptor">func (e Enum) Descriptor() protoreflect.EnumDescriptor</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Enum.Equal">func (e1 Enum) Equal(e2 Enum) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Enum.Number">func (e Enum) Number() protoreflect.EnumNumber</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Enum.String">func (e Enum) String() string</a></dd>
+				
+			
+				
+				<dd><a href="#Message">type Message</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Message.Descriptor">func (m Message) Descriptor() protoreflect.MessageDescriptor</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Message.ProtoMessage">func (m Message) ProtoMessage()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Message.ProtoReflect">func (m Message) ProtoReflect() protoreflect.Message</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Message.Reset">func (m Message) Reset()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Message.String">func (m Message) String() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Message.Unwrap">func (m Message) Unwrap() proto.Message</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/google.golang.org/protobuf/testing/protocmp/reflect.go">reflect.go</a>
+			
+				<a href="/src/google.golang.org/protobuf/testing/protocmp/util.go">util.go</a>
+			
+				<a href="/src/google.golang.org/protobuf/testing/protocmp/xform.go">xform.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="FilterDescriptor">func <a href="/src/google.golang.org/protobuf/testing/protocmp/util.go?s=3653:3731#L93">FilterDescriptor</a>
+				<a class="permalink" href="#FilterDescriptor">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func FilterDescriptor(desc <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Descriptor">Descriptor</a>, opt <a href="/pkg/github.com/google/go-cmp/cmp/">cmp</a>.<a href="/pkg/github.com/google/go-cmp/cmp/#Option">Option</a>) <a href="/pkg/github.com/google/go-cmp/cmp/">cmp</a>.<a href="/pkg/github.com/google/go-cmp/cmp/#Option">Option</a></pre>
+			<p>FilterDescriptor ignores the specified descriptor.
+<p>The following descriptor types may be specified:
+<ul>
+<li>protoreflect.EnumDescriptor
+<li>protoreflect.MessageDescriptor
+<li>protoreflect.FieldDescriptor
+<li>protoreflect.OneofDescriptor
+</ul>
+<p>For the behavior of each, see the corresponding filter function.
+Since this filter accepts a protoreflect.FieldDescriptor, it can be used
+to also filter for extension fields as a protoreflect.ExtensionDescriptor
+is just an alias to protoreflect.FieldDescriptor.
+<p>This must be used in conjunction with Transform.
+
+			
+			
+
+		
+			
+			
+			<h2 id="FilterEnum">func <a href="/src/google.golang.org/protobuf/testing/protocmp/util.go?s=1034:1100#L28">FilterEnum</a>
+				<a class="permalink" href="#FilterEnum">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func FilterEnum(enum <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Enum">Enum</a>, opt <a href="/pkg/github.com/google/go-cmp/cmp/">cmp</a>.<a href="/pkg/github.com/google/go-cmp/cmp/#Option">Option</a>) <a href="/pkg/github.com/google/go-cmp/cmp/">cmp</a>.<a href="/pkg/github.com/google/go-cmp/cmp/#Option">Option</a></pre>
+			<p>FilterEnum filters opt to only be applicable on standalone Enums,
+singular fields of enums, list fields of enums, or map fields of enum values,
+where the enum is the same type as the specified enum.
+<p>The Go type of the last path step may be an:
+<ul>
+<li>Enum for singular fields, elements of a repeated field,
+values of a map field, or standalone Enums
+<li>[]Enum for list fields
+<li>map[K]Enum for map fields
+<li>interface{} for a Message map entry value
+</ul>
+<p>This must be used in conjunction with Transform.
+
+			
+			
+
+		
+			
+			
+			<h2 id="FilterField">func <a href="/src/google.golang.org/protobuf/testing/protocmp/util.go?s=2251:2341#L58">FilterField</a>
+				<a class="permalink" href="#FilterField">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func FilterField(message <a href="/pkg/google.golang.org/protobuf/proto/">proto</a>.<a href="/pkg/google.golang.org/protobuf/proto/#Message">Message</a>, name <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Name">Name</a>, opt <a href="/pkg/github.com/google/go-cmp/cmp/">cmp</a>.<a href="/pkg/github.com/google/go-cmp/cmp/#Option">Option</a>) <a href="/pkg/github.com/google/go-cmp/cmp/">cmp</a>.<a href="/pkg/github.com/google/go-cmp/cmp/#Option">Option</a></pre>
+			<p>FilterField filters opt to only be applicable on the specified field
+in the message. It panics if a field of the given name does not exist.
+<p>The Go type of the last path step may be an:
+<ul>
+<li>T for singular fields
+<li>[]T for list fields
+<li>map[K]T for map fields
+<li>interface{} for a Message map entry value
+</ul>
+<p>This must be used in conjunction with Transform.
+
+			
+			
+
+		
+			
+			
+			<h2 id="FilterMessage">func <a href="/src/google.golang.org/protobuf/testing/protocmp/util.go?s=1723:1791#L44">FilterMessage</a>
+				<a class="permalink" href="#FilterMessage">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func FilterMessage(message <a href="/pkg/google.golang.org/protobuf/proto/">proto</a>.<a href="/pkg/google.golang.org/protobuf/proto/#Message">Message</a>, opt <a href="/pkg/github.com/google/go-cmp/cmp/">cmp</a>.<a href="/pkg/github.com/google/go-cmp/cmp/#Option">Option</a>) <a href="/pkg/github.com/google/go-cmp/cmp/">cmp</a>.<a href="/pkg/github.com/google/go-cmp/cmp/#Option">Option</a></pre>
+			<p>FilterMessage filters opt to only be applicable on standalone Messages,
+singular fields of messages, list fields of messages, or map fields of
+message values, where the message is the same type as the specified message.
+<p>The Go type of the last path step may be an:
+<ul>
+<li>Message for singular fields, elements of a repeated field,
+values of a map field, or standalone Messages
+<li>[]Message for list fields
+<li>map[K]Message for map fields
+<li>interface{} for a Message map entry value
+</ul>
+<p>This must be used in conjunction with Transform.
+
+			
+			
+
+		
+			
+			
+			<h2 id="FilterOneof">func <a href="/src/google.golang.org/protobuf/testing/protocmp/util.go?s=2863:2953#L74">FilterOneof</a>
+				<a class="permalink" href="#FilterOneof">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func FilterOneof(message <a href="/pkg/google.golang.org/protobuf/proto/">proto</a>.<a href="/pkg/google.golang.org/protobuf/proto/#Message">Message</a>, name <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Name">Name</a>, opt <a href="/pkg/github.com/google/go-cmp/cmp/">cmp</a>.<a href="/pkg/github.com/google/go-cmp/cmp/#Option">Option</a>) <a href="/pkg/github.com/google/go-cmp/cmp/">cmp</a>.<a href="/pkg/github.com/google/go-cmp/cmp/#Option">Option</a></pre>
+			<p>FilterOneof filters opt to only be applicable on all fields within the
+specified oneof in the message. It panics if a oneof of the given name
+does not exist.
+<p>The Go type of the last path step may be an:
+<ul>
+<li>T for singular fields
+<li>[]T for list fields
+<li>map[K]T for map fields
+<li>interface{} for a Message map entry value
+</ul>
+<p>This must be used in conjunction with Transform.
+
+			
+			
+
+		
+			
+			
+			<h2 id="IgnoreDefaultScalars">func <a href="/src/google.golang.org/protobuf/testing/protocmp/util.go?s=11524:11562#L342">IgnoreDefaultScalars</a>
+				<a class="permalink" href="#IgnoreDefaultScalars">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func IgnoreDefaultScalars() <a href="/pkg/github.com/google/go-cmp/cmp/">cmp</a>.<a href="/pkg/github.com/google/go-cmp/cmp/#Option">Option</a></pre>
+			<p>IgnoreDefaultScalars ignores singular scalars that are unpopulated or
+explicitly set to the default value.
+This option does not effect elements in a list or entries in a map.
+<p>This must be used in conjunction with Transform.
+
+			
+			
+
+		
+			
+			
+			<h2 id="IgnoreDescriptors">func <a href="/src/google.golang.org/protobuf/testing/protocmp/util.go?s=5790:5857#L154">IgnoreDescriptors</a>
+				<a class="permalink" href="#IgnoreDescriptors">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func IgnoreDescriptors(descs ...<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Descriptor">Descriptor</a>) <a href="/pkg/github.com/google/go-cmp/cmp/">cmp</a>.<a href="/pkg/github.com/google/go-cmp/cmp/#Option">Option</a></pre>
+			<p>IgnoreDescriptors ignores the specified set of descriptors.
+It is equivalent to FilterDescriptor(desc, cmp.Ignore()) for each descriptor.
+<p>This must be used in conjunction with Transform.
+
+			
+			
+
+		
+			
+			
+			<h2 id="IgnoreEmptyMessages">func <a href="/src/google.golang.org/protobuf/testing/protocmp/util.go?s=13280:13317#L405">IgnoreEmptyMessages</a>
+				<a class="permalink" href="#IgnoreEmptyMessages">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func IgnoreEmptyMessages() <a href="/pkg/github.com/google/go-cmp/cmp/">cmp</a>.<a href="/pkg/github.com/google/go-cmp/cmp/#Option">Option</a></pre>
+			<p>IgnoreEmptyMessages ignores messages that are empty or unpopulated.
+It applies to standalone Messages, singular message fields,
+list fields of messages, and map fields of message values.
+<p>This must be used in conjunction with Transform.
+
+			
+			
+
+		
+			
+			
+			<h2 id="IgnoreEnums">func <a href="/src/google.golang.org/protobuf/testing/protocmp/util.go?s=3983:4038#L102">IgnoreEnums</a>
+				<a class="permalink" href="#IgnoreEnums">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func IgnoreEnums(enums ...<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Enum">Enum</a>) <a href="/pkg/github.com/google/go-cmp/cmp/">cmp</a>.<a href="/pkg/github.com/google/go-cmp/cmp/#Option">Option</a></pre>
+			<p>IgnoreEnums ignores all enums of the specified types.
+It is equivalent to FilterEnum(enum, cmp.Ignore()) for each enum.
+<p>This must be used in conjunction with Transform.
+
+			
+			
+
+		
+			
+			
+			<h2 id="IgnoreFields">func <a href="/src/google.golang.org/protobuf/testing/protocmp/util.go?s=4807:4886#L127">IgnoreFields</a>
+				<a class="permalink" href="#IgnoreFields">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func IgnoreFields(message <a href="/pkg/google.golang.org/protobuf/proto/">proto</a>.<a href="/pkg/google.golang.org/protobuf/proto/#Message">Message</a>, names ...<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Name">Name</a>) <a href="/pkg/github.com/google/go-cmp/cmp/">cmp</a>.<a href="/pkg/github.com/google/go-cmp/cmp/#Option">Option</a></pre>
+			<p>IgnoreFields ignores the specified fields in the specified message.
+It is equivalent to FilterField(message, name, cmp.Ignore()) for each field
+in the message.
+<p>This must be used in conjunction with Transform.
+
+			
+			
+
+		
+			
+			
+			<h2 id="IgnoreMessages">func <a href="/src/google.golang.org/protobuf/testing/protocmp/util.go?s=4371:4428#L114">IgnoreMessages</a>
+				<a class="permalink" href="#IgnoreMessages">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func IgnoreMessages(messages ...<a href="/pkg/google.golang.org/protobuf/proto/">proto</a>.<a href="/pkg/google.golang.org/protobuf/proto/#Message">Message</a>) <a href="/pkg/github.com/google/go-cmp/cmp/">cmp</a>.<a href="/pkg/github.com/google/go-cmp/cmp/#Option">Option</a></pre>
+			<p>IgnoreMessages ignores all messages of the specified types.
+It is equivalent to FilterMessage(message, cmp.Ignore()) for each message.
+<p>This must be used in conjunction with Transform.
+
+			
+			
+
+		
+			
+			
+			<h2 id="IgnoreOneofs">func <a href="/src/google.golang.org/protobuf/testing/protocmp/util.go?s=5316:5395#L141">IgnoreOneofs</a>
+				<a class="permalink" href="#IgnoreOneofs">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func IgnoreOneofs(message <a href="/pkg/google.golang.org/protobuf/proto/">proto</a>.<a href="/pkg/google.golang.org/protobuf/proto/#Message">Message</a>, names ...<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Name">Name</a>) <a href="/pkg/github.com/google/go-cmp/cmp/">cmp</a>.<a href="/pkg/github.com/google/go-cmp/cmp/#Option">Option</a></pre>
+			<p>IgnoreOneofs ignores fields of the specified oneofs in the specified message.
+It is equivalent to FilterOneof(message, name, cmp.Ignore()) for each oneof
+in the message.
+<p>This must be used in conjunction with Transform.
+
+			
+			
+
+		
+			
+			
+			<h2 id="IgnoreUnknown">func <a href="/src/google.golang.org/protobuf/testing/protocmp/util.go?s=15169:15200#L484">IgnoreUnknown</a>
+				<a class="permalink" href="#IgnoreUnknown">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func IgnoreUnknown() <a href="/pkg/github.com/google/go-cmp/cmp/">cmp</a>.<a href="/pkg/github.com/google/go-cmp/cmp/#Option">Option</a></pre>
+			<p>IgnoreUnknown ignores unknown fields in all messages.
+<p>This must be used in conjunction with Transform.
+
+			
+			
+
+		
+			
+			
+			<h2 id="SortRepeated">func <a href="/src/google.golang.org/protobuf/testing/protocmp/util.go?s=16563:16613#L518">SortRepeated</a>
+				<a class="permalink" href="#SortRepeated">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func SortRepeated(lessFunc interface{}) <a href="/pkg/github.com/google/go-cmp/cmp/">cmp</a>.<a href="/pkg/github.com/google/go-cmp/cmp/#Option">Option</a></pre>
+			<p>SortRepeated sorts repeated fields of the specified element type.
+The less function must be of the form &quot;func(T, T) bool&quot; where T is the
+Go element type for the repeated field kind.
+<p>The element type T can be one of the following:
+<ul>
+<li>Go type for a protobuf scalar kind except for an enum
+(i.e., bool, int32, int64, uint32, uint64, float32, float64, string, and []byte)
+<li>E where E is a concrete enum type that implements protoreflect.Enum
+<li>M where M is a concrete message type that implement proto.Message
+</ul>
+<p>This option only applies to repeated fields within a protobuf message.
+It does not operate on higher-order Go types that seem like a repeated field.
+For example, a []T outside the context of a protobuf message will not be
+handled by this option. To sort Go slices that are not repeated fields,
+consider using &quot;github.com/google/go-cmp/cmp/cmpopts&quot;.SortSlices instead.
+<p>This must be used in conjunction with Transform.
+
+			
+			
+
+		
+			
+			
+			<h2 id="SortRepeatedFields">func <a href="/src/google.golang.org/protobuf/testing/protocmp/util.go?s=20080:20165#L618">SortRepeatedFields</a>
+				<a class="permalink" href="#SortRepeatedFields">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func SortRepeatedFields(message <a href="/pkg/google.golang.org/protobuf/proto/">proto</a>.<a href="/pkg/google.golang.org/protobuf/proto/#Message">Message</a>, names ...<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Name">Name</a>) <a href="/pkg/github.com/google/go-cmp/cmp/">cmp</a>.<a href="/pkg/github.com/google/go-cmp/cmp/#Option">Option</a></pre>
+			<p>SortRepeatedFields sorts the specified repeated fields.
+Sorting a repeated field is useful for treating the list as a multiset
+(i.e., a set where each value can appear multiple times).
+It panics if the field does not exist or is not a repeated field.
+<p>The sort ordering is as follows:
+<ul>
+<li>Booleans are sorted where false is sorted before true.
+<li>Integers are sorted in ascending order.
+<li>Floating-point numbers are sorted in ascending order according to
+the total ordering defined by IEEE-754 (section 5.10).
+<li>Strings and bytes are sorted lexicographically in ascending order.
+<li>Enums are sorted in ascending order based on its numeric value.
+<li>Messages are sorted according to some arbitrary ordering
+which is undefined and may change in future implementations.
+</ul>
+<p>The ordering chosen for repeated messages is unlikely to be aesthetically
+preferred by humans. Consider using a custom sort function:
+<pre>FilterField(m, &quot;foo_field&quot;, SortRepeated(func(x, y *foopb.MyMessage) bool {
+    ... // user-provided definition for less
+}))
+</pre>
+<p>This must be used in conjunction with Transform.
+
+			
+			
+
+		
+			
+			
+			<h2 id="Transform">func <a href="/src/google.golang.org/protobuf/testing/protocmp/xform.go?s=6103:6139#L168">Transform</a>
+				<a class="permalink" href="#Transform">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Transform(...option) <a href="/pkg/github.com/google/go-cmp/cmp/">cmp</a>.<a href="/pkg/github.com/google/go-cmp/cmp/#Option">Option</a></pre>
+			<p>Transform returns a cmp.Option that converts each proto.Message to a Message.
+The transformation does not mutate nor alias any converted messages.
+<p>The google.protobuf.Any message is automatically unmarshaled such that the
+&quot;value&quot; field is a Message representing the underlying message value
+assuming it could be resolved and properly unmarshaled.
+<p>This does not directly transform higher-order composite Go types.
+For example, []*foopb.Message is not transformed into []Message,
+but rather the individual message elements of the slice are transformed.
+<p>Note that there are currently no custom options for Transform,
+but the use of an unexported type keeps the future open.
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Enum">type <a href="/src/google.golang.org/protobuf/testing/protocmp/xform.go?s=1295:1377#L27">Enum</a>
+				<a class="permalink" href="#Enum">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Enum is a dynamic representation of a protocol buffer enum that is
+suitable for cmp.Equal and cmp.Diff to compare upon.
+
+			<pre>type Enum struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Enum.Descriptor">func (Enum) <a href="/src/google.golang.org/protobuf/testing/protocmp/xform.go?s=1463:1517#L34">Descriptor</a>
+					<a class="permalink" href="#Enum.Descriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e <a href="#Enum">Enum</a>) Descriptor() <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#EnumDescriptor">EnumDescriptor</a></pre>
+				<p>Descriptor returns the enum descriptor.
+It returns nil for a zero Enum value.
+
+				
+				
+				
+			
+				
+				<h3 id="Enum.Equal">func (Enum) <a href="/src/google.golang.org/protobuf/testing/protocmp/xform.go?s=1716:1750#L44">Equal</a>
+					<a class="permalink" href="#Enum.Equal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e1 <a href="#Enum">Enum</a>) Equal(e2 <a href="#Enum">Enum</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>Equal reports whether e1 and e2 represent the same enum value.
+
+				
+				
+				
+			
+				
+				<h3 id="Enum.Number">func (Enum) <a href="/src/google.golang.org/protobuf/testing/protocmp/xform.go?s=1584:1630#L39">Number</a>
+					<a class="permalink" href="#Enum.Number">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e <a href="#Enum">Enum</a>) Number() <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#EnumNumber">EnumNumber</a></pre>
+				<p>Number returns the enum value as an integer.
+
+				
+				
+				
+			
+				
+				<h3 id="Enum.String">func (Enum) <a href="/src/google.golang.org/protobuf/testing/protocmp/xform.go?s=1990:2019#L53">String</a>
+					<a class="permalink" href="#Enum.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e <a href="#Enum">Enum</a>) String() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>String returns the name of the enum value if known (e.g., &quot;ENUM_VALUE&quot;),
+otherwise it returns the formatted decimal enum number (e.g., &quot;14&quot;).
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Message">type <a href="/src/google.golang.org/protobuf/testing/protocmp/xform.go?s=4040:4075#L108">Message</a>
+				<a class="permalink" href="#Message">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Message is a dynamic representation of a protocol buffer message that is
+suitable for cmp.Equal and cmp.Diff to directly operate upon.
+<p>Every populated known field (excluding extension fields) is stored in the map
+with the key being the short name of the field (e.g., &quot;field_name&quot;) and
+the value determined by the kind and cardinality of the field.
+<p>Singular scalars are represented by the same Go type as protoreflect.Value,
+singular messages are represented by the Message type,
+singular enums are represented by the Enum type,
+list fields are represented as a Go slice, and
+map fields are represented as a Go map.
+<p>Every populated extension field is stored in the map with the key being the
+full name of the field surrounded by brackets (e.g., &quot;[extension.full.name]&quot;)
+and the value determined according to the same rules as known fields.
+<p>Every unknown field is stored in the map with the key being the field number
+encoded as a decimal string (e.g., &quot;132&quot;) and the value being the raw bytes
+of the encoded field (as the protoreflect.RawFields type).
+<p>Message values must not be created by or mutated by users.
+
+			<pre>type Message map[<a href="/pkg/builtin/#string">string</a>]interface{}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Message.Descriptor">func (Message) <a href="/src/google.golang.org/protobuf/testing/protocmp/xform.go?s=4388:4448#L119">Descriptor</a>
+					<a class="permalink" href="#Message.Descriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Message">Message</a>) Descriptor() <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#MessageDescriptor">MessageDescriptor</a></pre>
+				<p>Descriptor return the message descriptor.
+It returns nil for a zero Message value.
+
+				
+				
+				
+			
+				
+				<h3 id="Message.ProtoMessage">func (Message) <a href="/src/google.golang.org/protobuf/testing/protocmp/xform.go?s=4834:4865#L132">ProtoMessage</a>
+					<a class="permalink" href="#Message.ProtoMessage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Message">Message</a>) ProtoMessage()</pre>
+				<p>ProtoMessage is a marker method from the legacy message interface.
+
+				
+				
+				
+			
+				
+				<h3 id="Message.ProtoReflect">func (Message) <a href="/src/google.golang.org/protobuf/testing/protocmp/xform.go?s=4678:4730#L127">ProtoReflect</a>
+					<a class="permalink" href="#Message.ProtoReflect">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Message">Message</a>) ProtoReflect() <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Message">Message</a></pre>
+				<p>ProtoReflect returns a reflective view of m.
+It only implements the read-only operations of protoreflect.Message.
+Calling any mutating operations on m panics.
+
+				
+				
+				
+			
+				
+				<h3 id="Message.Reset">func (Message) <a href="/src/google.golang.org/protobuf/testing/protocmp/xform.go?s=4943:4967#L135">Reset</a>
+					<a class="permalink" href="#Message.Reset">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Message">Message</a>) Reset()</pre>
+				<p>Reset is the required Reset method from the legacy message interface.
+
+				
+				
+				
+			
+				
+				<h3 id="Message.String">func (Message) <a href="/src/google.golang.org/protobuf/testing/protocmp/xform.go?s=5195:5227#L142">String</a>
+					<a class="permalink" href="#Message.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Message">Message</a>) String() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>String returns a formatted string for the message.
+It is intended for human debugging and has no guarantees about its
+exact format or the stability of its output.
+
+				
+				
+				
+			
+				
+				<h3 id="Message.Unwrap">func (Message) <a href="/src/google.golang.org/protobuf/testing/protocmp/xform.go?s=4199:4238#L112">Unwrap</a>
+					<a class="permalink" href="#Message.Unwrap">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Message">Message</a>) Unwrap() <a href="/pkg/google.golang.org/protobuf/proto/">proto</a>.<a href="/pkg/google.golang.org/protobuf/proto/#Message">Message</a></pre>
+				<p>Unwrap returns the original message value.
+It returns nil if this Message was not constructed from another message.
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

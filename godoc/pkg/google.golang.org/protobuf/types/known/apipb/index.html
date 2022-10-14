@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>apipb - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/pkg/">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/pkg/">GoDoc</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package apipb
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "google.golang.org/protobuf/types/known/apipb"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+			
+				
+				<dd><a href="#Api">type Api</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Api.Descriptor">func (*Api) Descriptor() ([]byte, []int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Api.GetMethods">func (x *Api) GetMethods() []*Method</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Api.GetMixins">func (x *Api) GetMixins() []*Mixin</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Api.GetName">func (x *Api) GetName() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Api.GetOptions">func (x *Api) GetOptions() []*typepb.Option</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Api.GetSourceContext">func (x *Api) GetSourceContext() *sourcecontextpb.SourceContext</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Api.GetSyntax">func (x *Api) GetSyntax() typepb.Syntax</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Api.GetVersion">func (x *Api) GetVersion() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Api.ProtoMessage">func (*Api) ProtoMessage()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Api.ProtoReflect">func (x *Api) ProtoReflect() protoreflect.Message</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Api.Reset">func (x *Api) Reset()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Api.String">func (x *Api) String() string</a></dd>
+				
+			
+				
+				<dd><a href="#Method">type Method</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Method.Descriptor">func (*Method) Descriptor() ([]byte, []int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Method.GetName">func (x *Method) GetName() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Method.GetOptions">func (x *Method) GetOptions() []*typepb.Option</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Method.GetRequestStreaming">func (x *Method) GetRequestStreaming() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Method.GetRequestTypeUrl">func (x *Method) GetRequestTypeUrl() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Method.GetResponseStreaming">func (x *Method) GetResponseStreaming() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Method.GetResponseTypeUrl">func (x *Method) GetResponseTypeUrl() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Method.GetSyntax">func (x *Method) GetSyntax() typepb.Syntax</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Method.ProtoMessage">func (*Method) ProtoMessage()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Method.ProtoReflect">func (x *Method) ProtoReflect() protoreflect.Message</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Method.Reset">func (x *Method) Reset()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Method.String">func (x *Method) String() string</a></dd>
+				
+			
+				
+				<dd><a href="#Mixin">type Mixin</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Mixin.Descriptor">func (*Mixin) Descriptor() ([]byte, []int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Mixin.GetName">func (x *Mixin) GetName() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Mixin.GetRoot">func (x *Mixin) GetRoot() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Mixin.ProtoMessage">func (*Mixin) ProtoMessage()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Mixin.ProtoReflect">func (x *Mixin) ProtoReflect() protoreflect.Message</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Mixin.Reset">func (x *Mixin) Reset()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Mixin.String">func (x *Mixin) String() string</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go">api.pb.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				
+				<pre>var <span id="File_google_protobuf_api_proto">File_google_protobuf_api_proto</span> <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FileDescriptor">FileDescriptor</a></pre>
+			
+		
+		
+		
+			
+			
+			<h2 id="Api">type <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=2618:4905#L44">Api</a>
+				<a class="permalink" href="#Api">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Api is a light-weight descriptor for an API Interface.
+<p>Interfaces are also described as &quot;protocol buffer services&quot; in some contexts,
+such as by the &quot;service&quot; keyword in a .proto file, but they are different
+from API Services, which represent a concrete implementation of an interface
+as opposed to simply a description of methods and bindings. They are also
+sometimes simply referred to as &quot;APIs&quot; in other contexts, such as the name of
+this message itself. See <a href="https://cloud.google.com/apis/design/glossary">https://cloud.google.com/apis/design/glossary</a> for
+detailed terminology.
+
+			<pre>type Api struct {
+
+    <span class="comment">// The fully qualified name of this interface, including package name</span>
+    <span class="comment">// followed by the interface&#39;s simple name.</span>
+<span id="Api.Name"></span>    Name <a href="/pkg/builtin/#string">string</a> `protobuf:&#34;bytes,1,opt,name=name,proto3&#34; json:&#34;name,omitempty&#34;`
+    <span class="comment">// The methods of this interface, in unspecified order.</span>
+<span id="Api.Methods"></span>    Methods []*<a href="#Method">Method</a> `protobuf:&#34;bytes,2,rep,name=methods,proto3&#34; json:&#34;methods,omitempty&#34;`
+    <span class="comment">// Any metadata attached to the interface.</span>
+<span id="Api.Options"></span>    Options []*<a href="/pkg/google.golang.org/protobuf/types/known/typepb/">typepb</a>.<a href="/pkg/google.golang.org/protobuf/types/known/typepb/#Option">Option</a> `protobuf:&#34;bytes,3,rep,name=options,proto3&#34; json:&#34;options,omitempty&#34;`
+    <span class="comment">// A version string for this interface. If specified, must have the form</span>
+    <span class="comment">// `major-version.minor-version`, as in `1.10`. If the minor version is</span>
+    <span class="comment">// omitted, it defaults to zero. If the entire version field is empty, the</span>
+    <span class="comment">// major version is derived from the package name, as outlined below. If the</span>
+    <span class="comment">// field is not empty, the version in the package name will be verified to be</span>
+    <span class="comment">// consistent with what is provided here.</span>
+    <span class="comment">//</span>
+    <span class="comment">// The versioning schema uses [semantic</span>
+    <span class="comment">// versioning](http://semver.org) where the major version number</span>
+    <span class="comment">// indicates a breaking change and the minor version an additive,</span>
+    <span class="comment">// non-breaking change. Both version numbers are signals to users</span>
+    <span class="comment">// what to expect from different versions, and should be carefully</span>
+    <span class="comment">// chosen based on the product plan.</span>
+    <span class="comment">//</span>
+    <span class="comment">// The major version is also reflected in the package name of the</span>
+    <span class="comment">// interface, which must end in `v&lt;major-version&gt;`, as in</span>
+    <span class="comment">// `google.feature.v1`. For major versions 0 and 1, the suffix can</span>
+    <span class="comment">// be omitted. Zero major versions must only be used for</span>
+    <span class="comment">// experimental, non-GA interfaces.</span>
+    <span class="comment">//</span>
+    <span class="comment">//</span>
+<span id="Api.Version"></span>    Version <a href="/pkg/builtin/#string">string</a> `protobuf:&#34;bytes,4,opt,name=version,proto3&#34; json:&#34;version,omitempty&#34;`
+    <span class="comment">// Source context for the protocol buffer service represented by this</span>
+    <span class="comment">// message.</span>
+<span id="Api.SourceContext"></span>    SourceContext *<a href="/pkg/google.golang.org/protobuf/types/known/sourcecontextpb/">sourcecontextpb</a>.<a href="/pkg/google.golang.org/protobuf/types/known/sourcecontextpb/#SourceContext">SourceContext</a> `protobuf:&#34;bytes,5,opt,name=source_context,json=sourceContext,proto3&#34; json:&#34;source_context,omitempty&#34;`
+    <span class="comment">// Included interfaces. See [Mixin][].</span>
+<span id="Api.Mixins"></span>    Mixins []*<a href="#Mixin">Mixin</a> `protobuf:&#34;bytes,6,rep,name=mixins,proto3&#34; json:&#34;mixins,omitempty&#34;`
+    <span class="comment">// The source syntax of the service.</span>
+<span id="Api.Syntax"></span>    Syntax <a href="/pkg/google.golang.org/protobuf/types/known/typepb/">typepb</a>.<a href="/pkg/google.golang.org/protobuf/types/known/typepb/#Syntax">Syntax</a> `protobuf:&#34;varint,7,opt,name=syntax,proto3,enum=google.protobuf.Syntax&#34; json:&#34;syntax,omitempty&#34;`
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Api.Descriptor">func (*Api) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=5585:5625#L115">Descriptor</a>
+					<a class="permalink" href="#Api.Descriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#Api">Api</a>) Descriptor() ([]<a href="/pkg/builtin/#byte">byte</a>, []<a href="/pkg/builtin/#int">int</a>)</pre>
+				<p>Deprecated: Use Api.ProtoReflect.Descriptor instead.
+
+				
+				
+				
+			
+				
+				<h3 id="Api.GetMethods">func (*Api) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=5775:5811#L126">GetMethods</a>
+					<a class="permalink" href="#Api.GetMethods">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Api">Api</a>) GetMethods() []*<a href="#Method">Method</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Api.GetMixins">func (*Api) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=6175:6209#L154">GetMixins</a>
+					<a class="permalink" href="#Api.GetMixins">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Api">Api</a>) GetMixins() []*<a href="#Mixin">Mixin</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Api.GetName">func (*Api) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=5694:5724#L119">GetName</a>
+					<a class="permalink" href="#Api.GetName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Api">Api</a>) GetName() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Api.GetOptions">func (*Api) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=5866:5909#L133">GetOptions</a>
+					<a class="permalink" href="#Api.GetOptions">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Api">Api</a>) GetOptions() []*<a href="/pkg/google.golang.org/protobuf/types/known/typepb/">typepb</a>.<a href="/pkg/google.golang.org/protobuf/types/known/typepb/#Option">Option</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Api.GetSourceContext">func (*Api) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=6051:6114#L147">GetSourceContext</a>
+					<a class="permalink" href="#Api.GetSourceContext">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Api">Api</a>) GetSourceContext() *<a href="/pkg/google.golang.org/protobuf/types/known/sourcecontextpb/">sourcecontextpb</a>.<a href="/pkg/google.golang.org/protobuf/types/known/sourcecontextpb/#SourceContext">SourceContext</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Api.GetSyntax">func (*Api) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=6263:6302#L161">GetSyntax</a>
+					<a class="permalink" href="#Api.GetSyntax">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Api">Api</a>) GetSyntax() <a href="/pkg/google.golang.org/protobuf/types/known/typepb/">typepb</a>.<a href="/pkg/google.golang.org/protobuf/types/known/typepb/#Syntax">Syntax</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Api.GetVersion">func (*Api) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=5964:5997#L140">GetVersion</a>
+					<a class="permalink" href="#Api.GetVersion">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Api">Api</a>) GetVersion() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Api.ProtoMessage">func (*Api) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=5188:5214#L100">ProtoMessage</a>
+					<a class="permalink" href="#Api.ProtoMessage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#Api">Api</a>) ProtoMessage()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Api.ProtoReflect">func (*Api) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=5219:5268#L102">ProtoReflect</a>
+					<a class="permalink" href="#Api.ProtoReflect">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Api">Api</a>) ProtoReflect() <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Message">Message</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Api.Reset">func (*Api) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=4907:4928#L87">Reset</a>
+					<a class="permalink" href="#Api.Reset">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Api">Api</a>) Reset()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Api.String">func (*Api) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=5114:5143#L96">String</a>
+					<a class="permalink" href="#Api.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Api">Api</a>) String() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Method">type <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=6420:7658#L169">Method</a>
+				<a class="permalink" href="#Method">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Method represents a method of an API interface.
+
+			<pre>type Method struct {
+
+    <span class="comment">// The simple name of this method.</span>
+<span id="Method.Name"></span>    Name <a href="/pkg/builtin/#string">string</a> `protobuf:&#34;bytes,1,opt,name=name,proto3&#34; json:&#34;name,omitempty&#34;`
+    <span class="comment">// A URL of the input message type.</span>
+<span id="Method.RequestTypeUrl"></span>    RequestTypeUrl <a href="/pkg/builtin/#string">string</a> `protobuf:&#34;bytes,2,opt,name=request_type_url,json=requestTypeUrl,proto3&#34; json:&#34;request_type_url,omitempty&#34;`
+    <span class="comment">// If true, the request is streamed.</span>
+<span id="Method.RequestStreaming"></span>    RequestStreaming <a href="/pkg/builtin/#bool">bool</a> `protobuf:&#34;varint,3,opt,name=request_streaming,json=requestStreaming,proto3&#34; json:&#34;request_streaming,omitempty&#34;`
+    <span class="comment">// The URL of the output message type.</span>
+<span id="Method.ResponseTypeUrl"></span>    ResponseTypeUrl <a href="/pkg/builtin/#string">string</a> `protobuf:&#34;bytes,4,opt,name=response_type_url,json=responseTypeUrl,proto3&#34; json:&#34;response_type_url,omitempty&#34;`
+    <span class="comment">// If true, the response is streamed.</span>
+<span id="Method.ResponseStreaming"></span>    ResponseStreaming <a href="/pkg/builtin/#bool">bool</a> `protobuf:&#34;varint,5,opt,name=response_streaming,json=responseStreaming,proto3&#34; json:&#34;response_streaming,omitempty&#34;`
+    <span class="comment">// Any metadata attached to the method.</span>
+<span id="Method.Options"></span>    Options []*<a href="/pkg/google.golang.org/protobuf/types/known/typepb/">typepb</a>.<a href="/pkg/google.golang.org/protobuf/types/known/typepb/#Option">Option</a> `protobuf:&#34;bytes,6,rep,name=options,proto3&#34; json:&#34;options,omitempty&#34;`
+    <span class="comment">// The source syntax of this method.</span>
+<span id="Method.Syntax"></span>    Syntax <a href="/pkg/google.golang.org/protobuf/types/known/typepb/">typepb</a>.<a href="/pkg/google.golang.org/protobuf/types/known/typepb/#Syntax">Syntax</a> `protobuf:&#34;varint,7,opt,name=syntax,proto3,enum=google.protobuf.Syntax&#34; json:&#34;syntax,omitempty&#34;`
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Method.Descriptor">func (*Method) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=8356:8399#L218">Descriptor</a>
+					<a class="permalink" href="#Method.Descriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#Method">Method</a>) Descriptor() ([]<a href="/pkg/builtin/#byte">byte</a>, []<a href="/pkg/builtin/#int">int</a>)</pre>
+				<p>Deprecated: Use Method.ProtoReflect.Descriptor instead.
+
+				
+				
+				
+			
+				
+				<h3 id="Method.GetName">func (*Method) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=8468:8501#L222">GetName</a>
+					<a class="permalink" href="#Method.GetName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Method">Method</a>) GetName() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Method.GetOptions">func (*Method) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=8982:9028#L257">GetOptions</a>
+					<a class="permalink" href="#Method.GetOptions">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Method">Method</a>) GetOptions() []*<a href="/pkg/google.golang.org/protobuf/types/known/typepb/">typepb</a>.<a href="/pkg/google.golang.org/protobuf/types/known/typepb/#Option">Option</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Method.GetRequestStreaming">func (*Method) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=8656:8699#L236">GetRequestStreaming</a>
+					<a class="permalink" href="#Method.GetRequestStreaming">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Method">Method</a>) GetRequestStreaming() <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Method.GetRequestTypeUrl">func (*Method) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=8552:8595#L229">GetRequestTypeUrl</a>
+					<a class="permalink" href="#Method.GetRequestTypeUrl">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Method">Method</a>) GetRequestTypeUrl() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Method.GetResponseStreaming">func (*Method) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=8871:8915#L250">GetResponseStreaming</a>
+					<a class="permalink" href="#Method.GetResponseStreaming">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Method">Method</a>) GetResponseStreaming() <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Method.GetResponseTypeUrl">func (*Method) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=8765:8809#L243">GetResponseTypeUrl</a>
+					<a class="permalink" href="#Method.GetResponseTypeUrl">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Method">Method</a>) GetResponseTypeUrl() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Method.GetSyntax">func (*Method) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=9083:9125#L264">GetSyntax</a>
+					<a class="permalink" href="#Method.GetSyntax">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Method">Method</a>) GetSyntax() <a href="/pkg/google.golang.org/protobuf/types/known/typepb/">typepb</a>.<a href="/pkg/google.golang.org/protobuf/types/known/typepb/#Syntax">Syntax</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Method.ProtoMessage">func (*Method) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=7950:7979#L203">ProtoMessage</a>
+					<a class="permalink" href="#Method.ProtoMessage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#Method">Method</a>) ProtoMessage()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Method.ProtoReflect">func (*Method) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=7984:8036#L205">ProtoReflect</a>
+					<a class="permalink" href="#Method.ProtoReflect">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Method">Method</a>) ProtoReflect() <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Message">Message</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Method.Reset">func (*Method) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=7660:7684#L190">Reset</a>
+					<a class="permalink" href="#Method.Reset">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Method">Method</a>) Reset()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Method.String">func (*Method) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=7873:7905#L199">String</a>
+					<a class="permalink" href="#Method.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Method">Method</a>) String() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Mixin">type <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=11839:12275#L349">Mixin</a>
+				<a class="permalink" href="#Mixin">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Declares an API Interface to be included in this interface. The including
+interface must redeclare all the methods from the included interface, but
+documentation and options are inherited as follows:
+<ul>
+<li>If after comment and whitespace stripping, the documentation
+string of the redeclared method is empty, it will be inherited
+from the original method.
+</ul>
+<ul>
+<li>Each annotation belonging to the service config (http,
+visibility) which is not set in the redeclared method will be
+inherited.
+</ul>
+<ul>
+<li>If an http annotation is inherited, the path pattern will be
+modified as follows. Any version prefix will be replaced by the
+version of the including interface plus the [root][] path if
+specified.
+</ul>
+<p>Example of a simple mixin:
+<pre>package google.acl.v1;
+service AccessControl {
+  // Get the underlying ACL object.
+  rpc GetAcl(GetAclRequest) returns (Acl) {
+    option (google.api.http).get = &quot;/v1/{resource=**}:getAcl&quot;;
+  }
+}
+
+package google.storage.v2;
+service Storage {
+  rpc GetAcl(GetAclRequest) returns (Acl);
+
+  // Get a data record.
+  rpc GetData(GetDataRequest) returns (Data) {
+    option (google.api.http).get = &quot;/v2/{resource=**}&quot;;
+  }
+}
+</pre>
+<p>Example of a mixin configuration:
+<pre>apis:
+- name: google.storage.v2.Storage
+  mixins:
+  - name: google.acl.v1.AccessControl
+</pre>
+<p>The mixin construct implies that all methods in `AccessControl` are
+also declared with same name and request/response types in
+`Storage`. A documentation generator or annotation processor will
+see the effective `Storage.GetAcl` method after inheriting
+documentation and annotations as follows:
+<pre>service Storage {
+  // Get the underlying ACL object.
+  rpc GetAcl(GetAclRequest) returns (Acl) {
+    option (google.api.http).get = &quot;/v2/{resource=**}:getAcl&quot;;
+  }
+  ...
+}
+</pre>
+<p>Note how the version in the path pattern changed from `v1` to `v2`.
+<p>If the `root` field in the mixin is specified, it should be a
+relative path under which inherited HTTP paths are placed. Example:
+<pre>apis:
+- name: google.storage.v2.Storage
+  mixins:
+  - name: google.acl.v1.AccessControl
+    root: acls
+</pre>
+<p>This implies the following inherited HTTP annotation:
+<pre>service Storage {
+  // Get the underlying ACL object.
+  rpc GetAcl(GetAclRequest) returns (Acl) {
+    option (google.api.http).get = &quot;/v2/acls/{resource=**}:getAcl&quot;;
+  }
+  ...
+}
+</pre>
+
+			<pre>type Mixin struct {
+
+    <span class="comment">// The fully qualified name of the interface which is included.</span>
+<span id="Mixin.Name"></span>    Name <a href="/pkg/builtin/#string">string</a> `protobuf:&#34;bytes,1,opt,name=name,proto3&#34; json:&#34;name,omitempty&#34;`
+    <span class="comment">// If non-empty specifies a path under which inherited HTTP paths</span>
+    <span class="comment">// are rooted.</span>
+<span id="Mixin.Root"></span>    Root <a href="/pkg/builtin/#string">string</a> `protobuf:&#34;bytes,2,opt,name=root,proto3&#34; json:&#34;root,omitempty&#34;`
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Mixin.Descriptor">func (*Mixin) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=12967:13009#L389">Descriptor</a>
+					<a class="permalink" href="#Mixin.Descriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#Mixin">Mixin</a>) Descriptor() ([]<a href="/pkg/builtin/#byte">byte</a>, []<a href="/pkg/builtin/#int">int</a>)</pre>
+				<p>Deprecated: Use Mixin.ProtoReflect.Descriptor instead.
+
+				
+				
+				
+			
+				
+				<h3 id="Mixin.GetName">func (*Mixin) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=13078:13110#L393">GetName</a>
+					<a class="permalink" href="#Mixin.GetName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Mixin">Mixin</a>) GetName() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Mixin.GetRoot">func (*Mixin) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=13161:13193#L400">GetRoot</a>
+					<a class="permalink" href="#Mixin.GetRoot">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Mixin">Mixin</a>) GetRoot() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Mixin.ProtoMessage">func (*Mixin) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=12564:12592#L374">ProtoMessage</a>
+					<a class="permalink" href="#Mixin.ProtoMessage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#Mixin">Mixin</a>) ProtoMessage()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Mixin.ProtoReflect">func (*Mixin) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=12597:12648#L376">ProtoReflect</a>
+					<a class="permalink" href="#Mixin.ProtoReflect">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Mixin">Mixin</a>) ProtoReflect() <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Message">Message</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Mixin.Reset">func (*Mixin) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=12277:12300#L361">Reset</a>
+					<a class="permalink" href="#Mixin.Reset">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Mixin">Mixin</a>) Reset()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Mixin.String">func (*Mixin) <a href="/src/google.golang.org/protobuf/types/known/apipb/api.pb.go?s=12488:12519#L370">String</a>
+					<a class="permalink" href="#Mixin.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Mixin">Mixin</a>) String() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

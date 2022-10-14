@@ -1,0 +1,2624 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>clause - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/pkg/">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/pkg/">GoDoc</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package clause
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "gorm.io/gorm/clause"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+				<dd><a href="#pkg-constants">Constants</a></dd>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+			
+				
+				<dd><a href="#AndConditions">type AndConditions</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#AndConditions.Build">func (and AndConditions) Build(builder Builder)</a></dd>
+				
+			
+				
+				<dd><a href="#Assignment">type Assignment</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Builder">type Builder</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Clause">type Clause</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Clause.Build">func (c Clause) Build(builder Builder)</a></dd>
+				
+			
+				
+				<dd><a href="#ClauseBuilder">type ClauseBuilder</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Column">type Column</a></dd>
+				
+				
+			
+				
+				<dd><a href="#CommaExpression">type CommaExpression</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CommaExpression.Build">func (comma CommaExpression) Build(builder Builder)</a></dd>
+				
+			
+				
+				<dd><a href="#Delete">type Delete</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Delete.Build">func (d Delete) Build(builder Builder)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Delete.MergeClause">func (d Delete) MergeClause(clause *Clause)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Delete.Name">func (d Delete) Name() string</a></dd>
+				
+			
+				
+				<dd><a href="#Eq">type Eq</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Eq.Build">func (eq Eq) Build(builder Builder)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Eq.NegationBuild">func (eq Eq) NegationBuild(builder Builder)</a></dd>
+				
+			
+				
+				<dd><a href="#Expr">type Expr</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Expr.Build">func (expr Expr) Build(builder Builder)</a></dd>
+				
+			
+				
+				<dd><a href="#Expression">type Expression</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#And">func And(exprs ...Expression) Expression</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Not">func Not(exprs ...Expression) Expression</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Or">func Or(exprs ...Expression) Expression</a></dd>
+				
+				
+			
+				
+				<dd><a href="#From">type From</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#From.Build">func (from From) Build(builder Builder)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#From.MergeClause">func (from From) MergeClause(clause *Clause)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#From.Name">func (from From) Name() string</a></dd>
+				
+			
+				
+				<dd><a href="#GroupBy">type GroupBy</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#GroupBy.Build">func (groupBy GroupBy) Build(builder Builder)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#GroupBy.MergeClause">func (groupBy GroupBy) MergeClause(clause *Clause)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#GroupBy.Name">func (groupBy GroupBy) Name() string</a></dd>
+				
+			
+				
+				<dd><a href="#Gt">type Gt</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Gt.Build">func (gt Gt) Build(builder Builder)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Gt.NegationBuild">func (gt Gt) NegationBuild(builder Builder)</a></dd>
+				
+			
+				
+				<dd><a href="#Gte">type Gte</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Gte.Build">func (gte Gte) Build(builder Builder)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Gte.NegationBuild">func (gte Gte) NegationBuild(builder Builder)</a></dd>
+				
+			
+				
+				<dd><a href="#IN">type IN</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#IN.Build">func (in IN) Build(builder Builder)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#IN.NegationBuild">func (in IN) NegationBuild(builder Builder)</a></dd>
+				
+			
+				
+				<dd><a href="#Insert">type Insert</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Insert.Build">func (insert Insert) Build(builder Builder)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Insert.MergeClause">func (insert Insert) MergeClause(clause *Clause)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Insert.Name">func (insert Insert) Name() string</a></dd>
+				
+			
+				
+				<dd><a href="#Interface">type Interface</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Join">type Join</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Join.Build">func (join Join) Build(builder Builder)</a></dd>
+				
+			
+				
+				<dd><a href="#JoinType">type JoinType</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Like">type Like</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Like.Build">func (like Like) Build(builder Builder)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Like.NegationBuild">func (like Like) NegationBuild(builder Builder)</a></dd>
+				
+			
+				
+				<dd><a href="#Limit">type Limit</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Limit.Build">func (limit Limit) Build(builder Builder)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Limit.MergeClause">func (limit Limit) MergeClause(clause *Clause)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Limit.Name">func (limit Limit) Name() string</a></dd>
+				
+			
+				
+				<dd><a href="#Locking">type Locking</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Locking.Build">func (locking Locking) Build(builder Builder)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Locking.MergeClause">func (locking Locking) MergeClause(clause *Clause)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Locking.Name">func (locking Locking) Name() string</a></dd>
+				
+			
+				
+				<dd><a href="#Lt">type Lt</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Lt.Build">func (lt Lt) Build(builder Builder)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Lt.NegationBuild">func (lt Lt) NegationBuild(builder Builder)</a></dd>
+				
+			
+				
+				<dd><a href="#Lte">type Lte</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Lte.Build">func (lte Lte) Build(builder Builder)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Lte.NegationBuild">func (lte Lte) NegationBuild(builder Builder)</a></dd>
+				
+			
+				
+				<dd><a href="#NamedExpr">type NamedExpr</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NamedExpr.Build">func (expr NamedExpr) Build(builder Builder)</a></dd>
+				
+			
+				
+				<dd><a href="#NegationExpressionBuilder">type NegationExpressionBuilder</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Neq">type Neq</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Neq.Build">func (neq Neq) Build(builder Builder)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Neq.NegationBuild">func (neq Neq) NegationBuild(builder Builder)</a></dd>
+				
+			
+				
+				<dd><a href="#NotConditions">type NotConditions</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NotConditions.Build">func (not NotConditions) Build(builder Builder)</a></dd>
+				
+			
+				
+				<dd><a href="#OnConflict">type OnConflict</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#OnConflict.Build">func (onConflict OnConflict) Build(builder Builder)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#OnConflict.MergeClause">func (onConflict OnConflict) MergeClause(clause *Clause)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#OnConflict.Name">func (OnConflict) Name() string</a></dd>
+				
+			
+				
+				<dd><a href="#OrConditions">type OrConditions</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#OrConditions.Build">func (or OrConditions) Build(builder Builder)</a></dd>
+				
+			
+				
+				<dd><a href="#OrderBy">type OrderBy</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#OrderBy.Build">func (orderBy OrderBy) Build(builder Builder)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#OrderBy.MergeClause">func (orderBy OrderBy) MergeClause(clause *Clause)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#OrderBy.Name">func (orderBy OrderBy) Name() string</a></dd>
+				
+			
+				
+				<dd><a href="#OrderByColumn">type OrderByColumn</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Returning">type Returning</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Returning.Build">func (returning Returning) Build(builder Builder)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Returning.MergeClause">func (returning Returning) MergeClause(clause *Clause)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Returning.Name">func (returning Returning) Name() string</a></dd>
+				
+			
+				
+				<dd><a href="#Select">type Select</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Select.Build">func (s Select) Build(builder Builder)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Select.MergeClause">func (s Select) MergeClause(clause *Clause)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Select.Name">func (s Select) Name() string</a></dd>
+				
+			
+				
+				<dd><a href="#Set">type Set</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#AssignmentColumns">func AssignmentColumns(values []string) Set</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Assignments">func Assignments(values map[string]interface{}) Set</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Set.Build">func (set Set) Build(builder Builder)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Set.MergeClause">func (set Set) MergeClause(clause *Clause)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Set.Name">func (set Set) Name() string</a></dd>
+				
+			
+				
+				<dd><a href="#Table">type Table</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Update">type Update</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Update.Build">func (update Update) Build(builder Builder)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Update.MergeClause">func (update Update) MergeClause(clause *Clause)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Update.Name">func (update Update) Name() string</a></dd>
+				
+			
+				
+				<dd><a href="#Values">type Values</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Values.Build">func (values Values) Build(builder Builder)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Values.MergeClause">func (values Values) MergeClause(clause *Clause)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Values.Name">func (Values) Name() string</a></dd>
+				
+			
+				
+				<dd><a href="#Where">type Where</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Where.Build">func (where Where) Build(builder Builder)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Where.MergeClause">func (where Where) MergeClause(clause *Clause)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Where.Name">func (where Where) Name() string</a></dd>
+				
+			
+				
+				<dd><a href="#With">type With</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Writer">type Writer</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/gorm.io/gorm/clause/clause.go">clause.go</a>
+			
+				<a href="/src/gorm.io/gorm/clause/delete.go">delete.go</a>
+			
+				<a href="/src/gorm.io/gorm/clause/expression.go">expression.go</a>
+			
+				<a href="/src/gorm.io/gorm/clause/from.go">from.go</a>
+			
+				<a href="/src/gorm.io/gorm/clause/group_by.go">group_by.go</a>
+			
+				<a href="/src/gorm.io/gorm/clause/insert.go">insert.go</a>
+			
+				<a href="/src/gorm.io/gorm/clause/joins.go">joins.go</a>
+			
+				<a href="/src/gorm.io/gorm/clause/limit.go">limit.go</a>
+			
+				<a href="/src/gorm.io/gorm/clause/locking.go">locking.go</a>
+			
+				<a href="/src/gorm.io/gorm/clause/on_conflict.go">on_conflict.go</a>
+			
+				<a href="/src/gorm.io/gorm/clause/order_by.go">order_by.go</a>
+			
+				<a href="/src/gorm.io/gorm/clause/returning.go">returning.go</a>
+			
+				<a href="/src/gorm.io/gorm/clause/select.go">select.go</a>
+			
+				<a href="/src/gorm.io/gorm/clause/set.go">set.go</a>
+			
+				<a href="/src/gorm.io/gorm/clause/update.go">update.go</a>
+			
+				<a href="/src/gorm.io/gorm/clause/values.go">values.go</a>
+			
+				<a href="/src/gorm.io/gorm/clause/where.go">where.go</a>
+			
+				<a href="/src/gorm.io/gorm/clause/with.go">with.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+			<h2 id="pkg-constants">Constants</h2>
+			
+				
+				<pre>const (
+    <span id="PrimaryKey">PrimaryKey</span>   <a href="/pkg/builtin/#string">string</a> = &#34;~~~py~~~&#34; <span class="comment">// primary key</span>
+    <span id="CurrentTable">CurrentTable</span> <a href="/pkg/builtin/#string">string</a> = &#34;~~~ct~~~&#34; <span class="comment">// current table</span>
+    <span id="Associations">Associations</span> <a href="/pkg/builtin/#string">string</a> = &#34;~~~as~~~&#34; <span class="comment">// associations</span>
+)</pre>
+			
+				
+				<pre>const (
+    <span id="AndWithSpace">AndWithSpace</span> = &#34; AND &#34;
+    <span id="OrWithSpace">OrWithSpace</span>  = &#34; OR &#34;
+)</pre>
+			
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				
+				<pre>var (
+    <span id="PrimaryColumn">PrimaryColumn</span> = <a href="#Column">Column</a>{<a href="#Column.Table">Table</a>: <a href="#CurrentTable">CurrentTable</a>, <a href="#Column.Name">Name</a>: <a href="#PrimaryKey">PrimaryKey</a>}
+)</pre>
+			
+		
+		
+		
+			
+			
+			<h2 id="AndConditions">type <a href="/src/gorm.io/gorm/clause/where.go?s=2489:2538#L101">AndConditions</a>
+				<a class="permalink" href="#AndConditions">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type AndConditions struct {
+<span id="AndConditions.Exprs"></span>    Exprs []<a href="#Expression">Expression</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="AndConditions.Build">func (AndConditions) <a href="/src/gorm.io/gorm/clause/where.go?s=2540:2587#L105">Build</a>
+					<a class="permalink" href="#AndConditions.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (and <a href="#AndConditions">AndConditions</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Assignment">type <a href="/src/gorm.io/gorm/clause/set.go?s=54:115#L1">Assignment</a>
+				<a class="permalink" href="#Assignment">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Assignment struct {
+<span id="Assignment.Column"></span>    Column <a href="#Column">Column</a>
+<span id="Assignment.Value"></span>    Value  interface{}
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Builder">type <a href="/src/gorm.io/gorm/clause/clause.go?s=357:455#L9">Builder</a>
+				<a class="permalink" href="#Builder">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Builder builder interface
+
+			<pre>type Builder interface {
+    <a href="#Writer">Writer</a>
+    WriteQuoted(field interface{})
+    AddVar(<a href="#Writer">Writer</a>, ...interface{})
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Clause">type <a href="/src/gorm.io/gorm/clause/clause.go?s=467:689#L16">Clause</a>
+				<a class="permalink" href="#Clause">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Clause
+
+			<pre>type Clause struct {
+<span id="Clause.Name"></span>    Name                <a href="/pkg/builtin/#string">string</a> <span class="comment">// WHERE</span>
+<span id="Clause.BeforeExpression"></span>    BeforeExpression    <a href="#Expression">Expression</a>
+<span id="Clause.AfterNameExpression"></span>    AfterNameExpression <a href="#Expression">Expression</a>
+<span id="Clause.AfterExpression"></span>    AfterExpression     <a href="#Expression">Expression</a>
+<span id="Clause.Expression"></span>    Expression          <a href="#Expression">Expression</a>
+<span id="Clause.Builder"></span>    Builder             <a href="#ClauseBuilder">ClauseBuilder</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Clause.Build">func (Clause) <a href="/src/gorm.io/gorm/clause/clause.go?s=713:751#L26">Build</a>
+					<a class="permalink" href="#Clause.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c <a href="#Clause">Clause</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				<p>Build build clause
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ClauseBuilder">type <a href="/src/gorm.io/gorm/clause/clause.go?s=202:242#L1">ClauseBuilder</a>
+				<a class="permalink" href="#ClauseBuilder">&#xb6;</a>
+				
+				
+			</h2>
+			<p>ClauseBuilder clause builder, allows to customize how to build clause
+
+			<pre>type ClauseBuilder func(<a href="#Clause">Clause</a>, <a href="#Builder">Builder</a>)</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Column">type <a href="/src/gorm.io/gorm/clause/clause.go?s=1561:1637#L66">Column</a>
+				<a class="permalink" href="#Column">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Column quote with name
+
+			<pre>type Column struct {
+<span id="Column.Table"></span>    Table <a href="/pkg/builtin/#string">string</a>
+<span id="Column.Name"></span>    Name  <a href="/pkg/builtin/#string">string</a>
+<span id="Column.Alias"></span>    Alias <a href="/pkg/builtin/#string">string</a>
+<span id="Column.Raw"></span>    Raw   <a href="/pkg/builtin/#bool">bool</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="CommaExpression">type <a href="/src/gorm.io/gorm/clause/select.go?s=869:920#L38">CommaExpression</a>
+				<a class="permalink" href="#CommaExpression">&#xb6;</a>
+				
+				
+			</h2>
+			<p>CommaExpression represents a group of expressions separated by commas.
+
+			<pre>type CommaExpression struct {
+<span id="CommaExpression.Exprs"></span>    Exprs []<a href="#Expression">Expression</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="CommaExpression.Build">func (CommaExpression) <a href="/src/gorm.io/gorm/clause/select.go?s=922:973#L42">Build</a>
+					<a class="permalink" href="#CommaExpression.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (comma <a href="#CommaExpression">CommaExpression</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Delete">type <a href="/src/gorm.io/gorm/clause/delete.go?s=16:55#L1">Delete</a>
+				<a class="permalink" href="#Delete">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Delete struct {
+<span id="Delete.Modifier"></span>    Modifier <a href="/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Delete.Build">func (Delete) <a href="/src/gorm.io/gorm/clause/delete.go?s=109:147#L1">Build</a>
+					<a class="permalink" href="#Delete.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (d <a href="#Delete">Delete</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Delete.MergeClause">func (Delete) <a href="/src/gorm.io/gorm/clause/delete.go?s=270:313#L10">MergeClause</a>
+					<a class="permalink" href="#Delete.MergeClause">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (d <a href="#Delete">Delete</a>) MergeClause(clause *<a href="#Clause">Clause</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Delete.Name">func (Delete) <a href="/src/gorm.io/gorm/clause/delete.go?s=57:86#L1">Name</a>
+					<a class="permalink" href="#Delete.Name">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (d <a href="#Delete">Delete</a>) Name() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Eq">type <a href="/src/gorm.io/gorm/clause/expression.go?s=5249:5307#L229">Eq</a>
+				<a class="permalink" href="#Eq">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Eq equal to for where
+
+			<pre>type Eq struct {
+<span id="Eq.Column"></span>    Column interface{}
+<span id="Eq.Value"></span>    Value  interface{}
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Eq.Build">func (Eq) <a href="/src/gorm.io/gorm/clause/expression.go?s=5309:5344#L234">Build</a>
+					<a class="permalink" href="#Eq.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (eq <a href="#Eq">Eq</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Eq.NegationBuild">func (Eq) <a href="/src/gorm.io/gorm/clause/expression.go?s=5872:5915#L258">NegationBuild</a>
+					<a class="permalink" href="#Eq.NegationBuild">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (eq <a href="#Eq">Eq</a>) NegationBuild(builder <a href="#Builder">Builder</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Expr">type <a href="/src/gorm.io/gorm/clause/expression.go?s=336:442#L11">Expr</a>
+				<a class="permalink" href="#Expr">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Expr raw expression
+
+			<pre>type Expr struct {
+<span id="Expr.SQL"></span>    SQL                <a href="/pkg/builtin/#string">string</a>
+<span id="Expr.Vars"></span>    Vars               []interface{}
+<span id="Expr.WithoutParentheses"></span>    WithoutParentheses <a href="/pkg/builtin/#bool">bool</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Expr.Build">func (Expr) <a href="/src/gorm.io/gorm/clause/expression.go?s=474:513#L18">Build</a>
+					<a class="permalink" href="#Expr.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (expr <a href="#Expr">Expr</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				<p>Build build raw expression
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Expression">type <a href="/src/gorm.io/gorm/clause/expression.go?s=123:176#L1">Expression</a>
+				<a class="permalink" href="#Expression">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Expression expression interface
+
+			<pre>type Expression interface {
+    Build(builder <a href="#Builder">Builder</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="And">func <a href="/src/gorm.io/gorm/clause/where.go?s=2274:2314#L87">And</a>
+					<a class="permalink" href="#And">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func And(exprs ...<a href="#Expression">Expression</a>) <a href="#Expression">Expression</a></pre>
+				
+				
+				
+			
+				
+				<h3 id="Not">func <a href="/src/gorm.io/gorm/clause/where.go?s=3171:3211#L136">Not</a>
+					<a class="permalink" href="#Not">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func Not(exprs ...<a href="#Expression">Expression</a>) <a href="#Expression">Expression</a></pre>
+				
+				
+				
+			
+				
+				<h3 id="Or">func <a href="/src/gorm.io/gorm/clause/where.go?s=2775:2814#L115">Or</a>
+					<a class="permalink" href="#Or">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func Or(exprs ...<a href="#Expression">Expression</a>) <a href="#Expression">Expression</a></pre>
+				
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="From">type <a href="/src/gorm.io/gorm/clause/from.go?s=36:87#L1">From</a>
+				<a class="permalink" href="#From">&#xb6;</a>
+				
+				
+			</h2>
+			<p>From from clause
+
+			<pre>type From struct {
+<span id="From.Tables"></span>    Tables []<a href="#Table">Table</a>
+<span id="From.Joins"></span>    Joins  []<a href="#Join">Join</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="From.Build">func (From) <a href="/src/gorm.io/gorm/clause/from.go?s=192:231#L5">Build</a>
+					<a class="permalink" href="#From.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (from <a href="#From">From</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				<p>Build build from clause
+
+				
+				
+				
+			
+				
+				<h3 id="From.MergeClause">func (From) <a href="/src/gorm.io/gorm/clause/from.go?s=555:599#L25">MergeClause</a>
+					<a class="permalink" href="#From.MergeClause">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (from <a href="#From">From</a>) MergeClause(clause *<a href="#Clause">Clause</a>)</pre>
+				<p>MergeClause merge from clause
+
+				
+				
+				
+			
+				
+				<h3 id="From.Name">func (From) <a href="/src/gorm.io/gorm/clause/from.go?s=114:144#L1">Name</a>
+					<a class="permalink" href="#From.Name">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (from <a href="#From">From</a>) Name() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>Name from clause name
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="GroupBy">type <a href="/src/gorm.io/gorm/clause/group_by.go?s=43:106#L1">GroupBy</a>
+				<a class="permalink" href="#GroupBy">&#xb6;</a>
+				
+				
+			</h2>
+			<p>GroupBy group by clause
+
+			<pre>type GroupBy struct {
+<span id="GroupBy.Columns"></span>    Columns []<a href="#Column">Column</a>
+<span id="GroupBy.Having"></span>    Having  []<a href="#Expression">Expression</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="GroupBy.Build">func (GroupBy) <a href="/src/gorm.io/gorm/clause/group_by.go?s=225:270#L5">Build</a>
+					<a class="permalink" href="#GroupBy.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (groupBy <a href="#GroupBy">GroupBy</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				<p>Build build group by clause
+
+				
+				
+				
+			
+				
+				<h3 id="GroupBy.MergeClause">func (GroupBy) <a href="/src/gorm.io/gorm/clause/group_by.go?s=550:600#L21">MergeClause</a>
+					<a class="permalink" href="#GroupBy.MergeClause">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (groupBy <a href="#GroupBy">GroupBy</a>) MergeClause(clause *<a href="#Clause">Clause</a>)</pre>
+				<p>MergeClause merge group by clause
+
+				
+				
+				
+			
+				
+				<h3 id="GroupBy.Name">func (GroupBy) <a href="/src/gorm.io/gorm/clause/group_by.go?s=133:169#L1">Name</a>
+					<a class="permalink" href="#GroupBy.Name">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (groupBy <a href="#GroupBy">GroupBy</a>) Name() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>Name from clause name
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Gt">type <a href="/src/gorm.io/gorm/clause/expression.go?s=6671:6681#L294">Gt</a>
+				<a class="permalink" href="#Gt">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Gt greater than for where
+
+			<pre>type Gt <a href="#Eq">Eq</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Gt.Build">func (Gt) <a href="/src/gorm.io/gorm/clause/expression.go?s=6683:6718#L296">Build</a>
+					<a class="permalink" href="#Gt.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (gt <a href="#Gt">Gt</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Gt.NegationBuild">func (Gt) <a href="/src/gorm.io/gorm/clause/expression.go?s=6819:6862#L302">NegationBuild</a>
+					<a class="permalink" href="#Gt.NegationBuild">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (gt <a href="#Gt">Gt</a>) NegationBuild(builder <a href="#Builder">Builder</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Gte">type <a href="/src/gorm.io/gorm/clause/expression.go?s=6934:6945#L307">Gte</a>
+				<a class="permalink" href="#Gte">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Gte greater than or equal to for where
+
+			<pre>type Gte <a href="#Eq">Eq</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Gte.Build">func (Gte) <a href="/src/gorm.io/gorm/clause/expression.go?s=6947:6984#L309">Build</a>
+					<a class="permalink" href="#Gte.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (gte <a href="#Gte">Gte</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Gte.NegationBuild">func (Gte) <a href="/src/gorm.io/gorm/clause/expression.go?s=7088:7133#L315">NegationBuild</a>
+					<a class="permalink" href="#Gte.NegationBuild">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (gte <a href="#Gte">Gte</a>) NegationBuild(builder <a href="#Builder">Builder</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="IN">type <a href="/src/gorm.io/gorm/clause/expression.go?s=4326:4386#L182">IN</a>
+				<a class="permalink" href="#IN">&#xb6;</a>
+				
+				
+			</h2>
+			<p>IN Whether a value is within a set of values
+
+			<pre>type IN struct {
+<span id="IN.Column"></span>    Column interface{}
+<span id="IN.Values"></span>    Values []interface{}
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="IN.Build">func (IN) <a href="/src/gorm.io/gorm/clause/expression.go?s=4388:4423#L187">Build</a>
+					<a class="permalink" href="#IN.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (in <a href="#IN">IN</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="IN.NegationBuild">func (IN) <a href="/src/gorm.io/gorm/clause/expression.go?s=4799:4842#L208">NegationBuild</a>
+					<a class="permalink" href="#IN.NegationBuild">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (in <a href="#IN">IN</a>) NegationBuild(builder <a href="#Builder">Builder</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Insert">type <a href="/src/gorm.io/gorm/clause/insert.go?s=16:71#L1">Insert</a>
+				<a class="permalink" href="#Insert">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Insert struct {
+<span id="Insert.Table"></span>    Table    <a href="#Table">Table</a>
+<span id="Insert.Modifier"></span>    Modifier <a href="/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Insert.Build">func (Insert) <a href="/src/gorm.io/gorm/clause/insert.go?s=186:229#L4">Build</a>
+					<a class="permalink" href="#Insert.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (insert <a href="#Insert">Insert</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				<p>Build build insert clause
+
+				
+				
+				
+			
+				
+				<h3 id="Insert.MergeClause">func (Insert) <a href="/src/gorm.io/gorm/clause/insert.go?s=511:559#L19">MergeClause</a>
+					<a class="permalink" href="#Insert.MergeClause">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (insert <a href="#Insert">Insert</a>) MergeClause(clause *<a href="#Clause">Clause</a>)</pre>
+				<p>MergeClause merge insert clause
+
+				
+				
+				
+			
+				
+				<h3 id="Insert.Name">func (Insert) <a href="/src/gorm.io/gorm/clause/insert.go?s=100:134#L1">Name</a>
+					<a class="permalink" href="#Insert.Name">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (insert <a href="#Insert">Insert</a>) Name() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>Name insert clause name
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Interface">type <a href="/src/gorm.io/gorm/clause/clause.go?s=46:127#L1">Interface</a>
+				<a class="permalink" href="#Interface">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Interface clause interface
+
+			<pre>type Interface interface {
+    Name() <a href="/pkg/builtin/#string">string</a>
+    Build(<a href="#Builder">Builder</a>)
+    MergeClause(*<a href="#Clause">Clause</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Join">type <a href="/src/gorm.io/gorm/clause/joins.go?s=197:318#L3">Join</a>
+				<a class="permalink" href="#Join">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Join join clause for from
+
+			<pre>type Join struct {
+<span id="Join.Type"></span>    Type       <a href="#JoinType">JoinType</a>
+<span id="Join.Table"></span>    Table      <a href="#Table">Table</a>
+<span id="Join.ON"></span>    ON         <a href="#Where">Where</a>
+<span id="Join.Using"></span>    Using      []<a href="/pkg/builtin/#string">string</a>
+<span id="Join.Expression"></span>    Expression <a href="#Expression">Expression</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Join.Build">func (Join) <a href="/src/gorm.io/gorm/clause/joins.go?s=320:359#L11">Build</a>
+					<a class="permalink" href="#Join.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (join <a href="#Join">Join</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="JoinType">type <a href="/src/gorm.io/gorm/clause/joins.go?s=16:36#L1">JoinType</a>
+				<a class="permalink" href="#JoinType">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type JoinType <a href="/pkg/builtin/#string">string</a></pre>
+
+			
+				
+				<pre>const (
+    <span id="CrossJoin">CrossJoin</span> <a href="#JoinType">JoinType</a> = &#34;CROSS&#34;
+    <span id="InnerJoin">InnerJoin</span> <a href="#JoinType">JoinType</a> = &#34;INNER&#34;
+    <span id="LeftJoin">LeftJoin</span>  <a href="#JoinType">JoinType</a> = &#34;LEFT&#34;
+    <span id="RightJoin">RightJoin</span> <a href="#JoinType">JoinType</a> = &#34;RIGHT&#34;
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Like">type <a href="/src/gorm.io/gorm/clause/expression.go?s=7728:7740#L346">Like</a>
+				<a class="permalink" href="#Like">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Like whether string matches regular expression
+
+			<pre>type Like <a href="#Eq">Eq</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Like.Build">func (Like) <a href="/src/gorm.io/gorm/clause/expression.go?s=7742:7781#L348">Build</a>
+					<a class="permalink" href="#Like.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (like <a href="#Like">Like</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Like.NegationBuild">func (Like) <a href="/src/gorm.io/gorm/clause/expression.go?s=7889:7936#L354">NegationBuild</a>
+					<a class="permalink" href="#Like.NegationBuild">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (like <a href="#Like">Like</a>) NegationBuild(builder <a href="#Builder">Builder</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Limit">type <a href="/src/gorm.io/gorm/clause/limit.go?s=56:102#L1">Limit</a>
+				<a class="permalink" href="#Limit">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Limit limit clause
+
+			<pre>type Limit struct {
+<span id="Limit.Limit"></span>    Limit  *<a href="/pkg/builtin/#int">int</a>
+<span id="Limit.Offset"></span>    Offset <a href="/pkg/builtin/#int">int</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Limit.Build">func (Limit) <a href="/src/gorm.io/gorm/clause/limit.go?s=212:253#L7">Build</a>
+					<a class="permalink" href="#Limit.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (limit <a href="#Limit">Limit</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				<p>Build build where clause
+
+				
+				
+				
+			
+				
+				<h3 id="Limit.MergeClause">func (Limit) <a href="/src/gorm.io/gorm/clause/limit.go?s=614:660#L22">MergeClause</a>
+					<a class="permalink" href="#Limit.MergeClause">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (limit <a href="#Limit">Limit</a>) MergeClause(clause *<a href="#Clause">Clause</a>)</pre>
+				<p>MergeClause merge order by clauses
+
+				
+				
+				
+			
+				
+				<h3 id="Limit.Name">func (Limit) <a href="/src/gorm.io/gorm/clause/limit.go?s=130:162#L2">Name</a>
+					<a class="permalink" href="#Limit.Name">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (limit <a href="#Limit">Limit</a>) Name() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>Name where clause name
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Locking">type <a href="/src/gorm.io/gorm/clause/locking.go?s=16:89#L1">Locking</a>
+				<a class="permalink" href="#Locking">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Locking struct {
+<span id="Locking.Strength"></span>    Strength <a href="/pkg/builtin/#string">string</a>
+<span id="Locking.Table"></span>    Table    <a href="#Table">Table</a>
+<span id="Locking.Options"></span>    Options  <a href="/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Locking.Build">func (Locking) <a href="/src/gorm.io/gorm/clause/locking.go?s=201:246#L5">Build</a>
+					<a class="permalink" href="#Locking.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (locking <a href="#Locking">Locking</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				<p>Build build where clause
+
+				
+				
+				
+			
+				
+				<h3 id="Locking.MergeClause">func (Locking) <a href="/src/gorm.io/gorm/clause/locking.go?s=526:576#L19">MergeClause</a>
+					<a class="permalink" href="#Locking.MergeClause">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (locking <a href="#Locking">Locking</a>) MergeClause(clause *<a href="#Clause">Clause</a>)</pre>
+				<p>MergeClause merge order by clauses
+
+				
+				
+				
+			
+				
+				<h3 id="Locking.Name">func (Locking) <a href="/src/gorm.io/gorm/clause/locking.go?s=117:153#L1">Name</a>
+					<a class="permalink" href="#Locking.Name">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (locking <a href="#Locking">Locking</a>) Name() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>Name where clause name
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Lt">type <a href="/src/gorm.io/gorm/clause/expression.go?s=7189:7199#L320">Lt</a>
+				<a class="permalink" href="#Lt">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Lt less than for where
+
+			<pre>type Lt <a href="#Eq">Eq</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Lt.Build">func (Lt) <a href="/src/gorm.io/gorm/clause/expression.go?s=7201:7236#L322">Build</a>
+					<a class="permalink" href="#Lt.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (lt <a href="#Lt">Lt</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Lt.NegationBuild">func (Lt) <a href="/src/gorm.io/gorm/clause/expression.go?s=7337:7380#L328">NegationBuild</a>
+					<a class="permalink" href="#Lt.NegationBuild">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (lt <a href="#Lt">Lt</a>) NegationBuild(builder <a href="#Builder">Builder</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Lte">type <a href="/src/gorm.io/gorm/clause/expression.go?s=7449:7460#L333">Lte</a>
+				<a class="permalink" href="#Lte">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Lte less than or equal to for where
+
+			<pre>type Lte <a href="#Eq">Eq</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Lte.Build">func (Lte) <a href="/src/gorm.io/gorm/clause/expression.go?s=7462:7499#L335">Build</a>
+					<a class="permalink" href="#Lte.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (lte <a href="#Lte">Lte</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Lte.NegationBuild">func (Lte) <a href="/src/gorm.io/gorm/clause/expression.go?s=7603:7648#L341">NegationBuild</a>
+					<a class="permalink" href="#Lte.NegationBuild">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (lte <a href="#Lte">Lte</a>) NegationBuild(builder <a href="#Builder">Builder</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="NamedExpr">type <a href="/src/gorm.io/gorm/clause/expression.go?s=1615:1673#L69">NamedExpr</a>
+				<a class="permalink" href="#NamedExpr">&#xb6;</a>
+				
+				
+			</h2>
+			<p>NamedExpr raw expression for named expr
+
+			<pre>type NamedExpr struct {
+<span id="NamedExpr.SQL"></span>    SQL  <a href="/pkg/builtin/#string">string</a>
+<span id="NamedExpr.Vars"></span>    Vars []interface{}
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="NamedExpr.Build">func (NamedExpr) <a href="/src/gorm.io/gorm/clause/expression.go?s=1705:1749#L75">Build</a>
+					<a class="permalink" href="#NamedExpr.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (expr <a href="#NamedExpr">NamedExpr</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				<p>Build build raw expression
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="NegationExpressionBuilder">type <a href="/src/gorm.io/gorm/clause/expression.go?s=235:311#L6">NegationExpressionBuilder</a>
+				<a class="permalink" href="#NegationExpressionBuilder">&#xb6;</a>
+				
+				
+			</h2>
+			<p>NegationExpressionBuilder negation expression builder
+
+			<pre>type NegationExpressionBuilder interface {
+    NegationBuild(builder <a href="#Builder">Builder</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Neq">type <a href="/src/gorm.io/gorm/clause/expression.go?s=5975:5986#L263">Neq</a>
+				<a class="permalink" href="#Neq">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Neq not equal to for where
+
+			<pre>type Neq <a href="#Eq">Eq</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Neq.Build">func (Neq) <a href="/src/gorm.io/gorm/clause/expression.go?s=5988:6025#L265">Build</a>
+					<a class="permalink" href="#Neq.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (neq <a href="#Neq">Neq</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Neq.NegationBuild">func (Neq) <a href="/src/gorm.io/gorm/clause/expression.go?s=6567:6612#L289">NegationBuild</a>
+					<a class="permalink" href="#Neq.NegationBuild">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (neq <a href="#Neq">Neq</a>) NegationBuild(builder <a href="#Builder">Builder</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="NotConditions">type <a href="/src/gorm.io/gorm/clause/where.go?s=3291:3340#L143">NotConditions</a>
+				<a class="permalink" href="#NotConditions">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type NotConditions struct {
+<span id="NotConditions.Exprs"></span>    Exprs []<a href="#Expression">Expression</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="NotConditions.Build">func (NotConditions) <a href="/src/gorm.io/gorm/clause/where.go?s=3342:3389#L147">Build</a>
+					<a class="permalink" href="#NotConditions.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (not <a href="#NotConditions">NotConditions</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="OnConflict">type <a href="/src/gorm.io/gorm/clause/on_conflict.go?s=16:182#L1">OnConflict</a>
+				<a class="permalink" href="#OnConflict">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type OnConflict struct {
+<span id="OnConflict.Columns"></span>    Columns      []<a href="#Column">Column</a>
+<span id="OnConflict.Where"></span>    Where        <a href="#Where">Where</a>
+<span id="OnConflict.TargetWhere"></span>    TargetWhere  <a href="#Where">Where</a>
+<span id="OnConflict.OnConstraint"></span>    OnConstraint <a href="/pkg/builtin/#string">string</a>
+<span id="OnConflict.DoNothing"></span>    DoNothing    <a href="/pkg/builtin/#bool">bool</a>
+<span id="OnConflict.DoUpdates"></span>    DoUpdates    <a href="#Set">Set</a>
+<span id="OnConflict.UpdateAll"></span>    UpdateAll    <a href="/pkg/builtin/#bool">bool</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="OnConflict.Build">func (OnConflict) <a href="/src/gorm.io/gorm/clause/on_conflict.go?s=276:327#L8">Build</a>
+					<a class="permalink" href="#OnConflict.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (onConflict <a href="#OnConflict">OnConflict</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				<p>Build build onConflict clause
+
+				
+				
+				
+			
+				
+				<h3 id="OnConflict.MergeClause">func (OnConflict) <a href="/src/gorm.io/gorm/clause/on_conflict.go?s=1205:1261#L47">MergeClause</a>
+					<a class="permalink" href="#OnConflict.MergeClause">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (onConflict <a href="#OnConflict">OnConflict</a>) MergeClause(clause *<a href="#Clause">Clause</a>)</pre>
+				<p>MergeClause merge onConflict clauses
+
+				
+				
+				
+			
+				
+				<h3 id="OnConflict.Name">func (OnConflict) <a href="/src/gorm.io/gorm/clause/on_conflict.go?s=184:215#L3">Name</a>
+					<a class="permalink" href="#OnConflict.Name">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="#OnConflict">OnConflict</a>) Name() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="OrConditions">type <a href="/src/gorm.io/gorm/clause/where.go?s=2893:2941#L122">OrConditions</a>
+				<a class="permalink" href="#OrConditions">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type OrConditions struct {
+<span id="OrConditions.Exprs"></span>    Exprs []<a href="#Expression">Expression</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="OrConditions.Build">func (OrConditions) <a href="/src/gorm.io/gorm/clause/where.go?s=2943:2988#L126">Build</a>
+					<a class="permalink" href="#OrConditions.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (or <a href="#OrConditions">OrConditions</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="OrderBy">type <a href="/src/gorm.io/gorm/clause/order_by.go?s=91:165#L1">OrderBy</a>
+				<a class="permalink" href="#OrderBy">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type OrderBy struct {
+<span id="OrderBy.Columns"></span>    Columns    []<a href="#OrderByColumn">OrderByColumn</a>
+<span id="OrderBy.Expression"></span>    Expression <a href="#Expression">Expression</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="OrderBy.Build">func (OrderBy) <a href="/src/gorm.io/gorm/clause/order_by.go?s=282:327#L10">Build</a>
+					<a class="permalink" href="#OrderBy.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (orderBy <a href="#OrderBy">OrderBy</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				<p>Build build where clause
+
+				
+				
+				
+			
+				
+				<h3 id="OrderBy.MergeClause">func (OrderBy) <a href="/src/gorm.io/gorm/clause/order_by.go?s=646:696#L28">MergeClause</a>
+					<a class="permalink" href="#OrderBy.MergeClause">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (orderBy <a href="#OrderBy">OrderBy</a>) MergeClause(clause *<a href="#Clause">Clause</a>)</pre>
+				<p>MergeClause merge order by clauses
+
+				
+				
+				
+			
+				
+				<h3 id="OrderBy.Name">func (OrderBy) <a href="/src/gorm.io/gorm/clause/order_by.go?s=193:229#L5">Name</a>
+					<a class="permalink" href="#OrderBy.Name">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (orderBy <a href="#OrderBy">OrderBy</a>) Name() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>Name where clause name
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="OrderByColumn">type <a href="/src/gorm.io/gorm/clause/order_by.go?s=16:89#L1">OrderByColumn</a>
+				<a class="permalink" href="#OrderByColumn">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type OrderByColumn struct {
+<span id="OrderByColumn.Column"></span>    Column  <a href="#Column">Column</a>
+<span id="OrderByColumn.Desc"></span>    Desc    <a href="/pkg/builtin/#bool">bool</a>
+<span id="OrderByColumn.Reorder"></span>    Reorder <a href="/pkg/builtin/#bool">bool</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Returning">type <a href="/src/gorm.io/gorm/clause/returning.go?s=16:59#L1">Returning</a>
+				<a class="permalink" href="#Returning">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Returning struct {
+<span id="Returning.Columns"></span>    Columns []<a href="#Column">Column</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Returning.Build">func (Returning) <a href="/src/gorm.io/gorm/clause/returning.go?s=181:230#L3">Build</a>
+					<a class="permalink" href="#Returning.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (returning <a href="#Returning">Returning</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				<p>Build build where clause
+
+				
+				
+				
+			
+				
+				<h3 id="Returning.MergeClause">func (Returning) <a href="/src/gorm.io/gorm/clause/returning.go?s=476:530#L18">MergeClause</a>
+					<a class="permalink" href="#Returning.MergeClause">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (returning <a href="#Returning">Returning</a>) MergeClause(clause *<a href="#Clause">Clause</a>)</pre>
+				<p>MergeClause merge order by clauses
+
+				
+				
+				
+			
+				
+				<h3 id="Returning.Name">func (Returning) <a href="/src/gorm.io/gorm/clause/returning.go?s=87:127#L1">Name</a>
+					<a class="permalink" href="#Returning.Name">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (returning <a href="#Returning">Returning</a>) Name() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>Name where clause name
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Select">type <a href="/src/gorm.io/gorm/clause/select.go?s=73:156#L1">Select</a>
+				<a class="permalink" href="#Select">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Select select attrs when querying, updating, creating
+
+			<pre>type Select struct {
+<span id="Select.Distinct"></span>    Distinct   <a href="/pkg/builtin/#bool">bool</a>
+<span id="Select.Columns"></span>    Columns    []<a href="#Column">Column</a>
+<span id="Select.Expression"></span>    Expression <a href="#Expression">Expression</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Select.Build">func (Select) <a href="/src/gorm.io/gorm/clause/select.go?s=210:248#L4">Build</a>
+					<a class="permalink" href="#Select.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s <a href="#Select">Select</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Select.MergeClause">func (Select) <a href="/src/gorm.io/gorm/clause/select.go?s=498:541#L21">MergeClause</a>
+					<a class="permalink" href="#Select.MergeClause">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s <a href="#Select">Select</a>) MergeClause(clause *<a href="#Clause">Clause</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Select.Name">func (Select) <a href="/src/gorm.io/gorm/clause/select.go?s=158:187#L1">Name</a>
+					<a class="permalink" href="#Select.Name">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s <a href="#Select">Select</a>) Name() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Set">type <a href="/src/gorm.io/gorm/clause/set.go?s=31:52#L1">Set</a>
+				<a class="permalink" href="#Set">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Set []<a href="#Assignment">Assignment</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="AssignmentColumns">func <a href="/src/gorm.io/gorm/clause/set.go?s=1130:1173#L44">AssignmentColumns</a>
+					<a class="permalink" href="#AssignmentColumns">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func AssignmentColumns(values []<a href="/pkg/builtin/#string">string</a>) <a href="#Set">Set</a></pre>
+				
+				
+				
+			
+				
+				<h3 id="Assignments">func <a href="/src/gorm.io/gorm/clause/set.go?s=777:828#L30">Assignments</a>
+					<a class="permalink" href="#Assignments">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func Assignments(values map[<a href="/pkg/builtin/#string">string</a>]interface{}) <a href="#Set">Set</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="Set.Build">func (Set) <a href="/src/gorm.io/gorm/clause/set.go?s=165:202#L6">Build</a>
+					<a class="permalink" href="#Set.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (set <a href="#Set">Set</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Set.MergeClause">func (Set) <a href="/src/gorm.io/gorm/clause/set.go?s=604:646#L24">MergeClause</a>
+					<a class="permalink" href="#Set.MergeClause">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (set <a href="#Set">Set</a>) MergeClause(clause *<a href="#Clause">Clause</a>)</pre>
+				<p>MergeClause merge assignments clauses
+
+				
+				
+				
+			
+				
+				<h3 id="Set.Name">func (Set) <a href="/src/gorm.io/gorm/clause/set.go?s=117:145#L2">Name</a>
+					<a class="permalink" href="#Set.Name">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (set <a href="#Set">Set</a>) Name() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Table">type <a href="/src/gorm.io/gorm/clause/clause.go?s=1664:1725#L74">Table</a>
+				<a class="permalink" href="#Table">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Table quote with name
+
+			<pre>type Table struct {
+<span id="Table.Name"></span>    Name  <a href="/pkg/builtin/#string">string</a>
+<span id="Table.Alias"></span>    Alias <a href="/pkg/builtin/#string">string</a>
+<span id="Table.Raw"></span>    Raw   <a href="/pkg/builtin/#bool">bool</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Update">type <a href="/src/gorm.io/gorm/clause/update.go?s=16:71#L1">Update</a>
+				<a class="permalink" href="#Update">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Update struct {
+<span id="Update.Modifier"></span>    Modifier <a href="/pkg/builtin/#string">string</a>
+<span id="Update.Table"></span>    Table    <a href="#Table">Table</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Update.Build">func (Update) <a href="/src/gorm.io/gorm/clause/update.go?s=186:229#L4">Build</a>
+					<a class="permalink" href="#Update.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (update <a href="#Update">Update</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				<p>Build build update clause
+
+				
+				
+				
+			
+				
+				<h3 id="Update.MergeClause">func (Update) <a href="/src/gorm.io/gorm/clause/update.go?s=481:529#L18">MergeClause</a>
+					<a class="permalink" href="#Update.MergeClause">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (update <a href="#Update">Update</a>) MergeClause(clause *<a href="#Clause">Clause</a>)</pre>
+				<p>MergeClause merge update clause
+
+				
+				
+				
+			
+				
+				<h3 id="Update.Name">func (Update) <a href="/src/gorm.io/gorm/clause/update.go?s=100:134#L1">Name</a>
+					<a class="permalink" href="#Update.Name">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (update <a href="#Update">Update</a>) Name() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>Name update clause name
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Values">type <a href="/src/gorm.io/gorm/clause/values.go?s=16:81#L1">Values</a>
+				<a class="permalink" href="#Values">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Values struct {
+<span id="Values.Columns"></span>    Columns []<a href="#Column">Column</a>
+<span id="Values.Values"></span>    Values  [][]interface{}
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Values.Build">func (Values) <a href="/src/gorm.io/gorm/clause/values.go?s=185:228#L4">Build</a>
+					<a class="permalink" href="#Values.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (values <a href="#Values">Values</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				<p>Build build from clause
+
+				
+				
+				
+			
+				
+				<h3 id="Values.MergeClause">func (Values) <a href="/src/gorm.io/gorm/clause/values.go?s=750:798#L32">MergeClause</a>
+					<a class="permalink" href="#Values.MergeClause">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (values <a href="#Values">Values</a>) MergeClause(clause *<a href="#Clause">Clause</a>)</pre>
+				<p>MergeClause merge values clauses
+
+				
+				
+				
+			
+				
+				<h3 id="Values.Name">func (Values) <a href="/src/gorm.io/gorm/clause/values.go?s=108:135#L1">Name</a>
+					<a class="permalink" href="#Values.Name">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="#Values">Values</a>) Name() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>Name from clause name
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Where">type <a href="/src/gorm.io/gorm/clause/where.go?s=119:160#L3">Where</a>
+				<a class="permalink" href="#Where">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Where where clause
+
+			<pre>type Where struct {
+<span id="Where.Exprs"></span>    Exprs []<a href="#Expression">Expression</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Where.Build">func (Where) <a href="/src/gorm.io/gorm/clause/where.go?s=270:311#L13">Build</a>
+					<a class="permalink" href="#Where.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (where <a href="#Where">Where</a>) Build(builder <a href="#Builder">Builder</a>)</pre>
+				<p>Build build where clause
+
+				
+				
+				
+			
+				
+				<h3 id="Where.MergeClause">func (Where) <a href="/src/gorm.io/gorm/clause/where.go?s=1998:2044#L76">MergeClause</a>
+					<a class="permalink" href="#Where.MergeClause">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (where <a href="#Where">Where</a>) MergeClause(clause *<a href="#Clause">Clause</a>)</pre>
+				<p>MergeClause merge where clauses
+
+				
+				
+				
+			
+				
+				<h3 id="Where.Name">func (Where) <a href="/src/gorm.io/gorm/clause/where.go?s=188:220#L8">Name</a>
+					<a class="permalink" href="#Where.Name">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (where <a href="#Where">Where</a>) Name() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>Name where clause name
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="With">type <a href="/src/gorm.io/gorm/clause/with.go?s=16:34#L1">With</a>
+				<a class="permalink" href="#With">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type With struct{}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Writer">type <a href="/src/gorm.io/gorm/clause/clause.go?s=244:326#L3">Writer</a>
+				<a class="permalink" href="#Writer">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Writer interface {
+    WriteByte(<a href="/pkg/builtin/#byte">byte</a>) <a href="/pkg/builtin/#error">error</a>
+    WriteString(<a href="/pkg/builtin/#string">string</a>) (<a href="/pkg/builtin/#int">int</a>, <a href="/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

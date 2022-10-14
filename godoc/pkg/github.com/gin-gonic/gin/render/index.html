@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>render - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/pkg/">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/pkg/">GoDoc</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package render
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/gin-gonic/gin/render"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+				
+				<dd><a href="#WriteJSON">func WriteJSON(w http.ResponseWriter, obj any) error</a></dd>
+			
+				
+				<dd><a href="#WriteMsgPack">func WriteMsgPack(w http.ResponseWriter, obj any) error</a></dd>
+			
+				
+				<dd><a href="#WriteString">func WriteString(w http.ResponseWriter, format string, data []any) (err error)</a></dd>
+			
+			
+				
+				<dd><a href="#AsciiJSON">type AsciiJSON</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#AsciiJSON.Render">func (r AsciiJSON) Render(w http.ResponseWriter) (err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#AsciiJSON.WriteContentType">func (r AsciiJSON) WriteContentType(w http.ResponseWriter)</a></dd>
+				
+			
+				
+				<dd><a href="#Data">type Data</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Data.Render">func (r Data) Render(w http.ResponseWriter) (err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Data.WriteContentType">func (r Data) WriteContentType(w http.ResponseWriter)</a></dd>
+				
+			
+				
+				<dd><a href="#Delims">type Delims</a></dd>
+				
+				
+			
+				
+				<dd><a href="#HTML">type HTML</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#HTML.Render">func (r HTML) Render(w http.ResponseWriter) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#HTML.WriteContentType">func (r HTML) WriteContentType(w http.ResponseWriter)</a></dd>
+				
+			
+				
+				<dd><a href="#HTMLDebug">type HTMLDebug</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#HTMLDebug.Instance">func (r HTMLDebug) Instance(name string, data any) Render</a></dd>
+				
+			
+				
+				<dd><a href="#HTMLProduction">type HTMLProduction</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#HTMLProduction.Instance">func (r HTMLProduction) Instance(name string, data any) Render</a></dd>
+				
+			
+				
+				<dd><a href="#HTMLRender">type HTMLRender</a></dd>
+				
+				
+			
+				
+				<dd><a href="#IndentedJSON">type IndentedJSON</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#IndentedJSON.Render">func (r IndentedJSON) Render(w http.ResponseWriter) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#IndentedJSON.WriteContentType">func (r IndentedJSON) WriteContentType(w http.ResponseWriter)</a></dd>
+				
+			
+				
+				<dd><a href="#JSON">type JSON</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#JSON.Render">func (r JSON) Render(w http.ResponseWriter) (err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#JSON.WriteContentType">func (r JSON) WriteContentType(w http.ResponseWriter)</a></dd>
+				
+			
+				
+				<dd><a href="#JsonpJSON">type JsonpJSON</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#JsonpJSON.Render">func (r JsonpJSON) Render(w http.ResponseWriter) (err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#JsonpJSON.WriteContentType">func (r JsonpJSON) WriteContentType(w http.ResponseWriter)</a></dd>
+				
+			
+				
+				<dd><a href="#MsgPack">type MsgPack</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MsgPack.Render">func (r MsgPack) Render(w http.ResponseWriter) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MsgPack.WriteContentType">func (r MsgPack) WriteContentType(w http.ResponseWriter)</a></dd>
+				
+			
+				
+				<dd><a href="#ProtoBuf">type ProtoBuf</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ProtoBuf.Render">func (r ProtoBuf) Render(w http.ResponseWriter) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ProtoBuf.WriteContentType">func (r ProtoBuf) WriteContentType(w http.ResponseWriter)</a></dd>
+				
+			
+				
+				<dd><a href="#PureJSON">type PureJSON</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#PureJSON.Render">func (r PureJSON) Render(w http.ResponseWriter) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#PureJSON.WriteContentType">func (r PureJSON) WriteContentType(w http.ResponseWriter)</a></dd>
+				
+			
+				
+				<dd><a href="#Reader">type Reader</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Reader.Render">func (r Reader) Render(w http.ResponseWriter) (err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Reader.WriteContentType">func (r Reader) WriteContentType(w http.ResponseWriter)</a></dd>
+				
+			
+				
+				<dd><a href="#Redirect">type Redirect</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Redirect.Render">func (r Redirect) Render(w http.ResponseWriter) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Redirect.WriteContentType">func (r Redirect) WriteContentType(http.ResponseWriter)</a></dd>
+				
+			
+				
+				<dd><a href="#Render">type Render</a></dd>
+				
+				
+			
+				
+				<dd><a href="#SecureJSON">type SecureJSON</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#SecureJSON.Render">func (r SecureJSON) Render(w http.ResponseWriter) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#SecureJSON.WriteContentType">func (r SecureJSON) WriteContentType(w http.ResponseWriter)</a></dd>
+				
+			
+				
+				<dd><a href="#String">type String</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#String.Render">func (r String) Render(w http.ResponseWriter) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#String.WriteContentType">func (r String) WriteContentType(w http.ResponseWriter)</a></dd>
+				
+			
+				
+				<dd><a href="#TOML">type TOML</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TOML.Render">func (r TOML) Render(w http.ResponseWriter) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TOML.WriteContentType">func (r TOML) WriteContentType(w http.ResponseWriter)</a></dd>
+				
+			
+				
+				<dd><a href="#XML">type XML</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#XML.Render">func (r XML) Render(w http.ResponseWriter) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#XML.WriteContentType">func (r XML) WriteContentType(w http.ResponseWriter)</a></dd>
+				
+			
+				
+				<dd><a href="#YAML">type YAML</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#YAML.Render">func (r YAML) Render(w http.ResponseWriter) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#YAML.WriteContentType">func (r YAML) WriteContentType(w http.ResponseWriter)</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/github.com/gin-gonic/gin/render/data.go">data.go</a>
+			
+				<a href="/src/github.com/gin-gonic/gin/render/html.go">html.go</a>
+			
+				<a href="/src/github.com/gin-gonic/gin/render/json.go">json.go</a>
+			
+				<a href="/src/github.com/gin-gonic/gin/render/msgpack.go">msgpack.go</a>
+			
+				<a href="/src/github.com/gin-gonic/gin/render/protobuf.go">protobuf.go</a>
+			
+				<a href="/src/github.com/gin-gonic/gin/render/reader.go">reader.go</a>
+			
+				<a href="/src/github.com/gin-gonic/gin/render/redirect.go">redirect.go</a>
+			
+				<a href="/src/github.com/gin-gonic/gin/render/render.go">render.go</a>
+			
+				<a href="/src/github.com/gin-gonic/gin/render/text.go">text.go</a>
+			
+				<a href="/src/github.com/gin-gonic/gin/render/toml.go">toml.go</a>
+			
+				<a href="/src/github.com/gin-gonic/gin/render/xml.go">xml.go</a>
+			
+				<a href="/src/github.com/gin-gonic/gin/render/yaml.go">yaml.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				
+				<pre>var <span id="TOMLContentType">TOMLContentType</span> = []<a href="/pkg/builtin/#string">string</a>{&#34;application/toml; charset=utf-8&#34;}</pre>
+			
+		
+		
+			
+			
+			<h2 id="WriteJSON">func <a href="/src/github.com/gin-gonic/gin/render/json.go?s=1539:1591#L59">WriteJSON</a>
+				<a class="permalink" href="#WriteJSON">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func WriteJSON(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>, obj <a href="/pkg/builtin/#any">any</a>) <a href="/pkg/builtin/#error">error</a></pre>
+			<p>WriteJSON marshals the given interface object and writes it with custom ContentType.
+
+			
+			
+
+		
+			
+			
+			<h2 id="WriteMsgPack">func <a href="/src/github.com/gin-gonic/gin/render/msgpack.go?s=1022:1077#L30">WriteMsgPack</a>
+				<a class="permalink" href="#WriteMsgPack">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func WriteMsgPack(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>, obj <a href="/pkg/builtin/#any">any</a>) <a href="/pkg/builtin/#error">error</a></pre>
+			<p>WriteMsgPack writes MsgPack ContentType and encodes the given interface object.
+
+			
+			
+
+		
+			
+			
+			<h2 id="WriteString">func <a href="/src/github.com/gin-gonic/gin/render/text.go?s=835:913#L23">WriteString</a>
+				<a class="permalink" href="#WriteString">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func WriteString(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>, format <a href="/pkg/builtin/#string">string</a>, data []<a href="/pkg/builtin/#any">any</a>) (err <a href="/pkg/builtin/#error">error</a>)</pre>
+			<p>WriteString writes data according to its format and write custom ContentType.
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="AsciiJSON">type <a href="/src/github.com/gin-gonic/gin/render/json.go?s=792:827#L30">AsciiJSON</a>
+				<a class="permalink" href="#AsciiJSON">&#xb6;</a>
+				
+				
+			</h2>
+			<p>AsciiJSON contains the given interface object.
+
+			<pre>type AsciiJSON struct {
+<span id="AsciiJSON.Data"></span>    Data <a href="/pkg/builtin/#any">any</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="AsciiJSON.Render">func (AsciiJSON) <a href="/src/github.com/gin-gonic/gin/render/json.go?s=3908:3968#L147">Render</a>
+					<a class="permalink" href="#AsciiJSON.Render">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#AsciiJSON">AsciiJSON</a>) Render(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>) (err <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>Render (AsciiJSON) marshals the given interface object and writes it with custom ContentType.
+
+				
+				
+				
+			
+				
+				<h3 id="AsciiJSON.WriteContentType">func (AsciiJSON) <a href="/src/github.com/gin-gonic/gin/render/json.go?s=4354:4412#L168">WriteContentType</a>
+					<a class="permalink" href="#AsciiJSON.WriteContentType">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#AsciiJSON">AsciiJSON</a>) WriteContentType(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>)</pre>
+				<p>WriteContentType (AsciiJSON) writes JSON ContentType.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Data">type <a href="/src/github.com/gin-gonic/gin/render/data.go?s=247:307#L1">Data</a>
+				<a class="permalink" href="#Data">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Data contains ContentType and bytes data.
+
+			<pre>type Data struct {
+<span id="Data.ContentType"></span>    ContentType <a href="/pkg/builtin/#string">string</a>
+<span id="Data.Data"></span>    Data        []<a href="/pkg/builtin/#byte">byte</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Data.Render">func (Data) <a href="/src/github.com/gin-gonic/gin/render/data.go?s=363:418#L6">Render</a>
+					<a class="permalink" href="#Data.Render">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#Data">Data</a>) Render(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>) (err <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>Render (Data) writes data with custom ContentType.
+
+				
+				
+				
+			
+				
+				<h3 id="Data.WriteContentType">func (Data) <a href="/src/github.com/gin-gonic/gin/render/data.go?s=535:588#L13">WriteContentType</a>
+					<a class="permalink" href="#Data.WriteContentType">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#Data">Data</a>) WriteContentType(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>)</pre>
+				<p>WriteContentType (Data) writes custom ContentType.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Delims">type <a href="/src/github.com/gin-gonic/gin/render/html.go?s=309:431#L3">Delims</a>
+				<a class="permalink" href="#Delims">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Delims represents a set of Left and Right delimiters for HTML template rendering.
+
+			<pre>type Delims struct {
+<span id="Delims.Left"></span>    <span class="comment">// Left delimiter, defaults to {{.</span>
+    Left <a href="/pkg/builtin/#string">string</a>
+<span id="Delims.Right"></span>    <span class="comment">// Right delimiter, defaults to }}.</span>
+    Right <a href="/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="HTML">type <a href="/src/github.com/gin-gonic/gin/render/html.go?s=1011:1091#L31">HTML</a>
+				<a class="permalink" href="#HTML">&#xb6;</a>
+				
+				
+			</h2>
+			<p>HTML contains template reference and its name with given interface object.
+
+			<pre>type HTML struct {
+<span id="HTML.Template"></span>    Template *<a href="/pkg/html/template/">template</a>.<a href="/pkg/html/template/#Template">Template</a>
+<span id="HTML.Name"></span>    Name     <a href="/pkg/builtin/#string">string</a>
+<span id="HTML.Data"></span>    Data     <a href="/pkg/builtin/#any">any</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="HTML.Render">func (HTML) <a href="/src/github.com/gin-gonic/gin/render/html.go?s=2185:2234#L70">Render</a>
+					<a class="permalink" href="#HTML.Render">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#HTML">HTML</a>) Render(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>Render (HTML) executes template and writes its result with custom ContentType for response.
+
+				
+				
+				
+			
+				
+				<h3 id="HTML.WriteContentType">func (HTML) <a href="/src/github.com/gin-gonic/gin/render/html.go?s=2431:2484#L80">WriteContentType</a>
+					<a class="permalink" href="#HTML.WriteContentType">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#HTML">HTML</a>) WriteContentType(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>)</pre>
+				<p>WriteContentType (HTML) writes HTML ContentType.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="HTMLDebug">type <a href="/src/github.com/gin-gonic/gin/render/html.go?s=830:931#L23">HTMLDebug</a>
+				<a class="permalink" href="#HTMLDebug">&#xb6;</a>
+				
+				
+			</h2>
+			<p>HTMLDebug contains template delims and pattern and function with file list.
+
+			<pre>type HTMLDebug struct {
+<span id="HTMLDebug.Files"></span>    Files   []<a href="/pkg/builtin/#string">string</a>
+<span id="HTMLDebug.Glob"></span>    Glob    <a href="/pkg/builtin/#string">string</a>
+<span id="HTMLDebug.Delims"></span>    Delims  <a href="#Delims">Delims</a>
+<span id="HTMLDebug.FuncMap"></span>    FuncMap <a href="/pkg/html/template/">template</a>.<a href="/pkg/html/template/#FuncMap">FuncMap</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="HTMLDebug.Instance">func (HTMLDebug) <a href="/src/github.com/gin-gonic/gin/render/html.go?s=1473:1530#L49">Instance</a>
+					<a class="permalink" href="#HTMLDebug.Instance">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#HTMLDebug">HTMLDebug</a>) Instance(name <a href="/pkg/builtin/#string">string</a>, data <a href="/pkg/builtin/#any">any</a>) <a href="#Render">Render</a></pre>
+				<p>Instance (HTMLDebug) returns an HTML instance which it realizes Render interface.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="HTMLProduction">type <a href="/src/github.com/gin-gonic/gin/render/html.go?s=673:749#L17">HTMLProduction</a>
+				<a class="permalink" href="#HTMLProduction">&#xb6;</a>
+				
+				
+			</h2>
+			<p>HTMLProduction contains template reference and its delims.
+
+			<pre>type HTMLProduction struct {
+<span id="HTMLProduction.Template"></span>    Template *<a href="/pkg/html/template/">template</a>.<a href="/pkg/html/template/#Template">Template</a>
+<span id="HTMLProduction.Delims"></span>    Delims   <a href="#Delims">Delims</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="HTMLProduction.Instance">func (HTMLProduction) <a href="/src/github.com/gin-gonic/gin/render/html.go?s=1243:1305#L40">Instance</a>
+					<a class="permalink" href="#HTMLProduction.Instance">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#HTMLProduction">HTMLProduction</a>) Instance(name <a href="/pkg/builtin/#string">string</a>, data <a href="/pkg/builtin/#any">any</a>) <a href="#Render">Render</a></pre>
+				<p>Instance (HTMLProduction) returns an HTML instance which it realizes Render interface.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="HTMLRender">type <a href="/src/github.com/gin-gonic/gin/render/html.go?s=511:609#L11">HTMLRender</a>
+				<a class="permalink" href="#HTMLRender">&#xb6;</a>
+				
+				
+			</h2>
+			<p>HTMLRender interface is to be implemented by HTMLProduction and HTMLDebug.
+
+			<pre>type HTMLRender interface {
+    <span class="comment">// Instance returns an HTML instance.</span>
+    Instance(<a href="/pkg/builtin/#string">string</a>, <a href="/pkg/builtin/#any">any</a>) <a href="#Render">Render</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="IndentedJSON">type <a href="/src/github.com/gin-gonic/gin/render/json.go?s=460:498#L13">IndentedJSON</a>
+				<a class="permalink" href="#IndentedJSON">&#xb6;</a>
+				
+				
+			</h2>
+			<p>IndentedJSON contains the given interface object.
+
+			<pre>type IndentedJSON struct {
+<span id="IndentedJSON.Data"></span>    Data <a href="/pkg/builtin/#any">any</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="IndentedJSON.Render">func (IndentedJSON) <a href="/src/github.com/gin-gonic/gin/render/json.go?s=1846:1903#L70">Render</a>
+					<a class="permalink" href="#IndentedJSON.Render">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#IndentedJSON">IndentedJSON</a>) Render(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>Render (IndentedJSON) marshals the given interface object and writes it with custom ContentType.
+
+				
+				
+				
+			
+				
+				<h3 id="IndentedJSON.WriteContentType">func (IndentedJSON) <a href="/src/github.com/gin-gonic/gin/render/json.go?s=2124:2185#L81">WriteContentType</a>
+					<a class="permalink" href="#IndentedJSON.WriteContentType">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#IndentedJSON">IndentedJSON</a>) WriteContentType(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>)</pre>
+				<p>WriteContentType (IndentedJSON) writes JSON ContentType.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="JSON">type <a href="/src/github.com/gin-gonic/gin/render/json.go?s=375:405#L8">JSON</a>
+				<a class="permalink" href="#JSON">&#xb6;</a>
+				
+				
+			</h2>
+			<p>JSON contains the given interface object.
+
+			<pre>type JSON struct {
+<span id="JSON.Data"></span>    Data <a href="/pkg/builtin/#any">any</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="JSON.Render">func (JSON) <a href="/src/github.com/gin-gonic/gin/render/json.go?s=1172:1227#L46">Render</a>
+					<a class="permalink" href="#JSON.Render">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#JSON">JSON</a>) Render(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>) (err <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>Render (JSON) writes data with custom ContentType.
+
+				
+				
+				
+			
+				
+				<h3 id="JSON.WriteContentType">func (JSON) <a href="/src/github.com/gin-gonic/gin/render/json.go?s=1354:1407#L54">WriteContentType</a>
+					<a class="permalink" href="#JSON.WriteContentType">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#JSON">JSON</a>) WriteContentType(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>)</pre>
+				<p>WriteContentType (JSON) writes JSON ContentType.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="JsonpJSON">type <a href="/src/github.com/gin-gonic/gin/render/json.go?s=684:740#L24">JsonpJSON</a>
+				<a class="permalink" href="#JsonpJSON">&#xb6;</a>
+				
+				
+			</h2>
+			<p>JsonpJSON contains the given interface object its callback.
+
+			<pre>type JsonpJSON struct {
+<span id="JsonpJSON.Callback"></span>    Callback <a href="/pkg/builtin/#string">string</a>
+<span id="JsonpJSON.Data"></span>    Data     <a href="/pkg/builtin/#any">any</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="JsonpJSON.Render">func (JsonpJSON) <a href="/src/github.com/gin-gonic/gin/render/json.go?s=3054:3114#L109">Render</a>
+					<a class="permalink" href="#JsonpJSON.Render">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#JsonpJSON">JsonpJSON</a>) Render(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>) (err <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>Render (JsonpJSON) marshals the given interface object and writes it and its callback with custom ContentType.
+
+				
+				
+				
+			
+				
+				<h3 id="JsonpJSON.WriteContentType">func (JsonpJSON) <a href="/src/github.com/gin-gonic/gin/render/json.go?s=3708:3766#L142">WriteContentType</a>
+					<a class="permalink" href="#JsonpJSON.WriteContentType">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#JsonpJSON">JsonpJSON</a>) WriteContentType(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>)</pre>
+				<p>WriteContentType (JsonpJSON) writes Javascript ContentType.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="MsgPack">type <a href="/src/github.com/gin-gonic/gin/render/msgpack.go?s=484:517#L13">MsgPack</a>
+				<a class="permalink" href="#MsgPack">&#xb6;</a>
+				
+				
+			</h2>
+			<p>MsgPack contains the given interface object.
+
+			<pre>type MsgPack struct {
+<span id="MsgPack.Data"></span>    Data <a href="/pkg/builtin/#any">any</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="MsgPack.Render">func (MsgPack) <a href="/src/github.com/gin-gonic/gin/render/msgpack.go?s=849:901#L25">Render</a>
+					<a class="permalink" href="#MsgPack.Render">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#MsgPack">MsgPack</a>) Render(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>Render (MsgPack) encodes the given interface object and writes data with custom ContentType.
+
+				
+				
+				
+			
+				
+				<h3 id="MsgPack.WriteContentType">func (MsgPack) <a href="/src/github.com/gin-gonic/gin/render/msgpack.go?s=650:706#L20">WriteContentType</a>
+					<a class="permalink" href="#MsgPack.WriteContentType">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#MsgPack">MsgPack</a>) WriteContentType(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>)</pre>
+				<p>WriteContentType (MsgPack) writes MsgPack ContentType.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ProtoBuf">type <a href="/src/github.com/gin-gonic/gin/render/protobuf.go?s=285:319#L4">ProtoBuf</a>
+				<a class="permalink" href="#ProtoBuf">&#xb6;</a>
+				
+				
+			</h2>
+			<p>ProtoBuf contains the given interface object.
+
+			<pre>type ProtoBuf struct {
+<span id="ProtoBuf.Data"></span>    Data <a href="/pkg/builtin/#any">any</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="ProtoBuf.Render">func (ProtoBuf) <a href="/src/github.com/gin-gonic/gin/render/protobuf.go?s=481:534#L11">Render</a>
+					<a class="permalink" href="#ProtoBuf.Render">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#ProtoBuf">ProtoBuf</a>) Render(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>Render (ProtoBuf) marshals the given interface object and writes data with custom ContentType.
+
+				
+				
+				
+			
+				
+				<h3 id="ProtoBuf.WriteContentType">func (ProtoBuf) <a href="/src/github.com/gin-gonic/gin/render/protobuf.go?s=748:805#L24">WriteContentType</a>
+					<a class="permalink" href="#ProtoBuf.WriteContentType">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#ProtoBuf">ProtoBuf</a>) WriteContentType(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>)</pre>
+				<p>WriteContentType (ProtoBuf) writes ProtoBuf ContentType.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="PureJSON">type <a href="/src/github.com/gin-gonic/gin/render/json.go?s=878:912#L35">PureJSON</a>
+				<a class="permalink" href="#PureJSON">&#xb6;</a>
+				
+				
+			</h2>
+			<p>PureJSON contains the given interface object.
+
+			<pre>type PureJSON struct {
+<span id="PureJSON.Data"></span>    Data <a href="/pkg/builtin/#any">any</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="PureJSON.Render">func (PureJSON) <a href="/src/github.com/gin-gonic/gin/render/json.go?s=4548:4601#L173">Render</a>
+					<a class="permalink" href="#PureJSON.Render">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#PureJSON">PureJSON</a>) Render(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>Render (PureJSON) writes custom ContentType and encodes the given interface object.
+
+				
+				
+				
+			
+				
+				<h3 id="PureJSON.WriteContentType">func (PureJSON) <a href="/src/github.com/gin-gonic/gin/render/json.go?s=4780:4837#L181">WriteContentType</a>
+					<a class="permalink" href="#PureJSON.WriteContentType">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#PureJSON">PureJSON</a>) WriteContentType(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>)</pre>
+				<p>WriteContentType (PureJSON) writes custom ContentType.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Reader">type <a href="/src/github.com/gin-gonic/gin/render/reader.go?s=307:430#L4">Reader</a>
+				<a class="permalink" href="#Reader">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Reader contains the IO reader and its length, and custom ContentType and other headers.
+
+			<pre>type Reader struct {
+<span id="Reader.ContentType"></span>    ContentType   <a href="/pkg/builtin/#string">string</a>
+<span id="Reader.ContentLength"></span>    ContentLength <a href="/pkg/builtin/#int64">int64</a>
+<span id="Reader.Reader"></span>    Reader        <a href="/pkg/io/">io</a>.<a href="/pkg/io/#Reader">Reader</a>
+<span id="Reader.Headers"></span>    Headers       map[<a href="/pkg/builtin/#string">string</a>]<a href="/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Reader.Render">func (Reader) <a href="/src/github.com/gin-gonic/gin/render/reader.go?s=500:557#L12">Render</a>
+					<a class="permalink" href="#Reader.Render">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#Reader">Reader</a>) Render(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>) (err <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>Render (Reader) writes data with custom ContentType and headers.
+
+				
+				
+				
+			
+				
+				<h3 id="Reader.WriteContentType">func (Reader) <a href="/src/github.com/gin-gonic/gin/render/reader.go?s=875:930#L26">WriteContentType</a>
+					<a class="permalink" href="#Reader.WriteContentType">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#Reader">Reader</a>) WriteContentType(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>)</pre>
+				<p>WriteContentType (Reader) writes custom ContentType.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Redirect">type <a href="/src/github.com/gin-gonic/gin/render/redirect.go?s=302:381#L3">Redirect</a>
+				<a class="permalink" href="#Redirect">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Redirect contains the http request reference and redirects status code and location.
+
+			<pre>type Redirect struct {
+<span id="Redirect.Code"></span>    Code     <a href="/pkg/builtin/#int">int</a>
+<span id="Redirect.Request"></span>    Request  *<a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#Request">Request</a>
+<span id="Redirect.Location"></span>    Location <a href="/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Redirect.Render">func (Redirect) <a href="/src/github.com/gin-gonic/gin/render/redirect.go?s=477:530#L10">Render</a>
+					<a class="permalink" href="#Redirect.Render">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#Redirect">Redirect</a>) Render(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>Render (Redirect) redirects the http request to new location and writes redirect response.
+
+				
+				
+				
+			
+				
+				<h3 id="Redirect.WriteContentType">func (Redirect) <a href="/src/github.com/gin-gonic/gin/render/redirect.go?s=845:900#L19">WriteContentType</a>
+					<a class="permalink" href="#Redirect.WriteContentType">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#Redirect">Redirect</a>) WriteContentType(<a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>)</pre>
+				<p>WriteContentType (Redirect) don&apos;t write any ContentType.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Render">type <a href="/src/github.com/gin-gonic/gin/render/render.go?s=279:476#L1">Render</a>
+				<a class="permalink" href="#Render">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Render interface is to be implemented by JSON, XML, HTML, YAML and so on.
+
+			<pre>type Render interface {
+    <span class="comment">// Render writes data with custom ContentType.</span>
+    Render(<a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>) <a href="/pkg/builtin/#error">error</a>
+    <span class="comment">// WriteContentType writes custom ContentType.</span>
+    WriteContentType(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="SecureJSON">type <a href="/src/github.com/gin-gonic/gin/render/json.go?s=566:619#L18">SecureJSON</a>
+				<a class="permalink" href="#SecureJSON">&#xb6;</a>
+				
+				
+			</h2>
+			<p>SecureJSON contains the given interface object and its prefix.
+
+			<pre>type SecureJSON struct {
+<span id="SecureJSON.Prefix"></span>    Prefix <a href="/pkg/builtin/#string">string</a>
+<span id="SecureJSON.Data"></span>    Data   <a href="/pkg/builtin/#any">any</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="SecureJSON.Render">func (SecureJSON) <a href="/src/github.com/gin-gonic/gin/render/json.go?s=2327:2382#L86">Render</a>
+					<a class="permalink" href="#SecureJSON.Render">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#SecureJSON">SecureJSON</a>) Render(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>Render (SecureJSON) marshals the given interface object and writes it with custom ContentType.
+
+				
+				
+				
+			
+				
+				<h3 id="SecureJSON.WriteContentType">func (SecureJSON) <a href="/src/github.com/gin-gonic/gin/render/json.go?s=2837:2896#L104">WriteContentType</a>
+					<a class="permalink" href="#SecureJSON.WriteContentType">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#SecureJSON">SecureJSON</a>) WriteContentType(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>)</pre>
+				<p>WriteContentType (SecureJSON) writes JSON ContentType.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="String">type <a href="/src/github.com/gin-gonic/gin/render/text.go?s=330:381#L5">String</a>
+				<a class="permalink" href="#String">&#xb6;</a>
+				
+				
+			</h2>
+			<p>String contains the given interface object slice and its format.
+
+			<pre>type String struct {
+<span id="String.Format"></span>    Format <a href="/pkg/builtin/#string">string</a>
+<span id="String.Data"></span>    Data   []<a href="/pkg/builtin/#any">any</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="String.Render">func (String) <a href="/src/github.com/gin-gonic/gin/render/text.go?s=501:552#L13">Render</a>
+					<a class="permalink" href="#String.Render">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#String">String</a>) Render(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>Render (String) writes data with custom ContentType.
+
+				
+				
+				
+			
+				
+				<h3 id="String.WriteContentType">func (String) <a href="/src/github.com/gin-gonic/gin/render/text.go?s=654:709#L18">WriteContentType</a>
+					<a class="permalink" href="#String.WriteContentType">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#String">String</a>) WriteContentType(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>)</pre>
+				<p>WriteContentType (String) writes Plain ContentType.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="TOML">type <a href="/src/github.com/gin-gonic/gin/render/toml.go?s=280:310#L4">TOML</a>
+				<a class="permalink" href="#TOML">&#xb6;</a>
+				
+				
+			</h2>
+			<p>TOML contains the given interface object.
+
+			<pre>type TOML struct {
+<span id="TOML.Data"></span>    Data <a href="/pkg/builtin/#any">any</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="TOML.Render">func (TOML) <a href="/src/github.com/gin-gonic/gin/render/toml.go?s=473:522#L11">Render</a>
+					<a class="permalink" href="#TOML.Render">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#TOML">TOML</a>) Render(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>Render (TOML) marshals the given interface object and writes data with custom ContentType.
+
+				
+				
+				
+			
+				
+				<h3 id="TOML.WriteContentType">func (TOML) <a href="/src/github.com/gin-gonic/gin/render/toml.go?s=724:777#L24">WriteContentType</a>
+					<a class="permalink" href="#TOML.WriteContentType">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#TOML">TOML</a>) WriteContentType(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>)</pre>
+				<p>WriteContentType (TOML) writes TOML ContentType for response.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="XML">type <a href="/src/github.com/gin-gonic/gin/render/xml.go?s=267:296#L3">XML</a>
+				<a class="permalink" href="#XML">&#xb6;</a>
+				
+				
+			</h2>
+			<p>XML contains the given interface object.
+
+			<pre>type XML struct {
+<span id="XML.Data"></span>    Data <a href="/pkg/builtin/#any">any</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="XML.Render">func (XML) <a href="/src/github.com/gin-gonic/gin/render/xml.go?s=455:503#L10">Render</a>
+					<a class="permalink" href="#XML.Render">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#XML">XML</a>) Render(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>Render (XML) encodes the given interface object and writes data with custom ContentType.
+
+				
+				
+				
+			
+				
+				<h3 id="XML.WriteContentType">func (XML) <a href="/src/github.com/gin-gonic/gin/render/xml.go?s=636:688#L16">WriteContentType</a>
+					<a class="permalink" href="#XML.WriteContentType">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#XML">XML</a>) WriteContentType(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>)</pre>
+				<p>WriteContentType (XML) writes XML ContentType for response.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="YAML">type <a href="/src/github.com/gin-gonic/gin/render/yaml.go?s=273:303#L4">YAML</a>
+				<a class="permalink" href="#YAML">&#xb6;</a>
+				
+				
+			</h2>
+			<p>YAML contains the given interface object.
+
+			<pre>type YAML struct {
+<span id="YAML.Data"></span>    Data <a href="/pkg/builtin/#any">any</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="YAML.Render">func (YAML) <a href="/src/github.com/gin-gonic/gin/render/yaml.go?s=468:517#L11">Render</a>
+					<a class="permalink" href="#YAML.Render">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#YAML">YAML</a>) Render(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>Render (YAML) marshals the given interface object and writes data with custom ContentType.
+
+				
+				
+				
+			
+				
+				<h3 id="YAML.WriteContentType">func (YAML) <a href="/src/github.com/gin-gonic/gin/render/yaml.go?s=719:772#L24">WriteContentType</a>
+					<a class="permalink" href="#YAML.WriteContentType">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r <a href="#YAML">YAML</a>) WriteContentType(w <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>)</pre>
+				<p>WriteContentType (YAML) writes YAML ContentType for response.
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>netip - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/pkg/">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/pkg/">GoDoc</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package netip
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "net/netip"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>Package netip defines an IP address type that&apos;s a small value type.
+Building on that Addr type, the package also defines AddrPort (an
+IP address and a port), and Prefix (an IP address and a bit length
+prefix).
+<p>Compared to the net.IP type, this package&apos;s Addr type takes less
+memory, is immutable, and is comparable (supports == and being a
+map key).
+
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+			
+				
+				<dd><a href="#Addr">type Addr</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#AddrFrom16">func AddrFrom16(addr [16]byte) Addr</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#AddrFrom4">func AddrFrom4(addr [4]byte) Addr</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#AddrFromSlice">func AddrFromSlice(slice []byte) (ip Addr, ok bool)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#IPv4Unspecified">func IPv4Unspecified() Addr</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#IPv6LinkLocalAllNodes">func IPv6LinkLocalAllNodes() Addr</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#IPv6Unspecified">func IPv6Unspecified() Addr</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MustParseAddr">func MustParseAddr(s string) Addr</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ParseAddr">func ParseAddr(s string) (Addr, error)</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.AppendTo">func (ip Addr) AppendTo(b []byte) []byte</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.As16">func (ip Addr) As16() (a16 [16]byte)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.As4">func (ip Addr) As4() (a4 [4]byte)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.AsSlice">func (ip Addr) AsSlice() []byte</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.BitLen">func (ip Addr) BitLen() int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.Compare">func (ip Addr) Compare(ip2 Addr) int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.Is4">func (ip Addr) Is4() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.Is4In6">func (ip Addr) Is4In6() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.Is6">func (ip Addr) Is6() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.IsGlobalUnicast">func (ip Addr) IsGlobalUnicast() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.IsInterfaceLocalMulticast">func (ip Addr) IsInterfaceLocalMulticast() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.IsLinkLocalMulticast">func (ip Addr) IsLinkLocalMulticast() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.IsLinkLocalUnicast">func (ip Addr) IsLinkLocalUnicast() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.IsLoopback">func (ip Addr) IsLoopback() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.IsMulticast">func (ip Addr) IsMulticast() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.IsPrivate">func (ip Addr) IsPrivate() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.IsUnspecified">func (ip Addr) IsUnspecified() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.IsValid">func (ip Addr) IsValid() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.Less">func (ip Addr) Less(ip2 Addr) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.MarshalBinary">func (ip Addr) MarshalBinary() ([]byte, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.MarshalText">func (ip Addr) MarshalText() ([]byte, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.Next">func (ip Addr) Next() Addr</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.Prefix">func (ip Addr) Prefix(b int) (Prefix, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.Prev">func (ip Addr) Prev() Addr</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.String">func (ip Addr) String() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.StringExpanded">func (ip Addr) StringExpanded() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.Unmap">func (ip Addr) Unmap() Addr</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.UnmarshalBinary">func (ip *Addr) UnmarshalBinary(b []byte) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.UnmarshalText">func (ip *Addr) UnmarshalText(text []byte) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.WithZone">func (ip Addr) WithZone(zone string) Addr</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Addr.Zone">func (ip Addr) Zone() string</a></dd>
+				
+			
+				
+				<dd><a href="#AddrPort">type AddrPort</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#AddrPortFrom">func AddrPortFrom(ip Addr, port uint16) AddrPort</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MustParseAddrPort">func MustParseAddrPort(s string) AddrPort</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ParseAddrPort">func ParseAddrPort(s string) (AddrPort, error)</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#AddrPort.Addr">func (p AddrPort) Addr() Addr</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#AddrPort.AppendTo">func (p AddrPort) AppendTo(b []byte) []byte</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#AddrPort.IsValid">func (p AddrPort) IsValid() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#AddrPort.MarshalBinary">func (p AddrPort) MarshalBinary() ([]byte, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#AddrPort.MarshalText">func (p AddrPort) MarshalText() ([]byte, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#AddrPort.Port">func (p AddrPort) Port() uint16</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#AddrPort.String">func (p AddrPort) String() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#AddrPort.UnmarshalBinary">func (p *AddrPort) UnmarshalBinary(b []byte) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#AddrPort.UnmarshalText">func (p *AddrPort) UnmarshalText(text []byte) error</a></dd>
+				
+			
+				
+				<dd><a href="#Prefix">type Prefix</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MustParsePrefix">func MustParsePrefix(s string) Prefix</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ParsePrefix">func ParsePrefix(s string) (Prefix, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#PrefixFrom">func PrefixFrom(ip Addr, bits int) Prefix</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Prefix.Addr">func (p Prefix) Addr() Addr</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Prefix.AppendTo">func (p Prefix) AppendTo(b []byte) []byte</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Prefix.Bits">func (p Prefix) Bits() int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Prefix.Contains">func (p Prefix) Contains(ip Addr) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Prefix.IsSingleIP">func (p Prefix) IsSingleIP() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Prefix.IsValid">func (p Prefix) IsValid() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Prefix.MarshalBinary">func (p Prefix) MarshalBinary() ([]byte, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Prefix.MarshalText">func (p Prefix) MarshalText() ([]byte, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Prefix.Masked">func (p Prefix) Masked() Prefix</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Prefix.Overlaps">func (p Prefix) Overlaps(o Prefix) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Prefix.String">func (p Prefix) String() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Prefix.UnmarshalBinary">func (p *Prefix) UnmarshalBinary(b []byte) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Prefix.UnmarshalText">func (p *Prefix) UnmarshalText(text []byte) error</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/net/netip/leaf_alts.go">leaf_alts.go</a>
+			
+				<a href="/src/net/netip/netip.go">netip.go</a>
+			
+				<a href="/src/net/netip/uint128.go">uint128.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+		
+			
+			
+			<h2 id="Addr">type <a href="/src/net/netip/netip.go?s=1235:2201#L28">Addr</a>
+				<a class="permalink" href="#Addr">&#xb6;</a>
+				
+				<span title="Added in Go 1.18">1.18</span>
+			</h2>
+			<p>Addr represents an IPv4 or IPv6 address (with or without a scoped
+addressing zone), similar to net.IP or net.IPAddr.
+<p>Unlike net.IP or net.IPAddr, Addr is a comparable value
+type (it supports == and can be a map key) and is immutable.
+<p>The zero Addr is not a valid IP address.
+Addr{} is distinct from both 0.0.0.0 and ::.
+
+			<pre>type Addr struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="AddrFrom16">func <a href="/src/net/netip/netip.go?s=3249:3284#L85">AddrFrom16</a>
+					<a class="permalink" href="#AddrFrom16">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func AddrFrom16(addr [16]<a href="/pkg/builtin/#byte">byte</a>) <a href="#Addr">Addr</a></pre>
+				<p>AddrFrom16 returns the IPv6 address given by the bytes in addr.
+An IPv4-mapped IPv6 address is left as an IPv6 address.
+(Use Unmap to convert them if needed.)
+
+				
+				
+			
+				
+				<h3 id="AddrFrom4">func <a href="/src/net/netip/netip.go?s=2894:2927#L75">AddrFrom4</a>
+					<a class="permalink" href="#AddrFrom4">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func AddrFrom4(addr [4]<a href="/pkg/builtin/#byte">byte</a>) <a href="#Addr">Addr</a></pre>
+				<p>AddrFrom4 returns the address of the IPv4 address given by the bytes in addr.
+
+				
+				
+			
+				
+				<h3 id="AddrFromSlice">func <a href="/src/net/netip/netip.go?s=10256:10307#L335">AddrFromSlice</a>
+					<a class="permalink" href="#AddrFromSlice">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func AddrFromSlice(slice []<a href="/pkg/builtin/#byte">byte</a>) (ip <a href="#Addr">Addr</a>, ok <a href="/pkg/builtin/#bool">bool</a>)</pre>
+				<p>AddrFromSlice parses the 4- or 16-byte byte slice as an IPv4 or IPv6 address.
+Note that a net.IP can be passed directly as the []byte argument.
+If slice&apos;s length is not 4 or 16, AddrFromSlice returns Addr{}, false.
+
+				
+				
+			
+				
+				<h3 id="IPv4Unspecified">func <a href="/src/net/netip/netip.go?s=2752:2779#L72">IPv4Unspecified</a>
+					<a class="permalink" href="#IPv4Unspecified">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func IPv4Unspecified() <a href="#Addr">Addr</a></pre>
+				<p>IPv4Unspecified returns the IPv4 unspecified address &quot;0.0.0.0&quot;.
+
+				
+				
+			
+				
+				<h3 id="IPv6LinkLocalAllNodes">func <a href="/src/net/netip/netip.go?s=2473:2506#L66">IPv6LinkLocalAllNodes</a>
+					<a class="permalink" href="#IPv6LinkLocalAllNodes">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func IPv6LinkLocalAllNodes() <a href="#Addr">Addr</a></pre>
+				<p>IPv6LinkLocalAllNodes returns the IPv6 link-local all nodes multicast
+address ff02::1.
+
+				
+				
+			
+				
+				<h3 id="IPv6Unspecified">func <a href="/src/net/netip/netip.go?s=2630:2657#L69">IPv6Unspecified</a>
+					<a class="permalink" href="#IPv6Unspecified">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func IPv6Unspecified() <a href="#Addr">Addr</a></pre>
+				<p>IPv6Unspecified returns the IPv6 unspecified address &quot;::&quot;.
+
+				
+				
+			
+				
+				<h3 id="MustParseAddr">func <a href="/src/net/netip/netip.go?s=4404:4437#L128">MustParseAddr</a>
+					<a class="permalink" href="#MustParseAddr">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func MustParseAddr(s <a href="/pkg/builtin/#string">string</a>) <a href="#Addr">Addr</a></pre>
+				<p>MustParseAddr calls ParseAddr(s) and panics on error.
+It is intended for use in tests with hard-coded strings.
+
+				
+				
+			
+				
+				<h3 id="ParseAddr">func <a href="/src/net/netip/netip.go?s=3860:3898#L110">ParseAddr</a>
+					<a class="permalink" href="#ParseAddr">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func ParseAddr(s <a href="/pkg/builtin/#string">string</a>) (<a href="#Addr">Addr</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>ParseAddr parses s as an IP address, returning the result. The string
+s can be in dotted decimal (&quot;192.0.2.1&quot;), IPv6 (&quot;2001:db8::68&quot;),
+or IPv6 with a scoped addressing zone (&quot;fe80::1cc0:3e8c:119f:c2e1%ens18&quot;).
+
+				
+				
+			
+
+			
+				
+				<h3 id="Addr.AppendTo">func (Addr) <a href="/src/net/netip/netip.go?s=22521:22561#L774">AppendTo</a>
+					<a class="permalink" href="#Addr.AppendTo">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) AppendTo(b []<a href="/pkg/builtin/#byte">byte</a>) []<a href="/pkg/builtin/#byte">byte</a></pre>
+				<p>AppendTo appends a text encoding of ip,
+as generated by MarshalText,
+to b and returns the extended buffer.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.As16">func (Addr) <a href="/src/net/netip/netip.go?s=20172:20208#L672">As16</a>
+					<a class="permalink" href="#Addr.As16">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) As16() (a16 [16]<a href="/pkg/builtin/#byte">byte</a>)</pre>
+				<p>As16 returns the IP address in its 16-byte representation.
+IPv4 addresses are returned as IPv4-mapped IPv6 addresses.
+IPv6 addresses with zones are returned without their zone (use the
+Zone method to get it).
+The ip zero value returns all zeroes.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.As4">func (Addr) <a href="/src/net/netip/netip.go?s=20472:20505#L681">As4</a>
+					<a class="permalink" href="#Addr.As4">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) As4() (a4 [4]<a href="/pkg/builtin/#byte">byte</a>)</pre>
+				<p>As4 returns an IPv4 or IPv4-in-IPv6 address in its 4-byte representation.
+If ip is the zero Addr or an IPv6 address, As4 panics.
+Note that 0.0.0.0 is not the zero Addr.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.AsSlice">func (Addr) <a href="/src/net/netip/netip.go?s=20790:20821#L693">AsSlice</a>
+					<a class="permalink" href="#Addr.AsSlice">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) AsSlice() []<a href="/pkg/builtin/#byte">byte</a></pre>
+				<p>AsSlice returns an IPv4 or IPv6 address in its respective 4-byte or 16-byte representation.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.BitLen">func (Addr) <a href="/src/net/netip/netip.go?s=11932:11959#L384">BitLen</a>
+					<a class="permalink" href="#Addr.BitLen">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) BitLen() <a href="/pkg/builtin/#int">int</a></pre>
+				<p>BitLen returns the number of bits in the IP address:
+128 for IPv6, 32 for IPv4, and 0 for the zero Addr.
+<p>Note that IPv4-mapped IPv6 addresses are considered IPv6 addresses
+and therefore have bit length 128.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.Compare">func (Addr) <a href="/src/net/netip/netip.go?s=12396:12432#L406">Compare</a>
+					<a class="permalink" href="#Addr.Compare">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) Compare(ip2 <a href="#Addr">Addr</a>) <a href="/pkg/builtin/#int">int</a></pre>
+				<p>Compare returns an integer comparing two IPs.
+The result will be 0 if ip == ip2, -1 if ip &lt; ip2, and +1 if ip &gt; ip2.
+The definition of &quot;less than&quot; is the same as the Less method.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.Is4">func (Addr) <a href="/src/net/netip/netip.go?s=13292:13317#L450">Is4</a>
+					<a class="permalink" href="#Addr.Is4">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) Is4() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>Is4 reports whether ip is an IPv4 address.
+<p>It returns false for IPv4-mapped IPv6 addresses. See Addr.Unmap.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.Is4In6">func (Addr) <a href="/src/net/netip/netip.go?s=13403:13431#L455">Is4In6</a>
+					<a class="permalink" href="#Addr.Is4In6">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) Is4In6() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>Is4In6 reports whether ip is an IPv4-mapped IPv6 address.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.Is6">func (Addr) <a href="/src/net/netip/netip.go?s=13588:13613#L461">Is6</a>
+					<a class="permalink" href="#Addr.Is6">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) Is6() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>Is6 reports whether ip is an IPv6 address, including IPv4-mapped
+IPv6 addresses.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.IsGlobalUnicast">func (Addr) <a href="/src/net/netip/netip.go?s=17577:17614#L586">IsGlobalUnicast</a>
+					<a class="permalink" href="#Addr.IsGlobalUnicast">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) IsGlobalUnicast() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>IsGlobalUnicast reports whether ip is a global unicast address.
+<p>It returns true for IPv6 addresses which fall outside of the current
+IANA-allocated 2000::/3 global unicast space, with the exception of the
+link-local address space. It also returns true even if ip is in the IPv4
+private address space or IPv6 unique local address space.
+It returns false for the zero Addr.
+<p>For reference, see RFC 1122, RFC 4291, and RFC 4632.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.IsInterfaceLocalMulticast">func (Addr) <a href="/src/net/netip/netip.go?s=16289:16336#L553">IsInterfaceLocalMulticast</a>
+					<a class="permalink" href="#Addr.IsInterfaceLocalMulticast">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) IsInterfaceLocalMulticast() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>IsInterfaceLocalMulticast reports whether ip is an IPv6 interface-local
+multicast address.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.IsLinkLocalMulticast">func (Addr) <a href="/src/net/netip/netip.go?s=16642:16684#L563">IsLinkLocalMulticast</a>
+					<a class="permalink" href="#Addr.IsLinkLocalMulticast">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) IsLinkLocalMulticast() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>IsLinkLocalMulticast reports whether ip is a link-local multicast address.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.IsLinkLocalUnicast">func (Addr) <a href="/src/net/netip/netip.go?s=14724:14764#L507">IsLinkLocalUnicast</a>
+					<a class="permalink" href="#Addr.IsLinkLocalUnicast">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) IsLinkLocalUnicast() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>IsLinkLocalUnicast reports whether ip is a link-local unicast address.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.IsLoopback">func (Addr) <a href="/src/net/netip/netip.go?s=15226:15258#L522">IsLoopback</a>
+					<a class="permalink" href="#Addr.IsLoopback">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) IsLoopback() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>IsLoopback reports whether ip is a loopback address.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.IsMulticast">func (Addr) <a href="/src/net/netip/netip.go?s=15739:15772#L537">IsMulticast</a>
+					<a class="permalink" href="#Addr.IsMulticast">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) IsMulticast() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>IsMulticast reports whether ip is a multicast address.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.IsPrivate">func (Addr) <a href="/src/net/netip/netip.go?s=18310:18341#L608">IsPrivate</a>
+					<a class="permalink" href="#Addr.IsPrivate">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) IsPrivate() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>IsPrivate reports whether ip is a private address, according to RFC 1918
+(IPv4 addresses) and RFC 4193 (IPv6 addresses). That is, it reports whether
+ip is in 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, or fc00::/7. This is the
+same as net.IP.IsPrivate.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.IsUnspecified">func (Addr) <a href="/src/net/netip/netip.go?s=18980:19015#L631">IsUnspecified</a>
+					<a class="permalink" href="#Addr.IsUnspecified">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) IsUnspecified() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>IsUnspecified reports whether ip is an unspecified address, either the IPv4
+address &quot;0.0.0.0&quot; or the IPv6 address &quot;::&quot;.
+<p>Note that the zero Addr is not an unspecified address.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.IsValid">func (Addr) <a href="/src/net/netip/netip.go?s=11657:11686#L377">IsValid</a>
+					<a class="permalink" href="#Addr.IsValid">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) IsValid() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>IsValid reports whether the Addr is an initialized address (not the zero Addr).
+<p>Note that &quot;0.0.0.0&quot; and &quot;::&quot; are both valid values.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.Less">func (Addr) <a href="/src/net/netip/netip.go?s=13034:13068#L443">Less</a>
+					<a class="permalink" href="#Addr.Less">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) Less(ip2 <a href="#Addr">Addr</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>Less reports whether ip sorts before ip2.
+IP addresses sort first by length, then their address.
+IPv6 addresses with zones sort just after the same address without a zone.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.MarshalBinary">func (Addr) <a href="/src/net/netip/netip.go?s=28264:28310#L997">MarshalBinary</a>
+					<a class="permalink" href="#Addr.MarshalBinary">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) MarshalBinary() ([]<a href="/pkg/builtin/#byte">byte</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>MarshalBinary implements the encoding.BinaryMarshaler interface.
+It returns a zero-length slice for the zero Addr,
+the 4-byte form for an IPv4 address,
+and the 16-byte form with zone appended for an IPv6 address.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.MarshalText">func (Addr) <a href="/src/net/netip/netip.go?s=26728:26772#L935">MarshalText</a>
+					<a class="permalink" href="#Addr.MarshalText">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) MarshalText() ([]<a href="/pkg/builtin/#byte">byte</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>MarshalText implements the encoding.TextMarshaler interface,
+The encoding is the same as returned by String, with one exception:
+If ip is the zero Addr, the encoding is the empty string.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.Next">func (Addr) <a href="/src/net/netip/netip.go?s=21158:21184#L711">Next</a>
+					<a class="permalink" href="#Addr.Next">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) Next() <a href="#Addr">Addr</a></pre>
+				<p>Next returns the address following ip.
+If there is none, it returns the zero Addr.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.Prefix">func (Addr) <a href="/src/net/netip/netip.go?s=19345:19389#L640">Prefix</a>
+					<a class="permalink" href="#Addr.Prefix">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) Prefix(b <a href="/pkg/builtin/#int">int</a>) (<a href="#Prefix">Prefix</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>Prefix keeps only the top b bits of IP, producing a Prefix
+of the specified length.
+If ip is a zero Addr, Prefix always returns a zero Prefix and a nil error.
+Otherwise, if bits is less than zero or greater than ip.BitLen(),
+Prefix returns an error.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.Prev">func (Addr) <a href="/src/net/netip/netip.go?s=21474:21500#L729">Prev</a>
+					<a class="permalink" href="#Addr.Prev">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) Prev() <a href="#Addr">Addr</a></pre>
+				<p>Prev returns the IP before ip.
+If there is none, it returns the IP zero value.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.String">func (Addr) <a href="/src/net/netip/netip.go?s=22085:22115#L753">String</a>
+					<a class="permalink" href="#Addr.String">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) String() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>String returns the string form of the IP address ip.
+It returns one of 5 forms:
+<ul>
+<li>&quot;invalid IP&quot;, if ip is the zero Addr
+<li>IPv4 dotted decimal (&quot;192.0.2.1&quot;)
+<li>IPv6 (&quot;2001:db8::1&quot;)
+<li>&quot;::ffff:1.2.3.4&quot; (if Is4In6)
+<li>IPv6 with zone (&quot;fe80:db8::1%eth0&quot;)
+</ul>
+<p>Note that unlike package net&apos;s IP.String method,
+IPv4-mapped IPv6 addresses format with a &quot;::ffff:&quot;
+prefix before the dotted quad.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.StringExpanded">func (Addr) <a href="/src/net/netip/netip.go?s=25991:26029#L907">StringExpanded</a>
+					<a class="permalink" href="#Addr.StringExpanded">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) StringExpanded() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>StringExpanded is like String but IPv6 addresses are expanded with leading
+zeroes and no &quot;::&quot; compression. For example, &quot;2001:db8::1&quot; becomes
+&quot;2001:0db8:0000:0000:0000:0000:0000:0001&quot;.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.Unmap">func (Addr) <a href="/src/net/netip/netip.go?s=13864:13891#L469">Unmap</a>
+					<a class="permalink" href="#Addr.Unmap">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) Unmap() <a href="#Addr">Addr</a></pre>
+				<p>Unmap returns ip with any IPv4-mapped IPv6 address prefix removed.
+<p>That is, if ip is an IPv6 address wrapping an IPv4 address, it
+returns the wrapped IPv4 address. Otherwise it returns ip unmodified.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.UnmarshalBinary">func (*Addr) <a href="/src/net/netip/netip.go?s=28497:28544#L1003">UnmarshalBinary</a>
+					<a class="permalink" href="#Addr.UnmarshalBinary">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip *<a href="#Addr">Addr</a>) UnmarshalBinary(b []<a href="/pkg/builtin/#byte">byte</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>UnmarshalBinary implements the encoding.BinaryUnmarshaler interface.
+It expects data in the form generated by MarshalBinary.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.UnmarshalText">func (*Addr) <a href="/src/net/netip/netip.go?s=27469:27517#L965">UnmarshalText</a>
+					<a class="permalink" href="#Addr.UnmarshalText">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip *<a href="#Addr">Addr</a>) UnmarshalText(text []<a href="/pkg/builtin/#byte">byte</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>UnmarshalText implements the encoding.TextUnmarshaler interface.
+The IP address is expected in a form accepted by ParseAddr.
+<p>If text is empty, UnmarshalText sets *ip to the zero Addr and
+returns no error.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.WithZone">func (Addr) <a href="/src/net/netip/netip.go?s=14134:14175#L479">WithZone</a>
+					<a class="permalink" href="#Addr.WithZone">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) WithZone(zone <a href="/pkg/builtin/#string">string</a>) <a href="#Addr">Addr</a></pre>
+				<p>WithZone returns an IP that&apos;s the same as ip but with the provided
+zone. If zone is empty, the zone is removed. If ip is an IPv4
+address, WithZone is a no-op and returns ip unchanged.
+
+				
+				
+				
+			
+				
+				<h3 id="Addr.Zone">func (Addr) <a href="/src/net/netip/netip.go?s=12096:12124#L395">Zone</a>
+					<a class="permalink" href="#Addr.Zone">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (ip <a href="#Addr">Addr</a>) Zone() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>Zone returns ip&apos;s IPv6 scoped addressing zone, if any.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="AddrPort">type <a href="/src/net/netip/netip.go?s=28890:28938#L1023">AddrPort</a>
+				<a class="permalink" href="#AddrPort">&#xb6;</a>
+				
+				<span title="Added in Go 1.18">1.18</span>
+			</h2>
+			<p>AddrPort is an IP and a port number.
+
+			<pre>type AddrPort struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="AddrPortFrom">func <a href="/src/net/netip/netip.go?s=29032:29080#L1030">AddrPortFrom</a>
+					<a class="permalink" href="#AddrPortFrom">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func AddrPortFrom(ip <a href="#Addr">Addr</a>, port <a href="/pkg/builtin/#uint16">uint16</a>) <a href="#AddrPort">AddrPort</a></pre>
+				<p>AddrPortFrom returns an AddrPort with the provided IP and port.
+It does not allocate.
+
+				
+				
+			
+				
+				<h3 id="MustParseAddrPort">func <a href="/src/net/netip/netip.go?s=31124:31165#L1096">MustParseAddrPort</a>
+					<a class="permalink" href="#MustParseAddrPort">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func MustParseAddrPort(s <a href="/pkg/builtin/#string">string</a>) <a href="#AddrPort">AddrPort</a></pre>
+				<p>MustParseAddrPort calls ParseAddrPort(s) and panics on error.
+It is intended for use in tests with hard-coded strings.
+
+				
+				
+			
+				
+				<h3 id="ParseAddrPort">func <a href="/src/net/netip/netip.go?s=30248:30294#L1071">ParseAddrPort</a>
+					<a class="permalink" href="#ParseAddrPort">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func ParseAddrPort(s <a href="/pkg/builtin/#string">string</a>) (<a href="#AddrPort">AddrPort</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>ParseAddrPort parses s as an AddrPort.
+<p>It doesn&apos;t do any name resolution: both the address and the port
+must be numeric.
+
+				
+				
+			
+
+			
+				
+				<h3 id="AddrPort.Addr">func (AddrPort) <a href="/src/net/netip/netip.go?s=29154:29183#L1033">Addr</a>
+					<a class="permalink" href="#AddrPort.Addr">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (p <a href="#AddrPort">AddrPort</a>) Addr() <a href="#Addr">Addr</a></pre>
+				<p>Addr returns p&apos;s IP address.
+
+				
+				
+				
+			
+				
+				<h3 id="AddrPort.AppendTo">func (AddrPort) <a href="/src/net/netip/netip.go?s=32308:32351#L1142">AppendTo</a>
+					<a class="permalink" href="#AddrPort.AppendTo">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (p <a href="#AddrPort">AddrPort</a>) AppendTo(b []<a href="/pkg/builtin/#byte">byte</a>) []<a href="/pkg/builtin/#byte">byte</a></pre>
+				<p>AppendTo appends a text encoding of p,
+as generated by MarshalText,
+to b and returns the extended buffer.
+
+				
+				
+				
+			
+				
+				<h3 id="AddrPort.IsValid">func (AddrPort) <a href="/src/net/netip/netip.go?s=31438:31470#L1109">IsValid</a>
+					<a class="permalink" href="#AddrPort.IsValid">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (p <a href="#AddrPort">AddrPort</a>) IsValid() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>IsValid reports whether p.IP() is valid.
+All ports are valid, including zero.
+
+				
+				
+				
+			
+				
+				<h3 id="AddrPort.MarshalBinary">func (AddrPort) <a href="/src/net/netip/netip.go?s=33782:33831#L1200">MarshalBinary</a>
+					<a class="permalink" href="#AddrPort.MarshalBinary">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (p <a href="#AddrPort">AddrPort</a>) MarshalBinary() ([]<a href="/pkg/builtin/#byte">byte</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>MarshalBinary implements the encoding.BinaryMarshaler interface.
+It returns Addr.MarshalBinary with an additional two bytes appended
+containing the port in little-endian.
+
+				
+				
+				
+			
+				
+				<h3 id="AddrPort.MarshalText">func (AddrPort) <a href="/src/net/netip/netip.go?s=32976:33023#L1170">MarshalText</a>
+					<a class="permalink" href="#AddrPort.MarshalText">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (p <a href="#AddrPort">AddrPort</a>) MarshalText() ([]<a href="/pkg/builtin/#byte">byte</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>MarshalText implements the encoding.TextMarshaler interface. The
+encoding is the same as returned by String, with one exception: if
+p.Addr() is the zero Addr, the encoding is the empty string.
+
+				
+				
+				
+			
+				
+				<h3 id="AddrPort.Port">func (AddrPort) <a href="/src/net/netip/netip.go?s=29227:29258#L1036">Port</a>
+					<a class="permalink" href="#AddrPort.Port">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (p <a href="#AddrPort">AddrPort</a>) Port() <a href="/pkg/builtin/#uint16">uint16</a></pre>
+				<p>Port returns p&apos;s port.
+
+				
+				
+				
+			
+				
+				<h3 id="AddrPort.String">func (AddrPort) <a href="/src/net/netip/netip.go?s=31498:31531#L1111">String</a>
+					<a class="permalink" href="#AddrPort.String">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (p <a href="#AddrPort">AddrPort</a>) String() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="AddrPort.UnmarshalBinary">func (*AddrPort) <a href="/src/net/netip/netip.go?s=34069:34119#L1208">UnmarshalBinary</a>
+					<a class="permalink" href="#AddrPort.UnmarshalBinary">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (p *<a href="#AddrPort">AddrPort</a>) UnmarshalBinary(b []<a href="/pkg/builtin/#byte">byte</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>UnmarshalBinary implements the encoding.BinaryUnmarshaler interface.
+It expects data in the form generated by MarshalBinary.
+
+				
+				
+				
+			
+				
+				<h3 id="AddrPort.UnmarshalText">func (*AddrPort) <a href="/src/net/netip/netip.go?s=33424:33475#L1187">UnmarshalText</a>
+					<a class="permalink" href="#AddrPort.UnmarshalText">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (p *<a href="#AddrPort">AddrPort</a>) UnmarshalText(text []<a href="/pkg/builtin/#byte">byte</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>UnmarshalText implements the encoding.TextUnmarshaler
+interface. The AddrPort is expected in a form
+generated by MarshalText or accepted by ParseAddrPort.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Prefix">type <a href="/src/net/netip/netip.go?s=34560:34940#L1225">Prefix</a>
+				<a class="permalink" href="#Prefix">&#xb6;</a>
+				
+				<span title="Added in Go 1.18">1.18</span>
+			</h2>
+			<p>Prefix is an IP address prefix (CIDR) representing an IP network.
+<p>The first Bits() of Addr() are specified. The remaining bits match any address.
+The range of Bits() is [0,32] for IPv4 or [0,128] for IPv6.
+
+			<pre>type Prefix struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="MustParsePrefix">func <a href="/src/net/netip/netip.go?s=37734:37771#L1317">MustParsePrefix</a>
+					<a class="permalink" href="#MustParsePrefix">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func MustParsePrefix(s <a href="/pkg/builtin/#string">string</a>) <a href="#Prefix">Prefix</a></pre>
+				<p>MustParsePrefix calls ParsePrefix(s) and panics on error.
+It is intended for use in tests with hard-coded strings.
+
+				
+				
+			
+				
+				<h3 id="ParsePrefix">func <a href="/src/net/netip/netip.go?s=36648:36690#L1286">ParsePrefix</a>
+					<a class="permalink" href="#ParsePrefix">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func ParsePrefix(s <a href="/pkg/builtin/#string">string</a>) (<a href="#Prefix">Prefix</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>ParsePrefix parses s as an IP address prefix.
+The string can be in the form &quot;192.168.1.0/24&quot; or &quot;2001:db8::/32&quot;,
+the CIDR notation defined in RFC 4632 and RFC 4291.
+IPv6 zones are not permitted in prefixes, and an error will be returned if a
+zone is present.
+<p>Note that masked address bits are not zeroed. Use Masked for that.
+
+				
+				
+			
+				
+				<h3 id="PrefixFrom">func <a href="/src/net/netip/netip.go?s=35419:35460#L1250">PrefixFrom</a>
+					<a class="permalink" href="#PrefixFrom">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func PrefixFrom(ip <a href="#Addr">Addr</a>, bits <a href="/pkg/builtin/#int">int</a>) <a href="#Prefix">Prefix</a></pre>
+				<p>PrefixFrom returns a Prefix with the provided IP address and bit
+prefix length.
+<p>It does not allocate. Unlike Addr.Prefix, PrefixFrom does not mask
+off the host bits of ip.
+<p>If bits is less than zero or greater than ip.BitLen, Prefix.Bits
+will return an invalid value -1.
+
+				
+				
+			
+
+			
+				
+				<h3 id="Prefix.Addr">func (Prefix) <a href="/src/net/netip/netip.go?s=35643:35670#L1262">Addr</a>
+					<a class="permalink" href="#Prefix.Addr">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (p <a href="#Prefix">Prefix</a>) Addr() <a href="#Addr">Addr</a></pre>
+				<p>Addr returns p&apos;s IP address.
+
+				
+				
+				
+			
+				
+				<h3 id="Prefix.AppendTo">func (Prefix) <a href="/src/net/netip/netip.go?s=40591:40632#L1409">AppendTo</a>
+					<a class="permalink" href="#Prefix.AppendTo">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (p <a href="#Prefix">Prefix</a>) AppendTo(b []<a href="/pkg/builtin/#byte">byte</a>) []<a href="/pkg/builtin/#byte">byte</a></pre>
+				<p>AppendTo appends a text encoding of p,
+as generated by MarshalText,
+to b and returns the extended buffer.
+
+				
+				
+				
+			
+				
+				<h3 id="Prefix.Bits">func (Prefix) <a href="/src/net/netip/netip.go?s=35755:35781#L1267">Bits</a>
+					<a class="permalink" href="#Prefix.Bits">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (p <a href="#Prefix">Prefix</a>) Bits() <a href="/pkg/builtin/#int">int</a></pre>
+				<p>Bits returns p&apos;s prefix length.
+<p>It reports -1 if invalid.
+
+				
+				
+				
+			
+				
+				<h3 id="Prefix.Contains">func (Prefix) <a href="/src/net/netip/netip.go?s=38448:38486#L1343">Contains</a>
+					<a class="permalink" href="#Prefix.Contains">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (p <a href="#Prefix">Prefix</a>) Contains(ip <a href="#Addr">Addr</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>Contains reports whether the network p includes ip.
+<p>An IPv4 address will not match an IPv6 prefix.
+An IPv4-mapped IPv6 address will not match an IPv4 prefix.
+A zero-value IP will not match any prefix.
+If ip has an IPv6 zone, Contains returns false,
+because Prefixes strip zones.
+
+				
+				
+				
+			
+				
+				<h3 id="Prefix.IsSingleIP">func (Prefix) <a href="/src/net/netip/netip.go?s=36211:36244#L1277">IsSingleIP</a>
+					<a class="permalink" href="#Prefix.IsSingleIP">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (p <a href="#Prefix">Prefix</a>) IsSingleIP() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>IsSingleIP reports whether p contains exactly one IP.
+
+				
+				
+				
+			
+				
+				<h3 id="Prefix.IsValid">func (Prefix) <a href="/src/net/netip/netip.go?s=35993:36023#L1272">IsValid</a>
+					<a class="permalink" href="#Prefix.IsValid">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (p <a href="#Prefix">Prefix</a>) IsValid() <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>IsValid reports whether p.Bits() has a valid range for p.IP().
+If p.Addr() is the zero Addr, IsValid returns false.
+Note that if p is the zero Prefix, then p.IsValid() == false.
+
+				
+				
+				
+			
+				
+				<h3 id="Prefix.MarshalBinary">func (Prefix) <a href="/src/net/netip/netip.go?s=41994:42041#L1467">MarshalBinary</a>
+					<a class="permalink" href="#Prefix.MarshalBinary">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (p <a href="#Prefix">Prefix</a>) MarshalBinary() ([]<a href="/pkg/builtin/#byte">byte</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>MarshalBinary implements the encoding.BinaryMarshaler interface.
+It returns Addr.MarshalBinary with an additional byte appended
+containing the prefix bits.
+
+				
+				
+				
+			
+				
+				<h3 id="Prefix.MarshalText">func (Prefix) <a href="/src/net/netip/netip.go?s=41218:41263#L1437">MarshalText</a>
+					<a class="permalink" href="#Prefix.MarshalText">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (p <a href="#Prefix">Prefix</a>) MarshalText() ([]<a href="/pkg/builtin/#byte">byte</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>MarshalText implements the encoding.TextMarshaler interface,
+The encoding is the same as returned by String, with one exception:
+If p is the zero value, the encoding is the empty string.
+
+				
+				
+				
+			
+				
+				<h3 id="Prefix.Masked">func (Prefix) <a href="/src/net/netip/netip.go?s=38027:38058#L1329">Masked</a>
+					<a class="permalink" href="#Prefix.Masked">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (p <a href="#Prefix">Prefix</a>) Masked() <a href="#Prefix">Prefix</a></pre>
+				<p>Masked returns p in its canonical form, with all but the high
+p.Bits() bits of p.Addr() masked off.
+<p>If p is zero or otherwise invalid, Masked returns the zero Prefix.
+
+				
+				
+				
+			
+				
+				<h3 id="Prefix.Overlaps">func (Prefix) <a href="/src/net/netip/netip.go?s=39748:39787#L1373">Overlaps</a>
+					<a class="permalink" href="#Prefix.Overlaps">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (p <a href="#Prefix">Prefix</a>) Overlaps(o <a href="#Prefix">Prefix</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+				<p>Overlaps reports whether p and o contain any IP addresses in common.
+<p>If p and o are of different address families or either have a zero
+IP, it reports false. Like the Contains method, a prefix with an
+IPv4-mapped IPv6 address is still treated as an IPv6 mask.
+
+				
+				
+				
+			
+				
+				<h3 id="Prefix.String">func (Prefix) <a href="/src/net/netip/netip.go?s=42607:42638#L1489">String</a>
+					<a class="permalink" href="#Prefix.String">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (p <a href="#Prefix">Prefix</a>) String() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>String returns the CIDR notation of p: &quot;&lt;ip&gt;/&lt;bits&gt;&quot;.
+
+				
+				
+				
+			
+				
+				<h3 id="Prefix.UnmarshalBinary">func (*Prefix) <a href="/src/net/netip/netip.go?s=42287:42335#L1475">UnmarshalBinary</a>
+					<a class="permalink" href="#Prefix.UnmarshalBinary">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (p *<a href="#Prefix">Prefix</a>) UnmarshalBinary(b []<a href="/pkg/builtin/#byte">byte</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>UnmarshalBinary implements the encoding.BinaryUnmarshaler interface.
+It expects data in the form generated by MarshalBinary.
+
+				
+				
+				
+			
+				
+				<h3 id="Prefix.UnmarshalText">func (*Prefix) <a href="/src/net/netip/netip.go?s=41657:41706#L1454">UnmarshalText</a>
+					<a class="permalink" href="#Prefix.UnmarshalText">&#xb6;</a>
+					
+					<span title="Added in Go 1.18">1.18</span>
+				</h3>
+				<pre>func (p *<a href="#Prefix">Prefix</a>) UnmarshalText(text []<a href="/pkg/builtin/#byte">byte</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>UnmarshalText implements the encoding.TextUnmarshaler interface.
+The IP address is expected in a form accepted by ParsePrefix
+or generated by MarshalText.
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

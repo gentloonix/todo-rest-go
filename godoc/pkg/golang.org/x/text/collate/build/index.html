@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>build - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/pkg/">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/pkg/">GoDoc</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package build
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "golang.org/x/text/collate/build"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+			
+				
+				<dd><a href="#Builder">type Builder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewBuilder">func NewBuilder() *Builder</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Builder.Add">func (b *Builder) Add(runes []rune, colelems [][]int, variables []int) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Builder.Build">func (b *Builder) Build() (colltab.Weighter, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Builder.Print">func (b *Builder) Print(w io.Writer) (n int, err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Builder.Tailoring">func (b *Builder) Tailoring(loc language.Tag) *Tailoring</a></dd>
+				
+			
+				
+				<dd><a href="#Tailoring">type Tailoring</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Tailoring.Build">func (t *Tailoring) Build() (colltab.Weighter, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Tailoring.Insert">func (t *Tailoring) Insert(level colltab.Level, str, extend string) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Tailoring.SetAnchor">func (t *Tailoring) SetAnchor(anchor string) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Tailoring.SetAnchorBefore">func (t *Tailoring) SetAnchorBefore(anchor string) error</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/golang.org/x/text/collate/build/builder.go">builder.go</a>
+			
+				<a href="/src/golang.org/x/text/collate/build/colelem.go">colelem.go</a>
+			
+				<a href="/src/golang.org/x/text/collate/build/contract.go">contract.go</a>
+			
+				<a href="/src/golang.org/x/text/collate/build/order.go">order.go</a>
+			
+				<a href="/src/golang.org/x/text/collate/build/table.go">table.go</a>
+			
+				<a href="/src/golang.org/x/text/collate/build/trie.go">trie.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+		
+			
+			
+			<h2 id="Builder">type <a href="/src/golang.org/x/text/collate/build/builder.go?s=1395:1976#L27">Builder</a>
+				<a class="permalink" href="#Builder">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A Builder builds a root collation table.  The user must specify the
+collation elements for each entry.  A common use will be to base the weights
+on those specified in the allkeys* file as provided by the UCA or CLDR.
+
+			<pre>type Builder struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewBuilder">func <a href="/src/golang.org/x/text/collate/build/builder.go?s=2497:2523#L59">NewBuilder</a>
+					<a class="permalink" href="#NewBuilder">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewBuilder() *<a href="#Builder">Builder</a></pre>
+				<p>NewBuilder returns a new Builder.
+
+				
+				
+			
+
+			
+				
+				<h3 id="Builder.Add">func (*Builder) <a href="/src/golang.org/x/text/collate/build/builder.go?s=3702:3778#L91">Add</a>
+					<a class="permalink" href="#Builder.Add">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b *<a href="#Builder">Builder</a>) Add(runes []<a href="/pkg/builtin/#rune">rune</a>, colelems [][]<a href="/pkg/builtin/#int">int</a>, variables []<a href="/pkg/builtin/#int">int</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>Add adds an entry to the collation element table, mapping
+a slice of runes to a sequence of collation elements.
+A collation element is specified as list of weights: []int{primary, secondary, ...}.
+The entries are typically obtained from a collation element table
+as defined in <a href="https://www.unicode.org/reports/tr10/#Data_Table_Format">https://www.unicode.org/reports/tr10/#Data_Table_Format</a>.
+Note that the collation elements specified by colelems are only used
+as a guide.  The actual weights generated by Builder may differ.
+The argument variables is a list of indices into colelems that should contain
+a value for each colelem that is a variable. (See the reference above.)
+
+				
+				
+				
+			
+				
+				<h3 id="Builder.Build">func (*Builder) <a href="/src/golang.org/x/text/collate/build/builder.go?s=14035:14086#L465">Build</a>
+					<a class="permalink" href="#Builder.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b *<a href="#Builder">Builder</a>) Build() (<a href="/pkg/golang.org/x/text/internal/colltab/">colltab</a>.<a href="/pkg/golang.org/x/text/internal/colltab/#Weighter">Weighter</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>Build builds the root Collator.
+
+				
+				
+				
+			
+				
+				<h3 id="Builder.Print">func (*Builder) <a href="/src/golang.org/x/text/collate/build/builder.go?s=14432:14487#L481">Print</a>
+					<a class="permalink" href="#Builder.Print">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b *<a href="#Builder">Builder</a>) Print(w <a href="/pkg/io/">io</a>.<a href="/pkg/io/#Writer">Writer</a>) (n <a href="/pkg/builtin/#int">int</a>, err <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>Print prints the tables for b and all its Tailorings as a Go file
+that can be included in the Collate package.
+
+				
+				
+				
+			
+				
+				<h3 id="Builder.Tailoring">func (*Builder) <a href="/src/golang.org/x/text/collate/build/builder.go?s=2847:2903#L71">Tailoring</a>
+					<a class="permalink" href="#Builder.Tailoring">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (b *<a href="#Builder">Builder</a>) Tailoring(loc <a href="/pkg/golang.org/x/text/language/">language</a>.<a href="/pkg/golang.org/x/text/language/#Tag">Tag</a>) *<a href="#Tailoring">Tailoring</a></pre>
+				<p>Tailoring returns a Tailoring for the given locale.  One should
+have completed all calls to Add before calling Tailoring.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Tailoring">type <a href="/src/golang.org/x/text/collate/build/builder.go?s=2351:2458#L49">Tailoring</a>
+				<a class="permalink" href="#Tailoring">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A Tailoring builds a collation table based on another collation table.
+The table is defined by specifying tailorings to the underlying table.
+See <a href="https://unicode.org/reports/tr35/">https://unicode.org/reports/tr35/</a> for an overview of tailoring
+collation tables.  The CLDR contains pre-defined tailorings for a variety
+of languages (See <a href="https://www.unicode.org/Public/cldr/">https://www.unicode.org/Public/cldr/</a>&lt;version&gt;/core.zip.)
+
+			<pre>type Tailoring struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Tailoring.Build">func (*Tailoring) <a href="/src/golang.org/x/text/collate/build/builder.go?s=14218:14271#L474">Build</a>
+					<a class="permalink" href="#Tailoring.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t *<a href="#Tailoring">Tailoring</a>) Build() (<a href="/pkg/golang.org/x/text/internal/colltab/">colltab</a>.<a href="/pkg/golang.org/x/text/internal/colltab/#Weighter">Weighter</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>Build builds a Collator for Tailoring t.
+
+				
+				
+				
+			
+				
+				<h3 id="Tailoring.Insert">func (*Tailoring) <a href="/src/golang.org/x/text/collate/build/builder.go?s=8288:8361#L238">Insert</a>
+					<a class="permalink" href="#Tailoring.Insert">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t *<a href="#Tailoring">Tailoring</a>) Insert(level <a href="/pkg/golang.org/x/text/internal/colltab/">colltab</a>.<a href="/pkg/golang.org/x/text/internal/colltab/#Level">Level</a>, str, extend <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>Insert sets the ordering of str relative to the entry set by the previous
+call to SetAnchor or Insert.  The argument extend corresponds
+to the extend elements as defined in LDML.  A non-empty value for extend
+will cause the collation elements corresponding to extend to be appended
+to the collation elements generated for the entry added by Insert.
+This has the same net effect as sorting str after the string anchor+extend.
+See <a href="https://www.unicode.org/reports/tr10/#Tailoring_Example">https://www.unicode.org/reports/tr10/#Tailoring_Example</a> for details
+on parametric tailoring and <a href="https://unicode.org/reports/tr35/#Collation_Elements">https://unicode.org/reports/tr35/#Collation_Elements</a>
+for full details on LDML.
+<p>Examples: create a tailoring for Swedish, where &quot;ä&quot; is ordered after &quot;z&quot;
+at the primary sorting level:
+<pre>     t := b.Tailoring(&quot;se&quot;)
+		t.SetAnchor(&quot;z&quot;)
+		t.Insert(colltab.Primary, &quot;ä&quot;, &quot;&quot;)
+</pre>
+<p>Order &quot;ü&quot; after &quot;ue&quot; at the secondary sorting level:
+<pre>t.SetAnchor(&quot;ue&quot;)
+t.Insert(colltab.Secondary, &quot;ü&quot;,&quot;&quot;)
+</pre>
+<p>or
+<pre>t.SetAnchor(&quot;u&quot;)
+t.Insert(colltab.Secondary, &quot;ü&quot;, &quot;e&quot;)
+</pre>
+<p>Order &quot;q&quot; afer &quot;ab&quot; at the secondary level and &quot;Q&quot; after &quot;q&quot;
+at the tertiary level:
+<pre>t.SetAnchor(&quot;ab&quot;)
+t.Insert(colltab.Secondary, &quot;q&quot;, &quot;&quot;)
+t.Insert(colltab.Tertiary, &quot;Q&quot;, &quot;&quot;)
+</pre>
+<p>Order &quot;b&quot; before &quot;a&quot;:
+<pre>t.SetAnchorBefore(&quot;a&quot;)
+t.Insert(colltab.Primary, &quot;b&quot;, &quot;&quot;)
+</pre>
+<p>Order &quot;0&quot; after the last primary ignorable:
+<pre>t.SetAnchor(&quot;&lt;last_primary_ignorable/&gt;&quot;)
+t.Insert(colltab.Primary, &quot;0&quot;, &quot;&quot;)
+</pre>
+
+				
+				
+				
+			
+				
+				<h3 id="Tailoring.SetAnchor">func (*Tailoring) <a href="/src/golang.org/x/text/collate/build/builder.go?s=6402:6452#L188">SetAnchor</a>
+					<a class="permalink" href="#Tailoring.SetAnchor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t *<a href="#Tailoring">Tailoring</a>) SetAnchor(anchor <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>SetAnchor sets the point after which elements passed in subsequent calls to
+Insert will be inserted.  It is equivalent to the reset directive in an LDML
+specification.  See Insert for an example.
+SetAnchor supports the following logical reset positions:
+&lt;first_tertiary_ignorable/&gt;, &lt;last_teriary_ignorable/&gt;, &lt;first_primary_ignorable/&gt;,
+and &lt;last_non_ignorable/&gt;.
+
+				
+				
+				
+			
+				
+				<h3 id="Tailoring.SetAnchorBefore">func (*Tailoring) <a href="/src/golang.org/x/text/collate/build/builder.go?s=6674:6730#L198">SetAnchorBefore</a>
+					<a class="permalink" href="#Tailoring.SetAnchorBefore">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t *<a href="#Tailoring">Tailoring</a>) SetAnchorBefore(anchor <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>SetAnchorBefore is similar to SetAnchor, except that subsequent calls to
+Insert will insert entries before the anchor.
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

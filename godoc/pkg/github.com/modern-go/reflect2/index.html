@@ -1,0 +1,3011 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>reflect2 - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/pkg/">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/pkg/">GoDoc</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package reflect2
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/modern-go/reflect2"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+				
+				<dd><a href="#IFaceToEFace">func IFaceToEFace(ptr unsafe.Pointer) interface{}</a></dd>
+			
+				
+				<dd><a href="#IsNil">func IsNil(obj interface{}) bool</a></dd>
+			
+				
+				<dd><a href="#IsNullable">func IsNullable(kind reflect.Kind) bool</a></dd>
+			
+				
+				<dd><a href="#NoEscape">func NoEscape(p unsafe.Pointer) unsafe.Pointer</a></dd>
+			
+				
+				<dd><a href="#PtrOf">func PtrOf(obj interface{}) unsafe.Pointer</a></dd>
+			
+				
+				<dd><a href="#RTypeOf">func RTypeOf(obj interface{}) uintptr</a></dd>
+			
+				
+				<dd><a href="#UnsafeCastString">func UnsafeCastString(str string) []byte</a></dd>
+			
+			
+				
+				<dd><a href="#API">type API</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ArrayType">type ArrayType</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Config">type Config</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Config.Froze">func (cfg Config) Froze() *frozenConfig</a></dd>
+				
+			
+				
+				<dd><a href="#InterfaceType">type InterfaceType</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ListType">type ListType</a></dd>
+				
+				
+			
+				
+				<dd><a href="#MapIterator">type MapIterator</a></dd>
+				
+				
+			
+				
+				<dd><a href="#MapType">type MapType</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PtrType">type PtrType</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TypeOfPtr">func TypeOfPtr(obj interface{}) PtrType</a></dd>
+				
+				
+			
+				
+				<dd><a href="#SliceType">type SliceType</a></dd>
+				
+				
+			
+				
+				<dd><a href="#StructField">type StructField</a></dd>
+				
+				
+			
+				
+				<dd><a href="#StructType">type StructType</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Type">type Type</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#DefaultTypeOfKind">func DefaultTypeOfKind(kind reflect.Kind) Type</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#PtrTo">func PtrTo(typ Type) Type</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Type2">func Type2(type1 reflect.Type) Type</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TypeByName">func TypeByName(typeName string) Type</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TypeByPackageName">func TypeByPackageName(pkgPath string, name string) Type</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#TypeOf">func TypeOf(obj interface{}) Type</a></dd>
+				
+				
+			
+				
+				<dd><a href="#UnsafeArrayType">type UnsafeArrayType</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeArrayType.GetIndex">func (type2 *UnsafeArrayType) GetIndex(obj interface{}, index int) interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeArrayType.Indirect">func (type2 *UnsafeArrayType) Indirect(obj interface{}) interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeArrayType.IsNil">func (type2 *UnsafeArrayType) IsNil(obj interface{}) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeArrayType.LikePtr">func (type2 *UnsafeArrayType) LikePtr() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeArrayType.New">func (type2 *UnsafeArrayType) New() interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeArrayType.PackEFace">func (type2 *UnsafeArrayType) PackEFace(ptr unsafe.Pointer) interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeArrayType.RType">func (type2 *UnsafeArrayType) RType() uintptr</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeArrayType.Set">func (type2 *UnsafeArrayType) Set(obj interface{}, val interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeArrayType.SetIndex">func (type2 *UnsafeArrayType) SetIndex(obj interface{}, index int, elem interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeArrayType.UnsafeGetIndex">func (type2 *UnsafeArrayType) UnsafeGetIndex(obj unsafe.Pointer, index int) unsafe.Pointer</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeArrayType.UnsafeIndirect">func (type2 *UnsafeArrayType) UnsafeIndirect(ptr unsafe.Pointer) interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeArrayType.UnsafeIsNil">func (type2 *UnsafeArrayType) UnsafeIsNil(ptr unsafe.Pointer) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeArrayType.UnsafeNew">func (type2 *UnsafeArrayType) UnsafeNew() unsafe.Pointer</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeArrayType.UnsafeSet">func (type2 *UnsafeArrayType) UnsafeSet(ptr unsafe.Pointer, val unsafe.Pointer)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeArrayType.UnsafeSetIndex">func (type2 *UnsafeArrayType) UnsafeSetIndex(obj unsafe.Pointer, index int, elem unsafe.Pointer)</a></dd>
+				
+			
+				
+				<dd><a href="#UnsafeEFaceType">type UnsafeEFaceType</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeEFaceType.Indirect">func (type2 *UnsafeEFaceType) Indirect(obj interface{}) interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeEFaceType.IsNil">func (type2 *UnsafeEFaceType) IsNil(obj interface{}) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeEFaceType.LikePtr">func (type2 *UnsafeEFaceType) LikePtr() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeEFaceType.New">func (type2 *UnsafeEFaceType) New() interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeEFaceType.PackEFace">func (type2 *UnsafeEFaceType) PackEFace(ptr unsafe.Pointer) interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeEFaceType.RType">func (type2 *UnsafeEFaceType) RType() uintptr</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeEFaceType.Set">func (type2 *UnsafeEFaceType) Set(obj interface{}, val interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeEFaceType.UnsafeIndirect">func (type2 *UnsafeEFaceType) UnsafeIndirect(ptr unsafe.Pointer) interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeEFaceType.UnsafeIsNil">func (type2 *UnsafeEFaceType) UnsafeIsNil(ptr unsafe.Pointer) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeEFaceType.UnsafeNew">func (type2 *UnsafeEFaceType) UnsafeNew() unsafe.Pointer</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeEFaceType.UnsafeSet">func (type2 *UnsafeEFaceType) UnsafeSet(ptr unsafe.Pointer, val unsafe.Pointer)</a></dd>
+				
+			
+				
+				<dd><a href="#UnsafeIFaceType">type UnsafeIFaceType</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeIFaceType.Indirect">func (type2 *UnsafeIFaceType) Indirect(obj interface{}) interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeIFaceType.IsNil">func (type2 *UnsafeIFaceType) IsNil(obj interface{}) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeIFaceType.LikePtr">func (type2 *UnsafeIFaceType) LikePtr() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeIFaceType.New">func (type2 *UnsafeIFaceType) New() interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeIFaceType.PackEFace">func (type2 *UnsafeIFaceType) PackEFace(ptr unsafe.Pointer) interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeIFaceType.RType">func (type2 *UnsafeIFaceType) RType() uintptr</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeIFaceType.Set">func (type2 *UnsafeIFaceType) Set(obj interface{}, val interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeIFaceType.UnsafeIndirect">func (type2 *UnsafeIFaceType) UnsafeIndirect(ptr unsafe.Pointer) interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeIFaceType.UnsafeIsNil">func (type2 *UnsafeIFaceType) UnsafeIsNil(ptr unsafe.Pointer) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeIFaceType.UnsafeNew">func (type2 *UnsafeIFaceType) UnsafeNew() unsafe.Pointer</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeIFaceType.UnsafeSet">func (type2 *UnsafeIFaceType) UnsafeSet(ptr unsafe.Pointer, val unsafe.Pointer)</a></dd>
+				
+			
+				
+				<dd><a href="#UnsafeMapIterator">type UnsafeMapIterator</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeMapIterator.HasNext">func (iter *UnsafeMapIterator) HasNext() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeMapIterator.Next">func (iter *UnsafeMapIterator) Next() (interface{}, interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeMapIterator.UnsafeNext">func (iter *UnsafeMapIterator) UnsafeNext() (unsafe.Pointer, unsafe.Pointer)</a></dd>
+				
+			
+				
+				<dd><a href="#UnsafeMapType">type UnsafeMapType</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeMapType.GetIndex">func (type2 *UnsafeMapType) GetIndex(obj interface{}, key interface{}) interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeMapType.Indirect">func (type2 *UnsafeMapType) Indirect(obj interface{}) interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeMapType.IsNil">func (type2 *UnsafeMapType) IsNil(obj interface{}) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeMapType.Iterate">func (type2 *UnsafeMapType) Iterate(obj interface{}) MapIterator</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeMapType.Key">func (type2 *UnsafeMapType) Key() Type</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeMapType.LikePtr">func (type2 *UnsafeMapType) LikePtr() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeMapType.MakeMap">func (type2 *UnsafeMapType) MakeMap(cap int) interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeMapType.New">func (type2 *UnsafeMapType) New() interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeMapType.PackEFace">func (type2 *UnsafeMapType) PackEFace(ptr unsafe.Pointer) interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeMapType.RType">func (type2 *UnsafeMapType) RType() uintptr</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeMapType.Set">func (type2 *UnsafeMapType) Set(obj interface{}, val interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeMapType.SetIndex">func (type2 *UnsafeMapType) SetIndex(obj interface{}, key interface{}, elem interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeMapType.TryGetIndex">func (type2 *UnsafeMapType) TryGetIndex(obj interface{}, key interface{}) (interface{}, bool)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeMapType.UnsafeGetIndex">func (type2 *UnsafeMapType) UnsafeGetIndex(obj unsafe.Pointer, key unsafe.Pointer) unsafe.Pointer</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeMapType.UnsafeIndirect">func (type2 *UnsafeMapType) UnsafeIndirect(ptr unsafe.Pointer) interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeMapType.UnsafeIsNil">func (type2 *UnsafeMapType) UnsafeIsNil(ptr unsafe.Pointer) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeMapType.UnsafeIterate">func (type2 *UnsafeMapType) UnsafeIterate(obj unsafe.Pointer) MapIterator</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeMapType.UnsafeMakeMap">func (type2 *UnsafeMapType) UnsafeMakeMap(cap int) unsafe.Pointer</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeMapType.UnsafeNew">func (type2 *UnsafeMapType) UnsafeNew() unsafe.Pointer</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeMapType.UnsafeSet">func (type2 *UnsafeMapType) UnsafeSet(ptr unsafe.Pointer, val unsafe.Pointer)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeMapType.UnsafeSetIndex">func (type2 *UnsafeMapType) UnsafeSetIndex(obj unsafe.Pointer, key unsafe.Pointer, elem unsafe.Pointer)</a></dd>
+				
+			
+				
+				<dd><a href="#UnsafePtrType">type UnsafePtrType</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafePtrType.Indirect">func (type2 *UnsafePtrType) Indirect(obj interface{}) interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafePtrType.IsNil">func (type2 *UnsafePtrType) IsNil(obj interface{}) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafePtrType.LikePtr">func (type2 *UnsafePtrType) LikePtr() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafePtrType.New">func (type2 *UnsafePtrType) New() interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafePtrType.PackEFace">func (type2 *UnsafePtrType) PackEFace(ptr unsafe.Pointer) interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafePtrType.RType">func (type2 *UnsafePtrType) RType() uintptr</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafePtrType.Set">func (type2 *UnsafePtrType) Set(obj interface{}, val interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafePtrType.UnsafeIndirect">func (type2 *UnsafePtrType) UnsafeIndirect(ptr unsafe.Pointer) interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafePtrType.UnsafeIsNil">func (type2 *UnsafePtrType) UnsafeIsNil(ptr unsafe.Pointer) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafePtrType.UnsafeNew">func (type2 *UnsafePtrType) UnsafeNew() unsafe.Pointer</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafePtrType.UnsafeSet">func (type2 *UnsafePtrType) UnsafeSet(ptr unsafe.Pointer, val unsafe.Pointer)</a></dd>
+				
+			
+				
+				<dd><a href="#UnsafeSliceType">type UnsafeSliceType</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeSliceType.Append">func (type2 *UnsafeSliceType) Append(obj interface{}, elem interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeSliceType.Cap">func (type2 *UnsafeSliceType) Cap(obj interface{}) int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeSliceType.GetIndex">func (type2 *UnsafeSliceType) GetIndex(obj interface{}, index int) interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeSliceType.Grow">func (type2 *UnsafeSliceType) Grow(obj interface{}, newLength int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeSliceType.Indirect">func (type2 *UnsafeSliceType) Indirect(obj interface{}) interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeSliceType.IsNil">func (type2 *UnsafeSliceType) IsNil(obj interface{}) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeSliceType.LengthOf">func (type2 *UnsafeSliceType) LengthOf(obj interface{}) int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeSliceType.LikePtr">func (type2 *UnsafeSliceType) LikePtr() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeSliceType.MakeSlice">func (type2 *UnsafeSliceType) MakeSlice(length int, cap int) interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeSliceType.New">func (type2 *UnsafeSliceType) New() interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeSliceType.PackEFace">func (type2 *UnsafeSliceType) PackEFace(ptr unsafe.Pointer) interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeSliceType.RType">func (type2 *UnsafeSliceType) RType() uintptr</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeSliceType.Set">func (type2 *UnsafeSliceType) Set(obj interface{}, val interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeSliceType.SetIndex">func (type2 *UnsafeSliceType) SetIndex(obj interface{}, index int, elem interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeSliceType.SetNil">func (type2 *UnsafeSliceType) SetNil(obj interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeSliceType.UnsafeAppend">func (type2 *UnsafeSliceType) UnsafeAppend(obj unsafe.Pointer, elem unsafe.Pointer)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeSliceType.UnsafeCap">func (type2 *UnsafeSliceType) UnsafeCap(ptr unsafe.Pointer) int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeSliceType.UnsafeGetIndex">func (type2 *UnsafeSliceType) UnsafeGetIndex(obj unsafe.Pointer, index int) unsafe.Pointer</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeSliceType.UnsafeGrow">func (type2 *UnsafeSliceType) UnsafeGrow(obj unsafe.Pointer, newLength int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeSliceType.UnsafeIndirect">func (type2 *UnsafeSliceType) UnsafeIndirect(obj unsafe.Pointer) interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeSliceType.UnsafeIsNil">func (type2 *UnsafeSliceType) UnsafeIsNil(ptr unsafe.Pointer) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeSliceType.UnsafeLengthOf">func (type2 *UnsafeSliceType) UnsafeLengthOf(obj unsafe.Pointer) int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeSliceType.UnsafeMakeSlice">func (type2 *UnsafeSliceType) UnsafeMakeSlice(length int, cap int) unsafe.Pointer</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeSliceType.UnsafeNew">func (type2 *UnsafeSliceType) UnsafeNew() unsafe.Pointer</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeSliceType.UnsafeSet">func (type2 *UnsafeSliceType) UnsafeSet(ptr unsafe.Pointer, val unsafe.Pointer)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeSliceType.UnsafeSetIndex">func (type2 *UnsafeSliceType) UnsafeSetIndex(obj unsafe.Pointer, index int, elem unsafe.Pointer)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeSliceType.UnsafeSetNil">func (type2 *UnsafeSliceType) UnsafeSetNil(ptr unsafe.Pointer)</a></dd>
+				
+			
+				
+				<dd><a href="#UnsafeStructField">type UnsafeStructField</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeStructField.Anonymous">func (field *UnsafeStructField) Anonymous() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeStructField.Get">func (field *UnsafeStructField) Get(obj interface{}) interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeStructField.Index">func (field *UnsafeStructField) Index() []int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeStructField.Name">func (field *UnsafeStructField) Name() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeStructField.Offset">func (field *UnsafeStructField) Offset() uintptr</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeStructField.PkgPath">func (field *UnsafeStructField) PkgPath() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeStructField.Set">func (field *UnsafeStructField) Set(obj interface{}, value interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeStructField.Tag">func (field *UnsafeStructField) Tag() reflect.StructTag</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeStructField.Type">func (field *UnsafeStructField) Type() Type</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeStructField.UnsafeGet">func (field *UnsafeStructField) UnsafeGet(obj unsafe.Pointer) unsafe.Pointer</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeStructField.UnsafeSet">func (field *UnsafeStructField) UnsafeSet(obj unsafe.Pointer, value unsafe.Pointer)</a></dd>
+				
+			
+				
+				<dd><a href="#UnsafeStructType">type UnsafeStructType</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeStructType.Field">func (type2 *UnsafeStructType) Field(i int) StructField</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeStructType.FieldByIndex">func (type2 *UnsafeStructType) FieldByIndex(index []int) StructField</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeStructType.FieldByName">func (type2 *UnsafeStructType) FieldByName(name string) StructField</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeStructType.FieldByNameFunc">func (type2 *UnsafeStructType) FieldByNameFunc(match func(string) bool) StructField</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeStructType.Indirect">func (type2 *UnsafeStructType) Indirect(obj interface{}) interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeStructType.IsNil">func (type2 *UnsafeStructType) IsNil(obj interface{}) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeStructType.LikePtr">func (type2 *UnsafeStructType) LikePtr() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeStructType.New">func (type2 *UnsafeStructType) New() interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeStructType.PackEFace">func (type2 *UnsafeStructType) PackEFace(ptr unsafe.Pointer) interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeStructType.RType">func (type2 *UnsafeStructType) RType() uintptr</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeStructType.Set">func (type2 *UnsafeStructType) Set(obj interface{}, val interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeStructType.UnsafeIndirect">func (type2 *UnsafeStructType) UnsafeIndirect(ptr unsafe.Pointer) interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeStructType.UnsafeIsNil">func (type2 *UnsafeStructType) UnsafeIsNil(ptr unsafe.Pointer) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeStructType.UnsafeNew">func (type2 *UnsafeStructType) UnsafeNew() unsafe.Pointer</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnsafeStructType.UnsafeSet">func (type2 *UnsafeStructType) UnsafeSet(ptr unsafe.Pointer, val unsafe.Pointer)</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/github.com/modern-go/reflect2/go_above_118.go">go_above_118.go</a>
+			
+				<a href="/src/github.com/modern-go/reflect2/go_above_19.go">go_above_19.go</a>
+			
+				<a href="/src/github.com/modern-go/reflect2/reflect2.go">reflect2.go</a>
+			
+				<a href="/src/github.com/modern-go/reflect2/reflect2_kind.go">reflect2_kind.go</a>
+			
+				<a href="/src/github.com/modern-go/reflect2/safe_field.go">safe_field.go</a>
+			
+				<a href="/src/github.com/modern-go/reflect2/safe_map.go">safe_map.go</a>
+			
+				<a href="/src/github.com/modern-go/reflect2/safe_slice.go">safe_slice.go</a>
+			
+				<a href="/src/github.com/modern-go/reflect2/safe_struct.go">safe_struct.go</a>
+			
+				<a href="/src/github.com/modern-go/reflect2/safe_type.go">safe_type.go</a>
+			
+				<a href="/src/github.com/modern-go/reflect2/type_map.go">type_map.go</a>
+			
+				<a href="/src/github.com/modern-go/reflect2/unsafe_array.go">unsafe_array.go</a>
+			
+				<a href="/src/github.com/modern-go/reflect2/unsafe_eface.go">unsafe_eface.go</a>
+			
+				<a href="/src/github.com/modern-go/reflect2/unsafe_field.go">unsafe_field.go</a>
+			
+				<a href="/src/github.com/modern-go/reflect2/unsafe_iface.go">unsafe_iface.go</a>
+			
+				<a href="/src/github.com/modern-go/reflect2/unsafe_link.go">unsafe_link.go</a>
+			
+				<a href="/src/github.com/modern-go/reflect2/unsafe_map.go">unsafe_map.go</a>
+			
+				<a href="/src/github.com/modern-go/reflect2/unsafe_ptr.go">unsafe_ptr.go</a>
+			
+				<a href="/src/github.com/modern-go/reflect2/unsafe_slice.go">unsafe_slice.go</a>
+			
+				<a href="/src/github.com/modern-go/reflect2/unsafe_struct.go">unsafe_struct.go</a>
+			
+				<a href="/src/github.com/modern-go/reflect2/unsafe_type.go">unsafe_type.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				
+				<pre>var <span id="ConfigSafe">ConfigSafe</span> = <a href="#Config">Config</a>{<a href="#Config.UseSafeImplementation">UseSafeImplementation</a>: <a href="/pkg/builtin/#true">true</a>}.<a href="#Froze">Froze</a>()</pre>
+			
+				
+				<pre>var <span id="ConfigUnsafe">ConfigUnsafe</span> = <a href="#Config">Config</a>{<a href="#Config.UseSafeImplementation">UseSafeImplementation</a>: <a href="/pkg/builtin/#false">false</a>}.<a href="#Froze">Froze</a>()</pre>
+			
+		
+		
+			
+			
+			<h2 id="IFaceToEFace">func <a href="/src/github.com/modern-go/reflect2/unsafe_iface.go?s=175:224#L8">IFaceToEFace</a>
+				<a class="permalink" href="#IFaceToEFace">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func IFaceToEFace(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) interface{}</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="IsNil">func <a href="/src/github.com/modern-go/reflect2/reflect2.go?s=5835:5867#L228">IsNil</a>
+				<a class="permalink" href="#IsNil">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func IsNil(obj interface{}) <a href="/pkg/builtin/#bool">bool</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="IsNullable">func <a href="/src/github.com/modern-go/reflect2/reflect2.go?s=5944:5983#L235">IsNullable</a>
+				<a class="permalink" href="#IsNullable">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func IsNullable(kind <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Kind">Kind</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="NoEscape">func <a href="/src/github.com/modern-go/reflect2/reflect2.go?s=6887:6933#L276">NoEscape</a>
+				<a class="permalink" href="#NoEscape">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NoEscape(p <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a></pre>
+			<p>NoEscape hides a pointer from escape analysis.  noescape is
+the identity function but escape analysis doesn&apos;t think the
+output depends on the input.  noescape is inlined and currently
+compiles down to zero instructions.
+USE CAREFULLY!
+
+			
+			
+
+		
+			
+			
+			<h2 id="PtrOf">func <a href="/src/github.com/modern-go/reflect2/reflect2.go?s=5674:5716#L220">PtrOf</a>
+				<a class="permalink" href="#PtrOf">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func PtrOf(obj interface{}) <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="RTypeOf">func <a href="/src/github.com/modern-go/reflect2/reflect2.go?s=5752:5789#L224">RTypeOf</a>
+				<a class="permalink" href="#RTypeOf">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func RTypeOf(obj interface{}) <a href="/pkg/builtin/#uintptr">uintptr</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="UnsafeCastString">func <a href="/src/github.com/modern-go/reflect2/reflect2.go?s=6986:7026#L281">UnsafeCastString</a>
+				<a class="permalink" href="#UnsafeCastString">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func UnsafeCastString(str <a href="/pkg/builtin/#string">string</a>) []<a href="/pkg/builtin/#byte">byte</a></pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="API">type <a href="/src/github.com/modern-go/reflect2/reflect2.go?s=3218:3302#L114">API</a>
+				<a class="permalink" href="#API">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type API interface {
+    TypeOf(obj interface{}) <a href="#Type">Type</a>
+    Type2(type1 <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Type">Type</a>) <a href="#Type">Type</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ArrayType">type <a href="/src/github.com/modern-go/reflect2/reflect2.go?s=1274:1323#L36">ArrayType</a>
+				<a class="permalink" href="#ArrayType">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ArrayType interface {
+    <a href="#ListType">ListType</a>
+    Len() <a href="/pkg/builtin/#int">int</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Config">type <a href="/src/github.com/modern-go/reflect2/reflect2.go?s=3166:3216#L110">Config</a>
+				<a class="permalink" href="#Config">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Config struct {
+<span id="Config.UseSafeImplementation"></span>    UseSafeImplementation <a href="/pkg/builtin/#bool">bool</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Config.Froze">func (Config) <a href="/src/github.com/modern-go/reflect2/reflect2.go?s=3521:3560#L127">Froze</a>
+					<a class="permalink" href="#Config.Froze">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (cfg <a href="#Config">Config</a>) Froze() *frozenConfig</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="InterfaceType">type <a href="/src/github.com/modern-go/reflect2/reflect2.go?s=3115:3164#L106">InterfaceType</a>
+				<a class="permalink" href="#InterfaceType">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type InterfaceType interface {
+    NumMethod() <a href="/pkg/builtin/#int">int</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ListType">type <a href="/src/github.com/modern-go/reflect2/reflect2.go?s=990:1272#L27">ListType</a>
+				<a class="permalink" href="#ListType">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ListType interface {
+    <a href="#Type">Type</a>
+    Elem() <a href="#Type">Type</a>
+    SetIndex(obj interface{}, index <a href="/pkg/builtin/#int">int</a>, elem interface{})
+    UnsafeSetIndex(obj <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, index <a href="/pkg/builtin/#int">int</a>, elem <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>)
+    GetIndex(obj interface{}, index <a href="/pkg/builtin/#int">int</a>) interface{}
+    UnsafeGetIndex(obj <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, index <a href="/pkg/builtin/#int">int</a>) <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="MapIterator">type <a href="/src/github.com/modern-go/reflect2/reflect2.go?s=2920:3066#L95">MapIterator</a>
+				<a class="permalink" href="#MapIterator">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type MapIterator interface {
+    HasNext() <a href="/pkg/builtin/#bool">bool</a>
+    Next() (key interface{}, elem interface{})
+    UnsafeNext() (key <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, elem <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="MapType">type <a href="/src/github.com/modern-go/reflect2/reflect2.go?s=2374:2918#L80">MapType</a>
+				<a class="permalink" href="#MapType">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type MapType interface {
+    <a href="#Type">Type</a>
+    Key() <a href="#Type">Type</a>
+    Elem() <a href="#Type">Type</a>
+    MakeMap(cap <a href="/pkg/builtin/#int">int</a>) interface{}
+    UnsafeMakeMap(cap <a href="/pkg/builtin/#int">int</a>) <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>
+    SetIndex(obj interface{}, key interface{}, elem interface{})
+    UnsafeSetIndex(obj <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, key <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, elem <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>)
+    TryGetIndex(obj interface{}, key interface{}) (interface{}, <a href="/pkg/builtin/#bool">bool</a>)
+    GetIndex(obj interface{}, key interface{}) interface{}
+    UnsafeGetIndex(obj <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, key <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>
+    Iterate(obj interface{}) <a href="#MapIterator">MapIterator</a>
+    UnsafeIterate(obj <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) <a href="#MapIterator">MapIterator</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PtrType">type <a href="/src/github.com/modern-go/reflect2/reflect2.go?s=3068:3113#L101">PtrType</a>
+				<a class="permalink" href="#PtrType">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type PtrType interface {
+    <a href="#Type">Type</a>
+    Elem() <a href="#Type">Type</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="TypeOfPtr">func <a href="/src/github.com/modern-go/reflect2/reflect2.go?s=5416:5455#L205">TypeOfPtr</a>
+					<a class="permalink" href="#TypeOfPtr">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func TypeOfPtr(obj interface{}) <a href="#PtrType">PtrType</a></pre>
+				
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="SliceType">type <a href="/src/github.com/modern-go/reflect2/reflect2.go?s=1325:1834#L41">SliceType</a>
+				<a class="permalink" href="#SliceType">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type SliceType interface {
+    <a href="#ListType">ListType</a>
+    MakeSlice(length <a href="/pkg/builtin/#int">int</a>, cap <a href="/pkg/builtin/#int">int</a>) interface{}
+    UnsafeMakeSlice(length <a href="/pkg/builtin/#int">int</a>, cap <a href="/pkg/builtin/#int">int</a>) <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>
+    Grow(obj interface{}, newLength <a href="/pkg/builtin/#int">int</a>)
+    UnsafeGrow(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, newLength <a href="/pkg/builtin/#int">int</a>)
+    Append(obj interface{}, elem interface{})
+    UnsafeAppend(obj <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, elem <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>)
+    LengthOf(obj interface{}) <a href="/pkg/builtin/#int">int</a>
+    UnsafeLengthOf(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) <a href="/pkg/builtin/#int">int</a>
+    SetNil(obj interface{})
+    UnsafeSetNil(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>)
+    Cap(obj interface{}) <a href="/pkg/builtin/#int">int</a>
+    UnsafeCap(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) <a href="/pkg/builtin/#int">int</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="StructField">type <a href="/src/github.com/modern-go/reflect2/reflect2.go?s=2046:2372#L66">StructField</a>
+				<a class="permalink" href="#StructField">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type StructField interface {
+    Offset() <a href="/pkg/builtin/#uintptr">uintptr</a>
+    Name() <a href="/pkg/builtin/#string">string</a>
+    PkgPath() <a href="/pkg/builtin/#string">string</a>
+    Type() <a href="#Type">Type</a>
+    Tag() <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#StructTag">StructTag</a>
+    Index() []<a href="/pkg/builtin/#int">int</a>
+    Anonymous() <a href="/pkg/builtin/#bool">bool</a>
+    Set(obj interface{}, value interface{})
+    UnsafeSet(obj <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, value <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>)
+    Get(obj interface{}) interface{}
+    UnsafeGet(obj <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="StructType">type <a href="/src/github.com/modern-go/reflect2/reflect2.go?s=1836:2044#L57">StructType</a>
+				<a class="permalink" href="#StructType">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type StructType interface {
+    <a href="#Type">Type</a>
+    NumField() <a href="/pkg/builtin/#int">int</a>
+    Field(i <a href="/pkg/builtin/#int">int</a>) <a href="#StructField">StructField</a>
+    FieldByName(name <a href="/pkg/builtin/#string">string</a>) <a href="#StructField">StructField</a>
+    FieldByIndex(index []<a href="/pkg/builtin/#int">int</a>) <a href="#StructField">StructField</a>
+    FieldByNameFunc(match func(<a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#bool">bool</a>) <a href="#StructField">StructField</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Type">type <a href="/src/github.com/modern-go/reflect2/reflect2.go?s=70:988#L1">Type</a>
+				<a class="permalink" href="#Type">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Type interface {
+    Kind() <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Kind">Kind</a>
+    <span class="comment">// New return pointer to data of this type</span>
+    New() interface{}
+    <span class="comment">// UnsafeNew return the allocated space pointed by unsafe.Pointer</span>
+    UnsafeNew() <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>
+    <span class="comment">// PackEFace cast a unsafe pointer to object represented pointer</span>
+    PackEFace(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) interface{}
+    <span class="comment">// Indirect dereference object represented pointer to this type</span>
+    Indirect(obj interface{}) interface{}
+    <span class="comment">// UnsafeIndirect dereference pointer to this type</span>
+    UnsafeIndirect(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) interface{}
+    <span class="comment">// Type1 returns reflect.Type</span>
+    Type1() <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Type">Type</a>
+    Implements(thatType <a href="#Type">Type</a>) <a href="/pkg/builtin/#bool">bool</a>
+    String() <a href="/pkg/builtin/#string">string</a>
+    RType() <a href="/pkg/builtin/#uintptr">uintptr</a>
+    <span class="comment">// interface{} of this type has pointer like behavior</span>
+    LikePtr() <a href="/pkg/builtin/#bool">bool</a>
+    IsNullable() <a href="/pkg/builtin/#bool">bool</a>
+    IsNil(obj interface{}) <a href="/pkg/builtin/#bool">bool</a>
+    UnsafeIsNil(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) <a href="/pkg/builtin/#bool">bool</a>
+    Set(obj interface{}, val interface{})
+    UnsafeSet(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, val <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>)
+    AssignableTo(anotherType <a href="#Type">Type</a>) <a href="/pkg/builtin/#bool">bool</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="DefaultTypeOfKind">func <a href="/src/github.com/modern-go/reflect2/reflect2_kind.go?s=121:167#L1">DefaultTypeOfKind</a>
+					<a class="permalink" href="#DefaultTypeOfKind">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func DefaultTypeOfKind(kind <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Kind">Kind</a>) <a href="#Type">Type</a></pre>
+				<p>DefaultTypeOfKind return the non aliased default type for the kind
+
+				
+				
+			
+				
+				<h3 id="PtrTo">func <a href="/src/github.com/modern-go/reflect2/reflect2.go?s=5601:5626#L216">PtrTo</a>
+					<a class="permalink" href="#PtrTo">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func PtrTo(typ <a href="#Type">Type</a>) <a href="#Type">Type</a></pre>
+				
+				
+				
+			
+				
+				<h3 id="Type2">func <a href="/src/github.com/modern-go/reflect2/reflect2.go?s=5491:5526#L209">Type2</a>
+					<a class="permalink" href="#Type2">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func Type2(type1 <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Type">Type</a>) <a href="#Type">Type</a></pre>
+				
+				
+				
+			
+				
+				<h3 id="TypeByName">func <a href="/src/github.com/modern-go/reflect2/type_map.go?s=1379:1416#L47">TypeByName</a>
+					<a class="permalink" href="#TypeByName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func TypeByName(typeName <a href="/pkg/builtin/#string">string</a>) <a href="#Type">Type</a></pre>
+				<p>TypeByName return the type by its name, just like Class.forName in java
+
+				
+				
+			
+				
+				<h3 id="TypeByPackageName">func <a href="/src/github.com/modern-go/reflect2/type_map.go?s=1542:1598#L53">TypeByPackageName</a>
+					<a class="permalink" href="#TypeByPackageName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func TypeByPackageName(pkgPath <a href="/pkg/builtin/#string">string</a>, name <a href="/pkg/builtin/#string">string</a>) <a href="#Type">Type</a></pre>
+				<p>TypeByPackageName return the type by its package and name
+
+				
+				
+			
+				
+				<h3 id="TypeOf">func <a href="/src/github.com/modern-go/reflect2/reflect2.go?s=5344:5377#L201">TypeOf</a>
+					<a class="permalink" href="#TypeOf">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func TypeOf(obj interface{}) <a href="#Type">Type</a></pre>
+				
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="UnsafeArrayType">type <a href="/src/github.com/modern-go/reflect2/unsafe_array.go?s=51:185#L1">UnsafeArrayType</a>
+				<a class="permalink" href="#UnsafeArrayType">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type UnsafeArrayType struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="UnsafeArrayType.GetIndex">func (*UnsafeArrayType) <a href="/src/github.com/modern-go/reflect2/unsafe_array.go?s=1586:1664#L46">GetIndex</a>
+					<a class="permalink" href="#UnsafeArrayType.GetIndex">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeArrayType">UnsafeArrayType</a>) GetIndex(obj interface{}, index <a href="/pkg/builtin/#int">int</a>) interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeArrayType.Indirect">func (*UnsafeArrayType) <a href="/src/github.com/modern-go/reflect2/unsafe_array.go?s=591:658#L20">Indirect</a>
+					<a class="permalink" href="#UnsafeArrayType.Indirect">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeArrayType">UnsafeArrayType</a>) Indirect(obj interface{}) interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeArrayType.IsNil">func (*UnsafeArrayType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=810:862#L27">IsNil</a>
+					<a class="permalink" href="#UnsafeArrayType.IsNil">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeArrayType">UnsafeArrayType</a>) IsNil(obj interface{}) <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeArrayType.LikePtr">func (*UnsafeArrayType) <a href="/src/github.com/modern-go/reflect2/unsafe_array.go?s=519:563#L16">LikePtr</a>
+					<a class="permalink" href="#UnsafeArrayType.LikePtr">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeArrayType">UnsafeArrayType</a>) LikePtr() <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeArrayType.New">func (*UnsafeArrayType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1183:1225#L41">New</a>
+					<a class="permalink" href="#UnsafeArrayType.New">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeArrayType">UnsafeArrayType</a>) New() interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeArrayType.PackEFace">func (*UnsafeArrayType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1284:1350#L45">PackEFace</a>
+					<a class="permalink" href="#UnsafeArrayType.PackEFace">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeArrayType">UnsafeArrayType</a>) PackEFace(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeArrayType.RType">func (*UnsafeArrayType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1395:1435#L49">RType</a>
+					<a class="permalink" href="#UnsafeArrayType.RType">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeArrayType">UnsafeArrayType</a>) RType() <a href="/pkg/builtin/#uintptr">uintptr</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeArrayType.Set">func (*UnsafeArrayType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=384:446#L15">Set</a>
+					<a class="permalink" href="#UnsafeArrayType.Set">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeArrayType">UnsafeArrayType</a>) Set(obj interface{}, val interface{})</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeArrayType.SetIndex">func (*UnsafeArrayType) <a href="/src/github.com/modern-go/reflect2/unsafe_array.go?s=1008:1092#L33">SetIndex</a>
+					<a class="permalink" href="#UnsafeArrayType.SetIndex">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeArrayType">UnsafeArrayType</a>) SetIndex(obj interface{}, index <a href="/pkg/builtin/#int">int</a>, elem interface{})</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeArrayType.UnsafeGetIndex">func (*UnsafeArrayType) <a href="/src/github.com/modern-go/reflect2/unsafe_array.go?s=1877:1967#L53">UnsafeGetIndex</a>
+					<a class="permalink" href="#UnsafeArrayType.UnsafeGetIndex">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeArrayType">UnsafeArrayType</a>) UnsafeGetIndex(obj <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, index <a href="/pkg/builtin/#int">int</a>) <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeArrayType.UnsafeIndirect">func (*UnsafeArrayType) <a href="/src/github.com/modern-go/reflect2/unsafe_array.go?s=810:886#L26">UnsafeIndirect</a>
+					<a class="permalink" href="#UnsafeArrayType.UnsafeIndirect">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeArrayType">UnsafeArrayType</a>) UnsafeIndirect(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeArrayType.UnsafeIsNil">func (*UnsafeArrayType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1008:1069#L33">UnsafeIsNil</a>
+					<a class="permalink" href="#UnsafeArrayType.UnsafeIsNil">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeArrayType">UnsafeArrayType</a>) UnsafeIsNil(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeArrayType.UnsafeNew">func (*UnsafeArrayType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1094:1145#L37">UnsafeNew</a>
+					<a class="permalink" href="#UnsafeArrayType.UnsafeNew">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeArrayType">UnsafeArrayType</a>) UnsafeNew() <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeArrayType.UnsafeSet">func (*UnsafeArrayType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=693:767#L23">UnsafeSet</a>
+					<a class="permalink" href="#UnsafeArrayType.UnsafeSet">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeArrayType">UnsafeArrayType</a>) UnsafeSet(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, val <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeArrayType.UnsafeSetIndex">func (*UnsafeArrayType) <a href="/src/github.com/modern-go/reflect2/unsafe_array.go?s=1377:1473#L41">UnsafeSetIndex</a>
+					<a class="permalink" href="#UnsafeArrayType.UnsafeSetIndex">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeArrayType">UnsafeArrayType</a>) UnsafeSetIndex(obj <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, index <a href="/pkg/builtin/#int">int</a>, elem <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="UnsafeEFaceType">type <a href="/src/github.com/modern-go/reflect2/unsafe_eface.go?s=374:417#L15">UnsafeEFaceType</a>
+				<a class="permalink" href="#UnsafeEFaceType">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type UnsafeEFaceType struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="UnsafeEFaceType.Indirect">func (*UnsafeEFaceType) <a href="/src/github.com/modern-go/reflect2/unsafe_eface.go?s=972:1039#L41">Indirect</a>
+					<a class="permalink" href="#UnsafeEFaceType.Indirect">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeEFaceType">UnsafeEFaceType</a>) Indirect(obj interface{}) interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeEFaceType.IsNil">func (*UnsafeEFaceType) <a href="/src/github.com/modern-go/reflect2/unsafe_eface.go?s=575:632#L25">IsNil</a>
+					<a class="permalink" href="#UnsafeEFaceType.IsNil">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeEFaceType">UnsafeEFaceType</a>) IsNil(obj interface{}) <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeEFaceType.LikePtr">func (*UnsafeEFaceType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1797:1836#L63">LikePtr</a>
+					<a class="permalink" href="#UnsafeEFaceType.LikePtr">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeEFaceType">UnsafeEFaceType</a>) LikePtr() <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeEFaceType.New">func (*UnsafeEFaceType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1183:1225#L41">New</a>
+					<a class="permalink" href="#UnsafeEFaceType.New">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeEFaceType">UnsafeEFaceType</a>) New() interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeEFaceType.PackEFace">func (*UnsafeEFaceType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1284:1350#L45">PackEFace</a>
+					<a class="permalink" href="#UnsafeEFaceType.PackEFace">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeEFaceType">UnsafeEFaceType</a>) PackEFace(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeEFaceType.RType">func (*UnsafeEFaceType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1395:1435#L49">RType</a>
+					<a class="permalink" href="#UnsafeEFaceType.RType">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeEFaceType">UnsafeEFaceType</a>) RType() <a href="/pkg/builtin/#uintptr">uintptr</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeEFaceType.Set">func (*UnsafeEFaceType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=384:446#L15">Set</a>
+					<a class="permalink" href="#UnsafeEFaceType.Set">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeEFaceType">UnsafeEFaceType</a>) Set(obj interface{}, val interface{})</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeEFaceType.UnsafeIndirect">func (*UnsafeEFaceType) <a href="/src/github.com/modern-go/reflect2/unsafe_eface.go?s=1191:1267#L47">UnsafeIndirect</a>
+					<a class="permalink" href="#UnsafeEFaceType.UnsafeIndirect">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeEFaceType">UnsafeEFaceType</a>) UnsafeIndirect(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeEFaceType.UnsafeIsNil">func (*UnsafeEFaceType) <a href="/src/github.com/modern-go/reflect2/unsafe_eface.go?s=812:878#L34">UnsafeIsNil</a>
+					<a class="permalink" href="#UnsafeEFaceType.UnsafeIsNil">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeEFaceType">UnsafeEFaceType</a>) UnsafeIsNil(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeEFaceType.UnsafeNew">func (*UnsafeEFaceType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1094:1145#L37">UnsafeNew</a>
+					<a class="permalink" href="#UnsafeEFaceType.UnsafeNew">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeEFaceType">UnsafeEFaceType</a>) UnsafeNew() <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeEFaceType.UnsafeSet">func (*UnsafeEFaceType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=693:767#L23">UnsafeSet</a>
+					<a class="permalink" href="#UnsafeEFaceType.UnsafeSet">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeEFaceType">UnsafeEFaceType</a>) UnsafeSet(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, val <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="UnsafeIFaceType">type <a href="/src/github.com/modern-go/reflect2/unsafe_iface.go?s=342:385#L16">UnsafeIFaceType</a>
+				<a class="permalink" href="#UnsafeIFaceType">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type UnsafeIFaceType struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="UnsafeIFaceType.Indirect">func (*UnsafeIFaceType) <a href="/src/github.com/modern-go/reflect2/unsafe_iface.go?s=543:610#L26">Indirect</a>
+					<a class="permalink" href="#UnsafeIFaceType.Indirect">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeIFaceType">UnsafeIFaceType</a>) Indirect(obj interface{}) interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeIFaceType.IsNil">func (*UnsafeIFaceType) <a href="/src/github.com/modern-go/reflect2/unsafe_iface.go?s=870:927#L36">IsNil</a>
+					<a class="permalink" href="#UnsafeIFaceType.IsNil">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeIFaceType">UnsafeIFaceType</a>) IsNil(obj interface{}) <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeIFaceType.LikePtr">func (*UnsafeIFaceType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1797:1836#L63">LikePtr</a>
+					<a class="permalink" href="#UnsafeIFaceType.LikePtr">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeIFaceType">UnsafeIFaceType</a>) LikePtr() <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeIFaceType.New">func (*UnsafeIFaceType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1183:1225#L41">New</a>
+					<a class="permalink" href="#UnsafeIFaceType.New">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeIFaceType">UnsafeIFaceType</a>) New() interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeIFaceType.PackEFace">func (*UnsafeIFaceType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1284:1350#L45">PackEFace</a>
+					<a class="permalink" href="#UnsafeIFaceType.PackEFace">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeIFaceType">UnsafeIFaceType</a>) PackEFace(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeIFaceType.RType">func (*UnsafeIFaceType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1395:1435#L49">RType</a>
+					<a class="permalink" href="#UnsafeIFaceType.RType">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeIFaceType">UnsafeIFaceType</a>) RType() <a href="/pkg/builtin/#uintptr">uintptr</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeIFaceType.Set">func (*UnsafeIFaceType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=384:446#L15">Set</a>
+					<a class="permalink" href="#UnsafeIFaceType.Set">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeIFaceType">UnsafeIFaceType</a>) Set(obj interface{}, val interface{})</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeIFaceType.UnsafeIndirect">func (*UnsafeIFaceType) <a href="/src/github.com/modern-go/reflect2/unsafe_iface.go?s=762:838#L32">UnsafeIndirect</a>
+					<a class="permalink" href="#UnsafeIFaceType.UnsafeIndirect">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeIFaceType">UnsafeIFaceType</a>) UnsafeIndirect(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeIFaceType.UnsafeIsNil">func (*UnsafeIFaceType) <a href="/src/github.com/modern-go/reflect2/unsafe_iface.go?s=1107:1173#L45">UnsafeIsNil</a>
+					<a class="permalink" href="#UnsafeIFaceType.UnsafeIsNil">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeIFaceType">UnsafeIFaceType</a>) UnsafeIsNil(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeIFaceType.UnsafeNew">func (*UnsafeIFaceType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1094:1145#L37">UnsafeNew</a>
+					<a class="permalink" href="#UnsafeIFaceType.UnsafeNew">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeIFaceType">UnsafeIFaceType</a>) UnsafeNew() <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeIFaceType.UnsafeSet">func (*UnsafeIFaceType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=693:767#L23">UnsafeSet</a>
+					<a class="permalink" href="#UnsafeIFaceType.UnsafeSet">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeIFaceType">UnsafeIFaceType</a>) UnsafeSet(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, val <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="UnsafeMapIterator">type <a href="/src/github.com/modern-go/reflect2/unsafe_map.go?s=3467:3562#L100">UnsafeMapIterator</a>
+				<a class="permalink" href="#UnsafeMapIterator">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type UnsafeMapIterator struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="UnsafeMapIterator.HasNext">func (*UnsafeMapIterator) <a href="/src/github.com/modern-go/reflect2/unsafe_map.go?s=3564:3609#L106">HasNext</a>
+					<a class="permalink" href="#UnsafeMapIterator.HasNext">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#UnsafeMapIterator">UnsafeMapIterator</a>) HasNext() <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeMapIterator.Next">func (*UnsafeMapIterator) <a href="/src/github.com/modern-go/reflect2/unsafe_map.go?s=3639:3703#L110">Next</a>
+					<a class="permalink" href="#UnsafeMapIterator.Next">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#UnsafeMapIterator">UnsafeMapIterator</a>) Next() (interface{}, interface{})</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeMapIterator.UnsafeNext">func (*UnsafeMapIterator) <a href="/src/github.com/modern-go/reflect2/unsafe_map.go?s=3814:3890#L115">UnsafeNext</a>
+					<a class="permalink" href="#UnsafeMapIterator.UnsafeNext">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (iter *<a href="#UnsafeMapIterator">UnsafeMapIterator</a>) UnsafeNext() (<a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="UnsafeMapType">type <a href="/src/github.com/modern-go/reflect2/unsafe_map.go?s=51:146#L1">UnsafeMapType</a>
+				<a class="permalink" href="#UnsafeMapType">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type UnsafeMapType struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="UnsafeMapType.GetIndex">func (*UnsafeMapType) <a href="/src/github.com/modern-go/reflect2/unsafe_map.go?s=2679:2761#L81">GetIndex</a>
+					<a class="permalink" href="#UnsafeMapType.GetIndex">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeMapType">UnsafeMapType</a>) GetIndex(obj interface{}, key interface{}) interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeMapType.Indirect">func (*UnsafeMapType) <a href="/src/github.com/modern-go/reflect2/unsafe_map.go?s=851:916#L32">Indirect</a>
+					<a class="permalink" href="#UnsafeMapType.Indirect">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeMapType">UnsafeMapType</a>) Indirect(obj interface{}) interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeMapType.IsNil">func (*UnsafeMapType) <a href="/src/github.com/modern-go/reflect2/unsafe_map.go?s=412:467#L12">IsNil</a>
+					<a class="permalink" href="#UnsafeMapType.IsNil">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeMapType">UnsafeMapType</a>) IsNil(obj interface{}) <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeMapType.Iterate">func (*UnsafeMapType) <a href="/src/github.com/modern-go/reflect2/unsafe_map.go?s=3250:3314#L94">Iterate</a>
+					<a class="permalink" href="#UnsafeMapType.Iterate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeMapType">UnsafeMapType</a>) Iterate(obj interface{}) <a href="#MapIterator">MapIterator</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeMapType.Key">func (*UnsafeMapType) <a href="/src/github.com/modern-go/reflect2/unsafe_map.go?s=1207:1245#L42">Key</a>
+					<a class="permalink" href="#UnsafeMapType.Key">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeMapType">UnsafeMapType</a>) Key() <a href="#Type">Type</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeMapType.LikePtr">func (*UnsafeMapType) <a href="/src/github.com/modern-go/reflect2/unsafe_map.go?s=790:832#L28">LikePtr</a>
+					<a class="permalink" href="#UnsafeMapType.LikePtr">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeMapType">UnsafeMapType</a>) LikePtr() <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeMapType.MakeMap">func (*UnsafeMapType) <a href="/src/github.com/modern-go/reflect2/unsafe_map.go?s=1293:1349#L46">MakeMap</a>
+					<a class="permalink" href="#UnsafeMapType.MakeMap">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeMapType">UnsafeMapType</a>) MakeMap(cap <a href="/pkg/builtin/#int">int</a>) interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeMapType.New">func (*UnsafeMapType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1183:1225#L41">New</a>
+					<a class="permalink" href="#UnsafeMapType.New">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeMapType">UnsafeMapType</a>) New() interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeMapType.PackEFace">func (*UnsafeMapType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1284:1350#L45">PackEFace</a>
+					<a class="permalink" href="#UnsafeMapType.PackEFace">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeMapType">UnsafeMapType</a>) PackEFace(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeMapType.RType">func (*UnsafeMapType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1395:1435#L49">RType</a>
+					<a class="permalink" href="#UnsafeMapType.RType">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeMapType">UnsafeMapType</a>) RType() <a href="/pkg/builtin/#uintptr">uintptr</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeMapType.Set">func (*UnsafeMapType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=384:446#L15">Set</a>
+					<a class="permalink" href="#UnsafeMapType.Set">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeMapType">UnsafeMapType</a>) Set(obj interface{}, val interface{})</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeMapType.SetIndex">func (*UnsafeMapType) <a href="/src/github.com/modern-go/reflect2/unsafe_map.go?s=1553:1641#L55">SetIndex</a>
+					<a class="permalink" href="#UnsafeMapType.SetIndex">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeMapType">UnsafeMapType</a>) SetIndex(obj interface{}, key interface{}, elem interface{})</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeMapType.TryGetIndex">func (*UnsafeMapType) <a href="/src/github.com/modern-go/reflect2/unsafe_map.go?s=2205:2298#L69">TryGetIndex</a>
+					<a class="permalink" href="#UnsafeMapType.TryGetIndex">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeMapType">UnsafeMapType</a>) TryGetIndex(obj interface{}, key interface{}) (interface{}, <a href="/pkg/builtin/#bool">bool</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeMapType.UnsafeGetIndex">func (*UnsafeMapType) <a href="/src/github.com/modern-go/reflect2/unsafe_map.go?s=3086:3183#L90">UnsafeGetIndex</a>
+					<a class="permalink" href="#UnsafeMapType.UnsafeGetIndex">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeMapType">UnsafeMapType</a>) UnsafeGetIndex(obj <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, key <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeMapType.UnsafeIndirect">func (*UnsafeMapType) <a href="/src/github.com/modern-go/reflect2/unsafe_map.go?s=1071:1145#L38">UnsafeIndirect</a>
+					<a class="permalink" href="#UnsafeMapType.UnsafeIndirect">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeMapType">UnsafeMapType</a>) UnsafeIndirect(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeMapType.UnsafeIsNil">func (*UnsafeMapType) <a href="/src/github.com/modern-go/reflect2/unsafe_map.go?s=647:711#L21">UnsafeIsNil</a>
+					<a class="permalink" href="#UnsafeMapType.UnsafeIsNil">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeMapType">UnsafeMapType</a>) UnsafeIsNil(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeMapType.UnsafeIterate">func (*UnsafeMapType) <a href="/src/github.com/modern-go/reflect2/go_above_118.go?s=292:365#L5">UnsafeIterate</a>
+					<a class="permalink" href="#UnsafeMapType.UnsafeIterate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeMapType">UnsafeMapType</a>) UnsafeIterate(obj <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) <a href="#MapIterator">MapIterator</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeMapType.UnsafeMakeMap">func (*UnsafeMapType) <a href="/src/github.com/modern-go/reflect2/unsafe_map.go?s=1415:1480#L50">UnsafeMakeMap</a>
+					<a class="permalink" href="#UnsafeMapType.UnsafeMakeMap">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeMapType">UnsafeMapType</a>) UnsafeMakeMap(cap <a href="/pkg/builtin/#int">int</a>) <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeMapType.UnsafeNew">func (*UnsafeMapType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1094:1145#L37">UnsafeNew</a>
+					<a class="permalink" href="#UnsafeMapType.UnsafeNew">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeMapType">UnsafeMapType</a>) UnsafeNew() <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeMapType.UnsafeSet">func (*UnsafeMapType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=693:767#L23">UnsafeSet</a>
+					<a class="permalink" href="#UnsafeMapType.UnsafeSet">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeMapType">UnsafeMapType</a>) UnsafeSet(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, val <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeMapType.UnsafeSetIndex">func (*UnsafeMapType) <a href="/src/github.com/modern-go/reflect2/unsafe_map.go?s=2036:2139#L65">UnsafeSetIndex</a>
+					<a class="permalink" href="#UnsafeMapType.UnsafeSetIndex">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeMapType">UnsafeMapType</a>) UnsafeSetIndex(obj <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, key <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, elem <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="UnsafePtrType">type <a href="/src/github.com/modern-go/reflect2/unsafe_ptr.go?s=51:92#L1">UnsafePtrType</a>
+				<a class="permalink" href="#UnsafePtrType">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type UnsafePtrType struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="UnsafePtrType.Indirect">func (*UnsafePtrType) <a href="/src/github.com/modern-go/reflect2/unsafe_ptr.go?s=683:748#L28">Indirect</a>
+					<a class="permalink" href="#UnsafePtrType.Indirect">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafePtrType">UnsafePtrType</a>) Indirect(obj interface{}) interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafePtrType.IsNil">func (*UnsafePtrType) <a href="/src/github.com/modern-go/reflect2/unsafe_ptr.go?s=244:299#L8">IsNil</a>
+					<a class="permalink" href="#UnsafePtrType.IsNil">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafePtrType">UnsafePtrType</a>) IsNil(obj interface{}) <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafePtrType.LikePtr">func (*UnsafePtrType) <a href="/src/github.com/modern-go/reflect2/unsafe_ptr.go?s=622:664#L24">LikePtr</a>
+					<a class="permalink" href="#UnsafePtrType.LikePtr">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafePtrType">UnsafePtrType</a>) LikePtr() <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafePtrType.New">func (*UnsafePtrType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1183:1225#L41">New</a>
+					<a class="permalink" href="#UnsafePtrType.New">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafePtrType">UnsafePtrType</a>) New() interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafePtrType.PackEFace">func (*UnsafePtrType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1284:1350#L45">PackEFace</a>
+					<a class="permalink" href="#UnsafePtrType.PackEFace">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafePtrType">UnsafePtrType</a>) PackEFace(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafePtrType.RType">func (*UnsafePtrType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1395:1435#L49">RType</a>
+					<a class="permalink" href="#UnsafePtrType.RType">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafePtrType">UnsafePtrType</a>) RType() <a href="/pkg/builtin/#uintptr">uintptr</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafePtrType.Set">func (*UnsafePtrType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=384:446#L15">Set</a>
+					<a class="permalink" href="#UnsafePtrType.Set">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafePtrType">UnsafePtrType</a>) Set(obj interface{}, val interface{})</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafePtrType.UnsafeIndirect">func (*UnsafePtrType) <a href="/src/github.com/modern-go/reflect2/unsafe_ptr.go?s=900:974#L34">UnsafeIndirect</a>
+					<a class="permalink" href="#UnsafePtrType.UnsafeIndirect">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafePtrType">UnsafePtrType</a>) UnsafeIndirect(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafePtrType.UnsafeIsNil">func (*UnsafePtrType) <a href="/src/github.com/modern-go/reflect2/unsafe_ptr.go?s=479:543#L17">UnsafeIsNil</a>
+					<a class="permalink" href="#UnsafePtrType.UnsafeIsNil">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafePtrType">UnsafePtrType</a>) UnsafeIsNil(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafePtrType.UnsafeNew">func (*UnsafePtrType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1094:1145#L37">UnsafeNew</a>
+					<a class="permalink" href="#UnsafePtrType.UnsafeNew">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafePtrType">UnsafePtrType</a>) UnsafeNew() <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafePtrType.UnsafeSet">func (*UnsafePtrType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=693:767#L23">UnsafeSet</a>
+					<a class="permalink" href="#UnsafePtrType.UnsafeSet">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafePtrType">UnsafePtrType</a>) UnsafeSet(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, val <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="UnsafeSliceType">type <a href="/src/github.com/modern-go/reflect2/unsafe_slice.go?s=195:312#L5">UnsafeSliceType</a>
+				<a class="permalink" href="#UnsafeSliceType">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type UnsafeSliceType struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="UnsafeSliceType.Append">func (*UnsafeSliceType) <a href="/src/github.com/modern-go/reflect2/unsafe_slice.go?s=3572:3643#L109">Append</a>
+					<a class="permalink" href="#UnsafeSliceType.Append">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeSliceType">UnsafeSliceType</a>) Append(obj interface{}, elem interface{})</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeSliceType.Cap">func (*UnsafeSliceType) <a href="/src/github.com/modern-go/reflect2/unsafe_slice.go?s=4131:4185#L124">Cap</a>
+					<a class="permalink" href="#UnsafeSliceType.Cap">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeSliceType">UnsafeSliceType</a>) Cap(obj interface{}) <a href="/pkg/builtin/#int">int</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeSliceType.GetIndex">func (*UnsafeSliceType) <a href="/src/github.com/modern-go/reflect2/unsafe_slice.go?s=3089:3167#L97">GetIndex</a>
+					<a class="permalink" href="#UnsafeSliceType.GetIndex">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeSliceType">UnsafeSliceType</a>) GetIndex(obj interface{}, index <a href="/pkg/builtin/#int">int</a>) interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeSliceType.Grow">func (*UnsafeSliceType) <a href="/src/github.com/modern-go/reflect2/unsafe_slice.go?s=4433:4499#L134">Grow</a>
+					<a class="permalink" href="#UnsafeSliceType.Grow">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeSliceType">UnsafeSliceType</a>) Grow(obj interface{}, newLength <a href="/pkg/builtin/#int">int</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeSliceType.Indirect">func (*UnsafeSliceType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1470:1532#L53">Indirect</a>
+					<a class="permalink" href="#UnsafeSliceType.Indirect">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeSliceType">UnsafeSliceType</a>) Indirect(obj interface{}) interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeSliceType.IsNil">func (*UnsafeSliceType) <a href="/src/github.com/modern-go/reflect2/unsafe_slice.go?s=1063:1120#L34">IsNil</a>
+					<a class="permalink" href="#UnsafeSliceType.IsNil">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeSliceType">UnsafeSliceType</a>) IsNil(obj interface{}) <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeSliceType.LengthOf">func (*UnsafeSliceType) <a href="/src/github.com/modern-go/reflect2/unsafe_slice.go?s=2137:2196#L72">LengthOf</a>
+					<a class="permalink" href="#UnsafeSliceType.LengthOf">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeSliceType">UnsafeSliceType</a>) LengthOf(obj interface{}) <a href="/pkg/builtin/#int">int</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeSliceType.LikePtr">func (*UnsafeSliceType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1797:1836#L63">LikePtr</a>
+					<a class="permalink" href="#UnsafeSliceType.LikePtr">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeSliceType">UnsafeSliceType</a>) LikePtr() <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeSliceType.MakeSlice">func (*UnsafeSliceType) <a href="/src/github.com/modern-go/reflect2/unsafe_slice.go?s=1795:1867#L63">MakeSlice</a>
+					<a class="permalink" href="#UnsafeSliceType.MakeSlice">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeSliceType">UnsafeSliceType</a>) MakeSlice(length <a href="/pkg/builtin/#int">int</a>, cap <a href="/pkg/builtin/#int">int</a>) interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeSliceType.New">func (*UnsafeSliceType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1183:1225#L41">New</a>
+					<a class="permalink" href="#UnsafeSliceType.New">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeSliceType">UnsafeSliceType</a>) New() interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeSliceType.PackEFace">func (*UnsafeSliceType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1284:1350#L45">PackEFace</a>
+					<a class="permalink" href="#UnsafeSliceType.PackEFace">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeSliceType">UnsafeSliceType</a>) PackEFace(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeSliceType.RType">func (*UnsafeSliceType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1395:1435#L49">RType</a>
+					<a class="permalink" href="#UnsafeSliceType.RType">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeSliceType">UnsafeSliceType</a>) RType() <a href="/pkg/builtin/#uintptr">uintptr</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeSliceType.Set">func (*UnsafeSliceType) <a href="/src/github.com/modern-go/reflect2/unsafe_slice.go?s=619:686#L22">Set</a>
+					<a class="permalink" href="#UnsafeSliceType.Set">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeSliceType">UnsafeSliceType</a>) Set(obj interface{}, val interface{})</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeSliceType.SetIndex">func (*UnsafeSliceType) <a href="/src/github.com/modern-go/reflect2/unsafe_slice.go?s=2472:2556#L83">SetIndex</a>
+					<a class="permalink" href="#UnsafeSliceType.SetIndex">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeSliceType">UnsafeSliceType</a>) SetIndex(obj interface{}, index <a href="/pkg/builtin/#int">int</a>, elem interface{})</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeSliceType.SetNil">func (*UnsafeSliceType) <a href="/src/github.com/modern-go/reflect2/unsafe_slice.go?s=1446:1499#L50">SetNil</a>
+					<a class="permalink" href="#UnsafeSliceType.SetNil">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeSliceType">UnsafeSliceType</a>) SetNil(obj interface{})</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeSliceType.UnsafeAppend">func (*UnsafeSliceType) <a href="/src/github.com/modern-go/reflect2/unsafe_slice.go?s=3915:3998#L117">UnsafeAppend</a>
+					<a class="permalink" href="#UnsafeSliceType.UnsafeAppend">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeSliceType">UnsafeSliceType</a>) UnsafeAppend(obj <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, elem <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeSliceType.UnsafeCap">func (*UnsafeSliceType) <a href="/src/github.com/modern-go/reflect2/unsafe_slice.go?s=4332:4395#L130">UnsafeCap</a>
+					<a class="permalink" href="#UnsafeSliceType.UnsafeCap">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeSliceType">UnsafeSliceType</a>) UnsafeCap(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) <a href="/pkg/builtin/#int">int</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeSliceType.UnsafeGetIndex">func (*UnsafeSliceType) <a href="/src/github.com/modern-go/reflect2/unsafe_slice.go?s=3380:3470#L104">UnsafeGetIndex</a>
+					<a class="permalink" href="#UnsafeSliceType.UnsafeGetIndex">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeSliceType">UnsafeSliceType</a>) UnsafeGetIndex(obj <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, index <a href="/pkg/builtin/#int">int</a>) <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeSliceType.UnsafeGrow">func (*UnsafeSliceType) <a href="/src/github.com/modern-go/reflect2/unsafe_slice.go?s=4652:4727#L140">UnsafeGrow</a>
+					<a class="permalink" href="#UnsafeSliceType.UnsafeGrow">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeSliceType">UnsafeSliceType</a>) UnsafeGrow(obj <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, newLength <a href="/pkg/builtin/#int">int</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeSliceType.UnsafeIndirect">func (*UnsafeSliceType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1684:1755#L59">UnsafeIndirect</a>
+					<a class="permalink" href="#UnsafeSliceType.UnsafeIndirect">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeSliceType">UnsafeSliceType</a>) UnsafeIndirect(obj <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeSliceType.UnsafeIsNil">func (*UnsafeSliceType) <a href="/src/github.com/modern-go/reflect2/unsafe_slice.go?s=1300:1366#L43">UnsafeIsNil</a>
+					<a class="permalink" href="#UnsafeSliceType.UnsafeIsNil">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeSliceType">UnsafeSliceType</a>) UnsafeIsNil(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeSliceType.UnsafeLengthOf">func (*UnsafeSliceType) <a href="/src/github.com/modern-go/reflect2/unsafe_slice.go?s=2348:2416#L78">UnsafeLengthOf</a>
+					<a class="permalink" href="#UnsafeSliceType.UnsafeLengthOf">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeSliceType">UnsafeSliceType</a>) UnsafeLengthOf(obj <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) <a href="/pkg/builtin/#int">int</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeSliceType.UnsafeMakeSlice">func (*UnsafeSliceType) <a href="/src/github.com/modern-go/reflect2/unsafe_slice.go?s=1943:2024#L67">UnsafeMakeSlice</a>
+					<a class="permalink" href="#UnsafeSliceType.UnsafeMakeSlice">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeSliceType">UnsafeSliceType</a>) UnsafeMakeSlice(length <a href="/pkg/builtin/#int">int</a>, cap <a href="/pkg/builtin/#int">int</a>) <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeSliceType.UnsafeNew">func (*UnsafeSliceType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1094:1145#L37">UnsafeNew</a>
+					<a class="permalink" href="#UnsafeSliceType.UnsafeNew">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeSliceType">UnsafeSliceType</a>) UnsafeNew() <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeSliceType.UnsafeSet">func (*UnsafeSliceType) <a href="/src/github.com/modern-go/reflect2/unsafe_slice.go?s=933:1012#L30">UnsafeSet</a>
+					<a class="permalink" href="#UnsafeSliceType.UnsafeSet">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeSliceType">UnsafeSliceType</a>) UnsafeSet(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, val <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeSliceType.UnsafeSetIndex">func (*UnsafeSliceType) <a href="/src/github.com/modern-go/reflect2/unsafe_slice.go?s=2841:2937#L91">UnsafeSetIndex</a>
+					<a class="permalink" href="#UnsafeSliceType.UnsafeSetIndex">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeSliceType">UnsafeSliceType</a>) UnsafeSetIndex(obj <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, index <a href="/pkg/builtin/#int">int</a>, elem <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeSliceType.UnsafeSetNil">func (*UnsafeSliceType) <a href="/src/github.com/modern-go/reflect2/unsafe_slice.go?s=1645:1707#L56">UnsafeSetNil</a>
+					<a class="permalink" href="#UnsafeSliceType.UnsafeSetNil">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeSliceType">UnsafeSliceType</a>) UnsafeSetNil(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="UnsafeStructField">type <a href="/src/github.com/modern-go/reflect2/unsafe_field.go?s=51:189#L1">UnsafeStructField</a>
+				<a class="permalink" href="#UnsafeStructField">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type UnsafeStructField struct {
+    <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#StructField">StructField</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="UnsafeStructField.Anonymous">func (*UnsafeStructField) <a href="/src/github.com/modern-go/reflect2/unsafe_field.go?s=1046:1094#L38">Anonymous</a>
+					<a class="permalink" href="#UnsafeStructField.Anonymous">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (field *<a href="#UnsafeStructField">UnsafeStructField</a>) Anonymous() <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeStructField.Get">func (*UnsafeStructField) <a href="/src/github.com/modern-go/reflect2/unsafe_field.go?s=1710:1774#L55">Get</a>
+					<a class="permalink" href="#UnsafeStructField.Get">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (field *<a href="#UnsafeStructField">UnsafeStructField</a>) Get(obj interface{}) interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeStructField.Index">func (*UnsafeStructField) <a href="/src/github.com/modern-go/reflect2/unsafe_field.go?s=963:1008#L34">Index</a>
+					<a class="permalink" href="#UnsafeStructField.Index">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (field *<a href="#UnsafeStructField">UnsafeStructField</a>) Index() []<a href="/pkg/builtin/#int">int</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeStructField.Name">func (*UnsafeStructField) <a href="/src/github.com/modern-go/reflect2/unsafe_field.go?s=594:639#L18">Name</a>
+					<a class="permalink" href="#UnsafeStructField.Name">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (field *<a href="#UnsafeStructField">UnsafeStructField</a>) Name() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeStructField.Offset">func (*UnsafeStructField) <a href="/src/github.com/modern-go/reflect2/unsafe_field.go?s=507:555#L14">Offset</a>
+					<a class="permalink" href="#UnsafeStructField.Offset">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (field *<a href="#UnsafeStructField">UnsafeStructField</a>) Offset() <a href="/pkg/builtin/#uintptr">uintptr</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeStructField.PkgPath">func (*UnsafeStructField) <a href="/src/github.com/modern-go/reflect2/unsafe_field.go?s=676:724#L22">PkgPath</a>
+					<a class="permalink" href="#UnsafeStructField.PkgPath">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (field *<a href="#UnsafeStructField">UnsafeStructField</a>) PkgPath() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeStructField.Set">func (*UnsafeStructField) <a href="/src/github.com/modern-go/reflect2/unsafe_field.go?s=1136:1207#L42">Set</a>
+					<a class="permalink" href="#UnsafeStructField.Set">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (field *<a href="#UnsafeStructField">UnsafeStructField</a>) Set(obj interface{}, value interface{})</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeStructField.Tag">func (*UnsafeStructField) <a href="/src/github.com/modern-go/reflect2/unsafe_field.go?s=872:927#L30">Tag</a>
+					<a class="permalink" href="#UnsafeStructField.Tag">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (field *<a href="#UnsafeStructField">UnsafeStructField</a>) Tag() <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#StructTag">StructTag</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeStructField.Type">func (*UnsafeStructField) <a href="/src/github.com/modern-go/reflect2/unsafe_field.go?s=764:807#L26">Type</a>
+					<a class="permalink" href="#UnsafeStructField.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (field *<a href="#UnsafeStructField">UnsafeStructField</a>) Type() <a href="#Type">Type</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeStructField.UnsafeGet">func (*UnsafeStructField) <a href="/src/github.com/modern-go/reflect2/unsafe_field.go?s=1982:2058#L62">UnsafeGet</a>
+					<a class="permalink" href="#UnsafeStructField.UnsafeGet">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (field *<a href="#UnsafeStructField">UnsafeStructField</a>) UnsafeGet(obj <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeStructField.UnsafeSet">func (*UnsafeStructField) <a href="/src/github.com/modern-go/reflect2/unsafe_field.go?s=1497:1580#L50">UnsafeSet</a>
+					<a class="permalink" href="#UnsafeStructField.UnsafeSet">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (field *<a href="#UnsafeStructField">UnsafeStructField</a>) UnsafeSet(obj <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, value <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="UnsafeStructType">type <a href="/src/github.com/modern-go/reflect2/unsafe_struct.go?s=51:109#L1">UnsafeStructType</a>
+				<a class="permalink" href="#UnsafeStructType">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type UnsafeStructType struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="UnsafeStructType.Field">func (*UnsafeStructType) <a href="/src/github.com/modern-go/reflect2/unsafe_struct.go?s=999:1054#L35">Field</a>
+					<a class="permalink" href="#UnsafeStructType.Field">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeStructType">UnsafeStructType</a>) Field(i <a href="/pkg/builtin/#int">int</a>) <a href="#StructField">StructField</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeStructType.FieldByIndex">func (*UnsafeStructType) <a href="/src/github.com/modern-go/reflect2/unsafe_struct.go?s=1117:1185#L39">FieldByIndex</a>
+					<a class="permalink" href="#UnsafeStructType.FieldByIndex">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeStructType">UnsafeStructType</a>) FieldByIndex(index []<a href="/pkg/builtin/#int">int</a>) <a href="#StructField">StructField</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeStructType.FieldByName">func (*UnsafeStructType) <a href="/src/github.com/modern-go/reflect2/unsafe_struct.go?s=796:863#L27">FieldByName</a>
+					<a class="permalink" href="#UnsafeStructType.FieldByName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeStructType">UnsafeStructType</a>) FieldByName(name <a href="/pkg/builtin/#string">string</a>) <a href="#StructField">StructField</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeStructType.FieldByNameFunc">func (*UnsafeStructType) <a href="/src/github.com/modern-go/reflect2/unsafe_struct.go?s=1259:1342#L43">FieldByNameFunc</a>
+					<a class="permalink" href="#UnsafeStructType.FieldByNameFunc">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeStructType">UnsafeStructType</a>) FieldByNameFunc(match func(<a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#bool">bool</a>) <a href="#StructField">StructField</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeStructType.Indirect">func (*UnsafeStructType) <a href="/src/github.com/modern-go/reflect2/unsafe_struct.go?s=377:445#L14">Indirect</a>
+					<a class="permalink" href="#UnsafeStructType.Indirect">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeStructType">UnsafeStructType</a>) Indirect(obj interface{}) interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeStructType.IsNil">func (*UnsafeStructType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=810:862#L27">IsNil</a>
+					<a class="permalink" href="#UnsafeStructType.IsNil">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeStructType">UnsafeStructType</a>) IsNil(obj interface{}) <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeStructType.LikePtr">func (*UnsafeStructType) <a href="/src/github.com/modern-go/reflect2/unsafe_struct.go?s=304:349#L10">LikePtr</a>
+					<a class="permalink" href="#UnsafeStructType.LikePtr">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeStructType">UnsafeStructType</a>) LikePtr() <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeStructType.New">func (*UnsafeStructType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1183:1225#L41">New</a>
+					<a class="permalink" href="#UnsafeStructType.New">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeStructType">UnsafeStructType</a>) New() interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeStructType.PackEFace">func (*UnsafeStructType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1284:1350#L45">PackEFace</a>
+					<a class="permalink" href="#UnsafeStructType.PackEFace">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeStructType">UnsafeStructType</a>) PackEFace(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeStructType.RType">func (*UnsafeStructType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1395:1435#L49">RType</a>
+					<a class="permalink" href="#UnsafeStructType.RType">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeStructType">UnsafeStructType</a>) RType() <a href="/pkg/builtin/#uintptr">uintptr</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeStructType.Set">func (*UnsafeStructType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=384:446#L15">Set</a>
+					<a class="permalink" href="#UnsafeStructType.Set">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeStructType">UnsafeStructType</a>) Set(obj interface{}, val interface{})</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeStructType.UnsafeIndirect">func (*UnsafeStructType) <a href="/src/github.com/modern-go/reflect2/unsafe_struct.go?s=597:674#L20">UnsafeIndirect</a>
+					<a class="permalink" href="#UnsafeStructType.UnsafeIndirect">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeStructType">UnsafeStructType</a>) UnsafeIndirect(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) interface{}</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeStructType.UnsafeIsNil">func (*UnsafeStructType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1008:1069#L33">UnsafeIsNil</a>
+					<a class="permalink" href="#UnsafeStructType.UnsafeIsNil">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeStructType">UnsafeStructType</a>) UnsafeIsNil(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeStructType.UnsafeNew">func (*UnsafeStructType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=1094:1145#L37">UnsafeNew</a>
+					<a class="permalink" href="#UnsafeStructType.UnsafeNew">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeStructType">UnsafeStructType</a>) UnsafeNew() <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="UnsafeStructType.UnsafeSet">func (*UnsafeStructType) <a href="/src/github.com/modern-go/reflect2/unsafe_type.go?s=693:767#L23">UnsafeSet</a>
+					<a class="permalink" href="#UnsafeStructType.UnsafeSet">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (type2 *<a href="#UnsafeStructType">UnsafeStructType</a>) UnsafeSet(ptr <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>, val <a href="/pkg/unsafe/">unsafe</a>.<a href="/pkg/unsafe/#Pointer">Pointer</a>)</pre>
+				
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>protoiface - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/pkg/">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/pkg/">GoDoc</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package protoiface
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "google.golang.org/protobuf/runtime/protoiface"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>Package protoiface contains types referenced or implemented by messages.
+<p>WARNING: This package should only be imported by message implementations.
+The functionality found in this package should be accessed through
+higher-level abstractions provided by the proto package.
+
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+			
+				
+				<dd><a href="#CheckInitializedInput">type CheckInitializedInput</a></dd>
+				
+				
+			
+				
+				<dd><a href="#CheckInitializedOutput">type CheckInitializedOutput</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ExtensionRangeV1">type ExtensionRangeV1</a></dd>
+				
+				
+			
+				
+				<dd><a href="#MarshalInput">type MarshalInput</a></dd>
+				
+				
+			
+				
+				<dd><a href="#MarshalInputFlags">type MarshalInputFlags</a></dd>
+				
+				
+			
+				
+				<dd><a href="#MarshalOutput">type MarshalOutput</a></dd>
+				
+				
+			
+				
+				<dd><a href="#MergeInput">type MergeInput</a></dd>
+				
+				
+			
+				
+				<dd><a href="#MergeOutput">type MergeOutput</a></dd>
+				
+				
+			
+				
+				<dd><a href="#MergeOutputFlags">type MergeOutputFlags</a></dd>
+				
+				
+			
+				
+				<dd><a href="#MessageV1">type MessageV1</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Methods">type Methods</a></dd>
+				
+				
+			
+				
+				<dd><a href="#SizeInput">type SizeInput</a></dd>
+				
+				
+			
+				
+				<dd><a href="#SizeOutput">type SizeOutput</a></dd>
+				
+				
+			
+				
+				<dd><a href="#SupportFlags">type SupportFlags</a></dd>
+				
+				
+			
+				
+				<dd><a href="#UnmarshalInput">type UnmarshalInput</a></dd>
+				
+				
+			
+				
+				<dd><a href="#UnmarshalInputFlags">type UnmarshalInputFlags</a></dd>
+				
+				
+			
+				
+				<dd><a href="#UnmarshalOutput">type UnmarshalOutput</a></dd>
+				
+				
+			
+				
+				<dd><a href="#UnmarshalOutputFlags">type UnmarshalOutputFlags</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/google.golang.org/protobuf/runtime/protoiface/legacy.go">legacy.go</a>
+			
+				<a href="/src/google.golang.org/protobuf/runtime/protoiface/methods.go">methods.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+		
+			
+			
+			<h2 id="CheckInitializedInput">type <a href="/src/google.golang.org/protobuf/runtime/protoiface/methods.go?s=4777:4873#L149">CheckInitializedInput</a>
+				<a class="permalink" href="#CheckInitializedInput">&#xb6;</a>
+				
+				
+			</h2>
+			<p>CheckInitializedInput is input to the CheckInitialized method.
+
+			<pre>type CheckInitializedInput = struct {
+    <a href="/pkg/google.golang.org/protobuf/internal/pragma/">pragma</a>.<a href="/pkg/google.golang.org/protobuf/internal/pragma/#NoUnkeyedLiterals">NoUnkeyedLiterals</a>
+
+<span id="CheckInitializedInput.Message"></span>    Message <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Message">Message</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="CheckInitializedOutput">type <a href="/src/google.golang.org/protobuf/runtime/protoiface/methods.go?s=4945:5011#L156">CheckInitializedOutput</a>
+				<a class="permalink" href="#CheckInitializedOutput">&#xb6;</a>
+				
+				
+			</h2>
+			<p>CheckInitializedOutput is output from the CheckInitialized method.
+
+			<pre>type CheckInitializedOutput = struct {
+    <a href="/pkg/google.golang.org/protobuf/internal/pragma/">pragma</a>.<a href="/pkg/google.golang.org/protobuf/internal/pragma/#NoUnkeyedLiterals">NoUnkeyedLiterals</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ExtensionRangeV1">type <a href="/src/google.golang.org/protobuf/runtime/protoiface/legacy.go?s=252:320#L3">ExtensionRangeV1</a>
+				<a class="permalink" href="#ExtensionRangeV1">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ExtensionRangeV1 struct {
+<span id="ExtensionRangeV1.Start"></span>    Start, End <a href="/pkg/builtin/#int32">int32</a> <span class="comment">// both inclusive</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="MarshalInput">type <a href="/src/google.golang.org/protobuf/runtime/protoiface/methods.go?s=2394:2561#L61">MarshalInput</a>
+				<a class="permalink" href="#MarshalInput">&#xb6;</a>
+				
+				
+			</h2>
+			<p>MarshalInput is input to the Marshal method.
+
+			<pre>type MarshalInput = struct {
+    <a href="/pkg/google.golang.org/protobuf/internal/pragma/">pragma</a>.<a href="/pkg/google.golang.org/protobuf/internal/pragma/#NoUnkeyedLiterals">NoUnkeyedLiterals</a>
+
+<span id="MarshalInput.Message"></span>    Message <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Message">Message</a>
+<span id="MarshalInput.Buf"></span>    Buf     []<a href="/pkg/builtin/#byte">byte</a> <span class="comment">// output is appended to this buffer</span>
+<span id="MarshalInput.Flags"></span>    Flags   <a href="#MarshalInputFlags">MarshalInputFlags</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="MarshalInputFlags">type <a href="/src/google.golang.org/protobuf/runtime/protoiface/methods.go?s=2823:2853#L78">MarshalInputFlags</a>
+				<a class="permalink" href="#MarshalInputFlags">&#xb6;</a>
+				
+				
+			</h2>
+			<p>MarshalInputFlags configure the marshaler.
+Most flags correspond to fields in proto.MarshalOptions.
+
+			<pre>type MarshalInputFlags = <a href="/pkg/builtin/#uint8">uint8</a></pre>
+
+			
+				
+				<pre>const (
+    <span id="MarshalDeterministic">MarshalDeterministic</span> <a href="#MarshalInputFlags">MarshalInputFlags</a> = 1 &lt;&lt; <a href="/pkg/builtin/#iota">iota</a>
+    <span id="MarshalUseCachedSize">MarshalUseCachedSize</span>
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="MarshalOutput">type <a href="/src/google.golang.org/protobuf/runtime/protoiface/methods.go?s=2615:2715#L70">MarshalOutput</a>
+				<a class="permalink" href="#MarshalOutput">&#xb6;</a>
+				
+				
+			</h2>
+			<p>MarshalOutput is output from the Marshal method.
+
+			<pre>type MarshalOutput = struct {
+    <a href="/pkg/google.golang.org/protobuf/internal/pragma/">pragma</a>.<a href="/pkg/google.golang.org/protobuf/internal/pragma/#NoUnkeyedLiterals">NoUnkeyedLiterals</a>
+
+<span id="MarshalOutput.Buf"></span>    Buf []<a href="/pkg/builtin/#byte">byte</a> <span class="comment">// contains marshaled message</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="MergeInput">type <a href="/src/google.golang.org/protobuf/runtime/protoiface/methods.go?s=4186:4309#L125">MergeInput</a>
+				<a class="permalink" href="#MergeInput">&#xb6;</a>
+				
+				
+			</h2>
+			<p>MergeInput is input to the Merge method.
+
+			<pre>type MergeInput = struct {
+    <a href="/pkg/google.golang.org/protobuf/internal/pragma/">pragma</a>.<a href="/pkg/google.golang.org/protobuf/internal/pragma/#NoUnkeyedLiterals">NoUnkeyedLiterals</a>
+
+<span id="MergeInput.Source"></span>    Source      <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Message">Message</a>
+<span id="MergeInput.Destination"></span>    Destination <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Message">Message</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="MergeOutput">type <a href="/src/google.golang.org/protobuf/runtime/protoiface/methods.go?s=4359:4439#L133">MergeOutput</a>
+				<a class="permalink" href="#MergeOutput">&#xb6;</a>
+				
+				
+			</h2>
+			<p>MergeOutput is output from the Merge method.
+
+			<pre>type MergeOutput = struct {
+    <a href="/pkg/google.golang.org/protobuf/internal/pragma/">pragma</a>.<a href="/pkg/google.golang.org/protobuf/internal/pragma/#NoUnkeyedLiterals">NoUnkeyedLiterals</a>
+
+<span id="MergeOutput.Flags"></span>    Flags <a href="#MergeOutputFlags">MergeOutputFlags</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="MergeOutputFlags">type <a href="/src/google.golang.org/protobuf/runtime/protoiface/methods.go?s=4495:4524#L140">MergeOutputFlags</a>
+				<a class="permalink" href="#MergeOutputFlags">&#xb6;</a>
+				
+				
+			</h2>
+			<p>MergeOutputFlags are output from the Merge method.
+
+			<pre>type MergeOutputFlags = <a href="/pkg/builtin/#uint8">uint8</a></pre>
+
+			
+				
+				<pre>const (
+    <span class="comment">// MergeComplete reports whether the merge was performed.</span>
+    <span class="comment">// If unset, the merger must have made no changes to the destination.</span>
+    <span id="MergeComplete">MergeComplete</span> <a href="#MergeOutputFlags">MergeOutputFlags</a> = 1 &lt;&lt; <a href="/pkg/builtin/#iota">iota</a>
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="MessageV1">type <a href="/src/google.golang.org/protobuf/runtime/protoiface/legacy.go?s=180:250#L1">MessageV1</a>
+				<a class="permalink" href="#MessageV1">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type MessageV1 interface {
+    Reset()
+    String() <a href="/pkg/builtin/#string">string</a>
+    ProtoMessage()
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Methods">type <a href="/src/google.golang.org/protobuf/runtime/protoiface/methods.go?s=656:1706#L8">Methods</a>
+				<a class="permalink" href="#Methods">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Methods is a set of optional fast-path implementations of various operations.
+
+			<pre>type Methods = struct {
+    <a href="/pkg/google.golang.org/protobuf/internal/pragma/">pragma</a>.<a href="/pkg/google.golang.org/protobuf/internal/pragma/#NoUnkeyedLiterals">NoUnkeyedLiterals</a>
+
+<span id="Methods.Flags"></span>    <span class="comment">// Flags indicate support for optional features.</span>
+    Flags <a href="#SupportFlags">SupportFlags</a>
+
+<span id="Methods.Size"></span>    <span class="comment">// Size returns the size in bytes of the wire-format encoding of a message.</span>
+<span id="Methods.Marshal"></span>    <span class="comment">// Marshal must be provided if a custom Size is provided.</span>
+    Size func(<a href="#SizeInput">SizeInput</a>) <a href="#SizeOutput">SizeOutput</a>
+
+    <span class="comment">// Marshal formats a message in the wire-format encoding to the provided buffer.</span>
+    <span class="comment">// Size should be provided if a custom Marshal is provided.</span>
+    <span class="comment">// It must not return an error for a partial message.</span>
+    Marshal func(<a href="#MarshalInput">MarshalInput</a>) (<a href="#MarshalOutput">MarshalOutput</a>, <a href="/pkg/builtin/#error">error</a>)
+
+<span id="Methods.Unmarshal"></span>    <span class="comment">// Unmarshal parses the wire-format encoding and merges the result into a message.</span>
+    <span class="comment">// It must not reset the target message or return an error for a partial message.</span>
+    Unmarshal func(<a href="#UnmarshalInput">UnmarshalInput</a>) (<a href="#UnmarshalOutput">UnmarshalOutput</a>, <a href="/pkg/builtin/#error">error</a>)
+
+<span id="Methods.Merge"></span>    <span class="comment">// Merge merges the contents of a source message into a destination message.</span>
+    Merge func(<a href="#MergeInput">MergeInput</a>) <a href="#MergeOutput">MergeOutput</a>
+
+<span id="Methods.CheckInitialized"></span>    <span class="comment">// CheckInitialized returns an error if any required fields in the message are not set.</span>
+    CheckInitialized func(<a href="#CheckInitializedInput">CheckInitializedInput</a>) (<a href="#CheckInitializedOutput">CheckInitializedOutput</a>, <a href="/pkg/builtin/#error">error</a>)
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="SizeInput">type <a href="/src/google.golang.org/protobuf/runtime/protoiface/methods.go?s=2120:2231#L46">SizeInput</a>
+				<a class="permalink" href="#SizeInput">&#xb6;</a>
+				
+				
+			</h2>
+			<p>SizeInput is input to the Size method.
+
+			<pre>type SizeInput = struct {
+    <a href="/pkg/google.golang.org/protobuf/internal/pragma/">pragma</a>.<a href="/pkg/google.golang.org/protobuf/internal/pragma/#NoUnkeyedLiterals">NoUnkeyedLiterals</a>
+
+<span id="SizeInput.Message"></span>    Message <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Message">Message</a>
+<span id="SizeInput.Flags"></span>    Flags   <a href="#MarshalInputFlags">MarshalInputFlags</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="SizeOutput">type <a href="/src/google.golang.org/protobuf/runtime/protoiface/methods.go?s=2279:2344#L54">SizeOutput</a>
+				<a class="permalink" href="#SizeOutput">&#xb6;</a>
+				
+				
+			</h2>
+			<p>SizeOutput is output from the Size method.
+
+			<pre>type SizeOutput = struct {
+    <a href="/pkg/google.golang.org/protobuf/internal/pragma/">pragma</a>.<a href="/pkg/google.golang.org/protobuf/internal/pragma/#NoUnkeyedLiterals">NoUnkeyedLiterals</a>
+
+<span id="SizeOutput.Size"></span>    Size <a href="/pkg/builtin/#int">int</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="SupportFlags">type <a href="/src/google.golang.org/protobuf/runtime/protoiface/methods.go?s=1764:1790#L35">SupportFlags</a>
+				<a class="permalink" href="#SupportFlags">&#xb6;</a>
+				
+				
+			</h2>
+			<p>SupportFlags indicate support for optional features.
+
+			<pre>type SupportFlags = <a href="/pkg/builtin/#uint64">uint64</a></pre>
+
+			
+				
+				<pre>const (
+    <span class="comment">// SupportMarshalDeterministic reports whether MarshalOptions.Deterministic is supported.</span>
+    <span id="SupportMarshalDeterministic">SupportMarshalDeterministic</span> <a href="#SupportFlags">SupportFlags</a> = 1 &lt;&lt; <a href="/pkg/builtin/#iota">iota</a>
+
+    <span class="comment">// SupportUnmarshalDiscardUnknown reports whether UnmarshalOptions.DiscardUnknown is supported.</span>
+    <span id="SupportUnmarshalDiscardUnknown">SupportUnmarshalDiscardUnknown</span>
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="UnmarshalInput">type <a href="/src/google.golang.org/protobuf/runtime/protoiface/methods.go?s=2992:3391#L86">UnmarshalInput</a>
+				<a class="permalink" href="#UnmarshalInput">&#xb6;</a>
+				
+				
+			</h2>
+			<p>UnmarshalInput is input to the Unmarshal method.
+
+			<pre>type UnmarshalInput = struct {
+    <a href="/pkg/google.golang.org/protobuf/internal/pragma/">pragma</a>.<a href="/pkg/google.golang.org/protobuf/internal/pragma/#NoUnkeyedLiterals">NoUnkeyedLiterals</a>
+
+<span id="UnmarshalInput.Message"></span>    Message  <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Message">Message</a>
+<span id="UnmarshalInput.Buf"></span>    Buf      []<a href="/pkg/builtin/#byte">byte</a> <span class="comment">// input buffer</span>
+<span id="UnmarshalInput.Flags"></span>    Flags    <a href="#UnmarshalInputFlags">UnmarshalInputFlags</a>
+<span id="UnmarshalInput.Resolver"></span>    Resolver interface {
+        FindExtensionByName(field <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FullName">FullName</a>) (<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#ExtensionType">ExtensionType</a>, <a href="/pkg/builtin/#error">error</a>)
+        FindExtensionByNumber(message <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FullName">FullName</a>, field <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FieldNumber">FieldNumber</a>) (<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#ExtensionType">ExtensionType</a>, <a href="/pkg/builtin/#error">error</a>)
+    }
+<span id="UnmarshalInput.Depth"></span>    Depth <a href="/pkg/builtin/#int">int</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="UnmarshalInputFlags">type <a href="/src/google.golang.org/protobuf/runtime/protoiface/methods.go?s=3651:3683#L108">UnmarshalInputFlags</a>
+				<a class="permalink" href="#UnmarshalInputFlags">&#xb6;</a>
+				
+				
+			</h2>
+			<p>UnmarshalInputFlags configure the unmarshaler.
+Most flags correspond to fields in proto.UnmarshalOptions.
+
+			<pre>type UnmarshalInputFlags = <a href="/pkg/builtin/#uint8">uint8</a></pre>
+
+			
+				
+				<pre>const (
+    <span id="UnmarshalDiscardUnknown">UnmarshalDiscardUnknown</span> <a href="#UnmarshalInputFlags">UnmarshalInputFlags</a> = 1 &lt;&lt; <a href="/pkg/builtin/#iota">iota</a>
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="UnmarshalOutput">type <a href="/src/google.golang.org/protobuf/runtime/protoiface/methods.go?s=3449:3537#L100">UnmarshalOutput</a>
+				<a class="permalink" href="#UnmarshalOutput">&#xb6;</a>
+				
+				
+			</h2>
+			<p>UnmarshalOutput is output from the Unmarshal method.
+
+			<pre>type UnmarshalOutput = struct {
+    <a href="/pkg/google.golang.org/protobuf/internal/pragma/">pragma</a>.<a href="/pkg/google.golang.org/protobuf/internal/pragma/#NoUnkeyedLiterals">NoUnkeyedLiterals</a>
+
+<span id="UnmarshalOutput.Flags"></span>    Flags <a href="#UnmarshalOutputFlags">UnmarshalOutputFlags</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="UnmarshalOutputFlags">type <a href="/src/google.golang.org/protobuf/runtime/protoiface/methods.go?s=3815:3848#L115">UnmarshalOutputFlags</a>
+				<a class="permalink" href="#UnmarshalOutputFlags">&#xb6;</a>
+				
+				
+			</h2>
+			<p>UnmarshalOutputFlags are output from the Unmarshal method.
+
+			<pre>type UnmarshalOutputFlags = <a href="/pkg/builtin/#uint8">uint8</a></pre>
+
+			
+				
+				<pre>const (
+    <span class="comment">// UnmarshalInitialized may be set on return if all required fields are known to be set.</span>
+    <span class="comment">// If unset, then it does not necessarily indicate that the message is uninitialized,</span>
+    <span class="comment">// only that its status could not be confirmed.</span>
+    <span id="UnmarshalInitialized">UnmarshalInitialized</span> <a href="#UnmarshalOutputFlags">UnmarshalOutputFlags</a> = 1 &lt;&lt; <a href="/pkg/builtin/#iota">iota</a>
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

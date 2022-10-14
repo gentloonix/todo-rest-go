@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>sqlite - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/pkg/">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/pkg/">GoDoc</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package sqlite
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "gorm.io/driver/sqlite"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+				<dd><a href="#pkg-constants">Constants</a></dd>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+				
+				<dd><a href="#Open">func Open(dsn string) gorm.Dialector</a></dd>
+			
+			
+				
+				<dd><a href="#Dialector">type Dialector</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Dialector.BindVarTo">func (dialector Dialector) BindVarTo(writer clause.Writer, stmt *gorm.Statement, v interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Dialector.ClauseBuilders">func (dialector Dialector) ClauseBuilders() map[string]clause.ClauseBuilder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Dialector.DataTypeOf">func (dialector Dialector) DataTypeOf(field *schema.Field) string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Dialector.DefaultValueOf">func (dialector Dialector) DefaultValueOf(field *schema.Field) clause.Expression</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Dialector.Explain">func (dialector Dialector) Explain(sql string, vars ...interface{}) string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Dialector.Initialize">func (dialector Dialector) Initialize(db *gorm.DB) (err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Dialector.Migrator">func (dialector Dialector) Migrator(db *gorm.DB) gorm.Migrator</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Dialector.Name">func (dialector Dialector) Name() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Dialector.QuoteTo">func (dialector Dialector) QuoteTo(writer clause.Writer, str string)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Dialector.RollbackTo">func (dialectopr Dialector) RollbackTo(tx *gorm.DB, name string) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Dialector.SavePoint">func (dialectopr Dialector) SavePoint(tx *gorm.DB, name string) error</a></dd>
+				
+			
+				
+				<dd><a href="#Migrator">type Migrator</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Migrator.AlterColumn">func (m Migrator) AlterColumn(value interface{}, name string) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Migrator.BuildIndexOptions">func (m Migrator) BuildIndexOptions(opts []schema.IndexOption, stmt *gorm.Statement) (results []interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Migrator.ColumnTypes">func (m Migrator) ColumnTypes(value interface{}) ([]gorm.ColumnType, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Migrator.CreateConstraint">func (m Migrator) CreateConstraint(value interface{}, name string) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Migrator.CreateIndex">func (m Migrator) CreateIndex(value interface{}, name string) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Migrator.CurrentDatabase">func (m Migrator) CurrentDatabase() (name string)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Migrator.DropColumn">func (m Migrator) DropColumn(value interface{}, name string) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Migrator.DropConstraint">func (m Migrator) DropConstraint(value interface{}, name string) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Migrator.DropIndex">func (m Migrator) DropIndex(value interface{}, name string) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Migrator.DropTable">func (m Migrator) DropTable(values ...interface{}) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Migrator.GetTables">func (m Migrator) GetTables() (tableList []string, err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Migrator.HasColumn">func (m Migrator) HasColumn(value interface{}, name string) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Migrator.HasConstraint">func (m Migrator) HasConstraint(value interface{}, name string) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Migrator.HasIndex">func (m Migrator) HasIndex(value interface{}, name string) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Migrator.HasTable">func (m Migrator) HasTable(value interface{}) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Migrator.RenameIndex">func (m Migrator) RenameIndex(value interface{}, oldName, newName string) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Migrator.RunWithoutForeignKey">func (m *Migrator) RunWithoutForeignKey(fc func() error) error</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/gorm.io/driver/sqlite/ddlmod.go">ddlmod.go</a>
+			
+				<a href="/src/gorm.io/driver/sqlite/errors.go">errors.go</a>
+			
+				<a href="/src/gorm.io/driver/sqlite/migrator.go">migrator.go</a>
+			
+				<a href="/src/gorm.io/driver/sqlite/sqlite.go">sqlite.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+			<h2 id="pkg-constants">Constants</h2>
+			
+				<p>DriverName is the default driver name for SQLite.
+
+				<pre>const <span id="DriverName">DriverName</span> = &#34;sqlite3&#34;</pre>
+			
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				
+				<pre>var (
+    <span id="ErrConstraintsNotImplemented">ErrConstraintsNotImplemented</span> = <a href="/pkg/errors/">errors</a>.<a href="/pkg/errors/#New">New</a>(&#34;constraints not implemented on sqlite, consider using DisableForeignKeyConstraintWhenMigrating, more details https://github.com/go-gorm/gorm/wiki/GORM-V2-Release-Note-Draft#all-new-migrator&#34;)
+)</pre>
+			
+		
+		
+			
+			
+			<h2 id="Open">func <a href="/src/gorm.io/driver/sqlite/sqlite.go?s=422:458#L18">Open</a>
+				<a class="permalink" href="#Open">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Open(dsn <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/gorm.io/gorm/">gorm</a>.<a href="/pkg/gorm.io/gorm/#Dialector">Dialector</a></pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Dialector">type <a href="/src/gorm.io/driver/sqlite/sqlite.go?s=331:420#L12">Dialector</a>
+				<a class="permalink" href="#Dialector">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Dialector struct {
+<span id="Dialector.DriverName"></span>    DriverName <a href="/pkg/builtin/#string">string</a>
+<span id="Dialector.DSN"></span>    DSN        <a href="/pkg/builtin/#string">string</a>
+<span id="Dialector.Conn"></span>    Conn       <a href="/pkg/gorm.io/gorm/">gorm</a>.<a href="/pkg/gorm.io/gorm/#ConnPool">ConnPool</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Dialector.BindVarTo">func (Dialector) <a href="/src/gorm.io/driver/sqlite/sqlite.go?s=3427:3522#L131">BindVarTo</a>
+					<a class="permalink" href="#Dialector.BindVarTo">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (dialector <a href="#Dialector">Dialector</a>) BindVarTo(writer <a href="/pkg/gorm.io/gorm/clause/">clause</a>.<a href="/pkg/gorm.io/gorm/clause/#Writer">Writer</a>, stmt *<a href="/pkg/gorm.io/gorm/">gorm</a>.<a href="/pkg/gorm.io/gorm/#Statement">Statement</a>, v interface{})</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Dialector.ClauseBuilders">func (Dialector) <a href="/src/gorm.io/driver/sqlite/sqlite.go?s=1660:1735#L65">ClauseBuilders</a>
+					<a class="permalink" href="#Dialector.ClauseBuilders">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (dialector <a href="#Dialector">Dialector</a>) ClauseBuilders() map[<a href="/pkg/builtin/#string">string</a>]<a href="/pkg/gorm.io/gorm/clause/">clause</a>.<a href="/pkg/gorm.io/gorm/clause/#ClauseBuilder">ClauseBuilder</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Dialector.DataTypeOf">func (Dialector) <a href="/src/gorm.io/driver/sqlite/sqlite.go?s=4030:4095#L155">DataTypeOf</a>
+					<a class="permalink" href="#Dialector.DataTypeOf">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (dialector <a href="#Dialector">Dialector</a>) DataTypeOf(field *<a href="/pkg/gorm.io/gorm/schema/">schema</a>.<a href="/pkg/gorm.io/gorm/schema/#Field">Field</a>) <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Dialector.DefaultValueOf">func (Dialector) <a href="/src/gorm.io/driver/sqlite/sqlite.go?s=2959:3039#L114">DefaultValueOf</a>
+					<a class="permalink" href="#Dialector.DefaultValueOf">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (dialector <a href="#Dialector">Dialector</a>) DefaultValueOf(field *<a href="/pkg/gorm.io/gorm/schema/">schema</a>.<a href="/pkg/gorm.io/gorm/schema/#Field">Field</a>) <a href="/pkg/gorm.io/gorm/clause/">clause</a>.<a href="/pkg/gorm.io/gorm/clause/#Expression">Expression</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Dialector.Explain">func (Dialector) <a href="/src/gorm.io/driver/sqlite/sqlite.go?s=3900:3974#L151">Explain</a>
+					<a class="permalink" href="#Dialector.Explain">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (dialector <a href="#Dialector">Dialector</a>) Explain(sql <a href="/pkg/builtin/#string">string</a>, vars ...interface{}) <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Dialector.Initialize">func (Dialector) <a href="/src/gorm.io/driver/sqlite/sqlite.go?s=556:618#L26">Initialize</a>
+					<a class="permalink" href="#Dialector.Initialize">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (dialector <a href="#Dialector">Dialector</a>) Initialize(db *<a href="/pkg/gorm.io/gorm/">gorm</a>.<a href="/pkg/gorm.io/gorm/#DB">DB</a>) (err <a href="/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Dialector.Migrator">func (Dialector) <a href="/src/gorm.io/driver/sqlite/sqlite.go?s=3180:3242#L123">Migrator</a>
+					<a class="permalink" href="#Dialector.Migrator">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (dialector <a href="#Dialector">Dialector</a>) Migrator(db *<a href="/pkg/gorm.io/gorm/">gorm</a>.<a href="/pkg/gorm.io/gorm/#DB">DB</a>) <a href="/pkg/gorm.io/gorm/">gorm</a>.<a href="/pkg/gorm.io/gorm/#Migrator">Migrator</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Dialector.Name">func (Dialector) <a href="/src/gorm.io/driver/sqlite/sqlite.go?s=493:533#L22">Name</a>
+					<a class="permalink" href="#Dialector.Name">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (dialector <a href="#Dialector">Dialector</a>) Name() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Dialector.QuoteTo">func (Dialector) <a href="/src/gorm.io/driver/sqlite/sqlite.go?s=3551:3619#L135">QuoteTo</a>
+					<a class="permalink" href="#Dialector.QuoteTo">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (dialector <a href="#Dialector">Dialector</a>) QuoteTo(writer <a href="/pkg/gorm.io/gorm/clause/">clause</a>.<a href="/pkg/gorm.io/gorm/clause/#Writer">Writer</a>, str <a href="/pkg/builtin/#string">string</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Dialector.RollbackTo">func (Dialector) <a href="/src/gorm.io/driver/sqlite/sqlite.go?s=4666:4736#L184">RollbackTo</a>
+					<a class="permalink" href="#Dialector.RollbackTo">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (dialectopr <a href="#Dialector">Dialector</a>) RollbackTo(tx *<a href="/pkg/gorm.io/gorm/">gorm</a>.<a href="/pkg/gorm.io/gorm/#DB">DB</a>, name <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Dialector.SavePoint">func (Dialector) <a href="/src/gorm.io/driver/sqlite/sqlite.go?s=4549:4618#L179">SavePoint</a>
+					<a class="permalink" href="#Dialector.SavePoint">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (dialectopr <a href="#Dialector">Dialector</a>) SavePoint(tx *<a href="/pkg/gorm.io/gorm/">gorm</a>.<a href="/pkg/gorm.io/gorm/#DB">DB</a>, name <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Migrator">type <a href="/src/gorm.io/driver/sqlite/migrator.go?s=160:203#L5">Migrator</a>
+				<a class="permalink" href="#Migrator">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Migrator struct {
+    <a href="/pkg/gorm.io/gorm/migrator/">migrator</a>.<a href="/pkg/gorm.io/gorm/migrator/#Migrator">Migrator</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Migrator.AlterColumn">func (Migrator) <a href="/src/gorm.io/driver/sqlite/migrator.go?s=1983:2050#L69">AlterColumn</a>
+					<a class="permalink" href="#Migrator.AlterColumn">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Migrator">Migrator</a>) AlterColumn(value interface{}, name <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Migrator.BuildIndexOptions">func (Migrator) <a href="/src/gorm.io/driver/sqlite/migrator.go?s=7215:7323#L243">BuildIndexOptions</a>
+					<a class="permalink" href="#Migrator.BuildIndexOptions">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Migrator">Migrator</a>) BuildIndexOptions(opts []<a href="/pkg/gorm.io/gorm/schema/">schema</a>.<a href="/pkg/gorm.io/gorm/schema/#IndexOption">IndexOption</a>, stmt *<a href="/pkg/gorm.io/gorm/">gorm</a>.<a href="/pkg/gorm.io/gorm/#Statement">Statement</a>) (results []interface{})</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Migrator.ColumnTypes">func (Migrator) <a href="/src/gorm.io/driver/sqlite/migrator.go?s=2971:3046#L93">ColumnTypes</a>
+					<a class="permalink" href="#Migrator.ColumnTypes">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Migrator">Migrator</a>) ColumnTypes(value interface{}) ([]<a href="/pkg/gorm.io/gorm/">gorm</a>.<a href="/pkg/gorm.io/gorm/#ColumnType">ColumnType</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>ColumnTypes return columnTypes []gorm.ColumnType and execErr error
+
+				
+				
+				
+			
+				
+				<h3 id="Migrator.CreateConstraint">func (Migrator) <a href="/src/gorm.io/driver/sqlite/migrator.go?s=4648:4720#L158">CreateConstraint</a>
+					<a class="permalink" href="#Migrator.CreateConstraint">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Migrator">Migrator</a>) CreateConstraint(value interface{}, name <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Migrator.CreateIndex">func (Migrator) <a href="/src/gorm.io/driver/sqlite/migrator.go?s=7625:7692#L262">CreateIndex</a>
+					<a class="permalink" href="#Migrator.CreateIndex">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Migrator">Migrator</a>) CreateIndex(value interface{}, name <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Migrator.CurrentDatabase">func (Migrator) <a href="/src/gorm.io/driver/sqlite/migrator.go?s=7064:7113#L237">CurrentDatabase</a>
+					<a class="permalink" href="#Migrator.CurrentDatabase">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Migrator">Migrator</a>) CurrentDatabase() (name <a href="/pkg/builtin/#string">string</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Migrator.DropColumn">func (Migrator) <a href="/src/gorm.io/driver/sqlite/migrator.go?s=4155:4221#L141">DropColumn</a>
+					<a class="permalink" href="#Migrator.DropColumn">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Migrator">Migrator</a>) DropColumn(value interface{}, name <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Migrator.DropConstraint">func (Migrator) <a href="/src/gorm.io/driver/sqlite/migrator.go?s=5728:5798#L193">DropConstraint</a>
+					<a class="permalink" href="#Migrator.DropConstraint">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Migrator">Migrator</a>) DropConstraint(value interface{}, name <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Migrator.DropIndex">func (Migrator) <a href="/src/gorm.io/driver/sqlite/migrator.go?s=9287:9352#L318">DropIndex</a>
+					<a class="permalink" href="#Migrator.DropIndex">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Migrator">Migrator</a>) DropIndex(value interface{}, name <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Migrator.DropTable">func (Migrator) <a href="/src/gorm.io/driver/sqlite/migrator.go?s=738:794#L28">DropTable</a>
+					<a class="permalink" href="#Migrator.DropTable">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Migrator">Migrator</a>) DropTable(values ...interface{}) <a href="/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Migrator.GetTables">func (Migrator) <a href="/src/gorm.io/driver/sqlite/migrator.go?s=1188:1249#L45">GetTables</a>
+					<a class="permalink" href="#Migrator.GetTables">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Migrator">Migrator</a>) GetTables() (tableList []<a href="/pkg/builtin/#string">string</a>, err <a href="/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Migrator.HasColumn">func (Migrator) <a href="/src/gorm.io/driver/sqlite/migrator.go?s=1362:1426#L49">HasColumn</a>
+					<a class="permalink" href="#Migrator.HasColumn">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Migrator">Migrator</a>) HasColumn(value interface{}, name <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Migrator.HasConstraint">func (Migrator) <a href="/src/gorm.io/driver/sqlite/migrator.go?s=6375:6443#L216">HasConstraint</a>
+					<a class="permalink" href="#Migrator.HasConstraint">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Migrator">Migrator</a>) HasConstraint(value interface{}, name <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Migrator.HasIndex">func (Migrator) <a href="/src/gorm.io/driver/sqlite/migrator.go?s=8396:8459#L290">HasIndex</a>
+					<a class="permalink" href="#Migrator.HasIndex">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Migrator">Migrator</a>) HasIndex(value interface{}, name <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Migrator.HasTable">func (Migrator) <a href="/src/gorm.io/driver/sqlite/migrator.go?s=461:511#L20">HasTable</a>
+					<a class="permalink" href="#Migrator.HasTable">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Migrator">Migrator</a>) HasTable(value interface{}) <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Migrator.RenameIndex">func (Migrator) <a href="/src/gorm.io/driver/sqlite/migrator.go?s=8824:8903#L307">RenameIndex</a>
+					<a class="permalink" href="#Migrator.RenameIndex">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Migrator">Migrator</a>) RenameIndex(value interface{}, oldName, newName <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Migrator.RunWithoutForeignKey">func (*Migrator) <a href="/src/gorm.io/driver/sqlite/migrator.go?s=205:267#L9">RunWithoutForeignKey</a>
+					<a class="permalink" href="#Migrator.RunWithoutForeignKey">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (m *<a href="#Migrator">Migrator</a>) RunWithoutForeignKey(fc func() <a href="/pkg/builtin/#error">error</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

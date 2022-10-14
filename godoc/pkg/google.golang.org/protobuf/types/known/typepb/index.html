@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>typepb - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/pkg/">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/pkg/">GoDoc</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package typepb
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "google.golang.org/protobuf/types/known/typepb"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+			
+				
+				<dd><a href="#Enum">type Enum</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Enum.Descriptor">func (*Enum) Descriptor() ([]byte, []int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Enum.GetEnumvalue">func (x *Enum) GetEnumvalue() []*EnumValue</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Enum.GetName">func (x *Enum) GetName() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Enum.GetOptions">func (x *Enum) GetOptions() []*Option</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Enum.GetSourceContext">func (x *Enum) GetSourceContext() *sourcecontextpb.SourceContext</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Enum.GetSyntax">func (x *Enum) GetSyntax() Syntax</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Enum.ProtoMessage">func (*Enum) ProtoMessage()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Enum.ProtoReflect">func (x *Enum) ProtoReflect() protoreflect.Message</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Enum.Reset">func (x *Enum) Reset()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Enum.String">func (x *Enum) String() string</a></dd>
+				
+			
+				
+				<dd><a href="#EnumValue">type EnumValue</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#EnumValue.Descriptor">func (*EnumValue) Descriptor() ([]byte, []int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#EnumValue.GetName">func (x *EnumValue) GetName() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#EnumValue.GetNumber">func (x *EnumValue) GetNumber() int32</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#EnumValue.GetOptions">func (x *EnumValue) GetOptions() []*Option</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#EnumValue.ProtoMessage">func (*EnumValue) ProtoMessage()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#EnumValue.ProtoReflect">func (x *EnumValue) ProtoReflect() protoreflect.Message</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#EnumValue.Reset">func (x *EnumValue) Reset()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#EnumValue.String">func (x *EnumValue) String() string</a></dd>
+				
+			
+				
+				<dd><a href="#Field">type Field</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Field.Descriptor">func (*Field) Descriptor() ([]byte, []int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Field.GetCardinality">func (x *Field) GetCardinality() Field_Cardinality</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Field.GetDefaultValue">func (x *Field) GetDefaultValue() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Field.GetJsonName">func (x *Field) GetJsonName() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Field.GetKind">func (x *Field) GetKind() Field_Kind</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Field.GetName">func (x *Field) GetName() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Field.GetNumber">func (x *Field) GetNumber() int32</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Field.GetOneofIndex">func (x *Field) GetOneofIndex() int32</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Field.GetOptions">func (x *Field) GetOptions() []*Option</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Field.GetPacked">func (x *Field) GetPacked() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Field.GetTypeUrl">func (x *Field) GetTypeUrl() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Field.ProtoMessage">func (*Field) ProtoMessage()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Field.ProtoReflect">func (x *Field) ProtoReflect() protoreflect.Message</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Field.Reset">func (x *Field) Reset()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Field.String">func (x *Field) String() string</a></dd>
+				
+			
+				
+				<dd><a href="#Field_Cardinality">type Field_Cardinality</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Field_Cardinality.Descriptor">func (Field_Cardinality) Descriptor() protoreflect.EnumDescriptor</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Field_Cardinality.Enum">func (x Field_Cardinality) Enum() *Field_Cardinality</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Field_Cardinality.EnumDescriptor">func (Field_Cardinality) EnumDescriptor() ([]byte, []int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Field_Cardinality.Number">func (x Field_Cardinality) Number() protoreflect.EnumNumber</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Field_Cardinality.String">func (x Field_Cardinality) String() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Field_Cardinality.Type">func (Field_Cardinality) Type() protoreflect.EnumType</a></dd>
+				
+			
+				
+				<dd><a href="#Field_Kind">type Field_Kind</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Field_Kind.Descriptor">func (Field_Kind) Descriptor() protoreflect.EnumDescriptor</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Field_Kind.Enum">func (x Field_Kind) Enum() *Field_Kind</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Field_Kind.EnumDescriptor">func (Field_Kind) EnumDescriptor() ([]byte, []int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Field_Kind.Number">func (x Field_Kind) Number() protoreflect.EnumNumber</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Field_Kind.String">func (x Field_Kind) String() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Field_Kind.Type">func (Field_Kind) Type() protoreflect.EnumType</a></dd>
+				
+			
+				
+				<dd><a href="#Option">type Option</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Option.Descriptor">func (*Option) Descriptor() ([]byte, []int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Option.GetName">func (x *Option) GetName() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Option.GetValue">func (x *Option) GetValue() *anypb.Any</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Option.ProtoMessage">func (*Option) ProtoMessage()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Option.ProtoReflect">func (x *Option) ProtoReflect() protoreflect.Message</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Option.Reset">func (x *Option) Reset()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Option.String">func (x *Option) String() string</a></dd>
+				
+			
+				
+				<dd><a href="#Syntax">type Syntax</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Syntax.Descriptor">func (Syntax) Descriptor() protoreflect.EnumDescriptor</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Syntax.Enum">func (x Syntax) Enum() *Syntax</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Syntax.EnumDescriptor">func (Syntax) EnumDescriptor() ([]byte, []int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Syntax.Number">func (x Syntax) Number() protoreflect.EnumNumber</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Syntax.String">func (x Syntax) String() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Syntax.Type">func (Syntax) Type() protoreflect.EnumType</a></dd>
+				
+			
+				
+				<dd><a href="#Type">type Type</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Type.Descriptor">func (*Type) Descriptor() ([]byte, []int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Type.GetFields">func (x *Type) GetFields() []*Field</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Type.GetName">func (x *Type) GetName() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Type.GetOneofs">func (x *Type) GetOneofs() []string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Type.GetOptions">func (x *Type) GetOptions() []*Option</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Type.GetSourceContext">func (x *Type) GetSourceContext() *sourcecontextpb.SourceContext</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Type.GetSyntax">func (x *Type) GetSyntax() Syntax</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Type.ProtoMessage">func (*Type) ProtoMessage()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Type.ProtoReflect">func (x *Type) ProtoReflect() protoreflect.Message</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Type.Reset">func (x *Type) Reset()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Type.String">func (x *Type) String() string</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go">type.pb.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				<p>Enum value maps for Syntax.
+
+				<pre>var (
+    <span id="Syntax_name">Syntax_name</span> = map[<a href="/pkg/builtin/#int32">int32</a>]<a href="/pkg/builtin/#string">string</a>{
+        0: &#34;SYNTAX_PROTO2&#34;,
+        1: &#34;SYNTAX_PROTO3&#34;,
+    }
+    <span id="Syntax_value">Syntax_value</span> = map[<a href="/pkg/builtin/#string">string</a>]<a href="/pkg/builtin/#int32">int32</a>{
+        &#34;SYNTAX_PROTO2&#34;: 0,
+        &#34;SYNTAX_PROTO3&#34;: 1,
+    }
+)</pre>
+			
+				<p>Enum value maps for Field_Kind.
+
+				<pre>var (
+    <span id="Field_Kind_name">Field_Kind_name</span> = map[<a href="/pkg/builtin/#int32">int32</a>]<a href="/pkg/builtin/#string">string</a>{
+        0:  &#34;TYPE_UNKNOWN&#34;,
+        1:  &#34;TYPE_DOUBLE&#34;,
+        2:  &#34;TYPE_FLOAT&#34;,
+        3:  &#34;TYPE_INT64&#34;,
+        4:  &#34;TYPE_UINT64&#34;,
+        5:  &#34;TYPE_INT32&#34;,
+        6:  &#34;TYPE_FIXED64&#34;,
+        7:  &#34;TYPE_FIXED32&#34;,
+        8:  &#34;TYPE_BOOL&#34;,
+        9:  &#34;TYPE_STRING&#34;,
+        10: &#34;TYPE_GROUP&#34;,
+        11: &#34;TYPE_MESSAGE&#34;,
+        12: &#34;TYPE_BYTES&#34;,
+        13: &#34;TYPE_UINT32&#34;,
+        14: &#34;TYPE_ENUM&#34;,
+        15: &#34;TYPE_SFIXED32&#34;,
+        16: &#34;TYPE_SFIXED64&#34;,
+        17: &#34;TYPE_SINT32&#34;,
+        18: &#34;TYPE_SINT64&#34;,
+    }
+    <span id="Field_Kind_value">Field_Kind_value</span> = map[<a href="/pkg/builtin/#string">string</a>]<a href="/pkg/builtin/#int32">int32</a>{
+        &#34;TYPE_UNKNOWN&#34;:  0,
+        &#34;TYPE_DOUBLE&#34;:   1,
+        &#34;TYPE_FLOAT&#34;:    2,
+        &#34;TYPE_INT64&#34;:    3,
+        &#34;TYPE_UINT64&#34;:   4,
+        &#34;TYPE_INT32&#34;:    5,
+        &#34;TYPE_FIXED64&#34;:  6,
+        &#34;TYPE_FIXED32&#34;:  7,
+        &#34;TYPE_BOOL&#34;:     8,
+        &#34;TYPE_STRING&#34;:   9,
+        &#34;TYPE_GROUP&#34;:    10,
+        &#34;TYPE_MESSAGE&#34;:  11,
+        &#34;TYPE_BYTES&#34;:    12,
+        &#34;TYPE_UINT32&#34;:   13,
+        &#34;TYPE_ENUM&#34;:     14,
+        &#34;TYPE_SFIXED32&#34;: 15,
+        &#34;TYPE_SFIXED64&#34;: 16,
+        &#34;TYPE_SINT32&#34;:   17,
+        &#34;TYPE_SINT64&#34;:   18,
+    }
+)</pre>
+			
+				<p>Enum value maps for Field_Cardinality.
+
+				<pre>var (
+    <span id="Field_Cardinality_name">Field_Cardinality_name</span> = map[<a href="/pkg/builtin/#int32">int32</a>]<a href="/pkg/builtin/#string">string</a>{
+        0: &#34;CARDINALITY_UNKNOWN&#34;,
+        1: &#34;CARDINALITY_OPTIONAL&#34;,
+        2: &#34;CARDINALITY_REQUIRED&#34;,
+        3: &#34;CARDINALITY_REPEATED&#34;,
+    }
+    <span id="Field_Cardinality_value">Field_Cardinality_value</span> = map[<a href="/pkg/builtin/#string">string</a>]<a href="/pkg/builtin/#int32">int32</a>{
+        &#34;CARDINALITY_UNKNOWN&#34;:  0,
+        &#34;CARDINALITY_OPTIONAL&#34;: 1,
+        &#34;CARDINALITY_REQUIRED&#34;: 2,
+        &#34;CARDINALITY_REPEATED&#34;: 3,
+    }
+)</pre>
+			
+				
+				<pre>var <span id="File_google_protobuf_type_proto">File_google_protobuf_type_proto</span> <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#FileDescriptor">FileDescriptor</a></pre>
+			
+		
+		
+		
+			
+			
+			<h2 id="Enum">type <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=13464:14246#L485">Enum</a>
+				<a class="permalink" href="#Enum">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Enum type definition.
+
+			<pre>type Enum struct {
+
+    <span class="comment">// Enum type name.</span>
+<span id="Enum.Name"></span>    Name <a href="/pkg/builtin/#string">string</a> `protobuf:&#34;bytes,1,opt,name=name,proto3&#34; json:&#34;name,omitempty&#34;`
+    <span class="comment">// Enum value definitions.</span>
+<span id="Enum.Enumvalue"></span>    Enumvalue []*<a href="#EnumValue">EnumValue</a> `protobuf:&#34;bytes,2,rep,name=enumvalue,proto3&#34; json:&#34;enumvalue,omitempty&#34;`
+    <span class="comment">// Protocol buffer options.</span>
+<span id="Enum.Options"></span>    Options []*<a href="#Option">Option</a> `protobuf:&#34;bytes,3,rep,name=options,proto3&#34; json:&#34;options,omitempty&#34;`
+    <span class="comment">// The source context.</span>
+<span id="Enum.SourceContext"></span>    SourceContext *<a href="/pkg/google.golang.org/protobuf/types/known/sourcecontextpb/">sourcecontextpb</a>.<a href="/pkg/google.golang.org/protobuf/types/known/sourcecontextpb/#SourceContext">SourceContext</a> `protobuf:&#34;bytes,4,opt,name=source_context,json=sourceContext,proto3&#34; json:&#34;source_context,omitempty&#34;`
+    <span class="comment">// The source syntax.</span>
+<span id="Enum.Syntax"></span>    Syntax <a href="#Syntax">Syntax</a> `protobuf:&#34;varint,5,opt,name=syntax,proto3,enum=google.protobuf.Syntax&#34; json:&#34;syntax,omitempty&#34;`
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Enum.Descriptor">func (*Enum) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=14934:14975#L530">Descriptor</a>
+					<a class="permalink" href="#Enum.Descriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#Enum">Enum</a>) Descriptor() ([]<a href="/pkg/builtin/#byte">byte</a>, []<a href="/pkg/builtin/#int">int</a>)</pre>
+				<p>Deprecated: Use Enum.ProtoReflect.Descriptor instead.
+
+				
+				
+				
+			
+				
+				<h3 id="Enum.GetEnumvalue">func (*Enum) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=15127:15169#L541">GetEnumvalue</a>
+					<a class="permalink" href="#Enum.GetEnumvalue">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Enum">Enum</a>) GetEnumvalue() []*<a href="#EnumValue">EnumValue</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Enum.GetName">func (*Enum) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=15045:15076#L534">GetName</a>
+					<a class="permalink" href="#Enum.GetName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Enum">Enum</a>) GetName() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Enum.GetOptions">func (*Enum) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=15226:15263#L548">GetOptions</a>
+					<a class="permalink" href="#Enum.GetOptions">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Enum">Enum</a>) GetOptions() []*<a href="#Option">Option</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Enum.GetSourceContext">func (*Enum) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=15318:15382#L555">GetSourceContext</a>
+					<a class="permalink" href="#Enum.GetSourceContext">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Enum">Enum</a>) GetSourceContext() *<a href="/pkg/google.golang.org/protobuf/types/known/sourcecontextpb/">sourcecontextpb</a>.<a href="/pkg/google.golang.org/protobuf/types/known/sourcecontextpb/#SourceContext">SourceContext</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Enum.GetSyntax">func (*Enum) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=15443:15476#L562">GetSyntax</a>
+					<a class="permalink" href="#Enum.GetSyntax">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Enum">Enum</a>) GetSyntax() <a href="#Syntax">Syntax</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Enum.ProtoMessage">func (*Enum) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=14533:14560#L515">ProtoMessage</a>
+					<a class="permalink" href="#Enum.ProtoMessage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#Enum">Enum</a>) ProtoMessage()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Enum.ProtoReflect">func (*Enum) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=14565:14615#L517">ProtoReflect</a>
+					<a class="permalink" href="#Enum.ProtoReflect">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Enum">Enum</a>) ProtoReflect() <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Message">Message</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Enum.Reset">func (*Enum) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=14248:14270#L502">Reset</a>
+					<a class="permalink" href="#Enum.Reset">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Enum">Enum</a>) Reset()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Enum.String">func (*Enum) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=14458:14488#L511">String</a>
+					<a class="permalink" href="#Enum.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Enum">Enum</a>) String() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="EnumValue">type <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=15573:16033#L570">EnumValue</a>
+				<a class="permalink" href="#EnumValue">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Enum value definition.
+
+			<pre>type EnumValue struct {
+
+    <span class="comment">// Enum value name.</span>
+<span id="EnumValue.Name"></span>    Name <a href="/pkg/builtin/#string">string</a> `protobuf:&#34;bytes,1,opt,name=name,proto3&#34; json:&#34;name,omitempty&#34;`
+    <span class="comment">// Enum value number.</span>
+<span id="EnumValue.Number"></span>    Number <a href="/pkg/builtin/#int32">int32</a> `protobuf:&#34;varint,2,opt,name=number,proto3&#34; json:&#34;number,omitempty&#34;`
+    <span class="comment">// Protocol buffer options.</span>
+<span id="EnumValue.Options"></span>    Options []*<a href="#Option">Option</a> `protobuf:&#34;bytes,3,rep,name=options,proto3&#34; json:&#34;options,omitempty&#34;`
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="EnumValue.Descriptor">func (*EnumValue) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=16751:16797#L611">Descriptor</a>
+					<a class="permalink" href="#EnumValue.Descriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#EnumValue">EnumValue</a>) Descriptor() ([]<a href="/pkg/builtin/#byte">byte</a>, []<a href="/pkg/builtin/#int">int</a>)</pre>
+				<p>Deprecated: Use EnumValue.ProtoReflect.Descriptor instead.
+
+				
+				
+				
+			
+				
+				<h3 id="EnumValue.GetName">func (*EnumValue) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=16867:16903#L615">GetName</a>
+					<a class="permalink" href="#EnumValue.GetName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#EnumValue">EnumValue</a>) GetName() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="EnumValue.GetNumber">func (*EnumValue) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=16954:16991#L622">GetNumber</a>
+					<a class="permalink" href="#EnumValue.GetNumber">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#EnumValue">EnumValue</a>) GetNumber() <a href="/pkg/builtin/#int32">int32</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="EnumValue.GetOptions">func (*EnumValue) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=17043:17085#L629">GetOptions</a>
+					<a class="permalink" href="#EnumValue.GetOptions">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#EnumValue">EnumValue</a>) GetOptions() []*<a href="#Option">Option</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="EnumValue.ProtoMessage">func (*EnumValue) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=16335:16367#L596">ProtoMessage</a>
+					<a class="permalink" href="#EnumValue.ProtoMessage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#EnumValue">EnumValue</a>) ProtoMessage()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="EnumValue.ProtoReflect">func (*EnumValue) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=16372:16427#L598">ProtoReflect</a>
+					<a class="permalink" href="#EnumValue.ProtoReflect">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#EnumValue">EnumValue</a>) ProtoReflect() <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Message">Message</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="EnumValue.Reset">func (*EnumValue) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=16035:16062#L583">Reset</a>
+					<a class="permalink" href="#EnumValue.Reset">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#EnumValue">EnumValue</a>) Reset()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="EnumValue.String">func (*EnumValue) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=16255:16290#L592">String</a>
+					<a class="permalink" href="#EnumValue.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#EnumValue">EnumValue</a>) String() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Field">type <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=9927:11678#L353">Field</a>
+				<a class="permalink" href="#Field">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A single field of a message type.
+
+			<pre>type Field struct {
+
+    <span class="comment">// The field type.</span>
+<span id="Field.Kind"></span>    Kind <a href="#Field_Kind">Field_Kind</a> `protobuf:&#34;varint,1,opt,name=kind,proto3,enum=google.protobuf.Field_Kind&#34; json:&#34;kind,omitempty&#34;`
+    <span class="comment">// The field cardinality.</span>
+<span id="Field.Cardinality"></span>    Cardinality <a href="#Field_Cardinality">Field_Cardinality</a> `protobuf:&#34;varint,2,opt,name=cardinality,proto3,enum=google.protobuf.Field_Cardinality&#34; json:&#34;cardinality,omitempty&#34;`
+    <span class="comment">// The field number.</span>
+<span id="Field.Number"></span>    Number <a href="/pkg/builtin/#int32">int32</a> `protobuf:&#34;varint,3,opt,name=number,proto3&#34; json:&#34;number,omitempty&#34;`
+    <span class="comment">// The field name.</span>
+<span id="Field.Name"></span>    Name <a href="/pkg/builtin/#string">string</a> `protobuf:&#34;bytes,4,opt,name=name,proto3&#34; json:&#34;name,omitempty&#34;`
+    <span class="comment">// The field type URL, without the scheme, for message or enumeration</span>
+    <span class="comment">// types. Example: `&#34;type.googleapis.com/google.protobuf.Timestamp&#34;`.</span>
+<span id="Field.TypeUrl"></span>    TypeUrl <a href="/pkg/builtin/#string">string</a> `protobuf:&#34;bytes,6,opt,name=type_url,json=typeUrl,proto3&#34; json:&#34;type_url,omitempty&#34;`
+    <span class="comment">// The index of the field type in `Type.oneofs`, for message or enumeration</span>
+    <span class="comment">// types. The first type has index 1; zero means the type is not in the list.</span>
+<span id="Field.OneofIndex"></span>    OneofIndex <a href="/pkg/builtin/#int32">int32</a> `protobuf:&#34;varint,7,opt,name=oneof_index,json=oneofIndex,proto3&#34; json:&#34;oneof_index,omitempty&#34;`
+    <span class="comment">// Whether to use alternative packed wire representation.</span>
+<span id="Field.Packed"></span>    Packed <a href="/pkg/builtin/#bool">bool</a> `protobuf:&#34;varint,8,opt,name=packed,proto3&#34; json:&#34;packed,omitempty&#34;`
+    <span class="comment">// The protocol buffer options.</span>
+<span id="Field.Options"></span>    Options []*<a href="#Option">Option</a> `protobuf:&#34;bytes,9,rep,name=options,proto3&#34; json:&#34;options,omitempty&#34;`
+    <span class="comment">// The field JSON name.</span>
+<span id="Field.JsonName"></span>    JsonName <a href="/pkg/builtin/#string">string</a> `protobuf:&#34;bytes,10,opt,name=json_name,json=jsonName,proto3&#34; json:&#34;json_name,omitempty&#34;`
+    <span class="comment">// The string value of the default value of this field. Proto2 syntax only.</span>
+<span id="Field.DefaultValue"></span>    DefaultValue <a href="/pkg/builtin/#string">string</a> `protobuf:&#34;bytes,11,opt,name=default_value,json=defaultValue,proto3&#34; json:&#34;default_value,omitempty&#34;`
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Field.Descriptor">func (*Field) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=12372:12414#L410">Descriptor</a>
+					<a class="permalink" href="#Field.Descriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#Field">Field</a>) Descriptor() ([]<a href="/pkg/builtin/#byte">byte</a>, []<a href="/pkg/builtin/#int">int</a>)</pre>
+				<p>Deprecated: Use Field.ProtoReflect.Descriptor instead.
+
+				
+				
+				
+			
+				
+				<h3 id="Field.GetCardinality">func (*Field) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=12587:12637#L421">GetCardinality</a>
+					<a class="permalink" href="#Field.GetCardinality">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Field">Field</a>) GetCardinality() <a href="#Field_Cardinality">Field_Cardinality</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Field.GetDefaultValue">func (*Field) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=13340:13380#L477">GetDefaultValue</a>
+					<a class="permalink" href="#Field.GetDefaultValue">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Field">Field</a>) GetDefaultValue() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Field.GetJsonName">func (*Field) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=13249:13285#L470">GetJsonName</a>
+					<a class="permalink" href="#Field.GetJsonName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Field">Field</a>) GetJsonName() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Field.GetKind">func (*Field) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=12484:12520#L414">GetKind</a>
+					<a class="permalink" href="#Field.GetKind">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Field">Field</a>) GetKind() <a href="#Field_Kind">Field_Kind</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Field.GetName">func (*Field) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=12803:12835#L435">GetName</a>
+					<a class="permalink" href="#Field.GetName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Field">Field</a>) GetName() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Field.GetNumber">func (*Field) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=12718:12751#L428">GetNumber</a>
+					<a class="permalink" href="#Field.GetNumber">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Field">Field</a>) GetNumber() <a href="/pkg/builtin/#int32">int32</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Field.GetOneofIndex">func (*Field) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=12975:13012#L449">GetOneofIndex</a>
+					<a class="permalink" href="#Field.GetOneofIndex">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Field">Field</a>) GetOneofIndex() <a href="/pkg/builtin/#int32">int32</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Field.GetOptions">func (*Field) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=13156:13194#L463">GetOptions</a>
+					<a class="permalink" href="#Field.GetOptions">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Field">Field</a>) GetOptions() []*<a href="#Option">Option</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Field.GetPacked">func (*Field) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=13068:13100#L456">GetPacked</a>
+					<a class="permalink" href="#Field.GetPacked">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Field">Field</a>) GetPacked() <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Field.GetTypeUrl">func (*Field) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=12886:12921#L442">GetTypeUrl</a>
+					<a class="permalink" href="#Field.GetTypeUrl">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Field">Field</a>) GetTypeUrl() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Field.ProtoMessage">func (*Field) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=11968:11996#L395">ProtoMessage</a>
+					<a class="permalink" href="#Field.ProtoMessage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#Field">Field</a>) ProtoMessage()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Field.ProtoReflect">func (*Field) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=12001:12052#L397">ProtoReflect</a>
+					<a class="permalink" href="#Field.ProtoReflect">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Field">Field</a>) ProtoReflect() <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Message">Message</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Field.Reset">func (*Field) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=11680:11703#L382">Reset</a>
+					<a class="permalink" href="#Field.Reset">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Field">Field</a>) Reset()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Field.String">func (*Field) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=11892:11923#L391">String</a>
+					<a class="permalink" href="#Field.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Field">Field</a>) String() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Field_Cardinality">type <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=6014:6042#L202">Field_Cardinality</a>
+				<a class="permalink" href="#Field_Cardinality">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Whether a field is optional, required, or repeated.
+
+			<pre>type Field_Cardinality <a href="/pkg/builtin/#int32">int32</a></pre>
+
+			
+				
+				<pre>const (
+    <span class="comment">// For fields with unknown cardinality.</span>
+    <span id="Field_CARDINALITY_UNKNOWN">Field_CARDINALITY_UNKNOWN</span> <a href="#Field_Cardinality">Field_Cardinality</a> = 0
+    <span class="comment">// For optional fields.</span>
+    <span id="Field_CARDINALITY_OPTIONAL">Field_CARDINALITY_OPTIONAL</span> <a href="#Field_Cardinality">Field_Cardinality</a> = 1
+    <span class="comment">// For required fields. Proto2 syntax only.</span>
+    <span id="Field_CARDINALITY_REQUIRED">Field_CARDINALITY_REQUIRED</span> <a href="#Field_Cardinality">Field_Cardinality</a> = 2
+    <span class="comment">// For repeated fields.</span>
+    <span id="Field_CARDINALITY_REPEATED">Field_CARDINALITY_REPEATED</span> <a href="#Field_Cardinality">Field_Cardinality</a> = 3
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Field_Cardinality.Descriptor">func (Field_Cardinality) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=6997:7062#L241">Descriptor</a>
+					<a class="permalink" href="#Field_Cardinality.Descriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="#Field_Cardinality">Field_Cardinality</a>) Descriptor() <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#EnumDescriptor">EnumDescriptor</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Field_Cardinality.Enum">func (Field_Cardinality) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=6767:6819#L231">Enum</a>
+					<a class="permalink" href="#Field_Cardinality.Enum">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x <a href="#Field_Cardinality">Field_Cardinality</a>) Enum() *<a href="#Field_Cardinality">Field_Cardinality</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Field_Cardinality.EnumDescriptor">func (Field_Cardinality) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=7404:7461#L254">EnumDescriptor</a>
+					<a class="permalink" href="#Field_Cardinality.EnumDescriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="#Field_Cardinality">Field_Cardinality</a>) EnumDescriptor() ([]<a href="/pkg/builtin/#byte">byte</a>, []<a href="/pkg/builtin/#int">int</a>)</pre>
+				<p>Deprecated: Use Field_Cardinality.Descriptor instead.
+
+				
+				
+				
+			
+				
+				<h3 id="Field_Cardinality.Number">func (Field_Cardinality) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=7247:7306#L249">Number</a>
+					<a class="permalink" href="#Field_Cardinality.Number">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x <a href="#Field_Cardinality">Field_Cardinality</a>) Number() <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#EnumNumber">EnumNumber</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Field_Cardinality.String">func (Field_Cardinality) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=6872:6914#L237">String</a>
+					<a class="permalink" href="#Field_Cardinality.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x <a href="#Field_Cardinality">Field_Cardinality</a>) String() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Field_Cardinality.Type">func (Field_Cardinality) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=7134:7187#L245">Type</a>
+					<a class="permalink" href="#Field_Cardinality.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="#Field_Cardinality">Field_Cardinality</a>) Type() <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#EnumType">EnumType</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Field_Kind">type <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=3145:3166#L85">Field_Kind</a>
+				<a class="permalink" href="#Field_Kind">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Basic field types.
+
+			<pre>type Field_Kind <a href="/pkg/builtin/#int32">int32</a></pre>
+
+			
+				
+				<pre>const (
+    <span class="comment">// Field type unknown.</span>
+    <span id="Field_TYPE_UNKNOWN">Field_TYPE_UNKNOWN</span> <a href="#Field_Kind">Field_Kind</a> = 0
+    <span class="comment">// Field type double.</span>
+    <span id="Field_TYPE_DOUBLE">Field_TYPE_DOUBLE</span> <a href="#Field_Kind">Field_Kind</a> = 1
+    <span class="comment">// Field type float.</span>
+    <span id="Field_TYPE_FLOAT">Field_TYPE_FLOAT</span> <a href="#Field_Kind">Field_Kind</a> = 2
+    <span class="comment">// Field type int64.</span>
+    <span id="Field_TYPE_INT64">Field_TYPE_INT64</span> <a href="#Field_Kind">Field_Kind</a> = 3
+    <span class="comment">// Field type uint64.</span>
+    <span id="Field_TYPE_UINT64">Field_TYPE_UINT64</span> <a href="#Field_Kind">Field_Kind</a> = 4
+    <span class="comment">// Field type int32.</span>
+    <span id="Field_TYPE_INT32">Field_TYPE_INT32</span> <a href="#Field_Kind">Field_Kind</a> = 5
+    <span class="comment">// Field type fixed64.</span>
+    <span id="Field_TYPE_FIXED64">Field_TYPE_FIXED64</span> <a href="#Field_Kind">Field_Kind</a> = 6
+    <span class="comment">// Field type fixed32.</span>
+    <span id="Field_TYPE_FIXED32">Field_TYPE_FIXED32</span> <a href="#Field_Kind">Field_Kind</a> = 7
+    <span class="comment">// Field type bool.</span>
+    <span id="Field_TYPE_BOOL">Field_TYPE_BOOL</span> <a href="#Field_Kind">Field_Kind</a> = 8
+    <span class="comment">// Field type string.</span>
+    <span id="Field_TYPE_STRING">Field_TYPE_STRING</span> <a href="#Field_Kind">Field_Kind</a> = 9
+    <span class="comment">// Field type group. Proto2 syntax only, and deprecated.</span>
+    <span id="Field_TYPE_GROUP">Field_TYPE_GROUP</span> <a href="#Field_Kind">Field_Kind</a> = 10
+    <span class="comment">// Field type message.</span>
+    <span id="Field_TYPE_MESSAGE">Field_TYPE_MESSAGE</span> <a href="#Field_Kind">Field_Kind</a> = 11
+    <span class="comment">// Field type bytes.</span>
+    <span id="Field_TYPE_BYTES">Field_TYPE_BYTES</span> <a href="#Field_Kind">Field_Kind</a> = 12
+    <span class="comment">// Field type uint32.</span>
+    <span id="Field_TYPE_UINT32">Field_TYPE_UINT32</span> <a href="#Field_Kind">Field_Kind</a> = 13
+    <span class="comment">// Field type enum.</span>
+    <span id="Field_TYPE_ENUM">Field_TYPE_ENUM</span> <a href="#Field_Kind">Field_Kind</a> = 14
+    <span class="comment">// Field type sfixed32.</span>
+    <span id="Field_TYPE_SFIXED32">Field_TYPE_SFIXED32</span> <a href="#Field_Kind">Field_Kind</a> = 15
+    <span class="comment">// Field type sfixed64.</span>
+    <span id="Field_TYPE_SFIXED64">Field_TYPE_SFIXED64</span> <a href="#Field_Kind">Field_Kind</a> = 16
+    <span class="comment">// Field type sint32.</span>
+    <span id="Field_TYPE_SINT32">Field_TYPE_SINT32</span> <a href="#Field_Kind">Field_Kind</a> = 17
+    <span class="comment">// Field type sint64.</span>
+    <span id="Field_TYPE_SINT64">Field_TYPE_SINT64</span> <a href="#Field_Kind">Field_Kind</a> = 18
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Field_Kind.Descriptor">func (Field_Kind) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=5457:5515#L184">Descriptor</a>
+					<a class="permalink" href="#Field_Kind.Descriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="#Field_Kind">Field_Kind</a>) Descriptor() <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#EnumDescriptor">EnumDescriptor</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Field_Kind.Enum">func (Field_Kind) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=5255:5293#L174">Enum</a>
+					<a class="permalink" href="#Field_Kind.Enum">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x <a href="#Field_Kind">Field_Kind</a>) Enum() *<a href="#Field_Kind">Field_Kind</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Field_Kind.EnumDescriptor">func (Field_Kind) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=5836:5886#L197">EnumDescriptor</a>
+					<a class="permalink" href="#Field_Kind.EnumDescriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="#Field_Kind">Field_Kind</a>) EnumDescriptor() ([]<a href="/pkg/builtin/#byte">byte</a>, []<a href="/pkg/builtin/#int">int</a>)</pre>
+				<p>Deprecated: Use Field_Kind.Descriptor instead.
+
+				
+				
+				
+			
+				
+				<h3 id="Field_Kind.Number">func (Field_Kind) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=5693:5745#L192">Number</a>
+					<a class="permalink" href="#Field_Kind.Number">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x <a href="#Field_Kind">Field_Kind</a>) Number() <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#EnumNumber">EnumNumber</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Field_Kind.String">func (Field_Kind) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=5339:5374#L180">String</a>
+					<a class="permalink" href="#Field_Kind.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x <a href="#Field_Kind">Field_Kind</a>) String() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Field_Kind.Type">func (Field_Kind) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=5587:5633#L188">Type</a>
+					<a class="permalink" href="#Field_Kind.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="#Field_Kind">Field_Kind</a>) Type() <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#EnumType">EnumType</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Option">type <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=17233:18063#L638">Option</a>
+				<a class="permalink" href="#Option">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A protocol buffer option, which can be attached to a message, field,
+enumeration, etc.
+
+			<pre>type Option struct {
+
+    <span class="comment">// The option&#39;s name. For protobuf built-in options (options defined in</span>
+    <span class="comment">// descriptor.proto), this is the short name. For example, `&#34;map_entry&#34;`.</span>
+    <span class="comment">// For custom options, it should be the fully-qualified name. For example,</span>
+    <span class="comment">// `&#34;google.api.http&#34;`.</span>
+<span id="Option.Name"></span>    Name <a href="/pkg/builtin/#string">string</a> `protobuf:&#34;bytes,1,opt,name=name,proto3&#34; json:&#34;name,omitempty&#34;`
+    <span class="comment">// The option&#39;s value packed in an Any message. If the value is a primitive,</span>
+    <span class="comment">// the corresponding wrapper type defined in google/protobuf/wrappers.proto</span>
+    <span class="comment">// should be used. If the value is an enum, it should be stored as an int32</span>
+    <span class="comment">// value using the google.protobuf.Int32Value type.</span>
+<span id="Option.Value"></span>    Value *<a href="/pkg/google.golang.org/protobuf/types/known/anypb/">anypb</a>.<a href="/pkg/google.golang.org/protobuf/types/known/anypb/#Any">Any</a> `protobuf:&#34;bytes,2,opt,name=value,proto3&#34; json:&#34;value,omitempty&#34;`
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Option.Descriptor">func (*Option) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=18763:18806#L683">Descriptor</a>
+					<a class="permalink" href="#Option.Descriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#Option">Option</a>) Descriptor() ([]<a href="/pkg/builtin/#byte">byte</a>, []<a href="/pkg/builtin/#int">int</a>)</pre>
+				<p>Deprecated: Use Option.ProtoReflect.Descriptor instead.
+
+				
+				
+				
+			
+				
+				<h3 id="Option.GetName">func (*Option) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=18876:18909#L687">GetName</a>
+					<a class="permalink" href="#Option.GetName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Option">Option</a>) GetName() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Option.GetValue">func (*Option) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=18960:18998#L694">GetValue</a>
+					<a class="permalink" href="#Option.GetValue">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Option">Option</a>) GetValue() *<a href="/pkg/google.golang.org/protobuf/types/known/anypb/">anypb</a>.<a href="/pkg/google.golang.org/protobuf/types/known/anypb/#Any">Any</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Option.ProtoMessage">func (*Option) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=18356:18385#L668">ProtoMessage</a>
+					<a class="permalink" href="#Option.ProtoMessage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#Option">Option</a>) ProtoMessage()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Option.ProtoReflect">func (*Option) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=18390:18442#L670">ProtoReflect</a>
+					<a class="permalink" href="#Option.ProtoReflect">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Option">Option</a>) ProtoReflect() <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Message">Message</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Option.Reset">func (*Option) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=18065:18089#L655">Reset</a>
+					<a class="permalink" href="#Option.Reset">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Option">Option</a>) Reset()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Option.String">func (*Option) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=18279:18311#L664">String</a>
+					<a class="permalink" href="#Option.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Option">Option</a>) String() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Syntax">type <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=2119:2136#L36">Syntax</a>
+				<a class="permalink" href="#Syntax">&#xb6;</a>
+				
+				
+			</h2>
+			<p>The syntax in which a protocol buffer element is defined.
+
+			<pre>type Syntax <a href="/pkg/builtin/#int32">int32</a></pre>
+
+			
+				
+				<pre>const (
+    <span class="comment">// Syntax `proto2`.</span>
+    <span id="Syntax_SYNTAX_PROTO2">Syntax_SYNTAX_PROTO2</span> <a href="#Syntax">Syntax</a> = 0
+    <span class="comment">// Syntax `proto3`.</span>
+    <span id="Syntax_SYNTAX_PROTO3">Syntax_SYNTAX_PROTO3</span> <a href="#Syntax">Syntax</a> = 1
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Syntax.Descriptor">func (Syntax) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=2644:2698#L67">Descriptor</a>
+					<a class="permalink" href="#Syntax.Descriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="#Syntax">Syntax</a>) Descriptor() <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#EnumDescriptor">EnumDescriptor</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Syntax.Enum">func (Syntax) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=2458:2488#L57">Enum</a>
+					<a class="permalink" href="#Syntax.Enum">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x <a href="#Syntax">Syntax</a>) Enum() *<a href="#Syntax">Syntax</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Syntax.EnumDescriptor">func (Syntax) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=3007:3053#L80">EnumDescriptor</a>
+					<a class="permalink" href="#Syntax.EnumDescriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="#Syntax">Syntax</a>) EnumDescriptor() ([]<a href="/pkg/builtin/#byte">byte</a>, []<a href="/pkg/builtin/#int">int</a>)</pre>
+				<p>Deprecated: Use Syntax.Descriptor instead.
+
+				
+				
+				
+			
+				
+				<h3 id="Syntax.Number">func (Syntax) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=2872:2920#L75">Number</a>
+					<a class="permalink" href="#Syntax.Number">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x <a href="#Syntax">Syntax</a>) Number() <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#EnumNumber">EnumNumber</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Syntax.String">func (Syntax) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=2530:2561#L63">String</a>
+					<a class="permalink" href="#Syntax.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x <a href="#Syntax">Syntax</a>) String() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Syntax.Type">func (Syntax) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=2770:2812#L71">Type</a>
+					<a class="permalink" href="#Syntax.Type">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="#Syntax">Syntax</a>) Type() <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#EnumType">EnumType</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Type">type <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=7569:8510#L259">Type</a>
+				<a class="permalink" href="#Type">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A protocol buffer message type.
+
+			<pre>type Type struct {
+
+    <span class="comment">// The fully qualified message name.</span>
+<span id="Type.Name"></span>    Name <a href="/pkg/builtin/#string">string</a> `protobuf:&#34;bytes,1,opt,name=name,proto3&#34; json:&#34;name,omitempty&#34;`
+    <span class="comment">// The list of fields.</span>
+<span id="Type.Fields"></span>    Fields []*<a href="#Field">Field</a> `protobuf:&#34;bytes,2,rep,name=fields,proto3&#34; json:&#34;fields,omitempty&#34;`
+    <span class="comment">// The list of types appearing in `oneof` definitions in this type.</span>
+<span id="Type.Oneofs"></span>    Oneofs []<a href="/pkg/builtin/#string">string</a> `protobuf:&#34;bytes,3,rep,name=oneofs,proto3&#34; json:&#34;oneofs,omitempty&#34;`
+    <span class="comment">// The protocol buffer options.</span>
+<span id="Type.Options"></span>    Options []*<a href="#Option">Option</a> `protobuf:&#34;bytes,4,rep,name=options,proto3&#34; json:&#34;options,omitempty&#34;`
+    <span class="comment">// The source context.</span>
+<span id="Type.SourceContext"></span>    SourceContext *<a href="/pkg/google.golang.org/protobuf/types/known/sourcecontextpb/">sourcecontextpb</a>.<a href="/pkg/google.golang.org/protobuf/types/known/sourcecontextpb/#SourceContext">SourceContext</a> `protobuf:&#34;bytes,5,opt,name=source_context,json=sourceContext,proto3&#34; json:&#34;source_context,omitempty&#34;`
+    <span class="comment">// The source syntax.</span>
+<span id="Type.Syntax"></span>    Syntax <a href="#Syntax">Syntax</a> `protobuf:&#34;varint,6,opt,name=syntax,proto3,enum=google.protobuf.Syntax&#34; json:&#34;syntax,omitempty&#34;`
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Type.Descriptor">func (*Type) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=9198:9239#L306">Descriptor</a>
+					<a class="permalink" href="#Type.Descriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#Type">Type</a>) Descriptor() ([]<a href="/pkg/builtin/#byte">byte</a>, []<a href="/pkg/builtin/#int">int</a>)</pre>
+				<p>Deprecated: Use Type.ProtoReflect.Descriptor instead.
+
+				
+				
+				
+			
+				
+				<h3 id="Type.GetFields">func (*Type) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=9391:9426#L317">GetFields</a>
+					<a class="permalink" href="#Type.GetFields">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Type">Type</a>) GetFields() []*<a href="#Field">Field</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Type.GetName">func (*Type) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=9309:9340#L310">GetName</a>
+					<a class="permalink" href="#Type.GetName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Type">Type</a>) GetName() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Type.GetOneofs">func (*Type) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=9480:9515#L324">GetOneofs</a>
+					<a class="permalink" href="#Type.GetOneofs">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Type">Type</a>) GetOneofs() []<a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Type.GetOptions">func (*Type) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=9569:9606#L331">GetOptions</a>
+					<a class="permalink" href="#Type.GetOptions">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Type">Type</a>) GetOptions() []*<a href="#Option">Option</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Type.GetSourceContext">func (*Type) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=9661:9725#L338">GetSourceContext</a>
+					<a class="permalink" href="#Type.GetSourceContext">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Type">Type</a>) GetSourceContext() *<a href="/pkg/google.golang.org/protobuf/types/known/sourcecontextpb/">sourcecontextpb</a>.<a href="/pkg/google.golang.org/protobuf/types/known/sourcecontextpb/#SourceContext">SourceContext</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Type.GetSyntax">func (*Type) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=9786:9819#L345">GetSyntax</a>
+					<a class="permalink" href="#Type.GetSyntax">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Type">Type</a>) GetSyntax() <a href="#Syntax">Syntax</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Type.ProtoMessage">func (*Type) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=8797:8824#L291">ProtoMessage</a>
+					<a class="permalink" href="#Type.ProtoMessage">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (*<a href="#Type">Type</a>) ProtoMessage()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Type.ProtoReflect">func (*Type) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=8829:8879#L293">ProtoReflect</a>
+					<a class="permalink" href="#Type.ProtoReflect">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Type">Type</a>) ProtoReflect() <a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/">protoreflect</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoreflect/#Message">Message</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Type.Reset">func (*Type) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=8512:8534#L278">Reset</a>
+					<a class="permalink" href="#Type.Reset">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Type">Type</a>) Reset()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Type.String">func (*Type) <a href="/src/google.golang.org/protobuf/types/known/typepb/type.pb.go?s=8722:8752#L287">String</a>
+					<a class="permalink" href="#Type.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (x *<a href="#Type">Type</a>) String() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

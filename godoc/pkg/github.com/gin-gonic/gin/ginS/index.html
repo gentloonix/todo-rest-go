@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>ginS - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/pkg/">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/pkg/">GoDoc</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package ginS
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/gin-gonic/gin/ginS"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#Any">func Any(relativePath string, handlers ...gin.HandlerFunc) gin.IRoutes</a></dd>
+			
+				
+				<dd><a href="#DELETE">func DELETE(relativePath string, handlers ...gin.HandlerFunc) gin.IRoutes</a></dd>
+			
+				
+				<dd><a href="#GET">func GET(relativePath string, handlers ...gin.HandlerFunc) gin.IRoutes</a></dd>
+			
+				
+				<dd><a href="#Group">func Group(relativePath string, handlers ...gin.HandlerFunc) *gin.RouterGroup</a></dd>
+			
+				
+				<dd><a href="#HEAD">func HEAD(relativePath string, handlers ...gin.HandlerFunc) gin.IRoutes</a></dd>
+			
+				
+				<dd><a href="#Handle">func Handle(httpMethod, relativePath string, handlers ...gin.HandlerFunc) gin.IRoutes</a></dd>
+			
+				
+				<dd><a href="#LoadHTMLFiles">func LoadHTMLFiles(files ...string)</a></dd>
+			
+				
+				<dd><a href="#LoadHTMLGlob">func LoadHTMLGlob(pattern string)</a></dd>
+			
+				
+				<dd><a href="#NoMethod">func NoMethod(handlers ...gin.HandlerFunc)</a></dd>
+			
+				
+				<dd><a href="#NoRoute">func NoRoute(handlers ...gin.HandlerFunc)</a></dd>
+			
+				
+				<dd><a href="#OPTIONS">func OPTIONS(relativePath string, handlers ...gin.HandlerFunc) gin.IRoutes</a></dd>
+			
+				
+				<dd><a href="#PATCH">func PATCH(relativePath string, handlers ...gin.HandlerFunc) gin.IRoutes</a></dd>
+			
+				
+				<dd><a href="#POST">func POST(relativePath string, handlers ...gin.HandlerFunc) gin.IRoutes</a></dd>
+			
+				
+				<dd><a href="#PUT">func PUT(relativePath string, handlers ...gin.HandlerFunc) gin.IRoutes</a></dd>
+			
+				
+				<dd><a href="#Routes">func Routes() gin.RoutesInfo</a></dd>
+			
+				
+				<dd><a href="#Run">func Run(addr ...string) (err error)</a></dd>
+			
+				
+				<dd><a href="#RunFd">func RunFd(fd int) (err error)</a></dd>
+			
+				
+				<dd><a href="#RunTLS">func RunTLS(addr, certFile, keyFile string) (err error)</a></dd>
+			
+				
+				<dd><a href="#RunUnix">func RunUnix(file string) (err error)</a></dd>
+			
+				
+				<dd><a href="#SetHTMLTemplate">func SetHTMLTemplate(templ *template.Template)</a></dd>
+			
+				
+				<dd><a href="#Static">func Static(relativePath, root string) gin.IRoutes</a></dd>
+			
+				
+				<dd><a href="#StaticFS">func StaticFS(relativePath string, fs http.FileSystem) gin.IRoutes</a></dd>
+			
+				
+				<dd><a href="#StaticFile">func StaticFile(relativePath, filepath string) gin.IRoutes</a></dd>
+			
+				
+				<dd><a href="#Use">func Use(middlewares ...gin.HandlerFunc) gin.IRoutes</a></dd>
+			
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/github.com/gin-gonic/gin/ginS/gins.go">gins.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="Any">func <a href="/src/github.com/gin-gonic/gin/ginS/gins.go?s=3010:3080#L87">Any</a>
+				<a class="permalink" href="#Any">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Any(relativePath <a href="/pkg/builtin/#string">string</a>, handlers ...<a href="/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="/pkg/github.com/gin-gonic/gin/#HandlerFunc">HandlerFunc</a>) <a href="/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="/pkg/github.com/gin-gonic/gin/#IRoutes">IRoutes</a></pre>
+			<p>Any is a wrapper for Engine.Any.
+
+			
+			
+
+		
+			
+			
+			<h2 id="DELETE">func <a href="/src/github.com/gin-gonic/gin/ginS/gins.go?s=2080:2153#L62">DELETE</a>
+				<a class="permalink" href="#DELETE">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func DELETE(relativePath <a href="/pkg/builtin/#string">string</a>, handlers ...<a href="/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="/pkg/github.com/gin-gonic/gin/#HandlerFunc">HandlerFunc</a>) <a href="/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="/pkg/github.com/gin-gonic/gin/#IRoutes">IRoutes</a></pre>
+			<p>DELETE is a shortcut for router.Handle(&quot;DELETE&quot;, path, handle)
+
+			
+			
+
+		
+			
+			
+			<h2 id="GET">func <a href="/src/github.com/gin-gonic/gin/ginS/gins.go?s=1890:1960#L57">GET</a>
+				<a class="permalink" href="#GET">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func GET(relativePath <a href="/pkg/builtin/#string">string</a>, handlers ...<a href="/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="/pkg/github.com/gin-gonic/gin/#HandlerFunc">HandlerFunc</a>) <a href="/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="/pkg/github.com/gin-gonic/gin/#IRoutes">IRoutes</a></pre>
+			<p>GET is a shortcut for router.Handle(&quot;GET&quot;, path, handle)
+
+			
+			
+
+		
+			
+			
+			<h2 id="Group">func <a href="/src/github.com/gin-gonic/gin/ginS/gins.go?s=1313:1390#L42">Group</a>
+				<a class="permalink" href="#Group">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Group(relativePath <a href="/pkg/builtin/#string">string</a>, handlers ...<a href="/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="/pkg/github.com/gin-gonic/gin/#HandlerFunc">HandlerFunc</a>) *<a href="/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="/pkg/github.com/gin-gonic/gin/#RouterGroup">RouterGroup</a></pre>
+			<p>Group creates a new router group. You should add all the routes that have common middlewares or the same path prefix.
+For example, all the routes that use a common middleware for authorization could be grouped.
+
+			
+			
+
+		
+			
+			
+			<h2 id="HEAD">func <a href="/src/github.com/gin-gonic/gin/ginS/gins.go?s=2848:2919#L82">HEAD</a>
+				<a class="permalink" href="#HEAD">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func HEAD(relativePath <a href="/pkg/builtin/#string">string</a>, handlers ...<a href="/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="/pkg/github.com/gin-gonic/gin/#HandlerFunc">HandlerFunc</a>) <a href="/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="/pkg/github.com/gin-gonic/gin/#IRoutes">IRoutes</a></pre>
+			<p>HEAD is a shortcut for router.Handle(&quot;HEAD&quot;, path, handle)
+
+			
+			
+
+		
+			
+			
+			<h2 id="Handle">func <a href="/src/github.com/gin-gonic/gin/ginS/gins.go?s=1488:1573#L47">Handle</a>
+				<a class="permalink" href="#Handle">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Handle(httpMethod, relativePath <a href="/pkg/builtin/#string">string</a>, handlers ...<a href="/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="/pkg/github.com/gin-gonic/gin/#HandlerFunc">HandlerFunc</a>) <a href="/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="/pkg/github.com/gin-gonic/gin/#IRoutes">IRoutes</a></pre>
+			<p>Handle is a wrapper for Engine.Handle.
+
+			
+			
+
+		
+			
+			
+			<h2 id="LoadHTMLFiles">func <a href="/src/github.com/gin-gonic/gin/ginS/gins.go?s=600:635#L21">LoadHTMLFiles</a>
+				<a class="permalink" href="#LoadHTMLFiles">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func LoadHTMLFiles(files ...<a href="/pkg/builtin/#string">string</a>)</pre>
+			<p>LoadHTMLFiles is a wrapper for Engine.LoadHTMLFiles.
+
+			
+			
+
+		
+			
+			
+			<h2 id="LoadHTMLGlob">func <a href="/src/github.com/gin-gonic/gin/ginS/gins.go?s=473:506#L16">LoadHTMLGlob</a>
+				<a class="permalink" href="#LoadHTMLGlob">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func LoadHTMLGlob(pattern <a href="/pkg/builtin/#string">string</a>)</pre>
+			<p>LoadHTMLGlob is a wrapper for Engine.LoadHTMLGlob.
+
+			
+			
+
+		
+			
+			
+			<h2 id="NoMethod">func <a href="/src/github.com/gin-gonic/gin/ginS/gins.go?s=1016:1058#L36">NoMethod</a>
+				<a class="permalink" href="#NoMethod">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NoMethod(handlers ...<a href="/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="/pkg/github.com/gin-gonic/gin/#HandlerFunc">HandlerFunc</a>)</pre>
+			<p>NoMethod is a wrapper for Engine.NoMethod.
+
+			
+			
+
+		
+			
+			
+			<h2 id="NoRoute">func <a href="/src/github.com/gin-gonic/gin/ginS/gins.go?s=892:933#L31">NoRoute</a>
+				<a class="permalink" href="#NoRoute">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NoRoute(handlers ...<a href="/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="/pkg/github.com/gin-gonic/gin/#HandlerFunc">HandlerFunc</a>)</pre>
+			<p>NoRoute adds handlers for NoRoute. It returns a 404 code by default.
+
+			
+			
+
+		
+			
+			
+			<h2 id="OPTIONS">func <a href="/src/github.com/gin-gonic/gin/ginS/gins.go?s=2654:2728#L77">OPTIONS</a>
+				<a class="permalink" href="#OPTIONS">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func OPTIONS(relativePath <a href="/pkg/builtin/#string">string</a>, handlers ...<a href="/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="/pkg/github.com/gin-gonic/gin/#HandlerFunc">HandlerFunc</a>) <a href="/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="/pkg/github.com/gin-gonic/gin/#IRoutes">IRoutes</a></pre>
+			<p>OPTIONS is a shortcut for router.Handle(&quot;OPTIONS&quot;, path, handle)
+
+			
+			
+
+		
+			
+			
+			<h2 id="PATCH">func <a href="/src/github.com/gin-gonic/gin/ginS/gins.go?s=2274:2346#L67">PATCH</a>
+				<a class="permalink" href="#PATCH">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func PATCH(relativePath <a href="/pkg/builtin/#string">string</a>, handlers ...<a href="/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="/pkg/github.com/gin-gonic/gin/#HandlerFunc">HandlerFunc</a>) <a href="/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="/pkg/github.com/gin-gonic/gin/#IRoutes">IRoutes</a></pre>
+			<p>PATCH is a shortcut for router.Handle(&quot;PATCH&quot;, path, handle)
+
+			
+			
+
+		
+			
+			
+			<h2 id="POST">func <a href="/src/github.com/gin-gonic/gin/ginS/gins.go?s=1704:1775#L52">POST</a>
+				<a class="permalink" href="#POST">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func POST(relativePath <a href="/pkg/builtin/#string">string</a>, handlers ...<a href="/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="/pkg/github.com/gin-gonic/gin/#HandlerFunc">HandlerFunc</a>) <a href="/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="/pkg/github.com/gin-gonic/gin/#IRoutes">IRoutes</a></pre>
+			<p>POST is a shortcut for router.Handle(&quot;POST&quot;, path, handle)
+
+			
+			
+
+		
+			
+			
+			<h2 id="PUT">func <a href="/src/github.com/gin-gonic/gin/ginS/gins.go?s=2462:2532#L72">PUT</a>
+				<a class="permalink" href="#PUT">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func PUT(relativePath <a href="/pkg/builtin/#string">string</a>, handlers ...<a href="/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="/pkg/github.com/gin-gonic/gin/#HandlerFunc">HandlerFunc</a>) <a href="/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="/pkg/github.com/gin-gonic/gin/#IRoutes">IRoutes</a></pre>
+			<p>PUT is a shortcut for router.Handle(&quot;PUT&quot;, path, handle)
+
+			
+			
+
+		
+			
+			
+			<h2 id="Routes">func <a href="/src/github.com/gin-gonic/gin/ginS/gins.go?s=4272:4300#L119">Routes</a>
+				<a class="permalink" href="#Routes">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Routes() <a href="/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="/pkg/github.com/gin-gonic/gin/#RoutesInfo">RoutesInfo</a></pre>
+			<p>Routes returns a slice of registered routes.
+
+			
+			
+
+		
+			
+			
+			<h2 id="Run">func <a href="/src/github.com/gin-gonic/gin/ginS/gins.go?s=4563:4599#L126">Run</a>
+				<a class="permalink" href="#Run">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Run(addr ...<a href="/pkg/builtin/#string">string</a>) (err <a href="/pkg/builtin/#error">error</a>)</pre>
+			<p>Run attaches to a http.Server and starts listening and serving HTTP requests.
+It is a shortcut for http.ListenAndServe(addr, router)
+Note: this method will block the calling goroutine indefinitely unless an error happens.
+
+			
+			
+
+		
+			
+			
+			<h2 id="RunFd">func <a href="/src/github.com/gin-gonic/gin/ginS/gins.go?s=5529:5559#L147">RunFd</a>
+				<a class="permalink" href="#RunFd">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func RunFd(fd <a href="/pkg/builtin/#int">int</a>) (err <a href="/pkg/builtin/#error">error</a>)</pre>
+			<p>RunFd attaches the router to a http.Server and starts listening and serving HTTP requests
+through the specified file descriptor.
+Note: the method will block the calling goroutine indefinitely unless on error happens.
+
+			
+			
+
+		
+			
+			
+			<h2 id="RunTLS">func <a href="/src/github.com/gin-gonic/gin/ginS/gins.go?s=4892:4947#L133">RunTLS</a>
+				<a class="permalink" href="#RunTLS">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func RunTLS(addr, certFile, keyFile <a href="/pkg/builtin/#string">string</a>) (err <a href="/pkg/builtin/#error">error</a>)</pre>
+			<p>RunTLS attaches to a http.Server and starts listening and serving HTTPS requests.
+It is a shortcut for http.ListenAndServeTLS(addr, certFile, keyFile, router)
+Note: this method will block the calling goroutine indefinitely unless an error happens.
+
+			
+			
+
+		
+			
+			
+			<h2 id="RunUnix">func <a href="/src/github.com/gin-gonic/gin/ginS/gins.go?s=5229:5266#L140">RunUnix</a>
+				<a class="permalink" href="#RunUnix">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func RunUnix(file <a href="/pkg/builtin/#string">string</a>) (err <a href="/pkg/builtin/#error">error</a>)</pre>
+			<p>RunUnix attaches to a http.Server and starts listening and serving HTTP requests
+through the specified unix socket (i.e. a file)
+Note: this method will block the calling goroutine indefinitely unless an error happens.
+
+			
+			
+
+		
+			
+			
+			<h2 id="SetHTMLTemplate">func <a href="/src/github.com/gin-gonic/gin/ginS/gins.go?s=735:781#L26">SetHTMLTemplate</a>
+				<a class="permalink" href="#SetHTMLTemplate">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func SetHTMLTemplate(templ *<a href="/pkg/html/template/">template</a>.<a href="/pkg/html/template/#Template">Template</a>)</pre>
+			<p>SetHTMLTemplate is a wrapper for Engine.SetHTMLTemplate.
+
+			
+			
+
+		
+			
+			
+			<h2 id="Static">func <a href="/src/github.com/gin-gonic/gin/ginS/gins.go?s=3588:3638#L102">Static</a>
+				<a class="permalink" href="#Static">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Static(relativePath, root <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="/pkg/github.com/gin-gonic/gin/#IRoutes">IRoutes</a></pre>
+			<p>Static serves files from the given file system root.
+Internally a http.FileServer is used, therefore http.NotFound is used instead
+of the Router&apos;s NotFound handler.
+To use the operating system&apos;s file system implementation,
+use :
+<pre>router.Static(&quot;/static&quot;, &quot;/var/www&quot;)
+</pre>
+
+			
+			
+
+		
+			
+			
+			<h2 id="StaticFS">func <a href="/src/github.com/gin-gonic/gin/ginS/gins.go?s=3734:3800#L107">StaticFS</a>
+				<a class="permalink" href="#StaticFS">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func StaticFS(relativePath <a href="/pkg/builtin/#string">string</a>, fs <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#FileSystem">FileSystem</a>) <a href="/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="/pkg/github.com/gin-gonic/gin/#IRoutes">IRoutes</a></pre>
+			<p>StaticFS is a wrapper for Engine.StaticFS.
+
+			
+			
+
+		
+			
+			
+			<h2 id="StaticFile">func <a href="/src/github.com/gin-gonic/gin/ginS/gins.go?s=3184:3242#L92">StaticFile</a>
+				<a class="permalink" href="#StaticFile">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func StaticFile(relativePath, filepath <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="/pkg/github.com/gin-gonic/gin/#IRoutes">IRoutes</a></pre>
+			<p>StaticFile is a wrapper for Engine.StaticFile.
+
+			
+			
+
+		
+			
+			
+			<h2 id="Use">func <a href="/src/github.com/gin-gonic/gin/ginS/gins.go?s=4129:4181#L114">Use</a>
+				<a class="permalink" href="#Use">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Use(middlewares ...<a href="/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="/pkg/github.com/gin-gonic/gin/#HandlerFunc">HandlerFunc</a>) <a href="/pkg/github.com/gin-gonic/gin/">gin</a>.<a href="/pkg/github.com/gin-gonic/gin/#IRoutes">IRoutes</a></pre>
+			<p>Use attaches a global middleware to the router. i.e. the middlewares attached through Use() will be
+included in the handlers chain for every single request. Even 404, 405, static files...
+For example, this is the right place for a logger or error management middleware.
+
+			
+			
+
+		
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

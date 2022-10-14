@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>execabs - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/pkg/">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/pkg/">GoDoc</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package execabs
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "golang.org/x/sys/execabs"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>Package execabs is a drop-in replacement for os/exec
+that requires PATH lookups to find absolute paths.
+That is, execabs.Command(&quot;cmd&quot;) runs the same PATH lookup
+as exec.Command(&quot;cmd&quot;), but if the result is a path
+which is relative, the Run and Start methods will report
+an error instead of running the executable.
+<p>See <a href="https://blog.golang.org/path-security">https://blog.golang.org/path-security</a> for more information
+about when it may be necessary or appropriate to use this package.
+
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+				
+				<dd><a href="#Command">func Command(name string, arg ...string) *exec.Cmd</a></dd>
+			
+				
+				<dd><a href="#CommandContext">func CommandContext(ctx context.Context, name string, arg ...string) *exec.Cmd</a></dd>
+			
+				
+				<dd><a href="#LookPath">func LookPath(file string) (string, error)</a></dd>
+			
+			
+				
+				<dd><a href="#Cmd">type Cmd</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Error">type Error</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ExitError">type ExitError</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/golang.org/x/sys/execabs/execabs.go">execabs.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				<p>ErrNotFound is the error resulting if a path search failed to find an executable file.
+It is an alias for exec.ErrNotFound.
+
+				<pre>var <span id="ErrNotFound">ErrNotFound</span> = <a href="/pkg/os/exec/">exec</a>.<a href="/pkg/os/exec/#ErrNotFound">ErrNotFound</a></pre>
+			
+		
+		
+			
+			
+			<h2 id="Command">func <a href="/src/golang.org/x/sys/execabs/execabs.go?s=3501:3551#L88">Command</a>
+				<a class="permalink" href="#Command">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Command(name <a href="/pkg/builtin/#string">string</a>, arg ...<a href="/pkg/builtin/#string">string</a>) *<a href="/pkg/os/exec/">exec</a>.<a href="/pkg/os/exec/#Cmd">Cmd</a></pre>
+			<p>Command returns the Cmd struct to execute the named program with the given arguments.
+See exec.Command for most details.
+<p>Command differs from exec.Command in its handling of PATH lookups,
+which are used when the program name contains no slashes.
+If exec.Command would have returned an exec.Cmd configured to run an
+executable from the current directory, Command instead
+returns an exec.Cmd that will return an error from Start or Run.
+
+			
+			
+
+		
+			
+			
+			<h2 id="CommandContext">func <a href="/src/golang.org/x/sys/execabs/execabs.go?s=2879:2957#L73">CommandContext</a>
+				<a class="permalink" href="#CommandContext">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func CommandContext(ctx <a href="/pkg/context/">context</a>.<a href="/pkg/context/#Context">Context</a>, name <a href="/pkg/builtin/#string">string</a>, arg ...<a href="/pkg/builtin/#string">string</a>) *<a href="/pkg/os/exec/">exec</a>.<a href="/pkg/os/exec/#Cmd">Cmd</a></pre>
+			<p>CommandContext is like Command but includes a context.
+<p>The provided context is used to kill the process (by calling os.Process.Kill)
+if the context becomes done before the command completes on its own.
+
+			
+			
+
+		
+			
+			
+			<h2 id="LookPath">func <a href="/src/golang.org/x/sys/execabs/execabs.go?s=1926:1968#L44">LookPath</a>
+				<a class="permalink" href="#LookPath">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func LookPath(file <a href="/pkg/builtin/#string">string</a>) (<a href="/pkg/builtin/#string">string</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+			<p>LookPath searches for an executable named file in the directories
+named by the PATH environment variable. If file contains a slash,
+it is tried directly and the PATH is not consulted. The result will be
+an absolute path.
+<p>LookPath differs from exec.LookPath in its handling of PATH lookups,
+which are used for file names without slashes. If exec.LookPath&apos;s
+PATH lookup would have returned an executable from the current directory,
+LookPath instead returns an error.
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Cmd">type <a href="/src/golang.org/x/sys/execabs/execabs.go?s=987:1006#L21">Cmd</a>
+				<a class="permalink" href="#Cmd">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Cmd represents an external command being prepared or run.
+It is an alias for exec.Cmd.
+
+			<pre>type Cmd = <a href="/pkg/os/exec/">exec</a>.<a href="/pkg/os/exec/#Cmd">Cmd</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Error">type <a href="/src/golang.org/x/sys/execabs/execabs.go?s=1126:1149#L25">Error</a>
+				<a class="permalink" href="#Error">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Error is returned by LookPath when it fails to classify a file as an executable.
+It is an alias for exec.Error.
+
+			<pre>type Error = <a href="/pkg/os/exec/">exec</a>.<a href="/pkg/os/exec/#Error">Error</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ExitError">type <a href="/src/golang.org/x/sys/execabs/execabs.go?s=1248:1279#L29">ExitError</a>
+				<a class="permalink" href="#ExitError">&#xb6;</a>
+				
+				
+			</h2>
+			<p>An ExitError reports an unsuccessful exit by a command.
+It is an alias for exec.ExitError.
+
+			<pre>type ExitError = <a href="/pkg/os/exec/">exec</a>.<a href="/pkg/os/exec/#ExitError">ExitError</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

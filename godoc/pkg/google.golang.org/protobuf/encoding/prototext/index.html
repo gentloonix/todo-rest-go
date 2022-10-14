@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>prototext - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/pkg/">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/pkg/">GoDoc</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package prototext
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "google.golang.org/protobuf/encoding/prototext"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>Package prototext marshals and unmarshals protocol buffer messages as the
+textproto format.
+
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#Format">func Format(m proto.Message) string</a></dd>
+			
+				
+				<dd><a href="#Marshal">func Marshal(m proto.Message) ([]byte, error)</a></dd>
+			
+				
+				<dd><a href="#Unmarshal">func Unmarshal(b []byte, m proto.Message) error</a></dd>
+			
+			
+				
+				<dd><a href="#MarshalOptions">type MarshalOptions</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MarshalOptions.Format">func (o MarshalOptions) Format(m proto.Message) string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#MarshalOptions.Marshal">func (o MarshalOptions) Marshal(m proto.Message) ([]byte, error)</a></dd>
+				
+			
+				
+				<dd><a href="#UnmarshalOptions">type UnmarshalOptions</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#UnmarshalOptions.Unmarshal">func (o UnmarshalOptions) Unmarshal(b []byte, m proto.Message) error</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/google.golang.org/protobuf/encoding/prototext/decode.go">decode.go</a>
+			
+				<a href="/src/google.golang.org/protobuf/encoding/prototext/doc.go">doc.go</a>
+			
+				<a href="/src/google.golang.org/protobuf/encoding/prototext/encode.go">encode.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="Format">func <a href="/src/google.golang.org/protobuf/encoding/prototext/encode.go?s=1124:1159#L23">Format</a>
+				<a class="permalink" href="#Format">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Format(m <a href="/pkg/google.golang.org/protobuf/proto/">proto</a>.<a href="/pkg/google.golang.org/protobuf/proto/#Message">Message</a>) <a href="/pkg/builtin/#string">string</a></pre>
+			<p>Format formats the message as a multiline string.
+This function is only intended for human consumption and ignores errors.
+Do not depend on the output being stable. It may change over time across
+different versions of the program.
+
+			
+			
+
+		
+			
+			
+			<h2 id="Marshal">func <a href="/src/google.golang.org/protobuf/encoding/prototext/encode.go?s=1414:1459#L30">Marshal</a>
+				<a class="permalink" href="#Marshal">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Marshal(m <a href="/pkg/google.golang.org/protobuf/proto/">proto</a>.<a href="/pkg/google.golang.org/protobuf/proto/#Message">Message</a>) ([]<a href="/pkg/builtin/#byte">byte</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+			<p>Marshal writes the given proto.Message in textproto format using default
+options. Do not depend on the output being stable. It may change over time
+across different versions of the program.
+
+			
+			
+
+		
+			
+			
+			<h2 id="Unmarshal">func <a href="/src/google.golang.org/protobuf/encoding/prototext/decode.go?s=886:933#L16">Unmarshal</a>
+				<a class="permalink" href="#Unmarshal">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Unmarshal(b []<a href="/pkg/builtin/#byte">byte</a>, m <a href="/pkg/google.golang.org/protobuf/proto/">proto</a>.<a href="/pkg/google.golang.org/protobuf/proto/#Message">Message</a>) <a href="/pkg/builtin/#error">error</a></pre>
+			<p>Unmarshal reads the given []byte into the given proto.Message.
+The provided message must be mutable (e.g., a non-nil pointer to a message).
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="MarshalOptions">type <a href="/src/google.golang.org/protobuf/encoding/prototext/encode.go?s=1560:3184#L35">MarshalOptions</a>
+				<a class="permalink" href="#MarshalOptions">&#xb6;</a>
+				
+				
+			</h2>
+			<p>MarshalOptions is a configurable text format marshaler.
+
+			<pre>type MarshalOptions struct {
+    <a href="/pkg/google.golang.org/protobuf/internal/pragma/">pragma</a>.<a href="/pkg/google.golang.org/protobuf/internal/pragma/#NoUnkeyedLiterals">NoUnkeyedLiterals</a>
+
+<span id="MarshalOptions.Multiline"></span>    <span class="comment">// Multiline specifies whether the marshaler should format the output in</span>
+    <span class="comment">// indented-form with every textual element on a new line.</span>
+    <span class="comment">// If Indent is an empty string, then an arbitrary indent is chosen.</span>
+    Multiline <a href="/pkg/builtin/#bool">bool</a>
+
+<span id="MarshalOptions.Indent"></span>    <span class="comment">// Indent specifies the set of indentation characters to use in a multiline</span>
+    <span class="comment">// formatted output such that every entry is preceded by Indent and</span>
+    <span class="comment">// terminated by a newline. If non-empty, then Multiline is treated as true.</span>
+    <span class="comment">// Indent can only be composed of space or tab characters.</span>
+    Indent <a href="/pkg/builtin/#string">string</a>
+
+<span id="MarshalOptions.EmitASCII"></span>    <span class="comment">// EmitASCII specifies whether to format strings and bytes as ASCII only</span>
+    <span class="comment">// as opposed to using UTF-8 encoding when possible.</span>
+    EmitASCII <a href="/pkg/builtin/#bool">bool</a>
+
+<span id="MarshalOptions.AllowPartial"></span>    <span class="comment">// AllowPartial allows messages that have missing required fields to marshal</span>
+    <span class="comment">// without returning an error. If AllowPartial is false (the default),</span>
+    <span class="comment">// Marshal will return error if there are any missing required fields.</span>
+    AllowPartial <a href="/pkg/builtin/#bool">bool</a>
+
+<span id="MarshalOptions.EmitUnknown"></span>    <span class="comment">// EmitUnknown specifies whether to emit unknown fields in the output.</span>
+    <span class="comment">// If specified, the unmarshaler may be unable to parse the output.</span>
+    <span class="comment">// The default is to exclude unknown fields.</span>
+    EmitUnknown <a href="/pkg/builtin/#bool">bool</a>
+
+<span id="MarshalOptions.Resolver"></span>    <span class="comment">// Resolver is used for looking up types when expanding google.protobuf.Any</span>
+    <span class="comment">// messages. If nil, this defaults to using protoregistry.GlobalTypes.</span>
+    Resolver interface {
+        <a href="/pkg/google.golang.org/protobuf/reflect/protoregistry/">protoregistry</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoregistry/#ExtensionTypeResolver">ExtensionTypeResolver</a>
+        <a href="/pkg/google.golang.org/protobuf/reflect/protoregistry/">protoregistry</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoregistry/#MessageTypeResolver">MessageTypeResolver</a>
+    }
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="MarshalOptions.Format">func (MarshalOptions) <a href="/src/google.golang.org/protobuf/encoding/prototext/encode.go?s=3417:3471#L80">Format</a>
+					<a class="permalink" href="#MarshalOptions.Format">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (o <a href="#MarshalOptions">MarshalOptions</a>) Format(m <a href="/pkg/google.golang.org/protobuf/proto/">proto</a>.<a href="/pkg/google.golang.org/protobuf/proto/#Message">Message</a>) <a href="/pkg/builtin/#string">string</a></pre>
+				<p>Format formats the message as a string.
+This method is only intended for human consumption and ignores errors.
+Do not depend on the output being stable. It may change over time across
+different versions of the program.
+
+				
+				
+				
+			
+				
+				<h3 id="MarshalOptions.Marshal">func (MarshalOptions) <a href="/src/google.golang.org/protobuf/encoding/prototext/encode.go?s=3927:3991#L94">Marshal</a>
+					<a class="permalink" href="#MarshalOptions.Marshal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (o <a href="#MarshalOptions">MarshalOptions</a>) Marshal(m <a href="/pkg/google.golang.org/protobuf/proto/">proto</a>.<a href="/pkg/google.golang.org/protobuf/proto/#Message">Message</a>) ([]<a href="/pkg/builtin/#byte">byte</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>Marshal writes the given proto.Message in textproto format using options in
+MarshalOptions object. Do not depend on the output being stable. It may
+change over time across different versions of the program.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="UnmarshalOptions">type <a href="/src/google.golang.org/protobuf/encoding/prototext/decode.go?s=1050:1907#L21">UnmarshalOptions</a>
+				<a class="permalink" href="#UnmarshalOptions">&#xb6;</a>
+				
+				
+			</h2>
+			<p>UnmarshalOptions is a configurable textproto format unmarshaler.
+
+			<pre>type UnmarshalOptions struct {
+    <a href="/pkg/google.golang.org/protobuf/internal/pragma/">pragma</a>.<a href="/pkg/google.golang.org/protobuf/internal/pragma/#NoUnkeyedLiterals">NoUnkeyedLiterals</a>
+
+<span id="UnmarshalOptions.AllowPartial"></span>    <span class="comment">// AllowPartial accepts input for messages that will result in missing</span>
+    <span class="comment">// required fields. If AllowPartial is false (the default), Unmarshal will</span>
+    <span class="comment">// return error if there are any missing required fields.</span>
+    AllowPartial <a href="/pkg/builtin/#bool">bool</a>
+
+<span id="UnmarshalOptions.DiscardUnknown"></span>    <span class="comment">// DiscardUnknown specifies whether to ignore unknown fields when parsing.</span>
+    <span class="comment">// An unknown field is any field whose field name or field number does not</span>
+    <span class="comment">// resolve to any known or extension field in the message.</span>
+    <span class="comment">// By default, unmarshal rejects unknown fields as an error.</span>
+    DiscardUnknown <a href="/pkg/builtin/#bool">bool</a>
+
+<span id="UnmarshalOptions.Resolver"></span>    <span class="comment">// Resolver is used for looking up types when unmarshaling</span>
+    <span class="comment">// google.protobuf.Any messages or extension fields.</span>
+    <span class="comment">// If nil, this defaults to using protoregistry.GlobalTypes.</span>
+    Resolver interface {
+        <a href="/pkg/google.golang.org/protobuf/reflect/protoregistry/">protoregistry</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoregistry/#MessageTypeResolver">MessageTypeResolver</a>
+        <a href="/pkg/google.golang.org/protobuf/reflect/protoregistry/">protoregistry</a>.<a href="/pkg/google.golang.org/protobuf/reflect/protoregistry/#ExtensionTypeResolver">ExtensionTypeResolver</a>
+    }
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="UnmarshalOptions.Unmarshal">func (UnmarshalOptions) <a href="/src/google.golang.org/protobuf/encoding/prototext/decode.go?s=2112:2180#L47">Unmarshal</a>
+					<a class="permalink" href="#UnmarshalOptions.Unmarshal">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (o <a href="#UnmarshalOptions">UnmarshalOptions</a>) Unmarshal(b []<a href="/pkg/builtin/#byte">byte</a>, m <a href="/pkg/google.golang.org/protobuf/proto/">proto</a>.<a href="/pkg/google.golang.org/protobuf/proto/#Message">Message</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>Unmarshal reads the given []byte and populates the given proto.Message
+using options in the UnmarshalOptions object.
+The provided message must be mutable (e.g., a non-nil pointer to a message).
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

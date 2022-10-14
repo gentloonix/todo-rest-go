@@ -1,0 +1,2582 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>validator - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="/lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/pkg/">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/pkg/">GoDoc</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package validator
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/go-playground/validator/v10"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+				<dd><a href="#pkg-subdirectories">Subdirectories</a></dd>
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>Package validator implements value validations for structs and individual fields
+based on tags.
+<p>It can also handle Cross-Field and Cross-Struct validation for nested structs
+and has the ability to dive into arrays and maps of any type.
+<p>see more examples <a href="https://github.com/go-playground/validator/tree/master/_examples">https://github.com/go-playground/validator/tree/master/_examples</a>
+<h3 id="hdr-Singleton">Singleton</h3>
+<p>Validator is designed to be thread-safe and used as a singleton instance.
+It caches information about your struct and validations,
+in essence only parsing your validation tags once per struct type.
+Using multiple instances neglects the benefit of caching.
+The not thread-safe functions are explicitly marked as such in the documentation.
+<h3 id="hdr-Validation_Functions_Return_Type_error">Validation Functions Return Type error</h3>
+<p>Doing things this way is actually the way the standard library does, see the
+file.Open method here:
+<pre>https://golang.org/pkg/os/#Open.
+</pre>
+<p>The authors return type &quot;error&quot; to avoid the issue discussed in the following,
+where err is always != nil:
+<pre>http://stackoverflow.com/a/29138676/3158232
+https://github.com/go-playground/validator/issues/134
+</pre>
+<p>Validator only InvalidValidationError for bad validation input, nil or
+ValidationErrors as type error; so, in your code all you need to do is check
+if the error returned is not nil, and if it&apos;s not check if error is
+InvalidValidationError ( if necessary, most of the time it isn&apos;t ) type cast
+it to type ValidationErrors like so err.(validator.ValidationErrors).
+<h3 id="hdr-Custom_Validation_Functions">Custom Validation Functions</h3>
+<p>Custom Validation functions can be added. Example:
+<pre>// Structure
+func customFunc(fl validator.FieldLevel) bool {
+
+	if fl.Field().String() == &quot;invalid&quot; {
+		return false
+	}
+
+	return true
+}
+
+validate.RegisterValidation(&quot;custom tag name&quot;, customFunc)
+// NOTES: using the same tag name as an existing function
+//        will overwrite the existing one
+</pre>
+<h3 id="hdr-Cross_Field_Validation">Cross-Field Validation</h3>
+<p>Cross-Field Validation can be done via the following tags:
+<ul>
+<li>eqfield
+<li>nefield
+<li>gtfield
+<li>gtefield
+<li>ltfield
+<li>ltefield
+<li>eqcsfield
+<li>necsfield
+<li>gtcsfield
+<li>gtecsfield
+<li>ltcsfield
+<li>ltecsfield
+</ul>
+<p>If, however, some custom cross-field validation is required, it can be done
+using a custom validation.
+<p>Why not just have cross-fields validation tags (i.e. only eqcsfield and not
+eqfield)?
+<p>The reason is efficiency. If you want to check a field within the same struct
+&quot;eqfield&quot; only has to find the field on the same struct (1 level). But, if we
+used &quot;eqcsfield&quot; it could be multiple levels down. Example:
+<pre>type Inner struct {
+	StartDate time.Time
+}
+
+type Outer struct {
+	InnerStructField *Inner
+	CreatedAt time.Time      `validate:&quot;ltecsfield=InnerStructField.StartDate&quot;`
+}
+
+now := time.Now()
+
+inner := &amp;Inner{
+	StartDate: now,
+}
+
+outer := &amp;Outer{
+	InnerStructField: inner,
+	CreatedAt: now,
+}
+
+errs := validate.Struct(outer)
+
+// NOTE: when calling validate.Struct(val) topStruct will be the top level struct passed
+//       into the function
+//       when calling validate.VarWithValue(val, field, tag) val will be
+//       whatever you pass, struct, field...
+//       when calling validate.Field(field, tag) val will be nil
+</pre>
+<h3 id="hdr-Multiple_Validators">Multiple Validators</h3>
+<p>Multiple validators on a field will process in the order defined. Example:
+<pre>type Test struct {
+	Field `validate:&quot;max=10,min=1&quot;`
+}
+
+// max will be checked then min
+</pre>
+<p>Bad Validator definitions are not handled by the library. Example:
+<pre>type Test struct {
+	Field `validate:&quot;min=10,max=0&quot;`
+}
+
+// this definition of min max will never succeed
+</pre>
+<h3 id="hdr-Using_Validator_Tags">Using Validator Tags</h3>
+<p>Baked In Cross-Field validation only compares fields on the same struct.
+If Cross-Field + Cross-Struct validation is needed you should implement your
+own custom validator.
+<p>Comma (&quot;,&quot;) is the default separator of validation tags. If you wish to
+have a comma included within the parameter (i.e. excludesall=,) you will need to
+use the UTF-8 hex representation 0x2C, which is replaced in the code as a comma,
+so the above will become excludesall=0x2C.
+<pre>type Test struct {
+	Field `validate:&quot;excludesall=,&quot;`    // BAD! Do not include a comma.
+	Field `validate:&quot;excludesall=0x2C&quot;` // GOOD! Use the UTF-8 hex representation.
+}
+</pre>
+<p>Pipe (&quot;|&quot;) is the &apos;or&apos; validation tags deparator. If you wish to
+have a pipe included within the parameter i.e. excludesall=| you will need to
+use the UTF-8 hex representation 0x7C, which is replaced in the code as a pipe,
+so the above will become excludesall=0x7C
+<pre>type Test struct {
+	Field `validate:&quot;excludesall=|&quot;`    // BAD! Do not include a a pipe!
+	Field `validate:&quot;excludesall=0x7C&quot;` // GOOD! Use the UTF-8 hex representation.
+}
+</pre>
+<h3 id="hdr-Baked_In_Validators_and_Tags">Baked In Validators and Tags</h3>
+<p>Here is a list of the current built in validators:
+<h3 id="hdr-Skip_Field">Skip Field</h3>
+<p>Tells the validation to skip this struct field; this is particularly
+handy in ignoring embedded structs from being validated. (Usage: -)
+<pre>Usage: -
+</pre>
+<h3 id="hdr-Or_Operator">Or Operator</h3>
+<p>This is the &apos;or&apos; operator allowing multiple validators to be used and
+accepted. (Usage: rgb|rgba) &lt;-- this would allow either rgb or rgba
+colors to be accepted. This can also be combined with &apos;and&apos; for example
+( Usage: omitempty,rgb|rgba)
+<pre>Usage: |
+</pre>
+<h3 id="hdr-StructOnly">StructOnly</h3>
+<p>When a field that is a nested struct is encountered, and contains this flag
+any validation on the nested struct will be run, but none of the nested
+struct fields will be validated. This is useful if inside of your program
+you know the struct will be valid, but need to verify it has been assigned.
+NOTE: only &quot;required&quot; and &quot;omitempty&quot; can be used on a struct itself.
+<pre>Usage: structonly
+</pre>
+<h3 id="hdr-NoStructLevel">NoStructLevel</h3>
+<p>Same as structonly tag except that any struct level validations will not run.
+<pre>Usage: nostructlevel
+</pre>
+<h3 id="hdr-Omit_Empty">Omit Empty</h3>
+<p>Allows conditional validation, for example if a field is not set with
+a value (Determined by the &quot;required&quot; validator) then other validation
+such as min or max won&apos;t run, but if a value is set validation will run.
+<pre>Usage: omitempty
+</pre>
+<h3 id="hdr-Dive">Dive</h3>
+<p>This tells the validator to dive into a slice, array or map and validate that
+level of the slice, array or map with the validation tags that follow.
+Multidimensional nesting is also supported, each level you wish to dive will
+require another dive tag. dive has some sub-tags, &apos;keys&apos; &amp; &apos;endkeys&apos;, please see
+the Keys &amp; EndKeys section just below.
+<pre>Usage: dive
+</pre>
+<p>Example #1
+<pre>[][]string with validation tag &quot;gt=0,dive,len=1,dive,required&quot;
+// gt=0 will be applied to []
+// len=1 will be applied to []string
+// required will be applied to string
+</pre>
+<p>Example #2
+<pre>[][]string with validation tag &quot;gt=0,dive,dive,required&quot;
+// gt=0 will be applied to []
+// []string will be spared validation
+// required will be applied to string
+</pre>
+<p>Keys &amp; EndKeys
+<p>These are to be used together directly after the dive tag and tells the validator
+that anything between &apos;keys&apos; and &apos;endkeys&apos; applies to the keys of a map and not the
+values; think of it like the &apos;dive&apos; tag, but for map keys instead of values.
+Multidimensional nesting is also supported, each level you wish to validate will
+require another &apos;keys&apos; and &apos;endkeys&apos; tag. These tags are only valid for maps.
+<pre>Usage: dive,keys,othertagvalidation(s),endkeys,valuevalidationtags
+</pre>
+<p>Example #1
+<pre>map[string]string with validation tag &quot;gt=0,dive,keys,eg=1|eq=2,endkeys,required&quot;
+// gt=0 will be applied to the map itself
+// eg=1|eq=2 will be applied to the map keys
+// required will be applied to map values
+</pre>
+<p>Example #2
+<pre>map[[2]string]string with validation tag &quot;gt=0,dive,keys,dive,eq=1|eq=2,endkeys,required&quot;
+// gt=0 will be applied to the map itself
+// eg=1|eq=2 will be applied to each array element in the the map keys
+// required will be applied to map values
+</pre>
+<h3 id="hdr-Required">Required</h3>
+<p>This validates that the value is not the data types default zero value.
+For numbers ensures value is not zero. For strings ensures value is
+not &quot;&quot;. For slices, maps, pointers, interfaces, channels and functions
+ensures the value is not nil.
+<pre>Usage: required
+</pre>
+<h3 id="hdr-Required_If">Required If</h3>
+<p>The field under validation must be present and not empty only if all
+the other specified fields are equal to the value following the specified
+field. For strings ensures value is not &quot;&quot;. For slices, maps, pointers,
+interfaces, channels and functions ensures the value is not nil.
+<pre>Usage: required_if
+</pre>
+<p>Examples:
+<pre>// require the field if the Field1 is equal to the parameter given:
+Usage: required_if=Field1 foobar
+
+// require the field if the Field1 and Field2 is equal to the value respectively:
+Usage: required_if=Field1 foo Field2 bar
+</pre>
+<h3 id="hdr-Required_Unless">Required Unless</h3>
+<p>The field under validation must be present and not empty unless all
+the other specified fields are equal to the value following the specified
+field. For strings ensures value is not &quot;&quot;. For slices, maps, pointers,
+interfaces, channels and functions ensures the value is not nil.
+<pre>Usage: required_unless
+</pre>
+<p>Examples:
+<pre>// require the field unless the Field1 is equal to the parameter given:
+Usage: required_unless=Field1 foobar
+
+// require the field unless the Field1 and Field2 is equal to the value respectively:
+Usage: required_unless=Field1 foo Field2 bar
+</pre>
+<h3 id="hdr-Required_With">Required With</h3>
+<p>The field under validation must be present and not empty only if any
+of the other specified fields are present. For strings ensures value is
+not &quot;&quot;. For slices, maps, pointers, interfaces, channels and functions
+ensures the value is not nil.
+<pre>Usage: required_with
+</pre>
+<p>Examples:
+<pre>// require the field if the Field1 is present:
+Usage: required_with=Field1
+
+// require the field if the Field1 or Field2 is present:
+Usage: required_with=Field1 Field2
+</pre>
+<h3 id="hdr-Required_With_All">Required With All</h3>
+<p>The field under validation must be present and not empty only if all
+of the other specified fields are present. For strings ensures value is
+not &quot;&quot;. For slices, maps, pointers, interfaces, channels and functions
+ensures the value is not nil.
+<pre>Usage: required_with_all
+</pre>
+<p>Example:
+<pre>// require the field if the Field1 and Field2 is present:
+Usage: required_with_all=Field1 Field2
+</pre>
+<h3 id="hdr-Required_Without">Required Without</h3>
+<p>The field under validation must be present and not empty only when any
+of the other specified fields are not present. For strings ensures value is
+not &quot;&quot;. For slices, maps, pointers, interfaces, channels and functions
+ensures the value is not nil.
+<pre>Usage: required_without
+</pre>
+<p>Examples:
+<pre>// require the field if the Field1 is not present:
+Usage: required_without=Field1
+
+// require the field if the Field1 or Field2 is not present:
+Usage: required_without=Field1 Field2
+</pre>
+<h3 id="hdr-Required_Without_All">Required Without All</h3>
+<p>The field under validation must be present and not empty only when all
+of the other specified fields are not present. For strings ensures value is
+not &quot;&quot;. For slices, maps, pointers, interfaces, channels and functions
+ensures the value is not nil.
+<pre>Usage: required_without_all
+</pre>
+<p>Example:
+<pre>// require the field if the Field1 and Field2 is not present:
+Usage: required_without_all=Field1 Field2
+</pre>
+<h3 id="hdr-Is_Default">Is Default</h3>
+<p>This validates that the value is the default value and is almost the
+opposite of required.
+<pre>Usage: isdefault
+</pre>
+<h3 id="hdr-Length">Length</h3>
+<p>For numbers, length will ensure that the value is
+equal to the parameter given. For strings, it checks that
+the string length is exactly that number of characters. For slices,
+arrays, and maps, validates the number of items.
+<p>Example #1
+<pre>Usage: len=10
+</pre>
+<p>Example #2 (time.Duration)
+<p>For time.Duration, len will ensure that the value is equal to the duration given
+in the parameter.
+<pre>Usage: len=1h30m
+</pre>
+<h3 id="hdr-Maximum">Maximum</h3>
+<p>For numbers, max will ensure that the value is
+less than or equal to the parameter given. For strings, it checks
+that the string length is at most that number of characters. For
+slices, arrays, and maps, validates the number of items.
+<p>Example #1
+<pre>Usage: max=10
+</pre>
+<p>Example #2 (time.Duration)
+<p>For time.Duration, max will ensure that the value is less than or equal to the
+duration given in the parameter.
+<pre>Usage: max=1h30m
+</pre>
+<h3 id="hdr-Minimum">Minimum</h3>
+<p>For numbers, min will ensure that the value is
+greater or equal to the parameter given. For strings, it checks that
+the string length is at least that number of characters. For slices,
+arrays, and maps, validates the number of items.
+<p>Example #1
+<pre>Usage: min=10
+</pre>
+<p>Example #2 (time.Duration)
+<p>For time.Duration, min will ensure that the value is greater than or equal to
+the duration given in the parameter.
+<pre>Usage: min=1h30m
+</pre>
+<h3 id="hdr-Equals">Equals</h3>
+<p>For strings &amp; numbers, eq will ensure that the value is
+equal to the parameter given. For slices, arrays, and maps,
+validates the number of items.
+<p>Example #1
+<pre>Usage: eq=10
+</pre>
+<p>Example #2 (time.Duration)
+<p>For time.Duration, eq will ensure that the value is equal to the duration given
+in the parameter.
+<pre>Usage: eq=1h30m
+</pre>
+<h3 id="hdr-Not_Equal">Not Equal</h3>
+<p>For strings &amp; numbers, ne will ensure that the value is not
+equal to the parameter given. For slices, arrays, and maps,
+validates the number of items.
+<p>Example #1
+<pre>Usage: ne=10
+</pre>
+<p>Example #2 (time.Duration)
+<p>For time.Duration, ne will ensure that the value is not equal to the duration
+given in the parameter.
+<pre>Usage: ne=1h30m
+</pre>
+<h3 id="hdr-One_Of">One Of</h3>
+<p>For strings, ints, and uints, oneof will ensure that the value
+is one of the values in the parameter.  The parameter should be
+a list of values separated by whitespace. Values may be
+strings or numbers. To match strings with spaces in them, include
+the target string between single quotes.
+<pre>Usage: oneof=red green
+       oneof=&apos;red green&apos; &apos;blue yellow&apos;
+       oneof=5 7 9
+</pre>
+<h3 id="hdr-Greater_Than">Greater Than</h3>
+<p>For numbers, this will ensure that the value is greater than the
+parameter given. For strings, it checks that the string length
+is greater than that number of characters. For slices, arrays
+and maps it validates the number of items.
+<p>Example #1
+<pre>Usage: gt=10
+</pre>
+<p>Example #2 (time.Time)
+<p>For time.Time ensures the time value is greater than time.Now.UTC().
+<pre>Usage: gt
+</pre>
+<p>Example #3 (time.Duration)
+<p>For time.Duration, gt will ensure that the value is greater than the duration
+given in the parameter.
+<pre>Usage: gt=1h30m
+</pre>
+<h3 id="hdr-Greater_Than_or_Equal">Greater Than or Equal</h3>
+<p>Same as &apos;min&apos; above. Kept both to make terminology with &apos;len&apos; easier.
+<p>Example #1
+<pre>Usage: gte=10
+</pre>
+<p>Example #2 (time.Time)
+<p>For time.Time ensures the time value is greater than or equal to time.Now.UTC().
+<pre>Usage: gte
+</pre>
+<p>Example #3 (time.Duration)
+<p>For time.Duration, gte will ensure that the value is greater than or equal to
+the duration given in the parameter.
+<pre>Usage: gte=1h30m
+</pre>
+<h3 id="hdr-Less_Than">Less Than</h3>
+<p>For numbers, this will ensure that the value is less than the parameter given.
+For strings, it checks that the string length is less than that number of
+characters. For slices, arrays, and maps it validates the number of items.
+<p>Example #1
+<pre>Usage: lt=10
+</pre>
+<p>Example #2 (time.Time)
+<p>For time.Time ensures the time value is less than time.Now.UTC().
+<pre>Usage: lt
+</pre>
+<p>Example #3 (time.Duration)
+<p>For time.Duration, lt will ensure that the value is less than the duration given
+in the parameter.
+<pre>Usage: lt=1h30m
+</pre>
+<h3 id="hdr-Less_Than_or_Equal">Less Than or Equal</h3>
+<p>Same as &apos;max&apos; above. Kept both to make terminology with &apos;len&apos; easier.
+<p>Example #1
+<pre>Usage: lte=10
+</pre>
+<p>Example #2 (time.Time)
+<p>For time.Time ensures the time value is less than or equal to time.Now.UTC().
+<pre>Usage: lte
+</pre>
+<p>Example #3 (time.Duration)
+<p>For time.Duration, lte will ensure that the value is less than or equal to the
+duration given in the parameter.
+<pre>Usage: lte=1h30m
+</pre>
+<h3 id="hdr-Field_Equals_Another_Field">Field Equals Another Field</h3>
+<p>This will validate the field value against another fields value either within
+a struct or passed in field.
+<p>Example #1:
+<pre>// Validation on Password field using:
+Usage: eqfield=ConfirmPassword
+</pre>
+<p>Example #2:
+<pre>// Validating by field:
+validate.VarWithValue(password, confirmpassword, &quot;eqfield&quot;)
+</pre>
+<p>Field Equals Another Field (relative)
+<p>This does the same as eqfield except that it validates the field provided relative
+to the top level struct.
+<pre>Usage: eqcsfield=InnerStructField.Field)
+</pre>
+<h3 id="hdr-Field_Does_Not_Equal_Another_Field">Field Does Not Equal Another Field</h3>
+<p>This will validate the field value against another fields value either within
+a struct or passed in field.
+<p>Examples:
+<pre>// Confirm two colors are not the same:
+//
+// Validation on Color field:
+Usage: nefield=Color2
+
+// Validating by field:
+validate.VarWithValue(color1, color2, &quot;nefield&quot;)
+</pre>
+<p>Field Does Not Equal Another Field (relative)
+<p>This does the same as nefield except that it validates the field provided
+relative to the top level struct.
+<pre>Usage: necsfield=InnerStructField.Field
+</pre>
+<h3 id="hdr-Field_Greater_Than_Another_Field">Field Greater Than Another Field</h3>
+<p>Only valid for Numbers, time.Duration and time.Time types, this will validate
+the field value against another fields value either within a struct or passed in
+field. usage examples are for validation of a Start and End date:
+<p>Example #1:
+<pre>// Validation on End field using:
+validate.Struct Usage(gtfield=Start)
+</pre>
+<p>Example #2:
+<pre>// Validating by field:
+validate.VarWithValue(start, end, &quot;gtfield&quot;)
+</pre>
+<h3 id="hdr-Field_Greater_Than_Another_Relative_Field">Field Greater Than Another Relative Field</h3>
+<p>This does the same as gtfield except that it validates the field provided
+relative to the top level struct.
+<pre>Usage: gtcsfield=InnerStructField.Field
+</pre>
+<h3 id="hdr-Field_Greater_Than_or_Equal_To_Another_Field">Field Greater Than or Equal To Another Field</h3>
+<p>Only valid for Numbers, time.Duration and time.Time types, this will validate
+the field value against another fields value either within a struct or passed in
+field. usage examples are for validation of a Start and End date:
+<p>Example #1:
+<pre>// Validation on End field using:
+validate.Struct Usage(gtefield=Start)
+</pre>
+<p>Example #2:
+<pre>// Validating by field:
+validate.VarWithValue(start, end, &quot;gtefield&quot;)
+</pre>
+<h3 id="hdr-Field_Greater_Than_or_Equal_To_Another_Relative_Field">Field Greater Than or Equal To Another Relative Field</h3>
+<p>This does the same as gtefield except that it validates the field provided relative
+to the top level struct.
+<pre>Usage: gtecsfield=InnerStructField.Field
+</pre>
+<h3 id="hdr-Less_Than_Another_Field">Less Than Another Field</h3>
+<p>Only valid for Numbers, time.Duration and time.Time types, this will validate
+the field value against another fields value either within a struct or passed in
+field. usage examples are for validation of a Start and End date:
+<p>Example #1:
+<pre>// Validation on End field using:
+validate.Struct Usage(ltfield=Start)
+</pre>
+<p>Example #2:
+<pre>// Validating by field:
+validate.VarWithValue(start, end, &quot;ltfield&quot;)
+</pre>
+<h3 id="hdr-Less_Than_Another_Relative_Field">Less Than Another Relative Field</h3>
+<p>This does the same as ltfield except that it validates the field provided relative
+to the top level struct.
+<pre>Usage: ltcsfield=InnerStructField.Field
+</pre>
+<h3 id="hdr-Less_Than_or_Equal_To_Another_Field">Less Than or Equal To Another Field</h3>
+<p>Only valid for Numbers, time.Duration and time.Time types, this will validate
+the field value against another fields value either within a struct or passed in
+field. usage examples are for validation of a Start and End date:
+<p>Example #1:
+<pre>// Validation on End field using:
+validate.Struct Usage(ltefield=Start)
+</pre>
+<p>Example #2:
+<pre>// Validating by field:
+validate.VarWithValue(start, end, &quot;ltefield&quot;)
+</pre>
+<h3 id="hdr-Less_Than_or_Equal_To_Another_Relative_Field">Less Than or Equal To Another Relative Field</h3>
+<p>This does the same as ltefield except that it validates the field provided relative
+to the top level struct.
+<pre>Usage: ltecsfield=InnerStructField.Field
+</pre>
+<h3 id="hdr-Field_Contains_Another_Field">Field Contains Another Field</h3>
+<p>This does the same as contains except for struct fields. It should only be used
+with string types. See the behavior of reflect.Value.String() for behavior on
+other types.
+<pre>Usage: containsfield=InnerStructField.Field
+</pre>
+<h3 id="hdr-Field_Excludes_Another_Field">Field Excludes Another Field</h3>
+<p>This does the same as excludes except for struct fields. It should only be used
+with string types. See the behavior of reflect.Value.String() for behavior on
+other types.
+<pre>Usage: excludesfield=InnerStructField.Field
+</pre>
+<h3 id="hdr-Unique">Unique</h3>
+<p>For arrays &amp; slices, unique will ensure that there are no duplicates.
+For maps, unique will ensure that there are no duplicate values.
+For slices of struct, unique will ensure that there are no duplicate values
+in a field of the struct specified via a parameter.
+<pre>// For arrays, slices, and maps:
+Usage: unique
+
+// For slices of struct:
+Usage: unique=field
+</pre>
+<h3 id="hdr-Alpha_Only">Alpha Only</h3>
+<p>This validates that a string value contains ASCII alpha characters only
+<pre>Usage: alpha
+</pre>
+<h3 id="hdr-Alphanumeric">Alphanumeric</h3>
+<p>This validates that a string value contains ASCII alphanumeric characters only
+<pre>Usage: alphanum
+</pre>
+<h3 id="hdr-Alpha_Unicode">Alpha Unicode</h3>
+<p>This validates that a string value contains unicode alpha characters only
+<pre>Usage: alphaunicode
+</pre>
+<h3 id="hdr-Alphanumeric_Unicode">Alphanumeric Unicode</h3>
+<p>This validates that a string value contains unicode alphanumeric characters only
+<pre>Usage: alphanumunicode
+</pre>
+<h3 id="hdr-Boolean">Boolean</h3>
+<p>This validates that a string value can successfully be parsed into a boolean with strconv.ParseBool
+<pre>Usage: boolean
+</pre>
+<h3 id="hdr-Number">Number</h3>
+<p>This validates that a string value contains number values only.
+For integers or float it returns true.
+<pre>Usage: number
+</pre>
+<h3 id="hdr-Numeric">Numeric</h3>
+<p>This validates that a string value contains a basic numeric value.
+basic excludes exponents etc...
+for integers or float it returns true.
+<pre>Usage: numeric
+</pre>
+<h3 id="hdr-Hexadecimal_String">Hexadecimal String</h3>
+<p>This validates that a string value contains a valid hexadecimal.
+<pre>Usage: hexadecimal
+</pre>
+<h3 id="hdr-Hexcolor_String">Hexcolor String</h3>
+<p>This validates that a string value contains a valid hex color including
+hashtag (#)
+<pre>Usage: hexcolor
+</pre>
+<h3 id="hdr-Lowercase_String">Lowercase String</h3>
+<p>This validates that a string value contains only lowercase characters. An empty string is not a valid lowercase string.
+<pre>Usage: lowercase
+</pre>
+<h3 id="hdr-Uppercase_String">Uppercase String</h3>
+<p>This validates that a string value contains only uppercase characters. An empty string is not a valid uppercase string.
+<pre>Usage: uppercase
+</pre>
+<h3 id="hdr-RGB_String">RGB String</h3>
+<p>This validates that a string value contains a valid rgb color
+<pre>Usage: rgb
+</pre>
+<h3 id="hdr-RGBA_String">RGBA String</h3>
+<p>This validates that a string value contains a valid rgba color
+<pre>Usage: rgba
+</pre>
+<h3 id="hdr-HSL_String">HSL String</h3>
+<p>This validates that a string value contains a valid hsl color
+<pre>Usage: hsl
+</pre>
+<h3 id="hdr-HSLA_String">HSLA String</h3>
+<p>This validates that a string value contains a valid hsla color
+<pre>Usage: hsla
+</pre>
+<h3 id="hdr-E_164_Phone_Number_String">E.164 Phone Number String</h3>
+<p>This validates that a string value contains a valid E.164 Phone number
+<a href="https://en.wikipedia.org/wiki/E.164">https://en.wikipedia.org/wiki/E.164</a> (ex. +1123456789)
+<pre>Usage: e164
+</pre>
+<h3 id="hdr-E_mail_String">E-mail String</h3>
+<p>This validates that a string value contains a valid email
+This may not conform to all possibilities of any rfc standard, but neither
+does any email provider accept all possibilities.
+<pre>Usage: email
+</pre>
+<h3 id="hdr-JSON_String">JSON String</h3>
+<p>This validates that a string value is valid JSON
+<pre>Usage: json
+</pre>
+<h3 id="hdr-JWT_String">JWT String</h3>
+<p>This validates that a string value is a valid JWT
+<pre>Usage: jwt
+</pre>
+<h3 id="hdr-File_path">File path</h3>
+<p>This validates that a string value contains a valid file path and that
+the file exists on the machine.
+This is done using os.Stat, which is a platform independent function.
+<pre>Usage: file
+</pre>
+<h3 id="hdr-URL_String">URL String</h3>
+<p>This validates that a string value contains a valid url
+This will accept any url the golang request uri accepts but must contain
+a schema for example http:// or rtmp://
+<pre>Usage: url
+</pre>
+<h3 id="hdr-URI_String">URI String</h3>
+<p>This validates that a string value contains a valid uri
+This will accept any uri the golang request uri accepts
+<pre>Usage: uri
+</pre>
+<h3 id="hdr-Urn_RFC_2141_String">Urn RFC 2141 String</h3>
+<p>This validataes that a string value contains a valid URN
+according to the RFC 2141 spec.
+<pre>Usage: urn_rfc2141
+</pre>
+<h3 id="hdr-Base64_String">Base64 String</h3>
+<p>This validates that a string value contains a valid base64 value.
+Although an empty string is valid base64 this will report an empty string
+as an error, if you wish to accept an empty string as valid you can use
+this with the omitempty tag.
+<pre>Usage: base64
+</pre>
+<h3 id="hdr-Base64URL_String">Base64URL String</h3>
+<p>This validates that a string value contains a valid base64 URL safe value
+according the the RFC4648 spec.
+Although an empty string is a valid base64 URL safe value, this will report
+an empty string as an error, if you wish to accept an empty string as valid
+you can use this with the omitempty tag.
+<pre>Usage: base64url
+</pre>
+<h3 id="hdr-Bitcoin_Address">Bitcoin Address</h3>
+<p>This validates that a string value contains a valid bitcoin address.
+The format of the string is checked to ensure it matches one of the three formats
+P2PKH, P2SH and performs checksum validation.
+<pre>Usage: btc_addr
+</pre>
+<p>Bitcoin Bech32 Address (segwit)
+<p>This validates that a string value contains a valid bitcoin Bech32 address as defined
+by bip-0173 (<a href="https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki">https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki</a>)
+Special thanks to Pieter Wuille for providng reference implementations.
+<pre>Usage: btc_addr_bech32
+</pre>
+<h3 id="hdr-Ethereum_Address">Ethereum Address</h3>
+<p>This validates that a string value contains a valid ethereum address.
+The format of the string is checked to ensure it matches the standard Ethereum address format.
+<pre>Usage: eth_addr
+</pre>
+<h3 id="hdr-Contains">Contains</h3>
+<p>This validates that a string value contains the substring value.
+<pre>Usage: contains=@
+</pre>
+<h3 id="hdr-Contains_Any">Contains Any</h3>
+<p>This validates that a string value contains any Unicode code points
+in the substring value.
+<pre>Usage: containsany=!@#?
+</pre>
+<h3 id="hdr-Contains_Rune">Contains Rune</h3>
+<p>This validates that a string value contains the supplied rune value.
+<pre>Usage: containsrune=@
+</pre>
+<h3 id="hdr-Excludes">Excludes</h3>
+<p>This validates that a string value does not contain the substring value.
+<pre>Usage: excludes=@
+</pre>
+<h3 id="hdr-Excludes_All">Excludes All</h3>
+<p>This validates that a string value does not contain any Unicode code
+points in the substring value.
+<pre>Usage: excludesall=!@#?
+</pre>
+<h3 id="hdr-Excludes_Rune">Excludes Rune</h3>
+<p>This validates that a string value does not contain the supplied rune value.
+<pre>Usage: excludesrune=@
+</pre>
+<h3 id="hdr-Starts_With">Starts With</h3>
+<p>This validates that a string value starts with the supplied string value
+<pre>Usage: startswith=hello
+</pre>
+<h3 id="hdr-Ends_With">Ends With</h3>
+<p>This validates that a string value ends with the supplied string value
+<pre>Usage: endswith=goodbye
+</pre>
+<h3 id="hdr-Does_Not_Start_With">Does Not Start With</h3>
+<p>This validates that a string value does not start with the supplied string value
+<pre>Usage: startsnotwith=hello
+</pre>
+<h3 id="hdr-Does_Not_End_With">Does Not End With</h3>
+<p>This validates that a string value does not end with the supplied string value
+<pre>Usage: endsnotwith=goodbye
+</pre>
+<h3 id="hdr-International_Standard_Book_Number">International Standard Book Number</h3>
+<p>This validates that a string value contains a valid isbn10 or isbn13 value.
+<pre>Usage: isbn
+</pre>
+<h3 id="hdr-International_Standard_Book_Number_10">International Standard Book Number 10</h3>
+<p>This validates that a string value contains a valid isbn10 value.
+<pre>Usage: isbn10
+</pre>
+<h3 id="hdr-International_Standard_Book_Number_13">International Standard Book Number 13</h3>
+<p>This validates that a string value contains a valid isbn13 value.
+<pre>Usage: isbn13
+</pre>
+<h3 id="hdr-Universally_Unique_Identifier_UUID">Universally Unique Identifier UUID</h3>
+<p>This validates that a string value contains a valid UUID. Uppercase UUID values will not pass - use `uuid_rfc4122` instead.
+<pre>Usage: uuid
+</pre>
+<h3 id="hdr-Universally_Unique_Identifier_UUID_v3">Universally Unique Identifier UUID v3</h3>
+<p>This validates that a string value contains a valid version 3 UUID.  Uppercase UUID values will not pass - use `uuid3_rfc4122` instead.
+<pre>Usage: uuid3
+</pre>
+<h3 id="hdr-Universally_Unique_Identifier_UUID_v4">Universally Unique Identifier UUID v4</h3>
+<p>This validates that a string value contains a valid version 4 UUID.  Uppercase UUID values will not pass - use `uuid4_rfc4122` instead.
+<pre>Usage: uuid4
+</pre>
+<h3 id="hdr-Universally_Unique_Identifier_UUID_v5">Universally Unique Identifier UUID v5</h3>
+<p>This validates that a string value contains a valid version 5 UUID.  Uppercase UUID values will not pass - use `uuid5_rfc4122` instead.
+<pre>Usage: uuid5
+</pre>
+<h3 id="hdr-Universally_Unique_Lexicographically_Sortable_Identifier_ULID">Universally Unique Lexicographically Sortable Identifier ULID</h3>
+<p>This validates that a string value contains a valid ULID value.
+<pre>Usage: ulid
+</pre>
+<h3 id="hdr-ASCII">ASCII</h3>
+<p>This validates that a string value contains only ASCII characters.
+NOTE: if the string is blank, this validates as true.
+<pre>Usage: ascii
+</pre>
+<h3 id="hdr-Printable_ASCII">Printable ASCII</h3>
+<p>This validates that a string value contains only printable ASCII characters.
+NOTE: if the string is blank, this validates as true.
+<pre>Usage: printascii
+</pre>
+<h3 id="hdr-Multi_Byte_Characters">Multi-Byte Characters</h3>
+<p>This validates that a string value contains one or more multibyte characters.
+NOTE: if the string is blank, this validates as true.
+<pre>Usage: multibyte
+</pre>
+<h3 id="hdr-Data_URL">Data URL</h3>
+<p>This validates that a string value contains a valid DataURI.
+NOTE: this will also validate that the data portion is valid base64
+<pre>Usage: datauri
+</pre>
+<h3 id="hdr-Latitude">Latitude</h3>
+<p>This validates that a string value contains a valid latitude.
+<pre>Usage: latitude
+</pre>
+<h3 id="hdr-Longitude">Longitude</h3>
+<p>This validates that a string value contains a valid longitude.
+<pre>Usage: longitude
+</pre>
+<h3 id="hdr-Social_Security_Number_SSN">Social Security Number SSN</h3>
+<p>This validates that a string value contains a valid U.S. Social Security Number.
+<pre>Usage: ssn
+</pre>
+<h3 id="hdr-Internet_Protocol_Address_IP">Internet Protocol Address IP</h3>
+<p>This validates that a string value contains a valid IP Address.
+<pre>Usage: ip
+</pre>
+<h3 id="hdr-Internet_Protocol_Address_IPv4">Internet Protocol Address IPv4</h3>
+<p>This validates that a string value contains a valid v4 IP Address.
+<pre>Usage: ipv4
+</pre>
+<h3 id="hdr-Internet_Protocol_Address_IPv6">Internet Protocol Address IPv6</h3>
+<p>This validates that a string value contains a valid v6 IP Address.
+<pre>Usage: ipv6
+</pre>
+<h3 id="hdr-Classless_Inter_Domain_Routing_CIDR">Classless Inter-Domain Routing CIDR</h3>
+<p>This validates that a string value contains a valid CIDR Address.
+<pre>Usage: cidr
+</pre>
+<h3 id="hdr-Classless_Inter_Domain_Routing_CIDRv4">Classless Inter-Domain Routing CIDRv4</h3>
+<p>This validates that a string value contains a valid v4 CIDR Address.
+<pre>Usage: cidrv4
+</pre>
+<h3 id="hdr-Classless_Inter_Domain_Routing_CIDRv6">Classless Inter-Domain Routing CIDRv6</h3>
+<p>This validates that a string value contains a valid v6 CIDR Address.
+<pre>Usage: cidrv6
+</pre>
+<h3 id="hdr-Transmission_Control_Protocol_Address_TCP">Transmission Control Protocol Address TCP</h3>
+<p>This validates that a string value contains a valid resolvable TCP Address.
+<pre>Usage: tcp_addr
+</pre>
+<h3 id="hdr-Transmission_Control_Protocol_Address_TCPv4">Transmission Control Protocol Address TCPv4</h3>
+<p>This validates that a string value contains a valid resolvable v4 TCP Address.
+<pre>Usage: tcp4_addr
+</pre>
+<h3 id="hdr-Transmission_Control_Protocol_Address_TCPv6">Transmission Control Protocol Address TCPv6</h3>
+<p>This validates that a string value contains a valid resolvable v6 TCP Address.
+<pre>Usage: tcp6_addr
+</pre>
+<h3 id="hdr-User_Datagram_Protocol_Address_UDP">User Datagram Protocol Address UDP</h3>
+<p>This validates that a string value contains a valid resolvable UDP Address.
+<pre>Usage: udp_addr
+</pre>
+<h3 id="hdr-User_Datagram_Protocol_Address_UDPv4">User Datagram Protocol Address UDPv4</h3>
+<p>This validates that a string value contains a valid resolvable v4 UDP Address.
+<pre>Usage: udp4_addr
+</pre>
+<h3 id="hdr-User_Datagram_Protocol_Address_UDPv6">User Datagram Protocol Address UDPv6</h3>
+<p>This validates that a string value contains a valid resolvable v6 UDP Address.
+<pre>Usage: udp6_addr
+</pre>
+<h3 id="hdr-Internet_Protocol_Address_IP">Internet Protocol Address IP</h3>
+<p>This validates that a string value contains a valid resolvable IP Address.
+<pre>Usage: ip_addr
+</pre>
+<h3 id="hdr-Internet_Protocol_Address_IPv4">Internet Protocol Address IPv4</h3>
+<p>This validates that a string value contains a valid resolvable v4 IP Address.
+<pre>Usage: ip4_addr
+</pre>
+<h3 id="hdr-Internet_Protocol_Address_IPv6">Internet Protocol Address IPv6</h3>
+<p>This validates that a string value contains a valid resolvable v6 IP Address.
+<pre>Usage: ip6_addr
+</pre>
+<h3 id="hdr-Unix_domain_socket_end_point_Address">Unix domain socket end point Address</h3>
+<p>This validates that a string value contains a valid Unix Address.
+<pre>Usage: unix_addr
+</pre>
+<h3 id="hdr-Media_Access_Control_Address_MAC">Media Access Control Address MAC</h3>
+<p>This validates that a string value contains a valid MAC Address.
+<pre>Usage: mac
+</pre>
+<p>Note: See Go&apos;s ParseMAC for accepted formats and types:
+<pre>http://golang.org/src/net/mac.go?s=866:918#L29
+</pre>
+<h3 id="hdr-Hostname_RFC_952">Hostname RFC 952</h3>
+<p>This validates that a string value is a valid Hostname according to RFC 952 <a href="https://tools.ietf.org/html/rfc952">https://tools.ietf.org/html/rfc952</a>
+<pre>Usage: hostname
+</pre>
+<h3 id="hdr-Hostname_RFC_1123">Hostname RFC 1123</h3>
+<p>This validates that a string value is a valid Hostname according to RFC 1123 <a href="https://tools.ietf.org/html/rfc1123">https://tools.ietf.org/html/rfc1123</a>
+<pre>Usage: hostname_rfc1123 or if you want to continue to use &apos;hostname&apos; in your tags, create an alias.
+</pre>
+<p>Full Qualified Domain Name (FQDN)
+<p>This validates that a string value contains a valid FQDN.
+<pre>Usage: fqdn
+</pre>
+<h3 id="hdr-HTML_Tags">HTML Tags</h3>
+<p>This validates that a string value appears to be an HTML element tag
+including those described at <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">https://developer.mozilla.org/en-US/docs/Web/HTML/Element</a>
+<pre>Usage: html
+</pre>
+<h3 id="hdr-HTML_Encoded">HTML Encoded</h3>
+<p>This validates that a string value is a proper character reference in decimal
+or hexadecimal format
+<pre>Usage: html_encoded
+</pre>
+<h3 id="hdr-URL_Encoded">URL Encoded</h3>
+<p>This validates that a string value is percent-encoded (URL encoded) according
+to <a href="https://tools.ietf.org/html/rfc3986#section-2.1">https://tools.ietf.org/html/rfc3986#section-2.1</a>
+<pre>Usage: url_encoded
+</pre>
+<h3 id="hdr-Directory">Directory</h3>
+<p>This validates that a string value contains a valid directory and that
+it exists on the machine.
+This is done using os.Stat, which is a platform independent function.
+<pre>Usage: dir
+</pre>
+<h3 id="hdr-HostPort">HostPort</h3>
+<p>This validates that a string value contains a valid DNS hostname and port that
+can be used to valiate fields typically passed to sockets and connections.
+<pre>Usage: hostname_port
+</pre>
+<h3 id="hdr-Datetime">Datetime</h3>
+<p>This validates that a string value is a valid datetime based on the supplied datetime format.
+Supplied format must match the official Go time format layout as documented in <a href="https://golang.org/pkg/time/">https://golang.org/pkg/time/</a>
+<pre>Usage: datetime=2006-01-02
+</pre>
+<h3 id="hdr-Iso3166_1_alpha_2">Iso3166-1 alpha-2</h3>
+<p>This validates that a string value is a valid country code based on iso3166-1 alpha-2 standard.
+see: <a href="https://www.iso.org/iso-3166-country-codes.html">https://www.iso.org/iso-3166-country-codes.html</a>
+<pre>Usage: iso3166_1_alpha2
+</pre>
+<h3 id="hdr-Iso3166_1_alpha_3">Iso3166-1 alpha-3</h3>
+<p>This validates that a string value is a valid country code based on iso3166-1 alpha-3 standard.
+see: <a href="https://www.iso.org/iso-3166-country-codes.html">https://www.iso.org/iso-3166-country-codes.html</a>
+<pre>Usage: iso3166_1_alpha3
+</pre>
+<h3 id="hdr-Iso3166_1_alpha_numeric">Iso3166-1 alpha-numeric</h3>
+<p>This validates that a string value is a valid country code based on iso3166-1 alpha-numeric standard.
+see: <a href="https://www.iso.org/iso-3166-country-codes.html">https://www.iso.org/iso-3166-country-codes.html</a>
+<pre>Usage: iso3166_1_alpha3
+</pre>
+<h3 id="hdr-BCP_47_Language_Tag">BCP 47 Language Tag</h3>
+<p>This validates that a string value is a valid BCP 47 language tag, as parsed by language.Parse.
+More information on <a href="https://pkg.go.dev/golang.org/x/text/language">https://pkg.go.dev/golang.org/x/text/language</a>
+<pre>Usage: bcp47_language_tag
+</pre>
+<p>BIC (SWIFT code)
+<p>This validates that a string value is a valid Business Identifier Code (SWIFT code), defined in ISO 9362.
+More information on <a href="https://www.iso.org/standard/60390.html">https://www.iso.org/standard/60390.html</a>
+<pre>Usage: bic
+</pre>
+<h3 id="hdr-RFC_1035_label">RFC 1035 label</h3>
+<p>This validates that a string value is a valid dns RFC 1035 label, defined in RFC 1035.
+More information on <a href="https://datatracker.ietf.org/doc/html/rfc1035">https://datatracker.ietf.org/doc/html/rfc1035</a>
+<pre>Usage: dns_rfc1035_label
+</pre>
+<h3 id="hdr-TimeZone">TimeZone</h3>
+<p>This validates that a string value is a valid time zone based on the time zone database present on the system.
+Although empty value and Local value are allowed by time.LoadLocation golang function, they are not allowed by this validator.
+More information on <a href="https://golang.org/pkg/time/#LoadLocation">https://golang.org/pkg/time/#LoadLocation</a>
+<pre>Usage: timezone
+</pre>
+<h3 id="hdr-Semantic_Version">Semantic Version</h3>
+<p>This validates that a string value is a valid semver version, defined in Semantic Versioning 2.0.0.
+More information on <a href="https://semver.org/">https://semver.org/</a>
+<pre>Usage: semver
+</pre>
+<h3 id="hdr-Alias_Validators_and_Tags">Alias Validators and Tags</h3>
+<p>NOTE: When returning an error, the tag returned in &quot;FieldError&quot; will be
+the alias tag unless the dive tag is part of the alias. Everything after the
+dive tag is not reported as the alias tag. Also, the &quot;ActualTag&quot; in the before
+case will be the actual tag within the alias that failed.
+<p>Here is a list of the current built in alias tags:
+<pre>&quot;iscolor&quot;
+	alias is &quot;hexcolor|rgb|rgba|hsl|hsla&quot; (Usage: iscolor)
+&quot;country_code&quot;
+	alias is &quot;iso3166_1_alpha2|iso3166_1_alpha3|iso3166_1_alpha_numeric&quot; (Usage: country_code)
+</pre>
+<p>Validator notes:
+<pre>regex
+	a regex validator won&apos;t be added because commas and = signs can be part
+	of a regex which conflict with the validation definitions. Although
+	workarounds can be made, they take away from using pure regex&apos;s.
+	Furthermore it&apos;s quick and dirty but the regex&apos;s become harder to
+	maintain and are not reusable, so it&apos;s as much a programming philosophy
+	as anything.
+
+	In place of this new validator functions should be created; a regex can
+	be used within the validator function and even be precompiled for better
+	efficiency within regexes.go.
+
+	And the best reason, you can submit a pull request and we can keep on
+	adding to the validation library of this package!
+</pre>
+<h3 id="hdr-Non_standard_validators">Non standard validators</h3>
+<p>A collection of validation rules that are frequently needed but are more
+complex than the ones found in the baked in validators.
+A non standard validator must be registered manually like you would
+with your own custom validation functions.
+<p>Example of registration and use:
+<pre>type Test struct {
+	TestField string `validate:&quot;yourtag&quot;`
+}
+
+t := &amp;Test{
+	TestField: &quot;Test&quot;
+}
+
+validate := validator.New()
+validate.RegisterValidation(&quot;yourtag&quot;, validators.NotBlank)
+</pre>
+<p>Here is a list of the current non standard validators:
+<pre>NotBlank
+	This validates that the value is not blank or with length zero.
+	For strings ensures they do not contain only spaces. For channels, maps, slices and arrays
+	ensures they don&apos;t have zero length. For others, a non empty value is required.
+
+	Usage: notblank
+</pre>
+<h3 id="hdr-Panics">Panics</h3>
+<p>This package panics when bad input is provided, this is by design, bad code like
+that should not make it to production.
+<pre>type Test struct {
+	TestField string `validate:&quot;nonexistantfunction=1&quot;`
+}
+
+t := &amp;Test{
+	TestField: &quot;Test&quot;
+}
+
+validate.Struct(t) // this will panic
+</pre>
+
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+			
+				
+				<dd><a href="#CustomTypeFunc">type CustomTypeFunc</a></dd>
+				
+				
+			
+				
+				<dd><a href="#FieldError">type FieldError</a></dd>
+				
+				
+			
+				
+				<dd><a href="#FieldLevel">type FieldLevel</a></dd>
+				
+				
+			
+				
+				<dd><a href="#FilterFunc">type FilterFunc</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Func">type Func</a></dd>
+				
+				
+			
+				
+				<dd><a href="#FuncCtx">type FuncCtx</a></dd>
+				
+				
+			
+				
+				<dd><a href="#InvalidValidationError">type InvalidValidationError</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#InvalidValidationError.Error">func (e *InvalidValidationError) Error() string</a></dd>
+				
+			
+				
+				<dd><a href="#RegisterTranslationsFunc">type RegisterTranslationsFunc</a></dd>
+				
+				
+			
+				
+				<dd><a href="#StructLevel">type StructLevel</a></dd>
+				
+				
+			
+				
+				<dd><a href="#StructLevelFunc">type StructLevelFunc</a></dd>
+				
+				
+			
+				
+				<dd><a href="#StructLevelFuncCtx">type StructLevelFuncCtx</a></dd>
+				
+				
+			
+				
+				<dd><a href="#TagNameFunc">type TagNameFunc</a></dd>
+				
+				
+			
+				
+				<dd><a href="#TranslationFunc">type TranslationFunc</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Validate">type Validate</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#New">func New() *Validate</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Validate.RegisterAlias">func (v *Validate) RegisterAlias(alias, tags string)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Validate.RegisterCustomTypeFunc">func (v *Validate) RegisterCustomTypeFunc(fn CustomTypeFunc, types ...interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Validate.RegisterStructValidation">func (v *Validate) RegisterStructValidation(fn StructLevelFunc, types ...interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Validate.RegisterStructValidationCtx">func (v *Validate) RegisterStructValidationCtx(fn StructLevelFuncCtx, types ...interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Validate.RegisterTagNameFunc">func (v *Validate) RegisterTagNameFunc(fn TagNameFunc)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Validate.RegisterTranslation">func (v *Validate) RegisterTranslation(tag string, trans ut.Translator, registerFn RegisterTranslationsFunc, translationFn TranslationFunc) (err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Validate.RegisterValidation">func (v *Validate) RegisterValidation(tag string, fn Func, callValidationEvenIfNull ...bool) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Validate.RegisterValidationCtx">func (v *Validate) RegisterValidationCtx(tag string, fn FuncCtx, callValidationEvenIfNull ...bool) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Validate.SetTagName">func (v *Validate) SetTagName(name string)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Validate.Struct">func (v *Validate) Struct(s interface{}) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Validate.StructCtx">func (v *Validate) StructCtx(ctx context.Context, s interface{}) (err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Validate.StructExcept">func (v *Validate) StructExcept(s interface{}, fields ...string) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Validate.StructExceptCtx">func (v *Validate) StructExceptCtx(ctx context.Context, s interface{}, fields ...string) (err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Validate.StructFiltered">func (v *Validate) StructFiltered(s interface{}, fn FilterFunc) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Validate.StructFilteredCtx">func (v *Validate) StructFilteredCtx(ctx context.Context, s interface{}, fn FilterFunc) (err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Validate.StructPartial">func (v *Validate) StructPartial(s interface{}, fields ...string) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Validate.StructPartialCtx">func (v *Validate) StructPartialCtx(ctx context.Context, s interface{}, fields ...string) (err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Validate.ValidateMap">func (v *Validate) ValidateMap(data map[string]interface{}, rules map[string]interface{}) map[string]interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Validate.ValidateMapCtx">func (v Validate) ValidateMapCtx(ctx context.Context, data map[string]interface{}, rules map[string]interface{}) map[string]interface{}</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Validate.Var">func (v *Validate) Var(field interface{}, tag string) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Validate.VarCtx">func (v *Validate) VarCtx(ctx context.Context, field interface{}, tag string) (err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Validate.VarWithValue">func (v *Validate) VarWithValue(field interface{}, other interface{}, tag string) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Validate.VarWithValueCtx">func (v *Validate) VarWithValueCtx(ctx context.Context, field interface{}, other interface{}, tag string) (err error)</a></dd>
+				
+			
+				
+				<dd><a href="#ValidationErrors">type ValidationErrors</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ValidationErrors.Error">func (ve ValidationErrors) Error() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ValidationErrors.Translate">func (ve ValidationErrors) Translate(ut ut.Translator) ValidationErrorsTranslations</a></dd>
+				
+			
+				
+				<dd><a href="#ValidationErrorsTranslations">type ValidationErrorsTranslations</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/github.com/go-playground/validator/v10/baked_in.go">baked_in.go</a>
+			
+				<a href="/src/github.com/go-playground/validator/v10/cache.go">cache.go</a>
+			
+				<a href="/src/github.com/go-playground/validator/v10/country_codes.go">country_codes.go</a>
+			
+				<a href="/src/github.com/go-playground/validator/v10/currency_codes.go">currency_codes.go</a>
+			
+				<a href="/src/github.com/go-playground/validator/v10/doc.go">doc.go</a>
+			
+				<a href="/src/github.com/go-playground/validator/v10/errors.go">errors.go</a>
+			
+				<a href="/src/github.com/go-playground/validator/v10/field_level.go">field_level.go</a>
+			
+				<a href="/src/github.com/go-playground/validator/v10/postcode_regexes.go">postcode_regexes.go</a>
+			
+				<a href="/src/github.com/go-playground/validator/v10/regexes.go">regexes.go</a>
+			
+				<a href="/src/github.com/go-playground/validator/v10/struct_level.go">struct_level.go</a>
+			
+				<a href="/src/github.com/go-playground/validator/v10/translations.go">translations.go</a>
+			
+				<a href="/src/github.com/go-playground/validator/v10/util.go">util.go</a>
+			
+				<a href="/src/github.com/go-playground/validator/v10/validator.go">validator.go</a>
+			
+				<a href="/src/github.com/go-playground/validator/v10/validator_instance.go">validator_instance.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+		
+			
+			
+			<h2 id="CustomTypeFunc">type <a href="/src/github.com/go-playground/validator/v10/validator_instance.go?s=2142:2199#L55">CustomTypeFunc</a>
+				<a class="permalink" href="#CustomTypeFunc">&#xb6;</a>
+				
+				
+			</h2>
+			<p>CustomTypeFunc allows for overriding or adding custom field type handler functions
+field = field value of the type to return a value to be validated
+example Valuer from sql drive see <a href="https://golang.org/src/database/sql/driver/types.go?s=1210:1293#L29">https://golang.org/src/database/sql/driver/types.go?s=1210:1293#L29</a>
+
+			<pre>type CustomTypeFunc func(field <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Value">Value</a>) interface{}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="FieldError">type <a href="/src/github.com/go-playground/validator/v10/errors.go?s=2052:4529#L73">FieldError</a>
+				<a class="permalink" href="#FieldError">&#xb6;</a>
+				
+				
+			</h2>
+			<p>FieldError contains all functions to get error details
+
+			<pre>type FieldError interface {
+
+    <span class="comment">// Tag returns the validation tag that failed. if the</span>
+    <span class="comment">// validation was an alias, this will return the</span>
+    <span class="comment">// alias name and not the underlying tag that failed.</span>
+    <span class="comment">//</span>
+    <span class="comment">// eg. alias &#34;iscolor&#34;: &#34;hexcolor|rgb|rgba|hsl|hsla&#34;</span>
+    <span class="comment">// will return &#34;iscolor&#34;</span>
+    Tag() <a href="/pkg/builtin/#string">string</a>
+
+    <span class="comment">// ActualTag returns the validation tag that failed, even if an</span>
+    <span class="comment">// alias the actual tag within the alias will be returned.</span>
+    <span class="comment">// If an &#39;or&#39; validation fails the entire or will be returned.</span>
+    <span class="comment">//</span>
+    <span class="comment">// eg. alias &#34;iscolor&#34;: &#34;hexcolor|rgb|rgba|hsl|hsla&#34;</span>
+    <span class="comment">// will return &#34;hexcolor|rgb|rgba|hsl|hsla&#34;</span>
+    ActualTag() <a href="/pkg/builtin/#string">string</a>
+
+    <span class="comment">// Namespace returns the namespace for the field error, with the tag</span>
+    <span class="comment">// name taking precedence over the field&#39;s actual name.</span>
+    <span class="comment">//</span>
+    <span class="comment">// eg. JSON name &#34;User.fname&#34;</span>
+    <span class="comment">//</span>
+    <span class="comment">// See StructNamespace() for a version that returns actual names.</span>
+    <span class="comment">//</span>
+    <span class="comment">// NOTE: this field can be blank when validating a single primitive field</span>
+    <span class="comment">// using validate.Field(...) as there is no way to extract it&#39;s name</span>
+    Namespace() <a href="/pkg/builtin/#string">string</a>
+
+    <span class="comment">// StructNamespace returns the namespace for the field error, with the field&#39;s</span>
+    <span class="comment">// actual name.</span>
+    <span class="comment">//</span>
+    <span class="comment">// eq. &#34;User.FirstName&#34; see Namespace for comparison</span>
+    <span class="comment">//</span>
+    <span class="comment">// NOTE: this field can be blank when validating a single primitive field</span>
+    <span class="comment">// using validate.Field(...) as there is no way to extract its name</span>
+    StructNamespace() <a href="/pkg/builtin/#string">string</a>
+
+    <span class="comment">// Field returns the fields name with the tag name taking precedence over the</span>
+    <span class="comment">// field&#39;s actual name.</span>
+    <span class="comment">//</span>
+    <span class="comment">// eq. JSON name &#34;fname&#34;</span>
+    <span class="comment">// see StructField for comparison</span>
+    Field() <a href="/pkg/builtin/#string">string</a>
+
+    <span class="comment">// StructField returns the field&#39;s actual name from the struct, when able to determine.</span>
+    <span class="comment">//</span>
+    <span class="comment">// eq.  &#34;FirstName&#34;</span>
+    <span class="comment">// see Field for comparison</span>
+    StructField() <a href="/pkg/builtin/#string">string</a>
+
+    <span class="comment">// Value returns the actual field&#39;s value in case needed for creating the error</span>
+    <span class="comment">// message</span>
+    Value() interface{}
+
+    <span class="comment">// Param returns the param value, in string form for comparison; this will also</span>
+    <span class="comment">// help with generating an error message</span>
+    Param() <a href="/pkg/builtin/#string">string</a>
+
+    <span class="comment">// Kind returns the Field&#39;s reflect Kind</span>
+    <span class="comment">//</span>
+    <span class="comment">// eg. time.Time&#39;s kind is a struct</span>
+    Kind() <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Kind">Kind</a>
+
+    <span class="comment">// Type returns the Field&#39;s reflect Type</span>
+    <span class="comment">//</span>
+    <span class="comment">// eg. time.Time&#39;s type is time.Time</span>
+    Type() <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Type">Type</a>
+
+    <span class="comment">// Translate returns the FieldError&#39;s translated error</span>
+    <span class="comment">// from the provided &#39;ut.Translator&#39; and registered &#39;TranslationFunc&#39;</span>
+    <span class="comment">//</span>
+    <span class="comment">// NOTE: if no registered translator can be found it returns the same as</span>
+    <span class="comment">// calling fe.Error()</span>
+    Translate(ut <a href="/pkg/github.com/go-playground/universal-translator/">ut</a>.<a href="/pkg/github.com/go-playground/universal-translator/#Translator">Translator</a>) <a href="/pkg/builtin/#string">string</a>
+
+    <span class="comment">// Error returns the FieldError&#39;s message</span>
+    Error() <a href="/pkg/builtin/#string">string</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="FieldLevel">type <a href="/src/github.com/go-playground/validator/v10/field_level.go?s=124:2772#L1">FieldLevel</a>
+				<a class="permalink" href="#FieldLevel">&#xb6;</a>
+				
+				
+			</h2>
+			<p>FieldLevel contains all the information and helper functions
+to validate a field
+
+			<pre>type FieldLevel interface {
+
+    <span class="comment">// Top returns the top level struct, if any</span>
+    Top() <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Value">Value</a>
+
+    <span class="comment">// Parent returns the current fields parent struct, if any or</span>
+    <span class="comment">// the comparison value if called &#39;VarWithValue&#39;</span>
+    Parent() <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Value">Value</a>
+
+    <span class="comment">// Field returns current field for validation</span>
+    Field() <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Value">Value</a>
+
+    <span class="comment">// FieldName returns the field&#39;s name with the tag</span>
+    <span class="comment">// name taking precedence over the fields actual name.</span>
+    FieldName() <a href="/pkg/builtin/#string">string</a>
+
+    <span class="comment">// StructFieldName returns the struct field&#39;s name</span>
+    StructFieldName() <a href="/pkg/builtin/#string">string</a>
+
+    <span class="comment">// Param returns param for validation against current field</span>
+    Param() <a href="/pkg/builtin/#string">string</a>
+
+    <span class="comment">// GetTag returns the current validations tag name</span>
+    GetTag() <a href="/pkg/builtin/#string">string</a>
+
+    <span class="comment">// ExtractType gets the actual underlying type of field value.</span>
+    <span class="comment">// It will dive into pointers, customTypes and return you the</span>
+    <span class="comment">// underlying value and it&#39;s kind.</span>
+    ExtractType(field <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Value">Value</a>) (value <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Value">Value</a>, kind <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Kind">Kind</a>, nullable <a href="/pkg/builtin/#bool">bool</a>)
+
+    <span class="comment">// GetStructFieldOK traverses the parent struct to retrieve a specific field denoted by the provided namespace</span>
+    <span class="comment">// in the param and returns the field, field kind and whether is was successful in retrieving</span>
+    <span class="comment">// the field at all.</span>
+    <span class="comment">//</span>
+    <span class="comment">// NOTE: when not successful ok will be false, this can happen when a nested struct is nil and so the field</span>
+    <span class="comment">// could not be retrieved because it didn&#39;t exist.</span>
+    <span class="comment">//</span>
+    <span class="comment">// Deprecated: Use GetStructFieldOK2() instead which also return if the value is nullable.</span>
+    GetStructFieldOK() (<a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Value">Value</a>, <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Kind">Kind</a>, <a href="/pkg/builtin/#bool">bool</a>)
+
+    <span class="comment">// GetStructFieldOKAdvanced is the same as GetStructFieldOK except that it accepts the parent struct to start looking for</span>
+    <span class="comment">// the field and namespace allowing more extensibility for validators.</span>
+    <span class="comment">//</span>
+    <span class="comment">// Deprecated: Use GetStructFieldOKAdvanced2() instead which also return if the value is nullable.</span>
+    GetStructFieldOKAdvanced(val <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Value">Value</a>, namespace <a href="/pkg/builtin/#string">string</a>) (<a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Value">Value</a>, <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Kind">Kind</a>, <a href="/pkg/builtin/#bool">bool</a>)
+
+    <span class="comment">// GetStructFieldOK2 traverses the parent struct to retrieve a specific field denoted by the provided namespace</span>
+    <span class="comment">// in the param and returns the field, field kind, if it&#39;s a nullable type and whether is was successful in retrieving</span>
+    <span class="comment">// the field at all.</span>
+    <span class="comment">//</span>
+    <span class="comment">// NOTE: when not successful ok will be false, this can happen when a nested struct is nil and so the field</span>
+    <span class="comment">// could not be retrieved because it didn&#39;t exist.</span>
+    GetStructFieldOK2() (<a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Value">Value</a>, <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Kind">Kind</a>, <a href="/pkg/builtin/#bool">bool</a>, <a href="/pkg/builtin/#bool">bool</a>)
+
+    <span class="comment">// GetStructFieldOKAdvanced2 is the same as GetStructFieldOK except that it accepts the parent struct to start looking for</span>
+    <span class="comment">// the field and namespace allowing more extensibility for validators.</span>
+    GetStructFieldOKAdvanced2(val <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Value">Value</a>, namespace <a href="/pkg/builtin/#string">string</a>) (<a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Value">Value</a>, <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Kind">Kind</a>, <a href="/pkg/builtin/#bool">bool</a>, <a href="/pkg/builtin/#bool">bool</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="FilterFunc">type <a href="/src/github.com/go-playground/validator/v10/validator_instance.go?s=1844:1880#L50">FilterFunc</a>
+				<a class="permalink" href="#FilterFunc">&#xb6;</a>
+				
+				
+			</h2>
+			<p>FilterFunc is the type used to filter fields using
+StructFiltered(...) function.
+returning true results in the field being filtered/skiped from
+validation
+
+			<pre>type FilterFunc func(ns []<a href="/pkg/builtin/#byte">byte</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Func">type <a href="/src/github.com/go-playground/validator/v10/baked_in.go?s=416:450#L18">Func</a>
+				<a class="permalink" href="#Func">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Func accepts a FieldLevel interface for all validation needs. The return
+value should be true when validation succeeds.
+
+			<pre>type Func func(fl <a href="#FieldLevel">FieldLevel</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="FuncCtx">type <a href="/src/github.com/go-playground/validator/v10/baked_in.go?s=601:659#L22">FuncCtx</a>
+				<a class="permalink" href="#FuncCtx">&#xb6;</a>
+				
+				
+			</h2>
+			<p>FuncCtx accepts a context.Context and FieldLevel interface for all
+validation needs. The return value should be true when validation succeeds.
+
+			<pre>type FuncCtx func(ctx <a href="/pkg/context/">context</a>.<a href="/pkg/context/#Context">Context</a>, fl <a href="#FieldLevel">FieldLevel</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="InvalidValidationError">type <a href="/src/github.com/go-playground/validator/v10/errors.go?s=452:509#L11">InvalidValidationError</a>
+				<a class="permalink" href="#InvalidValidationError">&#xb6;</a>
+				
+				
+			</h2>
+			<p>InvalidValidationError describes an invalid argument passed to
+`Struct`, `StructExcept`, StructPartial` or `Field`
+
+			<pre>type InvalidValidationError struct {
+<span id="InvalidValidationError.Type"></span>    Type <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Type">Type</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="InvalidValidationError.Error">func (*InvalidValidationError) <a href="/src/github.com/go-playground/validator/v10/errors.go?s=559:606#L16">Error</a>
+					<a class="permalink" href="#InvalidValidationError.Error">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="#InvalidValidationError">InvalidValidationError</a>) Error() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>Error returns InvalidValidationError message
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="RegisterTranslationsFunc">type <a href="/src/github.com/go-playground/validator/v10/translations.go?s=366:424#L1">RegisterTranslationsFunc</a>
+				<a class="permalink" href="#RegisterTranslationsFunc">&#xb6;</a>
+				
+				
+			</h2>
+			<p>RegisterTranslationsFunc allows for registering of translations
+for a &apos;ut.Translator&apos; for use within the &apos;TranslationFunc&apos;
+
+			<pre>type RegisterTranslationsFunc func(ut <a href="/pkg/github.com/go-playground/universal-translator/">ut</a>.<a href="/pkg/github.com/go-playground/universal-translator/#Translator">Translator</a>) <a href="/pkg/builtin/#error">error</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="StructLevel">type <a href="/src/github.com/go-playground/validator/v10/struct_level.go?s=715:2408#L14">StructLevel</a>
+				<a class="permalink" href="#StructLevel">&#xb6;</a>
+				
+				
+			</h2>
+			<p>StructLevel contains all the information and helper functions
+to validate a struct
+
+			<pre>type StructLevel interface {
+
+    <span class="comment">// Validator returns the main validation object, in case one wants to call validations internally.</span>
+    <span class="comment">// this is so you don&#39;t have to use anonymous functions to get access to the validate</span>
+    <span class="comment">// instance.</span>
+    Validator() *<a href="#Validate">Validate</a>
+
+    <span class="comment">// Top returns the top level struct, if any</span>
+    Top() <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Value">Value</a>
+
+    <span class="comment">// Parent returns the current fields parent struct, if any</span>
+    Parent() <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Value">Value</a>
+
+    <span class="comment">// Current returns the current struct.</span>
+    Current() <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Value">Value</a>
+
+    <span class="comment">// ExtractType gets the actual underlying type of field value.</span>
+    <span class="comment">// It will dive into pointers, customTypes and return you the</span>
+    <span class="comment">// underlying value and its kind.</span>
+    ExtractType(field <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Value">Value</a>) (value <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Value">Value</a>, kind <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#Kind">Kind</a>, nullable <a href="/pkg/builtin/#bool">bool</a>)
+
+    <span class="comment">// ReportError reports an error just by passing the field and tag information</span>
+    <span class="comment">//</span>
+    <span class="comment">// NOTES:</span>
+    <span class="comment">//</span>
+    <span class="comment">// fieldName and altName get appended to the existing namespace that</span>
+    <span class="comment">// validator is on. e.g. pass &#39;FirstName&#39; or &#39;Names[0]&#39; depending</span>
+    <span class="comment">// on the nesting</span>
+    <span class="comment">//</span>
+    <span class="comment">// tag can be an existing validation tag or just something you make up</span>
+    <span class="comment">// and process on the flip side it&#39;s up to you.</span>
+    ReportError(field interface{}, fieldName, structFieldName <a href="/pkg/builtin/#string">string</a>, tag, param <a href="/pkg/builtin/#string">string</a>)
+
+    <span class="comment">// ReportValidationErrors reports an error just by passing ValidationErrors</span>
+    <span class="comment">//</span>
+    <span class="comment">// NOTES:</span>
+    <span class="comment">//</span>
+    <span class="comment">// relativeNamespace and relativeActualNamespace get appended to the</span>
+    <span class="comment">// existing namespace that validator is on.</span>
+    <span class="comment">// e.g. pass &#39;User.FirstName&#39; or &#39;Users[0].FirstName&#39; depending</span>
+    <span class="comment">// on the nesting. most of the time they will be blank, unless you validate</span>
+    <span class="comment">// at a level lower the the current field depth</span>
+    ReportValidationErrors(relativeNamespace, relativeActualNamespace <a href="/pkg/builtin/#string">string</a>, errs <a href="#ValidationErrors">ValidationErrors</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="StructLevelFunc">type <a href="/src/github.com/go-playground/validator/v10/struct_level.go?s=126:167#L1">StructLevelFunc</a>
+				<a class="permalink" href="#StructLevelFunc">&#xb6;</a>
+				
+				
+			</h2>
+			<p>StructLevelFunc accepts all values needed for struct level validation
+
+			<pre>type StructLevelFunc func(sl <a href="#StructLevel">StructLevel</a>)</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="StructLevelFuncCtx">type <a href="/src/github.com/go-playground/validator/v10/struct_level.go?s=330:395#L3">StructLevelFuncCtx</a>
+				<a class="permalink" href="#StructLevelFuncCtx">&#xb6;</a>
+				
+				
+			</h2>
+			<p>StructLevelFuncCtx accepts all values needed for struct level validation
+but also allows passing of contextual validation information via context.Context.
+
+			<pre>type StructLevelFuncCtx func(ctx <a href="/pkg/context/">context</a>.<a href="/pkg/context/#Context">Context</a>, sl <a href="#StructLevel">StructLevel</a>)</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="TagNameFunc">type <a href="/src/github.com/go-playground/validator/v10/validator_instance.go?s=2262:2317#L58">TagNameFunc</a>
+				<a class="permalink" href="#TagNameFunc">&#xb6;</a>
+				
+				
+			</h2>
+			<p>TagNameFunc allows for adding of a custom tag name parser
+
+			<pre>type TagNameFunc func(field <a href="/pkg/reflect/">reflect</a>.<a href="/pkg/reflect/#StructField">StructField</a>) <a href="/pkg/builtin/#string">string</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="TranslationFunc">type <a href="/src/github.com/go-playground/validator/v10/translations.go?s=170:235#L1">TranslationFunc</a>
+				<a class="permalink" href="#TranslationFunc">&#xb6;</a>
+				
+				
+			</h2>
+			<p>TranslationFunc is the function type used to register or override
+custom translations
+
+			<pre>type TranslationFunc func(ut <a href="/pkg/github.com/go-playground/universal-translator/">ut</a>.<a href="/pkg/github.com/go-playground/universal-translator/#Translator">Translator</a>, fe <a href="#FieldError">FieldError</a>) <a href="/pkg/builtin/#string">string</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Validate">type <a href="/src/github.com/go-playground/validator/v10/validator_instance.go?s=2471:2988#L66">Validate</a>
+				<a class="permalink" href="#Validate">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Validate contains the validator settings and cache
+
+			<pre>type Validate struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="New">func <a href="/src/github.com/go-playground/validator/v10/validator_instance.go?s=3321:3341#L86">New</a>
+					<a class="permalink" href="#New">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func New() *<a href="#Validate">Validate</a></pre>
+				<p>New returns a new instance of &apos;validate&apos; with sane defaults.
+Validate is designed to be thread-safe and used as a singleton instance.
+It caches information about your struct and validations,
+in essence only parsing your validation tags once per struct type.
+Using multiple instances neglects the benefit of caching.
+
+				
+				
+			
+
+			
+				
+				<h3 id="Validate.RegisterAlias">func (*Validate) <a href="/src/github.com/go-playground/validator/v10/validator_instance.go?s=8206:8258#L224">RegisterAlias</a>
+					<a class="permalink" href="#Validate.RegisterAlias">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (v *<a href="#Validate">Validate</a>) RegisterAlias(alias, tags <a href="/pkg/builtin/#string">string</a>)</pre>
+				<p>RegisterAlias registers a mapping of a single validation tag that
+defines a common or complex set of validation(s) to simplify adding validation
+to structs.
+<p>NOTE: this function is not thread-safe it is intended that these all be registered prior to any validation
+
+				
+				
+				
+			
+				
+				<h3 id="Validate.RegisterCustomTypeFunc">func (*Validate) <a href="/src/github.com/go-playground/validator/v10/validator_instance.go?s=9642:9724#L267">RegisterCustomTypeFunc</a>
+					<a class="permalink" href="#Validate.RegisterCustomTypeFunc">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (v *<a href="#Validate">Validate</a>) RegisterCustomTypeFunc(fn <a href="#CustomTypeFunc">CustomTypeFunc</a>, types ...interface{})</pre>
+				<p>RegisterCustomTypeFunc registers a CustomTypeFunc against a number of types
+<p>NOTE: this method is not thread-safe it is intended that these all be registered prior to any validation
+
+				
+				
+				
+			
+				
+				<h3 id="Validate.RegisterStructValidation">func (*Validate) <a href="/src/github.com/go-playground/validator/v10/validator_instance.go?s=8633:8718#L239">RegisterStructValidation</a>
+					<a class="permalink" href="#Validate.RegisterStructValidation">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (v *<a href="#Validate">Validate</a>) RegisterStructValidation(fn <a href="#StructLevelFunc">StructLevelFunc</a>, types ...interface{})</pre>
+				<p>RegisterStructValidation registers a StructLevelFunc against a number of types.
+<p>NOTE:
+- this method is not thread-safe it is intended that these all be registered prior to any validation
+
+				
+				
+				
+			
+				
+				<h3 id="Validate.RegisterStructValidationCtx">func (*Validate) <a href="/src/github.com/go-playground/validator/v10/validator_instance.go?s=9074:9165#L248">RegisterStructValidationCtx</a>
+					<a class="permalink" href="#Validate.RegisterStructValidationCtx">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (v *<a href="#Validate">Validate</a>) RegisterStructValidationCtx(fn <a href="#StructLevelFuncCtx">StructLevelFuncCtx</a>, types ...interface{})</pre>
+				<p>RegisterStructValidationCtx registers a StructLevelFuncCtx against a number of types and allows passing
+of contextual validation information via context.Context.
+<p>NOTE:
+- this method is not thread-safe it is intended that these all be registered prior to any validation
+
+				
+				
+				
+			
+				
+				<h3 id="Validate.RegisterTagNameFunc">func (*Validate) <a href="/src/github.com/go-playground/validator/v10/validator_instance.go?s=6455:6509#L178">RegisterTagNameFunc</a>
+					<a class="permalink" href="#Validate.RegisterTagNameFunc">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (v *<a href="#Validate">Validate</a>) RegisterTagNameFunc(fn <a href="#TagNameFunc">TagNameFunc</a>)</pre>
+				<p>RegisterTagNameFunc registers a function to get alternate names for StructFields.
+<p>eg. to use the names which have been specified for JSON representations of structs, rather than normal Go field names:
+<pre>validate.RegisterTagNameFunc(func(fld reflect.StructField) string {
+    name := strings.SplitN(fld.Tag.Get(&quot;json&quot;), &quot;,&quot;, 2)[0]
+    if name == &quot;-&quot; {
+        return &quot;&quot;
+    }
+    return name
+})
+</pre>
+
+				
+				
+				
+			
+				
+				<h3 id="Validate.RegisterTranslation">func (*Validate) <a href="/src/github.com/go-playground/validator/v10/validator_instance.go?s=9986:10137#L281">RegisterTranslation</a>
+					<a class="permalink" href="#Validate.RegisterTranslation">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (v *<a href="#Validate">Validate</a>) RegisterTranslation(tag <a href="/pkg/builtin/#string">string</a>, trans <a href="/pkg/github.com/go-playground/universal-translator/">ut</a>.<a href="/pkg/github.com/go-playground/universal-translator/#Translator">Translator</a>, registerFn <a href="#RegisterTranslationsFunc">RegisterTranslationsFunc</a>, translationFn <a href="#TranslationFunc">TranslationFunc</a>) (err <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>RegisterTranslation registers translations against the provided tag.
+
+				
+				
+				
+			
+				
+				<h3 id="Validate.RegisterValidation">func (*Validate) <a href="/src/github.com/go-playground/validator/v10/validator_instance.go?s=6819:6917#L188">RegisterValidation</a>
+					<a class="permalink" href="#Validate.RegisterValidation">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (v *<a href="#Validate">Validate</a>) RegisterValidation(tag <a href="/pkg/builtin/#string">string</a>, fn <a href="#Func">Func</a>, callValidationEvenIfNull ...<a href="/pkg/builtin/#bool">bool</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>RegisterValidation adds a validation with the given tag
+<p>NOTES:
+- if the key already exists, the previous validation function will be replaced.
+- this method is not thread-safe it is intended that these all be registered prior to any validation
+
+				
+				
+				
+			
+				
+				<h3 id="Validate.RegisterValidationCtx">func (*Validate) <a href="/src/github.com/go-playground/validator/v10/validator_instance.go?s=7144:7248#L194">RegisterValidationCtx</a>
+					<a class="permalink" href="#Validate.RegisterValidationCtx">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (v *<a href="#Validate">Validate</a>) RegisterValidationCtx(tag <a href="/pkg/builtin/#string">string</a>, fn <a href="#FuncCtx">FuncCtx</a>, callValidationEvenIfNull ...<a href="/pkg/builtin/#bool">bool</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>RegisterValidationCtx does the same as RegisterValidation on accepts a FuncCtx validation
+allowing context.Context validation support.
+
+				
+				
+				
+			
+				
+				<h3 id="Validate.SetTagName">func (*Validate) <a href="/src/github.com/go-playground/validator/v10/validator_instance.go?s=4822:4864#L136">SetTagName</a>
+					<a class="permalink" href="#Validate.SetTagName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (v *<a href="#Validate">Validate</a>) SetTagName(name <a href="/pkg/builtin/#string">string</a>)</pre>
+				<p>SetTagName allows for changing of the default tag name of &apos;validate&apos;
+
+				
+				
+				
+			
+				
+				<h3 id="Validate.Struct">func (*Validate) <a href="/src/github.com/go-playground/validator/v10/validator_instance.go?s=10799:10845#L306">Struct</a>
+					<a class="permalink" href="#Validate.Struct">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (v *<a href="#Validate">Validate</a>) Struct(s interface{}) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>Struct validates a structs exposed fields, and automatically validates nested structs, unless otherwise specified.
+<p>It returns InvalidValidationError for bad values passed in and nil or ValidationErrors as error otherwise.
+You will need to assert the error if it&apos;s not nil eg. err.(validator.ValidationErrors) to access the array of errors.
+
+				
+				
+				
+			
+				
+				<h3 id="Validate.StructCtx">func (*Validate) <a href="/src/github.com/go-playground/validator/v10/validator_instance.go?s=11335:11411#L315">StructCtx</a>
+					<a class="permalink" href="#Validate.StructCtx">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (v *<a href="#Validate">Validate</a>) StructCtx(ctx <a href="/pkg/context/">context</a>.<a href="/pkg/context/#Context">Context</a>, s interface{}) (err <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>StructCtx validates a structs exposed fields, and automatically validates nested structs, unless otherwise specified
+and also allows passing of context.Context for contextual validation information.
+<p>It returns InvalidValidationError for bad values passed in and nil or ValidationErrors as error otherwise.
+You will need to assert the error if it&apos;s not nil eg. err.(validator.ValidationErrors) to access the array of errors.
+
+				
+				
+				
+			
+				
+				<h3 id="Validate.StructExcept">func (*Validate) <a href="/src/github.com/go-playground/validator/v10/validator_instance.go?s=16837:16907#L488">StructExcept</a>
+					<a class="permalink" href="#Validate.StructExcept">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (v *<a href="#Validate">Validate</a>) StructExcept(s interface{}, fields ...<a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>StructExcept validates all fields except the ones passed in.
+Fields may be provided in a namespaced fashion relative to the  struct provided
+i.e. NestedStruct.Field or NestedArrayField[0].Struct.Name
+<p>It returns InvalidValidationError for bad values passed in and nil or ValidationErrors as error otherwise.
+You will need to assert the error if it&apos;s not nil eg. err.(validator.ValidationErrors) to access the array of errors.
+
+				
+				
+				
+			
+				
+				<h3 id="Validate.StructExceptCtx">func (*Validate) <a href="/src/github.com/go-playground/validator/v10/validator_instance.go?s=17510:17610#L499">StructExceptCtx</a>
+					<a class="permalink" href="#Validate.StructExceptCtx">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (v *<a href="#Validate">Validate</a>) StructExceptCtx(ctx <a href="/pkg/context/">context</a>.<a href="/pkg/context/#Context">Context</a>, s interface{}, fields ...<a href="/pkg/builtin/#string">string</a>) (err <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>StructExceptCtx validates all fields except the ones passed in and allows passing of contextual
+validation validation information via context.Context
+Fields may be provided in a namespaced fashion relative to the  struct provided
+i.e. NestedStruct.Field or NestedArrayField[0].Struct.Name
+<p>It returns InvalidValidationError for bad values passed in and nil or ValidationErrors as error otherwise.
+You will need to assert the error if it&apos;s not nil eg. err.(validator.ValidationErrors) to access the array of errors.
+
+				
+				
+				
+			
+				
+				<h3 id="Validate.StructFiltered">func (*Validate) <a href="/src/github.com/go-playground/validator/v10/validator_instance.go?s=12385:12454#L351">StructFiltered</a>
+					<a class="permalink" href="#Validate.StructFiltered">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (v *<a href="#Validate">Validate</a>) StructFiltered(s interface{}, fn <a href="#FilterFunc">FilterFunc</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>StructFiltered validates a structs exposed fields, that pass the FilterFunc check and automatically validates
+nested structs, unless otherwise specified.
+<p>It returns InvalidValidationError for bad values passed in and nil or ValidationErrors as error otherwise.
+You will need to assert the error if it&apos;s not nil eg. err.(validator.ValidationErrors) to access the array of errors.
+
+				
+				
+				
+			
+				
+				<h3 id="Validate.StructFilteredCtx">func (*Validate) <a href="/src/github.com/go-playground/validator/v10/validator_instance.go?s=12997:13096#L361">StructFilteredCtx</a>
+					<a class="permalink" href="#Validate.StructFilteredCtx">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (v *<a href="#Validate">Validate</a>) StructFilteredCtx(ctx <a href="/pkg/context/">context</a>.<a href="/pkg/context/#Context">Context</a>, s interface{}, fn <a href="#FilterFunc">FilterFunc</a>) (err <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>StructFilteredCtx validates a structs exposed fields, that pass the FilterFunc check and automatically validates
+nested structs, unless otherwise specified and also allows passing of contextual validation information via
+context.Context
+<p>It returns InvalidValidationError for bad values passed in and nil or ValidationErrors as error otherwise.
+You will need to assert the error if it&apos;s not nil eg. err.(validator.ValidationErrors) to access the array of errors.
+
+				
+				
+				
+			
+				
+				<h3 id="Validate.StructPartial">func (*Validate) <a href="/src/github.com/go-playground/validator/v10/validator_instance.go?s=14140:14211#L398">StructPartial</a>
+					<a class="permalink" href="#Validate.StructPartial">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (v *<a href="#Validate">Validate</a>) StructPartial(s interface{}, fields ...<a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>StructPartial validates the fields passed in only, ignoring all others.
+Fields may be provided in a namespaced fashion relative to the  struct provided
+eg. NestedStruct.Field or NestedArrayField[0].Struct.Name
+<p>It returns InvalidValidationError for bad values passed in and nil or ValidationErrors as error otherwise.
+You will need to assert the error if it&apos;s not nil eg. err.(validator.ValidationErrors) to access the array of errors.
+
+				
+				
+				
+			
+				
+				<h3 id="Validate.StructPartialCtx">func (*Validate) <a href="/src/github.com/go-playground/validator/v10/validator_instance.go?s=14825:14926#L409">StructPartialCtx</a>
+					<a class="permalink" href="#Validate.StructPartialCtx">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (v *<a href="#Validate">Validate</a>) StructPartialCtx(ctx <a href="/pkg/context/">context</a>.<a href="/pkg/context/#Context">Context</a>, s interface{}, fields ...<a href="/pkg/builtin/#string">string</a>) (err <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>StructPartialCtx validates the fields passed in only, ignoring all others and allows passing of contextual
+validation validation information via context.Context
+Fields may be provided in a namespaced fashion relative to the  struct provided
+eg. NestedStruct.Field or NestedArrayField[0].Struct.Name
+<p>It returns InvalidValidationError for bad values passed in and nil or ValidationErrors as error otherwise.
+You will need to assert the error if it&apos;s not nil eg. err.(validator.ValidationErrors) to access the array of errors.
+
+				
+				
+				
+			
+				
+				<h3 id="Validate.ValidateMap">func (*Validate) <a href="/src/github.com/go-playground/validator/v10/validator_instance.go?s=5831:5943#L163">ValidateMap</a>
+					<a class="permalink" href="#Validate.ValidateMap">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (v *<a href="#Validate">Validate</a>) ValidateMap(data map[<a href="/pkg/builtin/#string">string</a>]interface{}, rules map[<a href="/pkg/builtin/#string">string</a>]interface{}) map[<a href="/pkg/builtin/#string">string</a>]interface{}</pre>
+				<p>ValidateMap validates map data form a map of tags
+
+				
+				
+				
+			
+				
+				<h3 id="Validate.ValidateMapCtx">func (Validate) <a href="/src/github.com/go-playground/validator/v10/validator_instance.go?s=5045:5180#L142">ValidateMapCtx</a>
+					<a class="permalink" href="#Validate.ValidateMapCtx">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (v <a href="#Validate">Validate</a>) ValidateMapCtx(ctx <a href="/pkg/context/">context</a>.<a href="/pkg/context/#Context">Context</a>, data map[<a href="/pkg/builtin/#string">string</a>]interface{}, rules map[<a href="/pkg/builtin/#string">string</a>]interface{}) map[<a href="/pkg/builtin/#string">string</a>]interface{}</pre>
+				<p>ValidateMapCtx validates a map using a map of validation rules and allows passing of contextual
+validation validation information via context.Context.
+
+				
+				
+				
+			
+				
+				<h3 id="Validate.Var">func (*Validate) <a href="/src/github.com/go-playground/validator/v10/validator_instance.go?s=19195:19254#L560">Var</a>
+					<a class="permalink" href="#Validate.Var">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (v *<a href="#Validate">Validate</a>) Var(field interface{}, tag <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>Var validates a single variable using tag style validation.
+eg.
+var i int
+validate.Var(i, &quot;gt=1,lt=10&quot;)
+<p>WARNING: a struct can be passed for validation eg. time.Time is a struct or
+if you have a custom type and have registered a custom type handler, so must
+allow it; however unforeseen validations will occur if trying to validate a
+struct that is meant to be passed to &apos;validate.Struct&apos;
+<p>It returns InvalidValidationError for bad values passed in and nil or ValidationErrors as error otherwise.
+You will need to assert the error if it&apos;s not nil eg. err.(validator.ValidationErrors) to access the array of errors.
+validate Array, Slice and maps fields which may contain more than one error
+
+				
+				
+				
+			
+				
+				<h3 id="Validate.VarCtx">func (*Validate) <a href="/src/github.com/go-playground/validator/v10/validator_instance.go?s=20132:20221#L578">VarCtx</a>
+					<a class="permalink" href="#Validate.VarCtx">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (v *<a href="#Validate">Validate</a>) VarCtx(ctx <a href="/pkg/context/">context</a>.<a href="/pkg/context/#Context">Context</a>, field interface{}, tag <a href="/pkg/builtin/#string">string</a>) (err <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>VarCtx validates a single variable using tag style validation and allows passing of contextual
+validation validation information via context.Context.
+eg.
+var i int
+validate.Var(i, &quot;gt=1,lt=10&quot;)
+<p>WARNING: a struct can be passed for validation eg. time.Time is a struct or
+if you have a custom type and have registered a custom type handler, so must
+allow it; however unforeseen validations will occur if trying to validate a
+struct that is meant to be passed to &apos;validate.Struct&apos;
+<p>It returns InvalidValidationError for bad values passed in and nil or ValidationErrors as error otherwise.
+You will need to assert the error if it&apos;s not nil eg. err.(validator.ValidationErrors) to access the array of errors.
+validate Array, Slice and maps fields which may contain more than one error
+
+				
+				
+				
+			
+				
+				<h3 id="Validate.VarWithValue">func (*Validate) <a href="/src/github.com/go-playground/validator/v10/validator_instance.go?s=21412:21499#L612">VarWithValue</a>
+					<a class="permalink" href="#Validate.VarWithValue">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (v *<a href="#Validate">Validate</a>) VarWithValue(field interface{}, other interface{}, tag <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#error">error</a></pre>
+				<p>VarWithValue validates a single variable, against another variable/field&apos;s value using tag style validation
+eg.
+s1 := &quot;abcd&quot;
+s2 := &quot;abcd&quot;
+validate.VarWithValue(s1, s2, &quot;eqcsfield&quot;) // returns true
+<p>WARNING: a struct can be passed for validation eg. time.Time is a struct or
+if you have a custom type and have registered a custom type handler, so must
+allow it; however unforeseen validations will occur if trying to validate a
+struct that is meant to be passed to &apos;validate.Struct&apos;
+<p>It returns InvalidValidationError for bad values passed in and nil or ValidationErrors as error otherwise.
+You will need to assert the error if it&apos;s not nil eg. err.(validator.ValidationErrors) to access the array of errors.
+validate Array, Slice and maps fields which may contain more than one error
+
+				
+				
+				
+			
+				
+				<h3 id="Validate.VarWithValueCtx">func (*Validate) <a href="/src/github.com/go-playground/validator/v10/validator_instance.go?s=22490:22607#L631">VarWithValueCtx</a>
+					<a class="permalink" href="#Validate.VarWithValueCtx">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (v *<a href="#Validate">Validate</a>) VarWithValueCtx(ctx <a href="/pkg/context/">context</a>.<a href="/pkg/context/#Context">Context</a>, field interface{}, other interface{}, tag <a href="/pkg/builtin/#string">string</a>) (err <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>VarWithValueCtx validates a single variable, against another variable/field&apos;s value using tag style validation and
+allows passing of contextual validation validation information via context.Context.
+eg.
+s1 := &quot;abcd&quot;
+s2 := &quot;abcd&quot;
+validate.VarWithValue(s1, s2, &quot;eqcsfield&quot;) // returns true
+<p>WARNING: a struct can be passed for validation eg. time.Time is a struct or
+if you have a custom type and have registered a custom type handler, so must
+allow it; however unforeseen validations will occur if trying to validate a
+struct that is meant to be passed to &apos;validate.Struct&apos;
+<p>It returns InvalidValidationError for bad values passed in and nil or ValidationErrors as error otherwise.
+You will need to assert the error if it&apos;s not nil eg. err.(validator.ValidationErrors) to access the array of errors.
+validate Array, Slice and maps fields which may contain more than one error
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ValidationErrors">type <a href="/src/github.com/go-playground/validator/v10/errors.go?s=817:851#L27">ValidationErrors</a>
+				<a class="permalink" href="#ValidationErrors">&#xb6;</a>
+				
+				
+			</h2>
+			<p>ValidationErrors is an array of FieldError&apos;s
+for use in custom error messages post validation.
+
+			<pre>type ValidationErrors []<a href="#FieldError">FieldError</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="ValidationErrors.Error">func (ValidationErrors) <a href="/src/github.com/go-playground/validator/v10/errors.go?s=1180:1221#L33">Error</a>
+					<a class="permalink" href="#ValidationErrors.Error">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (ve <a href="#ValidationErrors">ValidationErrors</a>) Error() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>Error is intended for use in development + debugging and not intended to be a production error message.
+It allows ValidationErrors to subscribe to the Error interface.
+All information to create an error message specific to your application is contained within
+the FieldError found within the ValidationErrors array
+
+				
+				
+				
+			
+				
+				<h3 id="ValidationErrors.Translate">func (ValidationErrors) <a href="/src/github.com/go-playground/validator/v10/errors.go?s=1498:1581#L50">Translate</a>
+					<a class="permalink" href="#ValidationErrors.Translate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (ve <a href="#ValidationErrors">ValidationErrors</a>) Translate(ut <a href="/pkg/github.com/go-playground/universal-translator/">ut</a>.<a href="/pkg/github.com/go-playground/universal-translator/#Translator">Translator</a>) <a href="#ValidationErrorsTranslations">ValidationErrorsTranslations</a></pre>
+				<p>Translate translates all of the ValidationErrors
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ValidationErrorsTranslations">type <a href="/src/github.com/go-playground/validator/v10/errors.go?s=278:329#L7">ValidationErrorsTranslations</a>
+				<a class="permalink" href="#ValidationErrorsTranslations">&#xb6;</a>
+				
+				
+			</h2>
+			<p>ValidationErrorsTranslations is the translation return type
+
+			<pre>type ValidationErrorsTranslations map[<a href="/pkg/builtin/#string">string</a>]<a href="/pkg/builtin/#string">string</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+	
+	
+		<h2 id="pkg-subdirectories">Subdirectories</h2>
+	
+	<div class="pkg-dir">
+		<table>
+			<tr>
+				<th class="pkg-name">Name</th>
+				<th class="pkg-synopsis">Synopsis</th>
+			</tr>
+
+			
+			<tr>
+				<td colspan="2"><a href="..">..</a></td>
+			</tr>
+			
+
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="non-standard/">non-standard</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="non-standard/validators/">validators</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="translations/">translations</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="translations/en/">en</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="translations/es/">es</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="translations/fa/">fa</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="translations/fr/">fr</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="translations/id/">id</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="translations/ja/">ja</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="translations/nl/">nl</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="translations/pt/">pt</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="translations/pt_BR/">pt_BR</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="translations/ru/">ru</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="translations/tr/">tr</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="translations/zh/">zh</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="translations/zh_tw/">zh_tw</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+		</table>
+	</div>
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

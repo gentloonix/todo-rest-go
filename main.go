@@ -18,7 +18,7 @@ func main() {
 	var wg sync.WaitGroup
 
 	wg.Add(1)
-	orm.Initialize(&wg, "database.db")
+	orm.Initialize(&wg)
 	wg.Add(1)
 	api.Initialize(&wg)
 

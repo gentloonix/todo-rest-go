@@ -16,7 +16,7 @@ var (
 )
 
 // Initialize initializes Database ORM (Object-Relational Mapping) submodule as daemon
-func Initialize(wg *sync.WaitGroup, dsn string) {
+func Initialize(wg *sync.WaitGroup) {
 	if wg == nil {
 		log.Println("orm::Initialize: nil wg")
 		return
@@ -34,7 +34,7 @@ func Initialize(wg *sync.WaitGroup, dsn string) {
 		}()
 
 		var err error
-		db, err = gorm.Open(sqlite.Open(dsn), &gorm.Config{
+		db, err = gorm.Open(sqlite.Open(DSN), &gorm.Config{
 			QueryFields: true,
 		})
 		if err != nil {

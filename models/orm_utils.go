@@ -8,7 +8,7 @@ func OrmCreate[T IModels](objs []T) error {
 	return orm.DB.Create(objs).Error
 }
 
-func OrmQuery[T IModels](where map[string]interface{}, order map[string]interface{}) ([]T, error) {
+func OrmQuery[T IModels](where map[string]interface{}, order string) ([]T, error) {
 	var objs []T
 	tx := orm.DB
 	if len(where) != 0 {
@@ -24,12 +24,12 @@ func OrmQuery[T IModels](where map[string]interface{}, order map[string]interfac
 	}
 }
 
-func OrmUpdate[T IModels](ids []int, values map[string]interface{}) error {
+func OrmUpdate[T IModels](where map[string]interface{}, values map[string]interface{}) error {
 	var obj T
-	return orm.DB.Model(&obj).Where("id IN ?", ids).Updates(values).Error
+	return orm.DB.Model(&obj).Where(where).Updates(values).Error
 }
 
-func OrmDelete[T IModels](ids []int) error {
+func OrmDelete[T IModels](where map[string]interface{}) error {
 	var obj T
-	return orm.DB.Where("id IN ?", ids).Delete(&obj).Error
+	return orm.DB.Where(where).Delete(&obj).Error
 }

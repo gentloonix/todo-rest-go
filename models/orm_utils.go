@@ -4,11 +4,11 @@ import (
 	"main/orm"
 )
 
-func Create[T IModels](objs []T) error {
+func OrmCreate[T IModels](objs []T) error {
 	return orm.DB.Create(objs).Error
 }
 
-func Query[T IModels](where map[string]interface{}, order map[string]interface{}) ([]T, error) {
+func OrmQuery[T IModels](where map[string]interface{}, order map[string]interface{}) ([]T, error) {
 	var objs []T
 	tx := orm.DB
 	if len(where) != 0 {
@@ -24,12 +24,12 @@ func Query[T IModels](where map[string]interface{}, order map[string]interface{}
 	}
 }
 
-func Update[T IModels](ids []int, values map[string]interface{}) error {
+func OrmUpdate[T IModels](ids []int, values map[string]interface{}) error {
 	var obj T
 	return orm.DB.Model(&obj).Where("id IN ?", ids).Updates(values).Error
 }
 
-func Delete[T IModels](ids []int) error {
+func OrmDelete[T IModels](ids []int) error {
 	var obj T
 	return orm.DB.Where("id IN ?", ids).Delete(&obj).Error
 }

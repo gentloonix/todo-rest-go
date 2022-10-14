@@ -1,6 +1,7 @@
 package models
 
 import (
+	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 )
 
@@ -15,4 +16,12 @@ func AutoMigrate(db *gorm.DB) {
 	if err := db.AutoMigrate(&TODO{}); err != nil {
 		panic(err)
 	}
+}
+
+// RouteAll routes all possible paths
+func RouteAll(router *gin.Engine) {
+	if router == nil {
+		panic("models::RouteAll: nil router")
+	}
+	RouteTODO(router)
 }

@@ -4,25 +4,14 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// RouteAll routes all possible paths
-func RouteAll(router *gin.Engine) {
-	if router == nil {
-		panic("models::RouteAll: nil router")
-	}
-	RouteTODO(router)
+func ApiGet[T IModels](c *gin.Context) {
 }
 
-func RESTGet[T IModels](c *gin.Context) {
+func ApiPost[T IModels](c *gin.Context) {
 }
 
-func RESTPost[T IModels](c *gin.Context) {
-
+func ApiPut[T IModels](c *gin.Context) {
 }
 
-func RESTPut[T IModels](c *gin.Context) {
-
-}
-
-func RESTDelete[T IModels](c *gin.Context) {
-
+func ApiDelete[T IModels](c *gin.Context) {
 }

@@ -9,8 +9,10 @@ import (
 )
 
 var (
+	// Close close channel
 	Close chan struct{} = make(chan struct{}, 1)
-	DB    *gorm.DB      = nil
+	// DB pointer to database
+	DB *gorm.DB = nil
 )
 
 // Initialize initializes Database ORM (Object-Relational Mapping) submodule as daemon;

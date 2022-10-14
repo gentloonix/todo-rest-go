@@ -12,8 +12,10 @@ import (
 )
 
 var (
-	Close  chan struct{} = make(chan struct{}, 1)
-	Router *gin.Engine   = nil
+	// Close close channel
+	Close chan struct{} = make(chan struct{}, 1)
+	// Router pointer to router
+	Router *gin.Engine = nil
 )
 
 // Initialize initializes server submodule as daemon;

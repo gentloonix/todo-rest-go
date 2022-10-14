@@ -8,15 +8,13 @@ import (
 
 func parseApiQuery(c *gin.Context) (where map[string]interface{}, order string, updates map[string]interface{}) {
 	where_tmp := c.Request.URL.Query()
-	order_tmp, ok := where_tmp["sortBy"]
-	if ok {
+	if order_tmp, ok := where_tmp["sortBy"]; ok {
 		delete(where, "sortBy")
 		if len(order_tmp) != 0 {
 			order = order_tmp[0]
 		}
 	}
-	updates_tmp_slice, ok := where_tmp["replaceWith"]
-	if ok {
+	if updates_tmp_slice, ok := where_tmp["replaceWith"]; ok {
 		delete(where, "replaceWith")
 		if len(updates_tmp_slice) != 0 {
 			updates_tmp := updates_tmp_slice[0]

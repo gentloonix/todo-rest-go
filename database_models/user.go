@@ -1,6 +1,8 @@
 package database_models
 
+import "gorm.io/gorm"
+
 type User struct {
-	ORMWrapper
+	gorm.Model
 	Id uint64 `json:"id" gorm:"primaryKey"`
 }

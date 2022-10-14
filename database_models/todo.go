@@ -1,7 +1,9 @@
 package database_models
 
+import "gorm.io/gorm"
+
 type TODO struct {
-	ORMWrapper
+	gorm.Model
 	Id          uint64 `json:"id" gorm:"primaryKey"`
 	UserId      User   `json:"user_id" gorm:"foreignKey:Id"`
 	Name        string `json:"name,omitempty"`

@@ -49,7 +49,7 @@ func Initialize(wg *sync.WaitGroup) {
 		routeAll(Router)
 
 		srv := &http.Server{
-			Addr:    ":8080",
+			Addr:    ADDR,
 			Handler: Router,
 		}
 

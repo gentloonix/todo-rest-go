@@ -1,7 +1,8 @@
-package models
+package api
 
 import (
 	"encoding/json"
+	"main/models"
 
 	"github.com/gin-gonic/gin"
 )
@@ -35,9 +36,9 @@ func parseApiQuery(c *gin.Context) (where map[string]interface{}, order string, 
 	return where, order, updates
 }
 
-func ApiGet[T IModels](c *gin.Context) {
+func ApiGet[T models.IModels](c *gin.Context) {
 	where, order, _ := parseApiQuery(c)
-	if objs, err := OrmQuery[T](where, order); err != nil {
+	if objs, err := models.OrmQuery[T](where, order); err != nil {
 		c.JSON(400, gin.H{
 			"error": err.Error(),
 		})
@@ -49,13 +50,13 @@ func ApiGet[T IModels](c *gin.Context) {
 	}
 }
 
-func ApiPost[T IModels](c *gin.Context) {
+func ApiPost[T models.IModels](c *gin.Context) {
 	// TODO
 }
 
-func ApiPut[T IModels](c *gin.Context) {
+func ApiPut[T models.IModels](c *gin.Context) {
 	where, _, values := parseApiQuery(c)
-	if err := OrmUpdate[T](where, values); err != nil {
+	if err := models.OrmUpdate[T](where, values); err != nil {
 		c.JSON(400, gin.H{
 			"error": err.Error(),
 		})
@@ -66,9 +67,9 @@ func ApiPut[T IModels](c *gin.Context) {
 	}
 }
 
-func ApiDelete[T IModels](c *gin.Context) {
+func ApiDelete[T models.IModels](c *gin.Context) {
 	where, _, _ := parseApiQuery(c)
-	if err := OrmDelete[T](where); err != nil {
+	if err := models.OrmDelete[T](where); err != nil {
 		c.JSON(400, gin.H{
 			"error": err.Error(),
 		})

@@ -21,7 +21,7 @@ func main() {
 	wg.Add(1)
 	orm.Initialize(&wg, "database.db", models.AutoMigrate)
 	wg.Add(1)
-	api.Initialize(&wg, models.RouteAll)
+	api.Initialize(&wg)
 
 	// Await SIGINT / SIGTERM
 	c := make(chan os.Signal, 1)

@@ -20,8 +20,7 @@ var (
 
 // Initialize initializes server submodule as daemon;
 // stops on Close signal, decrements wg on exit;
-// routeAll routes all possible paths;
-func Initialize(wg *sync.WaitGroup, routeAll func(*gin.Engine)) {
+func Initialize(wg *sync.WaitGroup) {
 	if wg == nil {
 		log.Println("api::server::Initialize: nil wg")
 		return

@@ -17,7 +17,7 @@ var (
 )
 
 // Initialize initializes server submodule as daemon
-// Stops on Close signal
+// Stops on Close signal, decrements wg on exit
 // routeAll routes all possible paths
 func Initialize(wg *sync.WaitGroup, routeAll func(*gin.Engine)) {
 	if wg == nil {

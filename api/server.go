@@ -16,7 +16,7 @@ var (
 	Router *gin.Engine   = nil
 )
 
-func Initialize(wg *sync.WaitGroup) {
+func Initialize(wg *sync.WaitGroup, route func(*gin.Engine)) {
 	if wg == nil {
 		log.Println("api::server::Initialize: nil wg")
 		return
@@ -42,10 +42,7 @@ func Initialize(wg *sync.WaitGroup) {
 			Router = nil
 		}()
 
-		// Routes
-		Router.GET("/", func(c *gin.Context) {
-			c.String(http.StatusOK, "Welcome Gin Server")
-		})
+		route(Router)
 
 		srv := &http.Server{
 			Addr:    ":8080",

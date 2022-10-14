@@ -11,9 +11,13 @@ func Create[T ORMModel](objs []T) error {
 	return orm.DB.Create(objs).Error
 }
 
-func Query[T ORMModel](values map[string]interface{}) ([]T, error) {
+func Query[T ORMModel](where map[string]interface{}, order map[string]interface{}) ([]T, error) {
 	var objs []T
-	if err := orm.DB.Where(values).Find(&objs).Error; err != nil {
+	tx := orm.DB.Where(where)
+	if len(order) != 0 {
+		tx = tx.Order(order)
+	}
+	if err := tx.Find(&objs).Error; err != nil {
 		return nil, err
 	} else {
 		return objs, nil

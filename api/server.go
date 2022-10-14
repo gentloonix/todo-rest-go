@@ -37,7 +37,7 @@ func Initialize(wg *sync.WaitGroup) {
 		gin.SetMode(gin.ReleaseMode)
 
 		// based on https://github.com/gin-gonic/gin#manually
-		Router := gin.Default()
+		Router = gin.Default()
 		defer func() {
 			Router = nil
 		}()

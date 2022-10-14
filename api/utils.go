@@ -10,15 +10,15 @@ import (
 func parseApiQuery(c *gin.Context) (where map[string]interface{}, order string, updates map[string]interface{}) {
 	where_tmp := c.Request.URL.Query()
 
-	if order_tmp, ok := where_tmp["sort"]; ok {
-		delete(where_tmp, "sort")
+	if order_tmp, ok := where_tmp[SORT_BY]; ok {
+		delete(where_tmp, SORT_BY)
 		if len(order_tmp) != 0 {
 			order = order_tmp[0]
 		}
 	}
 
-	if updates_tmp_slice, ok := where_tmp["updates"]; ok {
-		delete(where_tmp, "updates")
+	if updates_tmp_slice, ok := where_tmp[UPDATE_WITH]; ok {
+		delete(where_tmp, UPDATE_WITH)
 		if len(updates_tmp_slice) != 0 {
 			updates_tmp := updates_tmp_slice[0]
 			updates = make(map[string]interface{})

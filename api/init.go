@@ -9,13 +9,16 @@ import (
 // routeAll routes all possible paths
 func routeAll(router *gin.Engine) {
 	if router == nil {
-		panic("models::RouteAll: nil router")
+		panic("api::RouteAll: nil router")
 	}
 	routeUser(router)
 	routeTODO(router)
 }
 
 func routeUser(router *gin.Engine) {
+	if router == nil {
+		panic("api::routeUser: nil router")
+	}
 	router.GET("/user/", ApiGet[models.User])
 	router.POST("/user/", ApiPost[models.User])
 	router.PUT("/user/", ApiPut[models.User])
@@ -23,6 +26,9 @@ func routeUser(router *gin.Engine) {
 }
 
 func routeTODO(router *gin.Engine) {
+	if router == nil {
+		panic("api::routeTODO: nil router")
+	}
 	router.GET("/todo/", ApiGet[models.TODO])
 	router.POST("/todo/", ApiPost[models.TODO])
 	router.PUT("/todo/", ApiPut[models.TODO])

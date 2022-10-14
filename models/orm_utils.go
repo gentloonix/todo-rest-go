@@ -2,11 +2,6 @@ package models
 
 import "main/orm"
 
-type ORMModel interface {
-	TODO
-	User
-}
-
 func Create[T ORMModel](objs []T) error {
 	return orm.DB.Create(objs).Error
 }

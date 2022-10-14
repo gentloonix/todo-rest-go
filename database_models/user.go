@@ -15,9 +15,9 @@ func Create(users []User) error {
 	return database.DB.Create(users).Error
 }
 
-func Query(ids []int) ([]User, error) {
+func Query(values map[string]interface{}) ([]User, error) {
 	var users []User
-	if err := database.DB.Find(&users, ids).Error; err != nil {
+	if err := database.DB.Where(values).Find(&users).Error; err != nil {
 		return nil, err
 	} else {
 		return users, nil

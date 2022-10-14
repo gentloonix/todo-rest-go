@@ -2,6 +2,7 @@ package models
 
 import (
 	"encoding/json"
+	"log"
 
 	"github.com/gin-gonic/gin"
 )
@@ -9,15 +10,15 @@ import (
 func parseApiQuery(c *gin.Context) (where map[string]interface{}, order string, updates map[string]interface{}) {
 	where_tmp := c.Request.URL.Query()
 
-	if order_tmp, ok := where_tmp["sortBy"]; ok {
-		delete(where_tmp, "sortBy")
+	if order_tmp, ok := where_tmp["sort"]; ok {
+		delete(where_tmp, "sort")
 		if len(order_tmp) != 0 {
 			order = order_tmp[0]
 		}
 	}
 
-	if updates_tmp_slice, ok := where_tmp["replaceWith"]; ok {
-		delete(where_tmp, "replaceWith")
+	if updates_tmp_slice, ok := where_tmp["updates"]; ok {
+		delete(where_tmp, "updates")
 		if len(updates_tmp_slice) != 0 {
 			updates_tmp := updates_tmp_slice[0]
 			updates = make(map[string]interface{})
@@ -37,6 +38,7 @@ func parseApiQuery(c *gin.Context) (where map[string]interface{}, order string, 
 
 func ApiGet[T IModels](c *gin.Context) {
 	where, order, _ := parseApiQuery(c)
+	log.Println(where)
 	objs, err := OrmQuery[T](where, order)
 	if err != nil {
 		c.JSON(400, gin.H{"error": err.Error()})

@@ -8,4 +8,5 @@ func RouteAll(router *gin.Engine) {
 	if router == nil {
 		panic("models::RouteAll: nil router")
 	}
+	// TODO REST routing
 }

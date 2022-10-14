@@ -52,7 +52,27 @@ func ApiGet[T models.IModels](c *gin.Context) {
 }
 
 func ApiPost[T models.IModels](c *gin.Context) {
-	// TODO
+	var obj T
+	var objs []T
+	if err := c.BindJSON(&obj); err != nil {
+		if err := c.BindJSON(&objs); err != nil {
+			c.JSON(400, gin.H{
+				"error": err.Error(),
+			})
+		}
+	} else {
+		objs = append(objs, obj)
+	}
+	if err := models.OrmCreate(objs); err != nil {
+		c.JSON(400, gin.H{
+			"error": err.Error(),
+		})
+	} else {
+		c.JSON(200, gin.H{
+			"msg":    "ok",
+			"result": objs,
+		})
+	}
 }
 
 func ApiPut[T models.IModels](c *gin.Context) {

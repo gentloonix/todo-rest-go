@@ -1,6 +1,8 @@
 package models
 
-import "main/orm"
+import (
+	"main/orm"
+)
 
 func Create[T ORMModel](objs []T) error {
 	return orm.DB.Create(objs).Error

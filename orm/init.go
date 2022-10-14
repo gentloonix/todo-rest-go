@@ -9,7 +9,7 @@ import (
 // autoMigrate initializes all possible database tables
 func autoMigrate(db *gorm.DB) {
 	if db == nil {
-		panic("models::AutoMigrate: nil db")
+		panic("orm::autoMigrate: nil db")
 	}
 	if err := db.AutoMigrate(&models.User{}); err != nil {
 		panic(err)

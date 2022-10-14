@@ -38,7 +38,7 @@ func parseApiQuery(c *gin.Context) (where map[string]interface{}, order string, 
 	return where, order, updates
 }
 
-// ApiGet CRUD Read middleware
+// ApiGet generic CRUD Read middleware
 func ApiGet[T models.IModels](c *gin.Context) {
 	where, order, _ := parseApiQuery(c)
 	if objs, err := orm.OrmQuery[T](where, order); err != nil {
@@ -53,7 +53,7 @@ func ApiGet[T models.IModels](c *gin.Context) {
 	}
 }
 
-// ApiPost CRUD Create middleware
+// ApiPost generic CRUD Create middleware
 func ApiPost[T models.IModels](c *gin.Context) {
 	var obj T
 	var objs []T
@@ -78,7 +78,7 @@ func ApiPost[T models.IModels](c *gin.Context) {
 	}
 }
 
-// ApiPut CRUD Update middleware
+// ApiPut generic CRUD Update middleware
 func ApiPut[T models.IModels](c *gin.Context) {
 	where, _, values := parseApiQuery(c)
 	if err := orm.OrmUpdate[T](where, values); err != nil {
@@ -92,7 +92,7 @@ func ApiPut[T models.IModels](c *gin.Context) {
 	}
 }
 
-// ApiDelete CRUD Delete middleware
+// ApiDelete generic CRUD Delete middleware
 func ApiDelete[T models.IModels](c *gin.Context) {
 	where, _, _ := parseApiQuery(c)
 	if err := orm.OrmDelete[T](where); err != nil {

@@ -4,8 +4,8 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func RouteAll(g *gin.Engine) {
-	if g == nil {
-		panic("models::RouteAll: nil g")
+func RouteAll(router *gin.Engine) {
+	if router == nil {
+		panic("models::RouteAll: nil router")
 	}
 }

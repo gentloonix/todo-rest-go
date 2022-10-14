@@ -17,5 +17,8 @@ type TODO struct {
 }
 
 func init() {
+	if database.DB == nil {
+		panic("nil database in init()")
+	}
 	database.DB.AutoMigrate(&TODO{})
 }

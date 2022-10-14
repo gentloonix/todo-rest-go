@@ -12,6 +12,9 @@ type User struct {
 }
 
 func init() {
+	if database.DB == nil {
+		panic("nil database in init()")
+	}
 	database.DB.AutoMigrate(&User{})
 }
 

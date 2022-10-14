@@ -1,8 +1,6 @@
 package models
 
-import (
-	"main/orm"
-)
+import "main/orm"
 
 type ORMModel interface {
 	TODO

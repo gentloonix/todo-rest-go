@@ -9,21 +9,19 @@ import (
 )
 
 var (
-	// Close close channel
+	// Close channel
 	Close chan struct{} = make(chan struct{}, 1)
-	// DB pointer to database
-	DB *gorm.DB = nil
+	// db pointer to database
+	db *gorm.DB = nil
 )
 
-// Initialize initializes Database ORM (Object-Relational Mapping) submodule as daemon;
-// stops on Close signal, decrements wg on exit;
-// autoMigrate initializes all possible database tables;
-func Initialize(wg *sync.WaitGroup, dsn string, autoMigrate func(*gorm.DB)) {
+// Initialize initializes Database ORM (Object-Relational Mapping) submodule as daemon
+func Initialize(wg *sync.WaitGroup, dsn string) {
 	if wg == nil {
 		log.Println("orm::Initialize: nil wg")
 		return
 	}
-	if DB != nil {
+	if db != nil {
 		log.Println("orm::Initialize: ignoring")
 		return
 	}
@@ -36,13 +34,13 @@ func Initialize(wg *sync.WaitGroup, dsn string, autoMigrate func(*gorm.DB)) {
 		}()
 
 		var err error
-		DB, err = gorm.Open(sqlite.Open(dsn), &gorm.Config{
+		db, err = gorm.Open(sqlite.Open(dsn), &gorm.Config{
 			QueryFields: true,
 		})
 		if err != nil {
 			panic(err)
 		}
-		sqlDB, err := DB.DB()
+		sqlDB, err := db.DB()
 		if err != nil {
 			panic(err)
 		}
@@ -51,10 +49,10 @@ func Initialize(wg *sync.WaitGroup, dsn string, autoMigrate func(*gorm.DB)) {
 				log.Println(err)
 			}
 
-			DB = nil
+			db = nil
 		}()
 
-		autoMigrate(DB)
+		autoMigrate(db)
 
 		log.Println("orm: running")
 		<-Close

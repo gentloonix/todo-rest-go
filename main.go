@@ -8,7 +8,6 @@ import (
 	"syscall"
 
 	"main/api"
-	"main/models"
 	"main/orm"
 )
 
@@ -19,7 +18,7 @@ func main() {
 	var wg sync.WaitGroup
 
 	wg.Add(1)
-	orm.Initialize(&wg, "database.db", models.AutoMigrate)
+	orm.Initialize(&wg, "database.db")
 	wg.Add(1)
 	api.Initialize(&wg)
 

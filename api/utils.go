@@ -3,6 +3,7 @@ package api
 import (
 	"encoding/json"
 	"main/models"
+	"main/orm"
 
 	"github.com/gin-gonic/gin"
 )
@@ -40,7 +41,7 @@ func parseApiQuery(c *gin.Context) (where map[string]interface{}, order string, 
 // ApiGet CRUD Read middleware
 func ApiGet[T models.IModels](c *gin.Context) {
 	where, order, _ := parseApiQuery(c)
-	if objs, err := models.OrmQuery[T](where, order); err != nil {
+	if objs, err := orm.OrmQuery[T](where, order); err != nil {
 		c.JSON(400, gin.H{
 			"error": err.Error(),
 		})
@@ -65,7 +66,7 @@ func ApiPost[T models.IModels](c *gin.Context) {
 	} else {
 		objs = append(objs, obj)
 	}
-	if err := models.OrmCreate(objs); err != nil {
+	if err := orm.OrmCreate(objs); err != nil {
 		c.JSON(400, gin.H{
 			"error": err.Error(),
 		})
@@ -80,7 +81,7 @@ func ApiPost[T models.IModels](c *gin.Context) {
 // ApiPut CRUD Update middleware
 func ApiPut[T models.IModels](c *gin.Context) {
 	where, _, values := parseApiQuery(c)
-	if err := models.OrmUpdate[T](where, values); err != nil {
+	if err := orm.OrmUpdate[T](where, values); err != nil {
 		c.JSON(400, gin.H{
 			"error": err.Error(),
 		})
@@ -94,7 +95,7 @@ func ApiPut[T models.IModels](c *gin.Context) {
 // ApiDelete CRUD Delete middleware
 func ApiDelete[T models.IModels](c *gin.Context) {
 	where, _, _ := parseApiQuery(c)
-	if err := models.OrmDelete[T](where); err != nil {
+	if err := orm.OrmDelete[T](where); err != nil {
 		c.JSON(400, gin.H{
 			"error": err.Error(),
 		})

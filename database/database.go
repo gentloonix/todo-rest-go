@@ -13,7 +13,7 @@ var (
 	DB    *gorm.DB      = nil
 )
 
-func Initialize(wg *sync.WaitGroup) {
+func Initialize(wg *sync.WaitGroup, autoMigrate func(*gorm.DB)) {
 	if wg == nil {
 		log.Println("database::Initialize: nil wg")
 		return
@@ -45,6 +45,8 @@ func Initialize(wg *sync.WaitGroup) {
 
 			DB = nil
 		}()
+
+		autoMigrate(DB)
 
 		log.Println("database: running")
 		<-Close

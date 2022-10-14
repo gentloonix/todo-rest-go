@@ -11,13 +11,6 @@ type User struct {
 	Id uint64 `json:"id" gorm:"primaryKey"`
 }
 
-func init() {
-	if database.DB == nil {
-		panic("nil database in init()")
-	}
-	database.DB.AutoMigrate(&User{})
-}
-
 func Create(user *[]User) error {
 	return database.DB.Create(user).Error
 }

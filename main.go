@@ -9,6 +9,7 @@ import (
 
 	"main/api"
 	"main/database"
+	"main/database_models"
 )
 
 func main() {
@@ -18,7 +19,7 @@ func main() {
 	var wg sync.WaitGroup
 
 	wg.Add(1)
-	database.Initialize(&wg)
+	database.Initialize(&wg, database_models.AutoMigrate)
 	wg.Add(1)
 	api.Initialize(&wg)
 

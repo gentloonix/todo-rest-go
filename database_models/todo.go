@@ -1,8 +1,6 @@
 package database_models
 
 import (
-	"main/database"
-
 	"gorm.io/gorm"
 )
 
@@ -14,11 +12,4 @@ type TODO struct {
 	Description string `json:"description,omitempty"`
 	DueDate     int64  `json:"due_date,omitempty"`
 	Status      bool   `json:"status,omitempty"`
-}
-
-func init() {
-	if database.DB == nil {
-		panic("nil database in init()")
-	}
-	database.DB.AutoMigrate(&TODO{})
 }

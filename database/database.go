@@ -30,7 +30,9 @@ func Initialize(wg *sync.WaitGroup, autoMigrate func(*gorm.DB)) {
 			log.Println("database: exit")
 		}()
 
-		DB, err := gorm.Open(sqlite.Open("database.db"), &gorm.Config{})
+		DB, err := gorm.Open(sqlite.Open("database.db"), &gorm.Config{
+			QueryFields: true,
+		})
 		if err != nil {
 			panic(err)
 		}

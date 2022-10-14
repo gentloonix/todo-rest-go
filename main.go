@@ -8,8 +8,8 @@ import (
 	"syscall"
 
 	"main/api"
-	"main/database"
-	"main/database_models"
+	"main/models"
+	"main/orm"
 )
 
 func main() {
@@ -19,9 +19,9 @@ func main() {
 	var wg sync.WaitGroup
 
 	wg.Add(1)
-	database.Initialize(&wg, database_models.AutoMigrate)
+	orm.Initialize(&wg, "database.db", models.AutoMigrate)
 	wg.Add(1)
-	api.Initialize(&wg)
+	api.Initialize(&wg, models.RouteAll)
 
 	// Await SIGINT / SIGTERM
 	c := make(chan os.Signal, 1)
@@ -31,7 +31,7 @@ func main() {
 	// Await async submodules exit
 	log.Println("submodules exiting")
 
-	database.Close <- struct{}{}
+	orm.Close <- struct{}{}
 	api.Close <- struct{}{}
 
 	wg.Wait()

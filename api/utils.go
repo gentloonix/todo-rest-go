@@ -7,6 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// parseApiQuery RESTful API query parser
 func parseApiQuery(c *gin.Context) (where map[string]interface{}, order string, updates map[string]interface{}) {
 	where_tmp := c.Request.URL.Query()
 

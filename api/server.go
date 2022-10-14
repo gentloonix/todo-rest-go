@@ -14,7 +14,7 @@ import (
 var (
 	// Close channel
 	Close chan struct{} = make(chan struct{}, 1)
-	// Router pointer
+	// router pointer
 	router *gin.Engine = nil
 )
 

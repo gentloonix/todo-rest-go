@@ -16,9 +16,9 @@ var (
 	Router *gin.Engine   = nil
 )
 
-// Initialize initializes server submodule as daemon
-// Stops on Close signal, decrements wg on exit
-// routeAll routes all possible paths
+// Initialize initializes server submodule as daemon;
+// stops on Close signal, decrements wg on exit;
+// routeAll routes all possible paths;
 func Initialize(wg *sync.WaitGroup, routeAll func(*gin.Engine)) {
 	if wg == nil {
 		log.Println("api::server::Initialize: nil wg")

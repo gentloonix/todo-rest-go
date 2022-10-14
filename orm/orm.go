@@ -13,9 +13,9 @@ var (
 	DB    *gorm.DB      = nil
 )
 
-// Initialize initializes Database ORM (Object-Relational Mapping) submodule as daemon
-// Stops on Close signal, decrements wg on exit
-// autoMigrate initializes all possible database tables
+// Initialize initializes Database ORM (Object-Relational Mapping) submodule as daemon;
+// stops on Close signal, decrements wg on exit;
+// autoMigrate initializes all possible database tables;
 func Initialize(wg *sync.WaitGroup, dsn string, autoMigrate func(*gorm.DB)) {
 	if wg == nil {
 		log.Println("orm::Initialize: nil wg")

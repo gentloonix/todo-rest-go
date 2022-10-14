@@ -4,7 +4,7 @@ import (
 	"main/models"
 )
 
-type ORMModel interface {
+type IModels interface {
 	models.TODO
 	models.User
 }

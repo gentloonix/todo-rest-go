@@ -15,7 +15,7 @@ var (
 	// Close channel
 	Close chan struct{} = make(chan struct{}, 1)
 	// Router pointer
-	Router *gin.Engine = nil
+	router *gin.Engine = nil
 )
 
 // Initialize server submodule as daemon
@@ -24,7 +24,7 @@ func Initialize(wg *sync.WaitGroup) {
 		log.Println("api::server::Initialize: nil wg")
 		return
 	}
-	if Router != nil {
+	if router != nil {
 		log.Println("api::server::Initialize: ignoring")
 		return
 	}
@@ -40,16 +40,16 @@ func Initialize(wg *sync.WaitGroup) {
 		gin.SetMode(gin.ReleaseMode)
 
 		// based on https://github.com/gin-gonic/gin#manually
-		Router = gin.Default()
+		router = gin.Default()
 		defer func() {
-			Router = nil
+			router = nil
 		}()
 
-		routeAll(Router)
+		routeAll(router)
 
 		srv := &http.Server{
 			Addr:    ADDR,
-			Handler: Router,
+			Handler: router,
 		}
 
 		// Initializing the server in a goroutine so that

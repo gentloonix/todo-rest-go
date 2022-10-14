@@ -9,7 +9,7 @@ import (
 // routeAll routes all possible paths
 func routeAll(router *gin.Engine) {
 	if router == nil {
-		panic("api::RouteAll: nil router")
+		panic("api::routeAll: nil router")
 	}
 	routeUser(router)
 	routeTODO(router)

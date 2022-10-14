@@ -21,11 +21,11 @@ var (
 // Initialize server submodule as daemon
 func Initialize(wg *sync.WaitGroup) {
 	if wg == nil {
-		log.Println("api::server::Initialize: nil wg")
+		log.Println("api::Initialize: nil wg")
 		return
 	}
 	if router != nil {
-		log.Println("api::server::Initialize: ignoring")
+		log.Println("api::Initialize: ignoring")
 		return
 	}
 
@@ -33,7 +33,7 @@ func Initialize(wg *sync.WaitGroup) {
 		defer wg.Done()
 
 		defer func() {
-			log.Println("api::server: exit")
+			log.Println("api: exit")
 		}()
 
 		// release mode
@@ -56,11 +56,11 @@ func Initialize(wg *sync.WaitGroup) {
 		// it won't block the graceful shutdown handling below
 		go func() {
 			if err := srv.ListenAndServe(); err != nil && errors.Is(err, http.ErrServerClosed) {
-				log.Println("api::server:", err)
+				log.Println("api:", err)
 			}
 		}()
 
-		log.Println("api::server: running")
+		log.Println("api: running")
 		<-Close
 
 		// The context is used to inform the server it has 30 seconds to finish
@@ -69,7 +69,7 @@ func Initialize(wg *sync.WaitGroup) {
 		defer cancel()
 
 		if err := srv.Shutdown(ctx); err != nil {
-			log.Println("api::server: forceful shutdown:", err)
+			log.Println("api: forceful shutdown:", err)
 		}
 	}()
 }

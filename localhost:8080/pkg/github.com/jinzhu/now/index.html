@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>now - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="../../../../lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="../../../../lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="../../../../lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="../../../index.html">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="../../../index.html">GoDoc</a></div>
+<a href="index.html#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="http://localhost:8080/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package now
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/jinzhu/now"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="index.html#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="index.html#pkg-index" class="indexLink">Index</a></dd>
+			
+				<dd><a href="index.html#pkg-examples" class="examplesLink">Examples</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>Package now is a time toolkit for golang.
+<p>More details README here: <a href="https://github.com/jinzhu/now">https://github.com/jinzhu/now</a>
+<pre>import &quot;github.com/jinzhu/now&quot;
+
+now.BeginningOfMinute() // 2013-11-18 17:51:00 Mon
+now.BeginningOfDay()    // 2013-11-18 00:00:00 Mon
+now.EndOfDay()          // 2013-11-18 23:59:59.999999999 Mon
+</pre>
+
+				<div id="example_" class="toggle">
+	<div class="collapsed">
+		<p class="exampleHeading toggleButton">▹ <span class="text">Example</span></p>
+	</div>
+	<div class="expanded">
+		<p class="exampleHeading toggleButton">▾ <span class="text">Example</span></p>
+		
+		
+		
+			<p>Code:</p>
+			<pre class="code">
+time.Now() <span class="comment">// 2013-11-18 17:51:49.123456789 Mon</span>
+
+BeginningOfMinute() <span class="comment">// 2013-11-18 17:51:00 Mon</span>
+BeginningOfHour()   <span class="comment">// 2013-11-18 17:00:00 Mon</span>
+BeginningOfDay()    <span class="comment">// 2013-11-18 00:00:00 Mon</span>
+BeginningOfWeek()   <span class="comment">// 2013-11-17 00:00:00 Sun</span>
+
+WeekStartDay = time.Monday <span class="comment">// Set Monday as first day</span>
+BeginningOfWeek()          <span class="comment">// 2013-11-18 00:00:00 Mon</span>
+BeginningOfMonth()         <span class="comment">// 2013-11-01 00:00:00 Fri</span>
+BeginningOfQuarter()       <span class="comment">// 2013-10-01 00:00:00 Tue</span>
+BeginningOfYear()          <span class="comment">// 2013-01-01 00:00:00 Tue</span>
+
+EndOfMinute() <span class="comment">// 2013-11-18 17:51:59.999999999 Mon</span>
+EndOfHour()   <span class="comment">// 2013-11-18 17:59:59.999999999 Mon</span>
+EndOfDay()    <span class="comment">// 2013-11-18 23:59:59.999999999 Mon</span>
+EndOfWeek()   <span class="comment">// 2013-11-23 23:59:59.999999999 Sat</span>
+
+WeekStartDay = time.Monday <span class="comment">// Set Monday as first day</span>
+EndOfWeek()                <span class="comment">// 2013-11-24 23:59:59.999999999 Sun</span>
+EndOfMonth()               <span class="comment">// 2013-11-30 23:59:59.999999999 Sat</span>
+EndOfQuarter()             <span class="comment">// 2013-12-31 23:59:59.999999999 Tue</span>
+EndOfYear()                <span class="comment">// 2013-12-31 23:59:59.999999999 Tue</span>
+
+<span class="comment">// Use another time</span>
+t := time.Date(2013, 02, 18, 17, 51, 49, 123456789, time.UTC)
+With(t).EndOfMonth() <span class="comment">// 2013-02-28 23:59:59.999999999 Thu</span>
+
+Monday()        <span class="comment">// 2013-11-18 00:00:00 Mon</span>
+Monday(&#34;17:44&#34;) <span class="comment">// 2013-11-18 17:44:00 Mon</span>
+Sunday()        <span class="comment">// 2013-11-24 00:00:00 Sun</span>
+Sunday(&#34;17:44&#34;) <span class="comment">// 2013-11-24 17:44:00 Sun</span>
+EndOfSunday()   <span class="comment">// 2013-11-24 23:59:59.999999999 Sun</span>
+</pre>
+			
+		
+	</div>
+</div>
+
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="index.html#pkg-variables">Variables</a></dd>
+			
+			
+				
+				<dd><a href="index.html#BeginningOfDay">func BeginningOfDay() time.Time</a></dd>
+			
+				
+				<dd><a href="index.html#BeginningOfHour">func BeginningOfHour() time.Time</a></dd>
+			
+				
+				<dd><a href="index.html#BeginningOfMinute">func BeginningOfMinute() time.Time</a></dd>
+			
+				
+				<dd><a href="index.html#BeginningOfMonth">func BeginningOfMonth() time.Time</a></dd>
+			
+				
+				<dd><a href="index.html#BeginningOfQuarter">func BeginningOfQuarter() time.Time</a></dd>
+			
+				
+				<dd><a href="index.html#BeginningOfWeek">func BeginningOfWeek() time.Time</a></dd>
+			
+				
+				<dd><a href="index.html#BeginningOfYear">func BeginningOfYear() time.Time</a></dd>
+			
+				
+				<dd><a href="index.html#Between">func Between(time1, time2 string) bool</a></dd>
+			
+				
+				<dd><a href="index.html#EndOfDay">func EndOfDay() time.Time</a></dd>
+			
+				
+				<dd><a href="index.html#EndOfHour">func EndOfHour() time.Time</a></dd>
+			
+				
+				<dd><a href="index.html#EndOfMinute">func EndOfMinute() time.Time</a></dd>
+			
+				
+				<dd><a href="index.html#EndOfMonth">func EndOfMonth() time.Time</a></dd>
+			
+				
+				<dd><a href="index.html#EndOfQuarter">func EndOfQuarter() time.Time</a></dd>
+			
+				
+				<dd><a href="index.html#EndOfSunday">func EndOfSunday() time.Time</a></dd>
+			
+				
+				<dd><a href="index.html#EndOfWeek">func EndOfWeek() time.Time</a></dd>
+			
+				
+				<dd><a href="index.html#EndOfYear">func EndOfYear() time.Time</a></dd>
+			
+				
+				<dd><a href="index.html#Monday">func Monday(strs ...string) time.Time</a></dd>
+			
+				
+				<dd><a href="index.html#MustParse">func MustParse(strs ...string) time.Time</a></dd>
+			
+				
+				<dd><a href="index.html#MustParseInLocation">func MustParseInLocation(loc *time.Location, strs ...string) time.Time</a></dd>
+			
+				
+				<dd><a href="index.html#Parse">func Parse(strs ...string) (time.Time, error)</a></dd>
+			
+				
+				<dd><a href="index.html#ParseInLocation">func ParseInLocation(loc *time.Location, strs ...string) (time.Time, error)</a></dd>
+			
+				
+				<dd><a href="index.html#Quarter">func Quarter() uint</a></dd>
+			
+				
+				<dd><a href="index.html#Sunday">func Sunday(strs ...string) time.Time</a></dd>
+			
+			
+				
+				<dd><a href="index.html#Config">type Config</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Config.MustParse">func (config *Config) MustParse(strs ...string) time.Time</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Config.Parse">func (config *Config) Parse(strs ...string) (time.Time, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Config.With">func (config *Config) With(t time.Time) *Now</a></dd>
+				
+			
+				
+				<dd><a href="index.html#Now">type Now</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#New">func New(t time.Time) *Now</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#With">func With(t time.Time) *Now</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Now.BeginningOfDay">func (now *Now) BeginningOfDay() time.Time</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Now.BeginningOfHalf">func (now *Now) BeginningOfHalf() time.Time</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Now.BeginningOfHour">func (now *Now) BeginningOfHour() time.Time</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Now.BeginningOfMinute">func (now *Now) BeginningOfMinute() time.Time</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Now.BeginningOfMonth">func (now *Now) BeginningOfMonth() time.Time</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Now.BeginningOfQuarter">func (now *Now) BeginningOfQuarter() time.Time</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Now.BeginningOfWeek">func (now *Now) BeginningOfWeek() time.Time</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Now.BeginningOfYear">func (now *Now) BeginningOfYear() time.Time</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Now.Between">func (now *Now) Between(begin, end string) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Now.EndOfDay">func (now *Now) EndOfDay() time.Time</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Now.EndOfHalf">func (now *Now) EndOfHalf() time.Time</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Now.EndOfHour">func (now *Now) EndOfHour() time.Time</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Now.EndOfMinute">func (now *Now) EndOfMinute() time.Time</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Now.EndOfMonth">func (now *Now) EndOfMonth() time.Time</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Now.EndOfQuarter">func (now *Now) EndOfQuarter() time.Time</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Now.EndOfSunday">func (now *Now) EndOfSunday() time.Time</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Now.EndOfWeek">func (now *Now) EndOfWeek() time.Time</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Now.EndOfYear">func (now *Now) EndOfYear() time.Time</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Now.Monday">func (now *Now) Monday(strs ...string) time.Time</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Now.MustParse">func (now *Now) MustParse(strs ...string) (t time.Time)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Now.Parse">func (now *Now) Parse(strs ...string) (t time.Time, err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Now.Quarter">func (now *Now) Quarter() uint</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Now.Sunday">func (now *Now) Sunday(strs ...string) time.Time</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+		<div id="pkg-examples">
+			<h3>Examples</h3>
+			<div class="js-expandAll expandAll collapsed">(Expand All)</div>
+			<dl>
+			
+			<dd><a class="exampleLink" href="index.html#example_">Package</a></dd>
+			
+			</dl>
+		</div>
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="http://localhost:8080/src/github.com/jinzhu/now/main.go">main.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/jinzhu/now/now.go">now.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/jinzhu/now/time.go">time.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				<p>TimeFormats default time formats will be parsed as
+
+				<pre>var <span id="TimeFormats">TimeFormats</span> = []<a href="../../../builtin/index.html#string">string</a>{
+    &#34;2006&#34;, &#34;2006-1&#34;, &#34;2006-1-2&#34;, &#34;2006-1-2 15&#34;, &#34;2006-1-2 15:4&#34;, &#34;2006-1-2 15:4:5&#34;, &#34;1-2&#34;,
+    &#34;15:4:5&#34;, &#34;15:4&#34;, &#34;15&#34;,
+    &#34;15:4:5 Jan 2, 2006 MST&#34;, &#34;2006-01-02 15:04:05.999999999 -0700 MST&#34;, &#34;2006-01-02T15:04:05Z0700&#34;, &#34;2006-01-02T15:04:05Z07&#34;,
+    &#34;2006.1.2&#34;, &#34;2006.1.2 15:04:05&#34;, &#34;2006.01.02&#34;, &#34;2006.01.02 15:04:05&#34;, &#34;2006.01.02 15:04:05.999999999&#34;,
+    &#34;1/2/2006&#34;, &#34;1/2/2006 15:4:5&#34;, &#34;2006/01/02&#34;, &#34;20060102&#34;, &#34;2006/01/02 15:04:05&#34;,
+    <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#ANSIC">ANSIC</a>, <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#UnixDate">UnixDate</a>, <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#RubyDate">RubyDate</a>, <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#RFC822">RFC822</a>, <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#RFC822Z">RFC822Z</a>, <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#RFC850">RFC850</a>,
+    <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#RFC1123">RFC1123</a>, <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#RFC1123Z">RFC1123Z</a>, <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#RFC3339">RFC3339</a>, <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#RFC3339Nano">RFC3339Nano</a>,
+    <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Kitchen">Kitchen</a>, <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Stamp">Stamp</a>, <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#StampMilli">StampMilli</a>, <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#StampMicro">StampMicro</a>, <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#StampNano">StampNano</a>,
+}</pre>
+			
+				<p>WeekStartDay set week start day, default is sunday
+
+				<pre>var <span id="WeekStartDay">WeekStartDay</span> = <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Sunday">Sunday</a></pre>
+			
+		
+		
+			
+			
+			<h2 id="BeginningOfDay">func <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=2735:2766#L87">BeginningOfDay</a>
+				<a class="permalink" href="index.html#BeginningOfDay">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func BeginningOfDay() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+			<p>BeginningOfDay beginning of day
+
+			
+			
+
+		
+			
+			
+			<h2 id="BeginningOfHour">func <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=2619:2651#L82">BeginningOfHour</a>
+				<a class="permalink" href="index.html#BeginningOfHour">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func BeginningOfHour() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+			<p>BeginningOfHour beginning of hour
+
+			
+			
+
+		
+			
+			
+			<h2 id="BeginningOfMinute">func <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=2497:2531#L77">BeginningOfMinute</a>
+				<a class="permalink" href="index.html#BeginningOfMinute">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func BeginningOfMinute() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+			<p>BeginningOfMinute beginning of minute
+
+			
+			
+
+		
+			
+			
+			<h2 id="BeginningOfMonth">func <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=2971:3004#L97">BeginningOfMonth</a>
+				<a class="permalink" href="index.html#BeginningOfMonth">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func BeginningOfMonth() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+			<p>BeginningOfMonth beginning of month
+
+			
+			
+
+		
+			
+			
+			<h2 id="BeginningOfQuarter">func <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=3097:3132#L102">BeginningOfQuarter</a>
+				<a class="permalink" href="index.html#BeginningOfQuarter">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func BeginningOfQuarter() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+			<p>BeginningOfQuarter beginning of quarter
+
+			
+			
+
+		
+			
+			
+			<h2 id="BeginningOfWeek">func <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=2851:2883#L92">BeginningOfWeek</a>
+				<a class="permalink" href="index.html#BeginningOfWeek">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func BeginningOfWeek() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+			<p>BeginningOfWeek beginning of week
+
+			
+			
+
+		
+			
+			
+			<h2 id="BeginningOfYear">func <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=3221:3253#L107">BeginningOfYear</a>
+				<a class="permalink" href="index.html#BeginningOfYear">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func BeginningOfYear() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+			<p>BeginningOfYear beginning of year
+
+			
+			
+
+		
+			
+			
+			<h2 id="Between">func <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=5087:5125#L188">Between</a>
+				<a class="permalink" href="index.html#Between">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Between(time1, time2 <a href="../../../builtin/index.html#string">string</a>) <a href="../../../builtin/index.html#bool">bool</a></pre>
+			<p>Between check now between the begin, end time or not
+
+			
+			
+
+		
+			
+			
+			<h2 id="EndOfDay">func <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=3521:3546#L122">EndOfDay</a>
+				<a class="permalink" href="index.html#EndOfDay">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func EndOfDay() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+			<p>EndOfDay end of day
+
+			
+			
+
+		
+			
+			
+			<h2 id="EndOfHour">func <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=3429:3455#L117">EndOfHour</a>
+				<a class="permalink" href="index.html#EndOfHour">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func EndOfHour() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+			<p>EndOfHour end of hour
+
+			
+			
+
+		
+			
+			
+			<h2 id="EndOfMinute">func <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=3331:3359#L112">EndOfMinute</a>
+				<a class="permalink" href="index.html#EndOfMinute">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func EndOfMinute() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+			<p>EndOfMinute end of minute
+
+			
+			
+
+		
+			
+			
+			<h2 id="EndOfMonth">func <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=3709:3736#L132">EndOfMonth</a>
+				<a class="permalink" href="index.html#EndOfMonth">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func EndOfMonth() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+			<p>EndOfMonth end of month
+
+			
+			
+
+		
+			
+			
+			<h2 id="EndOfQuarter">func <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=3811:3840#L137">EndOfQuarter</a>
+				<a class="permalink" href="index.html#EndOfQuarter">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func EndOfQuarter() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+			<p>EndOfQuarter end of quarter
+
+			
+			
+
+		
+			
+			
+			<h2 id="EndOfSunday">func <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=4212:4240#L158">EndOfSunday</a>
+				<a class="permalink" href="index.html#EndOfSunday">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func EndOfSunday() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+			<p>EndOfSunday end of sunday
+
+			
+			
+
+		
+			
+			
+			<h2 id="EndOfWeek">func <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=3613:3639#L127">EndOfWeek</a>
+				<a class="permalink" href="index.html#EndOfWeek">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func EndOfWeek() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+			<p>EndOfWeek end of week
+
+			
+			
+
+		
+			
+			
+			<h2 id="EndOfYear">func <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=3911:3937#L142">EndOfYear</a>
+				<a class="permalink" href="index.html#EndOfYear">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func EndOfYear() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+			<p>EndOfYear end of year
+
+			
+			
+
+		
+			
+			
+			<h2 id="Monday">func <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=3998:4035#L148">Monday</a>
+				<a class="permalink" href="index.html#Monday">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Monday(strs ...<a href="../../../builtin/index.html#string">string</a>) <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="MustParse">func <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=4738:4778#L178">MustParse</a>
+				<a class="permalink" href="index.html#MustParse">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func MustParse(strs ...<a href="../../../builtin/index.html#string">string</a>) <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+			<p>MustParse must parse string to time or will panic
+
+			
+			
+
+		
+			
+			
+			<h2 id="MustParseInLocation">func <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=4903:4973#L183">MustParseInLocation</a>
+				<a class="permalink" href="index.html#MustParseInLocation">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func MustParseInLocation(loc *<a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Location">Location</a>, strs ...<a href="../../../builtin/index.html#string">string</a>) <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+			<p>MustParseInLocation must parse string to time in location or will panic
+
+			
+			
+
+		
+			
+			
+			<h2 id="Parse">func <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=4413:4458#L168">Parse</a>
+				<a class="permalink" href="index.html#Parse">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Parse(strs ...<a href="../../../builtin/index.html#string">string</a>) (<a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a>, <a href="../../../builtin/index.html#error">error</a>)</pre>
+			<p>Parse parse string to time
+
+			
+			
+
+		
+			
+			
+			<h2 id="ParseInLocation">func <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=4556:4631#L173">ParseInLocation</a>
+				<a class="permalink" href="index.html#ParseInLocation">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ParseInLocation(loc *<a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Location">Location</a>, strs ...<a href="../../../builtin/index.html#string">string</a>) (<a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a>, <a href="../../../builtin/index.html#error">error</a>)</pre>
+			<p>ParseInLocation parse string to time in location
+
+			
+			
+
+		
+			
+			
+			<h2 id="Quarter">func <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=4323:4342#L163">Quarter</a>
+				<a class="permalink" href="index.html#Quarter">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Quarter() <a href="../../../builtin/index.html#uint">uint</a></pre>
+			<p>Quarter returns the yearly quarter
+
+			
+			
+
+		
+			
+			
+			<h2 id="Sunday">func <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=4099:4136#L153">Sunday</a>
+				<a class="permalink" href="index.html#Sunday">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Sunday(strs ...<a href="../../../builtin/index.html#string">string</a>) <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+			<p>Sunday sunday
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Config">type <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=1207:1308#L20">Config</a>
+				<a class="permalink" href="index.html#Config">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Config configuration for now package
+
+			<pre>type Config struct {
+<span id="Config.WeekStartDay"></span>    WeekStartDay <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Weekday">Weekday</a>
+<span id="Config.TimeLocation"></span>    TimeLocation *<a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Location">Location</a>
+<span id="Config.TimeFormats"></span>    TimeFormats  []<a href="../../../builtin/index.html#string">string</a>
+}
+</pre>
+
+			
+
+			
+				<p>DefaultConfig default config
+
+				<pre>var <span id="DefaultConfig">DefaultConfig</span> *<a href="index.html#Config">Config</a></pre>
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Config.MustParse">func (*Config) <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=1842:1899#L44">MustParse</a>
+					<a class="permalink" href="index.html#Config.MustParse">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (config *<a href="index.html#Config">Config</a>) MustParse(strs ...<a href="../../../builtin/index.html#string">string</a>) <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+				<p>MustParse must parse string to time or will panic
+
+				
+				
+				
+			
+				
+				<h3 id="Config.Parse">func (*Config) <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=1555:1617#L35">Parse</a>
+					<a class="permalink" href="index.html#Config.Parse">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (config *<a href="index.html#Config">Config</a>) Parse(strs ...<a href="../../../builtin/index.html#string">string</a>) (<a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a>, <a href="../../../builtin/index.html#error">error</a>)</pre>
+				<p>Parse parse string to time based on configuration
+
+				
+				
+				
+			
+				
+				<h3 id="Config.With">func (*Config) <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=1414:1458#L30">With</a>
+					<a class="permalink" href="index.html#Config.With">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (config *<a href="index.html#Config">Config</a>) With(t <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a>) *<a href="index.html#Now">Now</a></pre>
+				<p>New initialize Now based on configuration
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Now">type <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=2097:2136#L53">Now</a>
+				<a class="permalink" href="index.html#Now">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Now now struct
+
+			<pre>type Now struct {
+    <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a>
+    *<a href="index.html#Config">Config</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="New">func <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=2408:2434#L72">New</a>
+					<a class="permalink" href="index.html#New">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func New(t <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a>) *<a href="index.html#Now">Now</a></pre>
+				<p>New initialize Now with time
+
+				
+				
+			
+				
+				<h3 id="With">func <a href="http://localhost:8080/src/github.com/jinzhu/now/main.go?s=2171:2198#L59">With</a>
+					<a class="permalink" href="index.html#With">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func With(t <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a>) *<a href="index.html#Now">Now</a></pre>
+				<p>With initialize Now with time
+
+				
+				
+			
+
+			
+				
+				<h3 id="Now.BeginningOfDay">func (*Now) <a href="http://localhost:8080/src/github.com/jinzhu/now/now.go?s=397:439#L11">BeginningOfDay</a>
+					<a class="permalink" href="index.html#Now.BeginningOfDay">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (now *<a href="index.html#Now">Now</a>) BeginningOfDay() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+				<p>BeginningOfDay beginning of day
+
+				
+				
+				
+			
+				
+				<h3 id="Now.BeginningOfHalf">func (*Now) <a href="http://localhost:8080/src/github.com/jinzhu/now/now.go?s=1334:1377#L47">BeginningOfHalf</a>
+					<a class="permalink" href="index.html#Now.BeginningOfHalf">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (now *<a href="index.html#Now">Now</a>) BeginningOfHalf() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+				<p>BeginningOfHalf beginning of half year
+
+				
+				
+				
+			
+				
+				<h3 id="Now.BeginningOfHour">func (*Now) <a href="http://localhost:8080/src/github.com/jinzhu/now/now.go?s=216:259#L5">BeginningOfHour</a>
+					<a class="permalink" href="index.html#Now.BeginningOfHour">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (now *<a href="index.html#Now">Now</a>) BeginningOfHour() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+				<p>BeginningOfHour beginning of hour
+
+				
+				
+				
+			
+				
+				<h3 id="Now.BeginningOfMinute">func (*Now) <a href="http://localhost:8080/src/github.com/jinzhu/now/now.go?s=94:139#L1">BeginningOfMinute</a>
+					<a class="permalink" href="index.html#Now.BeginningOfMinute">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (now *<a href="index.html#Now">Now</a>) BeginningOfMinute() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+				<p>BeginningOfMinute beginning of minute
+
+				
+				
+				
+			
+				
+				<h3 id="Now.BeginningOfMonth">func (*Now) <a href="http://localhost:8080/src/github.com/jinzhu/now/now.go?s=959:1003#L34">BeginningOfMonth</a>
+					<a class="permalink" href="index.html#Now.BeginningOfMonth">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (now *<a href="index.html#Now">Now</a>) BeginningOfMonth() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+				<p>BeginningOfMonth beginning of month
+
+				
+				
+				
+			
+				
+				<h3 id="Now.BeginningOfQuarter">func (*Now) <a href="http://localhost:8080/src/github.com/jinzhu/now/now.go?s=1130:1176#L40">BeginningOfQuarter</a>
+					<a class="permalink" href="index.html#Now.BeginningOfQuarter">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (now *<a href="index.html#Now">Now</a>) BeginningOfQuarter() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+				<p>BeginningOfQuarter beginning of quarter
+
+				
+				
+				
+			
+				
+				<h3 id="Now.BeginningOfWeek">func (*Now) <a href="http://localhost:8080/src/github.com/jinzhu/now/now.go?s=565:608#L17">BeginningOfWeek</a>
+					<a class="permalink" href="index.html#Now.BeginningOfWeek">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (now *<a href="index.html#Now">Now</a>) BeginningOfWeek() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+				<p>BeginningOfWeek beginning of week
+
+				
+				
+				
+			
+				
+				<h3 id="Now.BeginningOfYear">func (*Now) <a href="http://localhost:8080/src/github.com/jinzhu/now/now.go?s=1546:1589#L54">BeginningOfYear</a>
+					<a class="permalink" href="index.html#Now.BeginningOfYear">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (now *<a href="index.html#Now">Now</a>) BeginningOfYear() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+				<p>BeginningOfYear BeginningOfYear beginning of year
+
+				
+				
+				
+			
+				
+				<h3 id="Now.Between">func (*Now) <a href="http://localhost:8080/src/github.com/jinzhu/now/now.go?s=6274:6321#L231">Between</a>
+					<a class="permalink" href="index.html#Now.Between">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (now *<a href="index.html#Now">Now</a>) Between(begin, end <a href="../../../builtin/index.html#string">string</a>) <a href="../../../builtin/index.html#bool">bool</a></pre>
+				<p>Between check time between the begin, end time or not
+
+				
+				
+				
+			
+				
+				<h3 id="Now.EndOfDay">func (*Now) <a href="http://localhost:8080/src/github.com/jinzhu/now/now.go?s=1979:2015#L70">EndOfDay</a>
+					<a class="permalink" href="index.html#Now.EndOfDay">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (now *<a href="index.html#Now">Now</a>) EndOfDay() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+				<p>EndOfDay end of day
+
+				
+				
+				
+			
+				
+				<h3 id="Now.EndOfHalf">func (*Now) <a href="http://localhost:8080/src/github.com/jinzhu/now/now.go?s=2590:2627#L91">EndOfHalf</a>
+					<a class="permalink" href="index.html#Now.EndOfHalf">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (now *<a href="index.html#Now">Now</a>) EndOfHalf() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+				<p>EndOfHalf end of half year
+
+				
+				
+				
+			
+				
+				<h3 id="Now.EndOfHour">func (*Now) <a href="http://localhost:8080/src/github.com/jinzhu/now/now.go?s=1850:1887#L65">EndOfHour</a>
+					<a class="permalink" href="index.html#Now.EndOfHour">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (now *<a href="index.html#Now">Now</a>) EndOfHour() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+				<p>EndOfHour end of hour
+
+				
+				
+				
+			
+				
+				<h3 id="Now.EndOfMinute">func (*Now) <a href="http://localhost:8080/src/github.com/jinzhu/now/now.go?s=1713:1752#L60">EndOfMinute</a>
+					<a class="permalink" href="index.html#Now.EndOfMinute">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (now *<a href="index.html#Now">Now</a>) EndOfMinute() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+				<p>EndOfMinute end of minute
+
+				
+				
+				
+			
+				
+				<h3 id="Now.EndOfMonth">func (*Now) <a href="http://localhost:8080/src/github.com/jinzhu/now/now.go?s=2297:2335#L81">EndOfMonth</a>
+					<a class="permalink" href="index.html#Now.EndOfMonth">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (now *<a href="index.html#Now">Now</a>) EndOfMonth() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+				<p>EndOfMonth end of month
+
+				
+				
+				
+			
+				
+				<h3 id="Now.EndOfQuarter">func (*Now) <a href="http://localhost:8080/src/github.com/jinzhu/now/now.go?s=2442:2482#L86">EndOfQuarter</a>
+					<a class="permalink" href="index.html#Now.EndOfQuarter">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (now *<a href="index.html#Now">Now</a>) EndOfQuarter() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+				<p>EndOfQuarter end of quarter
+
+				
+				
+				
+			
+				
+				<h3 id="Now.EndOfSunday">func (*Now) <a href="http://localhost:8080/src/github.com/jinzhu/now/now.go?s=3768:3807#L149">EndOfSunday</a>
+					<a class="permalink" href="index.html#Now.EndOfSunday">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (now *<a href="index.html#Now">Now</a>) EndOfSunday() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+				<p>EndOfSunday end of sunday
+
+				
+				
+				
+			
+				
+				<h3 id="Now.EndOfWeek">func (*Now) <a href="http://localhost:8080/src/github.com/jinzhu/now/now.go?s=2158:2195#L76">EndOfWeek</a>
+					<a class="permalink" href="index.html#Now.EndOfWeek">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (now *<a href="index.html#Now">Now</a>) EndOfWeek() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+				<p>EndOfWeek end of week
+
+				
+				
+				
+			
+				
+				<h3 id="Now.EndOfYear">func (*Now) <a href="http://localhost:8080/src/github.com/jinzhu/now/now.go?s=2727:2764#L96">EndOfYear</a>
+					<a class="permalink" href="index.html#Now.EndOfYear">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (now *<a href="index.html#Now">Now</a>) EndOfYear() <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+				<p>EndOfYear end of year
+
+				
+				
+				
+			
+				
+				<h3 id="Now.Monday">func (*Now) <a href="http://localhost:8080/src/github.com/jinzhu/now/now.go?s=3030:3078#L112">Monday</a>
+					<a class="permalink" href="index.html#Now.Monday">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (now *<a href="index.html#Now">Now</a>) Monday(strs ...<a href="../../../builtin/index.html#string">string</a>) <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Now.MustParse">func (*Now) <a href="http://localhost:8080/src/github.com/jinzhu/now/now.go?s=6083:6138#L222">MustParse</a>
+					<a class="permalink" href="index.html#Now.MustParse">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (now *<a href="index.html#Now">Now</a>) MustParse(strs ...<a href="../../../builtin/index.html#string">string</a>) (t <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a>)</pre>
+				<p>MustParse must parse string to time or it will panic
+
+				
+				
+				
+			
+				
+				<h3 id="Now.Parse">func (*Now) <a href="http://localhost:8080/src/github.com/jinzhu/now/now.go?s=4739:4801#L174">Parse</a>
+					<a class="permalink" href="index.html#Now.Parse">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (now *<a href="index.html#Now">Now</a>) Parse(strs ...<a href="../../../builtin/index.html#string">string</a>) (t <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a>, err <a href="../../../builtin/index.html#error">error</a>)</pre>
+				<p>Parse parse string to time
+
+				
+				
+				
+			
+				
+				<h3 id="Now.Quarter">func (*Now) <a href="http://localhost:8080/src/github.com/jinzhu/now/now.go?s=3888:3918#L154">Quarter</a>
+					<a class="permalink" href="index.html#Now.Quarter">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (now *<a href="index.html#Now">Now</a>) Quarter() <a href="../../../builtin/index.html#uint">uint</a></pre>
+				<p>Quarter returns the yearly quarter
+
+				
+				
+				
+			
+				
+				<h3 id="Now.Sunday">func (*Now) <a href="http://localhost:8080/src/github.com/jinzhu/now/now.go?s=3383:3431#L130">Sunday</a>
+					<a class="permalink" href="index.html#Now.Sunday">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (now *<a href="index.html#Now">Now</a>) Sunday(strs ...<a href="../../../builtin/index.html#string">string</a>) <a href="../../../time/index.html">time</a>.<a href="../../../time/index.html#Time">Time</a></pre>
+				
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="http://localhost:8080/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

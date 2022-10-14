@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>protobuf - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="../../../lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="../../../lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="../../../lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="../../index.html">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="../../index.html">GoDoc</a></div>
+<a href="index.html#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="http://localhost:8080/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Command protobuf
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		
+	
+
+	
+
+
+
+
+
+	
+	
+		<h2 id="pkg-subdirectories">Subdirectories</h2>
+	
+	<div class="pkg-dir">
+		<table>
+			<tr>
+				<th class="pkg-name">Name</th>
+				<th class="pkg-synopsis">Synopsis</th>
+			</tr>
+
+			
+			<tr>
+				<td colspan="2"><a href="http://localhost:8080/pkg/google.golang.org/">..</a></td>
+			</tr>
+			
+
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="cmd/index.html">cmd</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="cmd/protoc-gen-go/index.html">protoc-gen-go</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						The protoc-gen-go binary is a protoc plugin to generate Go code for both proto2 and proto3 versions of the protocol buffer language.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="cmd/protoc-gen-go/internal_gengo/index.html">internal_gengo</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Package internal_gengo is internal to the protobuf module.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="compiler/index.html">compiler</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="compiler/protogen/index.html">protogen</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Package protogen provides support for writing protoc plugins.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="encoding/index.html">encoding</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="encoding/protojson/index.html">protojson</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Package protojson marshals and unmarshals protocol buffer messages as JSON format.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="encoding/prototext/index.html">prototext</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Package prototext marshals and unmarshals protocol buffer messages as the textproto format.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="encoding/protowire/index.html">protowire</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Package protowire parses and formats the raw wire encoding.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="proto/index.html">proto</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Package proto provides functions operating on protocol buffer messages.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="reflect/index.html">reflect</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="reflect/protodesc/index.html">protodesc</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Package protodesc provides functionality for converting FileDescriptorProto messages to/from protoreflect.FileDescriptor values.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="reflect/protopath/index.html">protopath</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Package protopath provides functionality for representing a sequence of protobuf reflection operations on a message.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="reflect/protorange/index.html">protorange</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Package protorange provides functionality to traverse a message value.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="reflect/protoreflect/index.html">protoreflect</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Package protoreflect provides interfaces to dynamically manipulate messages.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="reflect/protoregistry/index.html">protoregistry</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Package protoregistry provides data structures to register and lookup protobuf descriptor types.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="runtime/index.html">runtime</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="runtime/protoiface/index.html">protoiface</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Package protoiface contains types referenced or implemented by messages.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="runtime/protoimpl/index.html">protoimpl</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Package protoimpl contains the default implementation for messages generated by protoc-gen-go.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="testing/index.html">testing</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="testing/protocmp/index.html">protocmp</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Package protocmp provides protobuf specific options for the &#34;github.com/google/go-cmp/cmp&#34; package.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="testing/protopack/index.html">protopack</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Package protopack enables manual encoding and decoding of protobuf wire data.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="testing/prototest/index.html">prototest</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Package prototest exercises protobuf reflection.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="types/index.html">types</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="types/descriptorpb/index.html">descriptorpb</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="types/dynamicpb/index.html">dynamicpb</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Package dynamicpb creates protocol buffer messages using runtime type information.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="types/known/index.html">known</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="types/known/anypb/index.html">anypb</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Package anypb contains generated types for google/protobuf/any.proto.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="types/known/apipb/index.html">apipb</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="types/known/durationpb/index.html">durationpb</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Package durationpb contains generated types for google/protobuf/duration.proto.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="types/known/emptypb/index.html">emptypb</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="types/known/fieldmaskpb/index.html">fieldmaskpb</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Package fieldmaskpb contains generated types for google/protobuf/field_mask.proto.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="types/known/sourcecontextpb/index.html">sourcecontextpb</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="types/known/structpb/index.html">structpb</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Package structpb contains generated types for google/protobuf/struct.proto.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="types/known/timestamppb/index.html">timestamppb</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Package timestamppb contains generated types for google/protobuf/timestamp.proto.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="types/known/typepb/index.html">typepb</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="types/known/wrapperspb/index.html">wrapperspb</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="types/pluginpb/index.html">pluginpb</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+		</table>
+	</div>
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="http://localhost:8080/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

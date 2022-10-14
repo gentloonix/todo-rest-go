@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>ut - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="../../../../lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="../../../../lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="../../../../lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="../../../index.html">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="../../../index.html">GoDoc</a></div>
+<a href="index.html#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="http://localhost:8080/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package ut
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/go-playground/universal-translator"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="index.html#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="index.html#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="index.html#pkg-variables">Variables</a></dd>
+			
+			
+			
+				
+				<dd><a href="index.html#ErrBadParamSyntax">type ErrBadParamSyntax</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#ErrBadParamSyntax.Error">func (e *ErrBadParamSyntax) Error() string</a></dd>
+				
+			
+				
+				<dd><a href="index.html#ErrBadPluralDefinition">type ErrBadPluralDefinition</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#ErrBadPluralDefinition.Error">func (e *ErrBadPluralDefinition) Error() string</a></dd>
+				
+			
+				
+				<dd><a href="index.html#ErrCardinalTranslation">type ErrCardinalTranslation</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#ErrCardinalTranslation.Error">func (e *ErrCardinalTranslation) Error() string</a></dd>
+				
+			
+				
+				<dd><a href="index.html#ErrConflictingTranslation">type ErrConflictingTranslation</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#ErrConflictingTranslation.Error">func (e *ErrConflictingTranslation) Error() string</a></dd>
+				
+			
+				
+				<dd><a href="index.html#ErrExistingTranslator">type ErrExistingTranslator</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#ErrExistingTranslator.Error">func (e *ErrExistingTranslator) Error() string</a></dd>
+				
+			
+				
+				<dd><a href="index.html#ErrMissingBracket">type ErrMissingBracket</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#ErrMissingBracket.Error">func (e *ErrMissingBracket) Error() string</a></dd>
+				
+			
+				
+				<dd><a href="index.html#ErrMissingLocale">type ErrMissingLocale</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#ErrMissingLocale.Error">func (e *ErrMissingLocale) Error() string</a></dd>
+				
+			
+				
+				<dd><a href="index.html#ErrMissingPluralTranslation">type ErrMissingPluralTranslation</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#ErrMissingPluralTranslation.Error">func (e *ErrMissingPluralTranslation) Error() string</a></dd>
+				
+			
+				
+				<dd><a href="index.html#ErrOrdinalTranslation">type ErrOrdinalTranslation</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#ErrOrdinalTranslation.Error">func (e *ErrOrdinalTranslation) Error() string</a></dd>
+				
+			
+				
+				<dd><a href="index.html#ErrRangeTranslation">type ErrRangeTranslation</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#ErrRangeTranslation.Error">func (e *ErrRangeTranslation) Error() string</a></dd>
+				
+			
+				
+				<dd><a href="index.html#ImportExportFormat">type ImportExportFormat</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Translator">type Translator</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#UniversalTranslator">type UniversalTranslator</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#New">func New(fallback locales.Translator, supportedLocales ...locales.Translator) *UniversalTranslator</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#UniversalTranslator.AddTranslator">func (t *UniversalTranslator) AddTranslator(translator locales.Translator, override bool) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#UniversalTranslator.Export">func (t *UniversalTranslator) Export(format ImportExportFormat, dirname string) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#UniversalTranslator.FindTranslator">func (t *UniversalTranslator) FindTranslator(locales ...string) (trans Translator, found bool)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#UniversalTranslator.GetFallback">func (t *UniversalTranslator) GetFallback() Translator</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#UniversalTranslator.GetTranslator">func (t *UniversalTranslator) GetTranslator(locale string) (trans Translator, found bool)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#UniversalTranslator.Import">func (t *UniversalTranslator) Import(format ImportExportFormat, dirnameOrFilename string) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#UniversalTranslator.ImportByReader">func (t *UniversalTranslator) ImportByReader(format ImportExportFormat, reader io.Reader) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#UniversalTranslator.VerifyTranslations">func (t *UniversalTranslator) VerifyTranslations() (err error)</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="http://localhost:8080/src/github.com/go-playground/universal-translator/errors.go">errors.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/go-playground/universal-translator/import_export.go">import_export.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/go-playground/universal-translator/translator.go">translator.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/go-playground/universal-translator/universal_translator.go">universal_translator.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				
+				<pre>var (
+    <span class="comment">// ErrUnknowTranslation indicates the translation could not be found</span>
+    <span id="ErrUnknowTranslation">ErrUnknowTranslation</span> = <a href="../../../errors/index.html">errors</a>.<a href="../../../errors/index.html#New">New</a>(&#34;Unknown Translation&#34;)
+)</pre>
+			
+		
+		
+		
+			
+			
+			<h2 id="ErrBadParamSyntax">type <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/errors.go?s=3515:3613#L104">ErrBadParamSyntax</a>
+				<a class="permalink" href="index.html#ErrBadParamSyntax">&#xb6;</a>
+				
+				
+			</h2>
+			<p>ErrBadParamSyntax is the error representing a bad parameter definition in a translation
+eg. This is a {must-be-int}
+
+			<pre>type ErrBadParamSyntax struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="ErrBadParamSyntax.Error">func (*ErrBadParamSyntax) <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/errors.go?s=3664:3706#L112">Error</a>
+					<a class="permalink" href="index.html#ErrBadParamSyntax.Error">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="index.html#ErrBadParamSyntax">ErrBadParamSyntax</a>) Error() <a href="../../../builtin/index.html#string">string</a></pre>
+				<p>Error returns ErrBadParamSyntax error message
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ErrBadPluralDefinition">type <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/errors.go?s=4440:4494#L131">ErrBadPluralDefinition</a>
+				<a class="permalink" href="index.html#ErrBadPluralDefinition">&#xb6;</a>
+				
+				
+			</h2>
+			<p>ErrBadPluralDefinition is the error representing an incorrect plural definition
+usually found within translations defined within files during the import process.
+
+			<pre>type ErrBadPluralDefinition struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="ErrBadPluralDefinition.Error">func (*ErrBadPluralDefinition) <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/errors.go?s=4558:4605#L136">Error</a>
+					<a class="permalink" href="index.html#ErrBadPluralDefinition.Error">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="index.html#ErrBadPluralDefinition">ErrBadPluralDefinition</a>) Error() <a href="../../../builtin/index.html#string">string</a></pre>
+				<p>Error returns ErrBadPluralDefinition&apos;s internal error text
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ErrCardinalTranslation">type <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/errors.go?s=2039:2090#L61">ErrCardinalTranslation</a>
+				<a class="permalink" href="index.html#ErrCardinalTranslation">&#xb6;</a>
+				
+				
+			</h2>
+			<p>ErrCardinalTranslation is the error representing a cardinal translation error
+
+			<pre>type ErrCardinalTranslation struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="ErrCardinalTranslation.Error">func (*ErrCardinalTranslation) <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/errors.go?s=2154:2201#L66">Error</a>
+					<a class="permalink" href="index.html#ErrCardinalTranslation.Error">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="index.html#ErrCardinalTranslation">ErrCardinalTranslation</a>) Error() <a href="../../../builtin/index.html#string">string</a></pre>
+				<p>Error returns ErrCardinalTranslation&apos;s internal error text
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ErrConflictingTranslation">type <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/errors.go?s=874:992#L23">ErrConflictingTranslation</a>
+				<a class="permalink" href="index.html#ErrConflictingTranslation">&#xb6;</a>
+				
+				
+			</h2>
+			<p>ErrConflictingTranslation is the error representing a conflicting translation
+
+			<pre>type ErrConflictingTranslation struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="ErrConflictingTranslation.Error">func (*ErrConflictingTranslation) <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/errors.go?s=1059:1109#L31">Error</a>
+					<a class="permalink" href="index.html#ErrConflictingTranslation.Error">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="index.html#ErrConflictingTranslation">ErrConflictingTranslation</a>) Error() <a href="../../../builtin/index.html#string">string</a></pre>
+				<p>Error returns ErrConflictingTranslation&apos;s internal error text
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ErrExistingTranslator">type <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/errors.go?s=547:599#L13">ErrExistingTranslator</a>
+				<a class="permalink" href="index.html#ErrExistingTranslator">&#xb6;</a>
+				
+				
+			</h2>
+			<p>ErrExistingTranslator is the error representing a conflicting translator
+
+			<pre>type ErrExistingTranslator struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="ErrExistingTranslator.Error">func (*ErrExistingTranslator) <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/errors.go?s=662:708#L18">Error</a>
+					<a class="permalink" href="index.html#ErrExistingTranslator.Error">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="index.html#ErrExistingTranslator">ErrExistingTranslator</a>) Error() <a href="../../../builtin/index.html#string">string</a></pre>
+				<p>Error returns ErrExistingTranslator&apos;s internal error text
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ErrMissingBracket">type <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/errors.go?s=3084:3167#L91">ErrMissingBracket</a>
+				<a class="permalink" href="index.html#ErrMissingBracket">&#xb6;</a>
+				
+				
+			</h2>
+			<p>ErrMissingBracket is the error representing a missing bracket in a translation
+eg. This is a {0 &lt;-- missing ending &apos;}&apos;
+
+			<pre>type ErrMissingBracket struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="ErrMissingBracket.Error">func (*ErrMissingBracket) <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/errors.go?s=3218:3260#L98">Error</a>
+					<a class="permalink" href="index.html#ErrMissingBracket.Error">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="index.html#ErrMissingBracket">ErrMissingBracket</a>) Error() <a href="../../../builtin/index.html#string">string</a></pre>
+				<p>Error returns ErrMissingBracket error message
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ErrMissingLocale">type <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/errors.go?s=4052:4099#L120">ErrMissingLocale</a>
+				<a class="permalink" href="index.html#ErrMissingLocale">&#xb6;</a>
+				
+				
+			</h2>
+			<p>ErrMissingLocale is the error representing an expected locale that could
+not be found aka locale not registered with the UniversalTranslator Instance
+
+			<pre>type ErrMissingLocale struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="ErrMissingLocale.Error">func (*ErrMissingLocale) <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/errors.go?s=4157:4198#L125">Error</a>
+					<a class="permalink" href="index.html#ErrMissingLocale.Error">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="index.html#ErrMissingLocale">ErrMissingLocale</a>) Error() <a href="../../../builtin/index.html#string">string</a></pre>
+				<p>Error returns ErrMissingLocale&apos;s internal error text
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ErrMissingPluralTranslation">type <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/errors.go?s=2334:2490#L72">ErrMissingPluralTranslation</a>
+				<a class="permalink" href="index.html#ErrMissingPluralTranslation">&#xb6;</a>
+				
+				
+			</h2>
+			<p>ErrMissingPluralTranslation is the error signifying a missing translation given
+the locales plural rules.
+
+			<pre>type ErrMissingPluralTranslation struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="ErrMissingPluralTranslation.Error">func (*ErrMissingPluralTranslation) <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/errors.go?s=2559:2611#L80">Error</a>
+					<a class="permalink" href="index.html#ErrMissingPluralTranslation.Error">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="index.html#ErrMissingPluralTranslation">ErrMissingPluralTranslation</a>) Error() <a href="../../../builtin/index.html#string">string</a></pre>
+				<p>Error returns ErrMissingPluralTranslation&apos;s internal error text
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ErrOrdinalTranslation">type <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/errors.go?s=1778:1828#L51">ErrOrdinalTranslation</a>
+				<a class="permalink" href="index.html#ErrOrdinalTranslation">&#xb6;</a>
+				
+				
+			</h2>
+			<p>ErrOrdinalTranslation is the error representing an ordinal translation error
+
+			<pre>type ErrOrdinalTranslation struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="ErrOrdinalTranslation.Error">func (*ErrOrdinalTranslation) <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/errors.go?s=1891:1937#L56">Error</a>
+					<a class="permalink" href="index.html#ErrOrdinalTranslation.Error">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="index.html#ErrOrdinalTranslation">ErrOrdinalTranslation</a>) Error() <a href="../../../builtin/index.html#string">string</a></pre>
+				<p>Error returns ErrOrdinalTranslation&apos;s internal error text
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ErrRangeTranslation">type <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/errors.go?s=1524:1572#L41">ErrRangeTranslation</a>
+				<a class="permalink" href="index.html#ErrRangeTranslation">&#xb6;</a>
+				
+				
+			</h2>
+			<p>ErrRangeTranslation is the error representing a range translation error
+
+			<pre>type ErrRangeTranslation struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="ErrRangeTranslation.Error">func (*ErrRangeTranslation) <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/errors.go?s=1633:1677#L46">Error</a>
+					<a class="permalink" href="index.html#ErrRangeTranslation.Error">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (e *<a href="index.html#ErrRangeTranslation">ErrRangeTranslation</a>) Error() <a href="../../../builtin/index.html#string">string</a></pre>
+				<p>Error returns ErrRangeTranslation&apos;s internal error text
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ImportExportFormat">type <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/import_export.go?s=638:667#L21">ImportExportFormat</a>
+				<a class="permalink" href="index.html#ImportExportFormat">&#xb6;</a>
+				
+				
+			</h2>
+			<p>ImportExportFormat is the format of the file import or export
+
+			<pre>type ImportExportFormat <a href="../../../builtin/index.html#uint8">uint8</a></pre>
+
+			
+				<p>supported Export Formats
+
+				<pre>const (
+    <span id="FormatJSON">FormatJSON</span> <a href="index.html#ImportExportFormat">ImportExportFormat</a> = <a href="../../../builtin/index.html#iota">iota</a>
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Translator">type <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/translator.go?s=344:2765#L11">Translator</a>
+				<a class="permalink" href="index.html#Translator">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Translator is universal translators
+translator instance which is a thin wrapper
+around locales.Translator instance providing
+some extra functionality
+
+			<pre>type Translator interface {
+    <a href="../locales/index.html">locales</a>.<a href="../locales/index.html#Translator">Translator</a>
+
+    <span class="comment">// adds a normal translation for a particular language/locale</span>
+    <span class="comment">// {#} is the only replacement type accepted and are ad infinitum</span>
+    <span class="comment">// eg. one: &#39;{0} day left&#39; other: &#39;{0} days left&#39;</span>
+    Add(key interface{}, text <a href="../../../builtin/index.html#string">string</a>, override <a href="../../../builtin/index.html#bool">bool</a>) <a href="../../../builtin/index.html#error">error</a>
+
+    <span class="comment">// adds a cardinal plural translation for a particular language/locale</span>
+    <span class="comment">// {0} is the only replacement type accepted and only one variable is accepted as</span>
+    <span class="comment">// multiple cannot be used for a plural rule determination, unless it is a range;</span>
+    <span class="comment">// see AddRange below.</span>
+    <span class="comment">// eg. in locale &#39;en&#39; one: &#39;{0} day left&#39; other: &#39;{0} days left&#39;</span>
+    AddCardinal(key interface{}, text <a href="../../../builtin/index.html#string">string</a>, rule <a href="../locales/index.html">locales</a>.<a href="../locales/index.html#PluralRule">PluralRule</a>, override <a href="../../../builtin/index.html#bool">bool</a>) <a href="../../../builtin/index.html#error">error</a>
+
+    <span class="comment">// adds an ordinal plural translation for a particular language/locale</span>
+    <span class="comment">// {0} is the only replacement type accepted and only one variable is accepted as</span>
+    <span class="comment">// multiple cannot be used for a plural rule determination, unless it is a range;</span>
+    <span class="comment">// see AddRange below.</span>
+    <span class="comment">// eg. in locale &#39;en&#39; one: &#39;{0}st day of spring&#39; other: &#39;{0}nd day of spring&#39;</span>
+    <span class="comment">// - 1st, 2nd, 3rd...</span>
+    AddOrdinal(key interface{}, text <a href="../../../builtin/index.html#string">string</a>, rule <a href="../locales/index.html">locales</a>.<a href="../locales/index.html#PluralRule">PluralRule</a>, override <a href="../../../builtin/index.html#bool">bool</a>) <a href="../../../builtin/index.html#error">error</a>
+
+    <span class="comment">// adds a range plural translation for a particular language/locale</span>
+    <span class="comment">// {0} and {1} are the only replacement types accepted and only these are accepted.</span>
+    <span class="comment">// eg. in locale &#39;nl&#39; one: &#39;{0}-{1} day left&#39; other: &#39;{0}-{1} days left&#39;</span>
+    AddRange(key interface{}, text <a href="../../../builtin/index.html#string">string</a>, rule <a href="../locales/index.html">locales</a>.<a href="../locales/index.html#PluralRule">PluralRule</a>, override <a href="../../../builtin/index.html#bool">bool</a>) <a href="../../../builtin/index.html#error">error</a>
+
+    <span class="comment">// creates the translation for the locale given the &#39;key&#39; and params passed in</span>
+    T(key interface{}, params ...<a href="../../../builtin/index.html#string">string</a>) (<a href="../../../builtin/index.html#string">string</a>, <a href="../../../builtin/index.html#error">error</a>)
+
+    <span class="comment">// creates the cardinal translation for the locale given the &#39;key&#39;, &#39;num&#39; and &#39;digit&#39; arguments</span>
+    <span class="comment">//  and param passed in</span>
+    C(key interface{}, num <a href="../../../builtin/index.html#float64">float64</a>, digits <a href="../../../builtin/index.html#uint64">uint64</a>, param <a href="../../../builtin/index.html#string">string</a>) (<a href="../../../builtin/index.html#string">string</a>, <a href="../../../builtin/index.html#error">error</a>)
+
+    <span class="comment">// creates the ordinal translation for the locale given the &#39;key&#39;, &#39;num&#39; and &#39;digit&#39; arguments</span>
+    <span class="comment">// and param passed in</span>
+    O(key interface{}, num <a href="../../../builtin/index.html#float64">float64</a>, digits <a href="../../../builtin/index.html#uint64">uint64</a>, param <a href="../../../builtin/index.html#string">string</a>) (<a href="../../../builtin/index.html#string">string</a>, <a href="../../../builtin/index.html#error">error</a>)
+
+    <span class="comment">//  creates the range translation for the locale given the &#39;key&#39;, &#39;num1&#39;, &#39;digit1&#39;, &#39;num2&#39; and</span>
+    <span class="comment">//  &#39;digit2&#39; arguments and &#39;param1&#39; and &#39;param2&#39; passed in</span>
+    R(key interface{}, num1 <a href="../../../builtin/index.html#float64">float64</a>, digits1 <a href="../../../builtin/index.html#uint64">uint64</a>, num2 <a href="../../../builtin/index.html#float64">float64</a>, digits2 <a href="../../../builtin/index.html#uint64">uint64</a>, param1, param2 <a href="../../../builtin/index.html#string">string</a>) (<a href="../../../builtin/index.html#string">string</a>, <a href="../../../builtin/index.html#error">error</a>)
+
+    <span class="comment">// VerifyTranslations checks to ensures that no plural rules have been</span>
+    <span class="comment">// missed within the translations.</span>
+    VerifyTranslations() <a href="../../../builtin/index.html#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="UniversalTranslator">type <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/universal_translator.go?s=131:225#L1">UniversalTranslator</a>
+				<a class="permalink" href="index.html#UniversalTranslator">&#xb6;</a>
+				
+				
+			</h2>
+			<p>UniversalTranslator holds all locale &amp; translation data
+
+			<pre>type UniversalTranslator struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="New">func <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/universal_translator.go?s=339:437#L7">New</a>
+					<a class="permalink" href="index.html#New">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func New(fallback <a href="../locales/index.html">locales</a>.<a href="../locales/index.html#Translator">Translator</a>, supportedLocales ...<a href="../locales/index.html">locales</a>.<a href="../locales/index.html#Translator">Translator</a>) *<a href="index.html#UniversalTranslator">UniversalTranslator</a></pre>
+				<p>New returns a new UniversalTranslator instance set with
+the fallback locale and locales it should support
+
+				
+				
+			
+
+			
+				
+				<h3 id="UniversalTranslator.AddTranslator">func (*UniversalTranslator) <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/universal_translator.go?s=1996:2091#L65">AddTranslator</a>
+					<a class="permalink" href="index.html#UniversalTranslator.AddTranslator">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t *<a href="index.html#UniversalTranslator">UniversalTranslator</a>) AddTranslator(translator <a href="../locales/index.html">locales</a>.<a href="../locales/index.html#Translator">Translator</a>, override <a href="../../../builtin/index.html#bool">bool</a>) <a href="../../../builtin/index.html#error">error</a></pre>
+				<p>AddTranslator adds the supplied translator, if it already exists the override param
+will be checked and if false an error will be returned, otherwise the translator will be
+overridden; if the fallback matches the supplied translator it will be overridden as well
+NOTE: this is normally only used when translator is embedded within a library
+
+				
+				
+				
+			
+				
+				<h3 id="UniversalTranslator.Export">func (*UniversalTranslator) <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/import_export.go?s=879:964#L31">Export</a>
+					<a class="permalink" href="index.html#UniversalTranslator.Export">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t *<a href="index.html#UniversalTranslator">UniversalTranslator</a>) Export(format <a href="index.html#ImportExportFormat">ImportExportFormat</a>, dirname <a href="../../../builtin/index.html#string">string</a>) <a href="../../../builtin/index.html#error">error</a></pre>
+				<p>Export writes the translations out to a file on disk.
+<p>NOTE: this currently only works with string or int translations keys.
+
+				
+				
+				
+			
+				
+				<h3 id="UniversalTranslator.FindTranslator">func (*UniversalTranslator) <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/universal_translator.go?s=971:1065#L33">FindTranslator</a>
+					<a class="permalink" href="index.html#UniversalTranslator.FindTranslator">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t *<a href="index.html#UniversalTranslator">UniversalTranslator</a>) FindTranslator(locales ...<a href="../../../builtin/index.html#string">string</a>) (trans <a href="index.html#Translator">Translator</a>, found <a href="../../../builtin/index.html#bool">bool</a>)</pre>
+				<p>FindTranslator trys to find a Translator based on an array of locales
+and returns the first one it can find, otherwise returns the
+fallback translator.
+
+				
+				
+				
+			
+				
+				<h3 id="UniversalTranslator.GetFallback">func (*UniversalTranslator) <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/universal_translator.go?s=1564:1618#L57">GetFallback</a>
+					<a class="permalink" href="index.html#UniversalTranslator.GetFallback">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t *<a href="index.html#UniversalTranslator">UniversalTranslator</a>) GetFallback() <a href="index.html#Translator">Translator</a></pre>
+				<p>GetFallback returns the fallback locale
+
+				
+				
+				
+			
+				
+				<h3 id="UniversalTranslator.GetTranslator">func (*UniversalTranslator) <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/universal_translator.go?s=1319:1408#L47">GetTranslator</a>
+					<a class="permalink" href="index.html#UniversalTranslator.GetTranslator">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t *<a href="index.html#UniversalTranslator">UniversalTranslator</a>) GetTranslator(locale <a href="../../../builtin/index.html#string">string</a>) (trans <a href="index.html#Translator">Translator</a>, found <a href="../../../builtin/index.html#bool">bool</a>)</pre>
+				<p>GetTranslator returns the specified translator for the given locale,
+or fallback if not found
+
+				
+				
+				
+			
+				
+				<h3 id="UniversalTranslator.Import">func (*UniversalTranslator) <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/import_export.go?s=3389:3484#L145">Import</a>
+					<a class="permalink" href="index.html#UniversalTranslator.Import">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t *<a href="index.html#UniversalTranslator">UniversalTranslator</a>) Import(format <a href="index.html#ImportExportFormat">ImportExportFormat</a>, dirnameOrFilename <a href="../../../builtin/index.html#string">string</a>) <a href="../../../builtin/index.html#error">error</a></pre>
+				<p>Import reads the translations out of a file or directory on disk.
+<p>NOTE: this currently only works with string or int translations keys.
+
+				
+				
+				
+			
+				
+				<h3 id="UniversalTranslator.ImportByReader">func (*UniversalTranslator) <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/import_export.go?s=4354:4449#L191">ImportByReader</a>
+					<a class="permalink" href="index.html#UniversalTranslator.ImportByReader">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t *<a href="index.html#UniversalTranslator">UniversalTranslator</a>) ImportByReader(format <a href="index.html#ImportExportFormat">ImportExportFormat</a>, reader <a href="../../../io/index.html">io</a>.<a href="../../../io/index.html#Reader">Reader</a>) <a href="../../../builtin/index.html#error">error</a></pre>
+				<p>ImportByReader imports the the translations found within the contents read from the supplied reader.
+<p>NOTE: generally used when assets have been embedded into the binary and are already in memory.
+
+				
+				
+				
+			
+				
+				<h3 id="UniversalTranslator.VerifyTranslations">func (*UniversalTranslator) <a href="http://localhost:8080/src/github.com/go-playground/universal-translator/universal_translator.go?s=2725:2787#L93">VerifyTranslations</a>
+					<a class="permalink" href="index.html#UniversalTranslator.VerifyTranslations">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t *<a href="index.html#UniversalTranslator">UniversalTranslator</a>) VerifyTranslations() (err <a href="../../../builtin/index.html#error">error</a>)</pre>
+				<p>VerifyTranslations runs through all locales and identifies any issues
+eg. missing plural rules for a locale
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="http://localhost:8080/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

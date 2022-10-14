@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>protopath - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="../../../../../lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="../../../../../lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="../../../../../lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="../../../../index.html">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="../../../../index.html">GoDoc</a></div>
+<a href="index.html#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="http://localhost:8080/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package protopath
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "google.golang.org/protobuf/reflect/protopath"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="index.html#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="index.html#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>Package protopath provides functionality for
+representing a sequence of protobuf reflection operations on a message.
+
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+			
+				
+				<dd><a href="index.html#Path">type Path</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Path.Index">func (p Path) Index(i int) Step</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Path.String">func (p Path) String() string</a></dd>
+				
+			
+				
+				<dd><a href="index.html#Step">type Step</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#AnyExpand">func AnyExpand(md protoreflect.MessageDescriptor) Step</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#FieldAccess">func FieldAccess(fd protoreflect.FieldDescriptor) Step</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#ListIndex">func ListIndex(i int) Step</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#MapIndex">func MapIndex(k protoreflect.MapKey) Step</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Root">func Root(md protoreflect.MessageDescriptor) Step</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#UnknownAccess">func UnknownAccess() Step</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Step.FieldDescriptor">func (s Step) FieldDescriptor() protoreflect.FieldDescriptor</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Step.Kind">func (s Step) Kind() StepKind</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Step.ListIndex">func (s Step) ListIndex() int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Step.MapIndex">func (s Step) MapIndex() protoreflect.MapKey</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Step.MessageDescriptor">func (s Step) MessageDescriptor() protoreflect.MessageDescriptor</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Step.String">func (s Step) String() string</a></dd>
+				
+			
+				
+				<dd><a href="index.html#StepKind">type StepKind</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#StepKind.String">func (k StepKind) String() string</a></dd>
+				
+			
+				
+				<dd><a href="index.html#Values">type Values</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Values.Index">func (p Values) Index(i int) (out struct {Step Step Value protoreflect.Value})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Values.Len">func (p Values) Len() int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Values.String">func (p Values) String() string</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="http://localhost:8080/src/google.golang.org/protobuf/reflect/protopath/path.go">path.go</a>
+			
+				<a href="http://localhost:8080/src/google.golang.org/protobuf/reflect/protopath/step.go">step.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+		
+			
+			
+			<h2 id="Path">type <a href="http://localhost:8080/src/google.golang.org/protobuf/reflect/protopath/path.go?s=1060:1076#L18">Path</a>
+				<a class="permalink" href="index.html#Path">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Path is a sequence of protobuf reflection steps applied to some root
+protobuf message value to arrive at the current value.
+The first step must be a Root step.
+
+			<pre>type Path []<a href="index.html#Step">Step</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Path.Index">func (Path) <a href="http://localhost:8080/src/google.golang.org/protobuf/reflect/protopath/path.go?s=1489:1520#L27">Index</a>
+					<a class="permalink" href="index.html#Path.Index">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p <a href="index.html#Path">Path</a>) Index(i <a href="../../../../builtin/index.html#int">int</a>) <a href="index.html#Step">Step</a></pre>
+				<p>Index returns the ith step in the path and supports negative indexing.
+A negative index starts counting from the tail of the Path such that -1
+refers to the last step, -2 refers to the second-to-last step, and so on.
+It returns a zero Step value if the index is out-of-bounds.
+
+				
+				
+				
+			
+				
+				<h3 id="Path.String">func (Path) <a href="http://localhost:8080/src/google.golang.org/protobuf/reflect/protopath/path.go?s=1741:1770#L39">String</a>
+					<a class="permalink" href="index.html#Path.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p <a href="index.html#Path">Path</a>) String() <a href="../../../../builtin/index.html#string">string</a></pre>
+				<p>String returns a structured representation of the path
+by concatenating the string representation of every path step.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Step">type <a href="http://localhost:8080/src/google.golang.org/protobuf/reflect/protopath/step.go?s=1583:1673#L50">Step</a>
+				<a class="permalink" href="index.html#Step">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Step is a union where only one step operation may be specified at a time.
+The different kinds of steps are specified by the constants defined for
+the StepKind type.
+
+			<pre>type Step struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="AnyExpand">func <a href="http://localhost:8080/src/google.golang.org/protobuf/reflect/protopath/step.go?s=4279:4333#L123">AnyExpand</a>
+					<a class="permalink" href="index.html#AnyExpand">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func AnyExpand(md <a href="../protoreflect/index.html">protoreflect</a>.<a href="../protoreflect/index.html#MessageDescriptor">MessageDescriptor</a>) <a href="index.html#Step">Step</a></pre>
+				<p>AnyExpand describes expansion of a google.protobuf.Any message into
+a structured representation of the underlying message.
+<p>Within the context of Values,
+the type of the previous step value is always a google.protobuf.Any message, and
+the type of the current step value is always a message.
+
+				
+				
+			
+				
+				<h3 id="FieldAccess">func <a href="http://localhost:8080/src/google.golang.org/protobuf/reflect/protopath/step.go?s=2317:2371#L72">FieldAccess</a>
+					<a class="permalink" href="index.html#FieldAccess">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func FieldAccess(fd <a href="../protoreflect/index.html">protoreflect</a>.<a href="../protoreflect/index.html#FieldDescriptor">FieldDescriptor</a>) <a href="index.html#Step">Step</a></pre>
+				<p>FieldAccess describes access of a field within a message.
+Extension field accesses are also represented using a FieldAccess and
+must be provided with a protoreflect.FieldDescriptor
+<p>Within the context of Values,
+the type of the previous step value is always a message, and
+the type of the current step value is determined by the field descriptor.
+
+				
+				
+			
+				
+				<h3 id="ListIndex">func <a href="http://localhost:8080/src/google.golang.org/protobuf/reflect/protopath/step.go?s=3280:3306#L96">ListIndex</a>
+					<a class="permalink" href="index.html#ListIndex">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func ListIndex(i <a href="../../../../builtin/index.html#int">int</a>) <a href="index.html#Step">Step</a></pre>
+				<p>ListIndex describes index of an element within a list.
+<p>Within the context of Values,
+the type of the previous, previous step value is always a message,
+the type of the previous step value is always a list, and
+the type of the current step value is determined by the field descriptor.
+
+				
+				
+			
+				
+				<h3 id="MapIndex">func <a href="http://localhost:8080/src/google.golang.org/protobuf/reflect/protopath/step.go?s=3824:3865#L110">MapIndex</a>
+					<a class="permalink" href="index.html#MapIndex">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func MapIndex(k <a href="../protoreflect/index.html">protoreflect</a>.<a href="../protoreflect/index.html#MapKey">MapKey</a>) <a href="index.html#Step">Step</a></pre>
+				<p>MapIndex describes index of an entry within a map.
+The key type is determined by field descriptor that the map belongs to.
+<p>Within the context of Values,
+the type of the previous previous step value is always a message,
+the type of the previous step value is always a map, and
+the type of the current step value is determined by the field descriptor.
+
+				
+				
+			
+				
+				<h3 id="Root">func <a href="http://localhost:8080/src/google.golang.org/protobuf/reflect/protopath/step.go?s=1803:1852#L58">Root</a>
+					<a class="permalink" href="index.html#Root">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func Root(md <a href="../protoreflect/index.html">protoreflect</a>.<a href="../protoreflect/index.html#MessageDescriptor">MessageDescriptor</a>) <a href="index.html#Step">Step</a></pre>
+				<p>Root indicates the root message that a path is relative to.
+It should always (and only ever) be the first step in a path.
+
+				
+				
+			
+				
+				<h3 id="UnknownAccess">func <a href="http://localhost:8080/src/google.golang.org/protobuf/reflect/protopath/step.go?s=2909:2934#L86">UnknownAccess</a>
+					<a class="permalink" href="index.html#UnknownAccess">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func UnknownAccess() <a href="index.html#Step">Step</a></pre>
+				<p>UnknownAccess describes access to the unknown fields within a message.
+<p>Within the context of Values,
+the type of the previous step value is always a message, and
+the type of the current step value is always a bytes type.
+
+				
+				
+			
+
+			
+				
+				<h3 id="Step.FieldDescriptor">func (Step) <a href="http://localhost:8080/src/google.golang.org/protobuf/reflect/protopath/step.go?s=4839:4899#L143">FieldDescriptor</a>
+					<a class="permalink" href="index.html#Step.FieldDescriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s <a href="index.html#Step">Step</a>) FieldDescriptor() <a href="../protoreflect/index.html">protoreflect</a>.<a href="../protoreflect/index.html#FieldDescriptor">FieldDescriptor</a></pre>
+				<p>FieldDescriptor returns the field descriptor for FieldAccess steps,
+otherwise it returns nil.
+
+				
+				
+				
+			
+				
+				<h3 id="Step.Kind">func (Step) <a href="http://localhost:8080/src/google.golang.org/protobuf/reflect/protopath/step.go?s=5520:5549#L175">Kind</a>
+					<a class="permalink" href="index.html#Step.Kind">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s <a href="index.html#Step">Step</a>) Kind() <a href="index.html#StepKind">StepKind</a></pre>
+				<p>Kind reports which kind of step this is.
+
+				
+				
+				
+			
+				
+				<h3 id="Step.ListIndex">func (Step) <a href="http://localhost:8080/src/google.golang.org/protobuf/reflect/protopath/step.go?s=5102:5131#L154">ListIndex</a>
+					<a class="permalink" href="index.html#Step.ListIndex">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s <a href="index.html#Step">Step</a>) ListIndex() <a href="../../../../builtin/index.html#int">int</a></pre>
+				<p>ListIndex returns the list index for ListIndex steps,
+otherwise it returns 0.
+
+				
+				
+				
+			
+				
+				<h3 id="Step.MapIndex">func (Step) <a href="http://localhost:8080/src/google.golang.org/protobuf/reflect/protopath/step.go?s=5321:5365#L165">MapIndex</a>
+					<a class="permalink" href="index.html#Step.MapIndex">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s <a href="index.html#Step">Step</a>) MapIndex() <a href="../protoreflect/index.html">protoreflect</a>.<a href="../protoreflect/index.html#MapKey">MapKey</a></pre>
+				<p>MapIndex returns the map key for MapIndex steps,
+otherwise it returns an invalid map key.
+
+				
+				
+				
+			
+				
+				<h3 id="Step.MessageDescriptor">func (Step) <a href="http://localhost:8080/src/google.golang.org/protobuf/reflect/protopath/step.go?s=4546:4610#L132">MessageDescriptor</a>
+					<a class="permalink" href="index.html#Step.MessageDescriptor">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s <a href="index.html#Step">Step</a>) MessageDescriptor() <a href="../protoreflect/index.html">protoreflect</a>.<a href="../protoreflect/index.html#MessageDescriptor">MessageDescriptor</a></pre>
+				<p>MessageDescriptor returns the message descriptor for Root or AnyExpand steps,
+otherwise it returns nil.
+
+				
+				
+				
+			
+				
+				<h3 id="Step.String">func (Step) <a href="http://localhost:8080/src/google.golang.org/protobuf/reflect/protopath/step.go?s=5570:5599#L179">String</a>
+					<a class="permalink" href="index.html#Step.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s <a href="index.html#Step">Step</a>) String() <a href="../../../../builtin/index.html#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="StepKind">type <a href="http://localhost:8080/src/google.golang.org/protobuf/reflect/protopath/step.go?s=450:467#L8">StepKind</a>
+				<a class="permalink" href="index.html#StepKind">&#xb6;</a>
+				
+				
+			</h2>
+			<p>StepKind identifies the kind of step operation.
+Each kind of step corresponds with some protobuf reflection operation.
+
+			<pre>type StepKind <a href="../../../../builtin/index.html#int">int</a></pre>
+
+			
+				
+				<pre>const (
+
+    <span class="comment">// RootStep identifies a step as the Root step operation.</span>
+    <span id="RootStep">RootStep</span> <a href="index.html#StepKind">StepKind</a>
+    <span class="comment">// FieldAccessStep identifies a step as the FieldAccess step operation.</span>
+    <span id="FieldAccessStep">FieldAccessStep</span>
+    <span class="comment">// UnknownAccessStep identifies a step as the UnknownAccess step operation.</span>
+    <span id="UnknownAccessStep">UnknownAccessStep</span>
+    <span class="comment">// ListIndexStep identifies a step as the ListIndex step operation.</span>
+    <span id="ListIndexStep">ListIndexStep</span>
+    <span class="comment">// MapIndexStep identifies a step as the MapIndex step operation.</span>
+    <span id="MapIndexStep">MapIndexStep</span>
+    <span class="comment">// AnyExpandStep identifies a step as the AnyExpand step operation.</span>
+    <span id="AnyExpandStep">AnyExpandStep</span>
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="StepKind.String">func (StepKind) <a href="http://localhost:8080/src/google.golang.org/protobuf/reflect/protopath/step.go?s=1013:1046#L26">String</a>
+					<a class="permalink" href="index.html#StepKind.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (k <a href="index.html#StepKind">StepKind</a>) String() <a href="../../../../builtin/index.html#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Values">type <a href="http://localhost:8080/src/google.golang.org/protobuf/reflect/protopath/path.go?s=2073:2137#L51">Values</a>
+				<a class="permalink" href="index.html#Values">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Values is a Path paired with a sequence of values at each step.
+The lengths of Path and Values must be identical.
+The first step must be a Root step and
+the first value must be a concrete message value.
+
+			<pre>type Values struct {
+<span id="Values.Path"></span>    Path   <a href="index.html#Path">Path</a>
+<span id="Values.Values"></span>    Values []<a href="../protoreflect/index.html">protoreflect</a>.<a href="../protoreflect/index.html#Value">Value</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Values.Index">func (Values) <a href="http://localhost:8080/src/google.golang.org/protobuf/reflect/protopath/path.go?s=2601:2684#L69">Index</a>
+					<a class="permalink" href="index.html#Values.Index">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p <a href="index.html#Values">Values</a>) Index(i <a href="../../../../builtin/index.html#int">int</a>) (out struct {
+    Step  <a href="index.html#Step">Step</a>
+    Value <a href="../protoreflect/index.html">protoreflect</a>.<a href="../protoreflect/index.html#Value">Value</a>
+})</pre>
+				<p>Index returns the ith step and value and supports negative indexing.
+A negative index starts counting from the tail of the Values such that -1
+refers to the last pair, -2 refers to the second-to-last pair, and so on.
+
+				
+				
+				
+			
+				
+				<h3 id="Values.Len">func (Values) <a href="http://localhost:8080/src/google.golang.org/protobuf/reflect/protopath/path.go?s=2269:2294#L58">Len</a>
+					<a class="permalink" href="index.html#Values.Len">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p <a href="index.html#Values">Values</a>) Len() <a href="../../../../builtin/index.html#int">int</a></pre>
+				<p>Len reports the length of the path and values.
+If the path and values have differing length, it returns the minimum length.
+
+				
+				
+				
+			
+				
+				<h3 id="Values.String">func (Values) <a href="http://localhost:8080/src/google.golang.org/protobuf/reflect/protopath/path.go?s=3217:3248#L93">String</a>
+					<a class="permalink" href="index.html#Values.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p <a href="index.html#Values">Values</a>) String() <a href="../../../../builtin/index.html#string">string</a></pre>
+				<p>String returns a humanly readable representation of the path and last value.
+Do not depend on the output being stable.
+<p>For example:
+<pre>(path.to.MyMessage).list_field[5].map_field[&quot;hello&quot;] = {hello: &quot;world&quot;}
+</pre>
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="http://localhost:8080/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

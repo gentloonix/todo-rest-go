@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>tests - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="../../../../../lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="../../../../../lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="../../../../../lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="../../../../index.html">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="../../../../index.html">GoDoc</a></div>
+<a href="index.html#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="http://localhost:8080/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package tests
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "gorm.io/gorm/utils/tests"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="index.html#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="index.html#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="index.html#AssertEqual">func AssertEqual(t *testing.T, got, expect interface{})</a></dd>
+			
+				
+				<dd><a href="index.html#AssertObjEqual">func AssertObjEqual(t *testing.T, r, e interface{}, names ...string)</a></dd>
+			
+				
+				<dd><a href="index.html#Now">func Now() *time.Time</a></dd>
+			
+			
+				
+				<dd><a href="index.html#Account">type Account</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Child">type Child</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Company">type Company</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Coupon">type Coupon</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#CouponProduct">type CouponProduct</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#DummyDialector">type DummyDialector</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DummyDialector.BindVarTo">func (DummyDialector) BindVarTo(writer clause.Writer, stmt *gorm.Statement, v interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DummyDialector.DataTypeOf">func (DummyDialector) DataTypeOf(*schema.Field) string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DummyDialector.DefaultValueOf">func (DummyDialector) DefaultValueOf(field *schema.Field) clause.Expression</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DummyDialector.Explain">func (DummyDialector) Explain(sql string, vars ...interface{}) string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DummyDialector.Initialize">func (DummyDialector) Initialize(db *gorm.DB) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DummyDialector.Migrator">func (DummyDialector) Migrator(*gorm.DB) gorm.Migrator</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DummyDialector.Name">func (DummyDialector) Name() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DummyDialector.QuoteTo">func (DummyDialector) QuoteTo(writer clause.Writer, str string)</a></dd>
+				
+			
+				
+				<dd><a href="index.html#Language">type Language</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Order">type Order</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Parent">type Parent</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Pet">type Pet</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Toy">type Toy</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#User">type User</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="http://localhost:8080/src/gorm.io/gorm/utils/tests/dummy_dialecter.go">dummy_dialecter.go</a>
+			
+				<a href="http://localhost:8080/src/gorm.io/gorm/utils/tests/models.go">models.go</a>
+			
+				<a href="http://localhost:8080/src/gorm.io/gorm/utils/tests/utils.go">utils.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="AssertEqual">func <a href="http://localhost:8080/src/gorm.io/gorm/utils/tests/utils.go?s=453:508#L14">AssertEqual</a>
+				<a class="permalink" href="index.html#AssertEqual">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func AssertEqual(t *<a href="../../../../testing/index.html">testing</a>.<a href="../../../../testing/index.html#T">T</a>, got, expect interface{})</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="AssertObjEqual">func <a href="http://localhost:8080/src/gorm.io/gorm/utils/tests/utils.go?s=120:188#L4">AssertObjEqual</a>
+				<a class="permalink" href="index.html#AssertObjEqual">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func AssertObjEqual(t *<a href="../../../../testing/index.html">testing</a>.<a href="../../../../testing/index.html#T">T</a>, r, e interface{}, names ...<a href="../../../../builtin/index.html#string">string</a>)</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="Now">func <a href="http://localhost:8080/src/gorm.io/gorm/utils/tests/utils.go?s=3762:3783#L109">Now</a>
+				<a class="permalink" href="index.html#Now">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Now() *<a href="../../../../time/index.html">time</a>.<a href="../../../../time/index.html#Time">Time</a></pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Account">type <a href="http://localhost:8080/src/gorm.io/gorm/utils/tests/models.go?s=932:1004#L24">Account</a>
+				<a class="permalink" href="index.html#Account">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Account struct {
+    <a href="../../index.html">gorm</a>.<a href="../../index.html#Model">Model</a>
+<span id="Account.UserID"></span>    UserID <a href="../../../../database/sql/index.html">sql</a>.<a href="../../../../database/sql/index.html#NullInt64">NullInt64</a>
+<span id="Account.Number"></span>    Number <a href="../../../../builtin/index.html#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Child">type <a href="http://localhost:8080/src/gorm.io/gorm/utils/tests/models.go?s=1944:2028#L81">Child</a>
+				<a class="permalink" href="index.html#Child">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Child struct {
+    <a href="../../index.html">gorm</a>.<a href="../../index.html#Model">Model</a>
+<span id="Child.Name"></span>    Name     <a href="../../../../builtin/index.html#string">string</a>
+<span id="Child.ParentID"></span>    ParentID *<a href="../../../../builtin/index.html#uint">uint</a>
+<span id="Child.Parent"></span>    Parent   *<a href="index.html#Parent">Parent</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Company">type <a href="http://localhost:8080/src/gorm.io/gorm/utils/tests/models.go?s=1195:1241#L44">Company</a>
+				<a class="permalink" href="index.html#Company">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Company struct {
+<span id="Company.ID"></span>    ID   <a href="../../../../builtin/index.html#int">int</a>
+<span id="Company.Name"></span>    Name <a href="../../../../builtin/index.html#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Coupon">type <a href="http://localhost:8080/src/gorm.io/gorm/utils/tests/models.go?s=1315:1619#L54">Coupon</a>
+				<a class="permalink" href="index.html#Coupon">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Coupon struct {
+<span id="Coupon.ID"></span>    ID               <a href="../../../../builtin/index.html#int">int</a>              `gorm:&#34;primarykey; size:255&#34;`
+<span id="Coupon.AppliesToProduct"></span>    AppliesToProduct []*<a href="index.html#CouponProduct">CouponProduct</a> `gorm:&#34;foreignKey:CouponId;constraint:OnDelete:CASCADE&#34;`
+<span id="Coupon.AmountOff"></span>    AmountOff        <a href="../../../../builtin/index.html#uint32">uint32</a>           `gorm:&#34;column:amount_off&#34;`
+<span id="Coupon.PercentOff"></span>    PercentOff       <a href="../../../../builtin/index.html#float32">float32</a>          `gorm:&#34;column:percent_off&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="CouponProduct">type <a href="http://localhost:8080/src/gorm.io/gorm/utils/tests/models.go?s=1621:1762#L61">CouponProduct</a>
+				<a class="permalink" href="index.html#CouponProduct">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type CouponProduct struct {
+<span id="CouponProduct.CouponId"></span>    CouponId  <a href="../../../../builtin/index.html#int">int</a>    `gorm:&#34;primarykey;size:255&#34;`
+<span id="CouponProduct.ProductId"></span>    ProductId <a href="../../../../builtin/index.html#string">string</a> `gorm:&#34;primarykey;size:255&#34;`
+<span id="CouponProduct.Desc"></span>    Desc      <a href="../../../../builtin/index.html#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="DummyDialector">type <a href="http://localhost:8080/src/gorm.io/gorm/utils/tests/dummy_dialecter.go?s=138:166#L1">DummyDialector</a>
+				<a class="permalink" href="index.html#DummyDialector">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type DummyDialector struct{}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="DummyDialector.BindVarTo">func (DummyDialector) <a href="http://localhost:8080/src/gorm.io/gorm/utils/tests/dummy_dialecter.go?s=806:896#L26">BindVarTo</a>
+					<a class="permalink" href="index.html#DummyDialector.BindVarTo">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="index.html#DummyDialector">DummyDialector</a>) BindVarTo(writer <a href="../../clause/index.html">clause</a>.<a href="../../clause/index.html#Writer">Writer</a>, stmt *<a href="../../index.html">gorm</a>.<a href="../../index.html#Statement">Statement</a>, v interface{})</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="DummyDialector.DataTypeOf">func (DummyDialector) <a href="http://localhost:8080/src/gorm.io/gorm/utils/tests/dummy_dialecter.go?s=2058:2112#L82">DataTypeOf</a>
+					<a class="permalink" href="index.html#DummyDialector.DataTypeOf">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="index.html#DummyDialector">DummyDialector</a>) DataTypeOf(*<a href="../../schema/index.html">schema</a>.<a href="../../schema/index.html#Field">Field</a>) <a href="../../../../builtin/index.html#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="DummyDialector.DefaultValueOf">func (DummyDialector) <a href="http://localhost:8080/src/gorm.io/gorm/utils/tests/dummy_dialecter.go?s=617:692#L18">DefaultValueOf</a>
+					<a class="permalink" href="index.html#DummyDialector.DefaultValueOf">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="index.html#DummyDialector">DummyDialector</a>) DefaultValueOf(field *<a href="../../schema/index.html">schema</a>.<a href="../../schema/index.html#Field">Field</a>) <a href="../../clause/index.html">clause</a>.<a href="../../clause/index.html#Expression">Expression</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="DummyDialector.Explain">func (DummyDialector) <a href="http://localhost:8080/src/gorm.io/gorm/utils/tests/dummy_dialecter.go?s=1933:2002#L78">Explain</a>
+					<a class="permalink" href="index.html#DummyDialector.Explain">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="index.html#DummyDialector">DummyDialector</a>) Explain(sql <a href="../../../../builtin/index.html#string">string</a>, vars ...interface{}) <a href="../../../../builtin/index.html#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="DummyDialector.Initialize">func (DummyDialector) <a href="http://localhost:8080/src/gorm.io/gorm/utils/tests/dummy_dialecter.go?s=225:276#L7">Initialize</a>
+					<a class="permalink" href="index.html#DummyDialector.Initialize">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="index.html#DummyDialector">DummyDialector</a>) Initialize(db *<a href="../../index.html">gorm</a>.<a href="../../index.html#DB">DB</a>) <a href="../../../../builtin/index.html#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="DummyDialector.Migrator">func (DummyDialector) <a href="http://localhost:8080/src/gorm.io/gorm/utils/tests/dummy_dialecter.go?s=734:788#L22">Migrator</a>
+					<a class="permalink" href="index.html#DummyDialector.Migrator">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="index.html#DummyDialector">DummyDialector</a>) Migrator(*<a href="../../index.html">gorm</a>.<a href="../../index.html#DB">DB</a>) <a href="../../index.html">gorm</a>.<a href="../../index.html#Migrator">Migrator</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="DummyDialector.Name">func (DummyDialector) <a href="http://localhost:8080/src/gorm.io/gorm/utils/tests/dummy_dialecter.go?s=168:203#L3">Name</a>
+					<a class="permalink" href="index.html#DummyDialector.Name">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="index.html#DummyDialector">DummyDialector</a>) Name() <a href="../../../../builtin/index.html#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="DummyDialector.QuoteTo">func (DummyDialector) <a href="http://localhost:8080/src/gorm.io/gorm/utils/tests/dummy_dialecter.go?s=925:988#L30">QuoteTo</a>
+					<a class="permalink" href="index.html#DummyDialector.QuoteTo">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="index.html#DummyDialector">DummyDialector</a>) QuoteTo(writer <a href="../../clause/index.html">clause</a>.<a href="../../clause/index.html#Writer">Writer</a>, str <a href="../../../../builtin/index.html#string">string</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Language">type <a href="http://localhost:8080/src/gorm.io/gorm/utils/tests/models.go?s=1243:1313#L49">Language</a>
+				<a class="permalink" href="index.html#Language">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Language struct {
+<span id="Language.Code"></span>    Code <a href="../../../../builtin/index.html#string">string</a> `gorm:&#34;primarykey&#34;`
+<span id="Language.Name"></span>    Name <a href="../../../../builtin/index.html#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Order">type <a href="http://localhost:8080/src/gorm.io/gorm/utils/tests/models.go?s=1764:1849#L67">Order</a>
+				<a class="permalink" href="index.html#Order">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Order struct {
+    <a href="../../index.html">gorm</a>.<a href="../../index.html#Model">Model</a>
+<span id="Order.Num"></span>    Num      <a href="../../../../builtin/index.html#string">string</a>
+<span id="Order.Coupon"></span>    Coupon   *<a href="index.html#Coupon">Coupon</a>
+<span id="Order.CouponID"></span>    CouponID <a href="../../../../builtin/index.html#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Parent">type <a href="http://localhost:8080/src/gorm.io/gorm/utils/tests/models.go?s=1851:1942#L74">Parent</a>
+				<a class="permalink" href="index.html#Parent">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Parent struct {
+    <a href="../../index.html">gorm</a>.<a href="../../index.html#Model">Model</a>
+<span id="Parent.FavChildID"></span>    FavChildID <a href="../../../../builtin/index.html#uint">uint</a>
+<span id="Parent.FavChild"></span>    FavChild   *<a href="index.html#Child">Child</a>
+<span id="Parent.Children"></span>    Children   []*<a href="index.html#Child">Child</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Pet">type <a href="http://localhost:8080/src/gorm.io/gorm/utils/tests/models.go?s=1006:1106#L30">Pet</a>
+				<a class="permalink" href="index.html#Pet">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Pet struct {
+    <a href="../../index.html">gorm</a>.<a href="../../index.html#Model">Model</a>
+<span id="Pet.UserID"></span>    UserID *<a href="../../../../builtin/index.html#uint">uint</a>
+<span id="Pet.Name"></span>    Name   <a href="../../../../builtin/index.html#string">string</a>
+<span id="Pet.Toy"></span>    Toy    <a href="index.html#Toy">Toy</a> `gorm:&#34;polymorphic:Owner;&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Toy">type <a href="http://localhost:8080/src/gorm.io/gorm/utils/tests/models.go?s=1108:1193#L37">Toy</a>
+				<a class="permalink" href="index.html#Toy">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Toy struct {
+    <a href="../../index.html">gorm</a>.<a href="../../index.html#Model">Model</a>
+<span id="Toy.Name"></span>    Name      <a href="../../../../builtin/index.html#string">string</a>
+<span id="Toy.OwnerID"></span>    OwnerID   <a href="../../../../builtin/index.html#string">string</a>
+<span id="Toy.OwnerType"></span>    OwnerType <a href="../../../../builtin/index.html#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="User">type <a href="http://localhost:8080/src/gorm.io/gorm/utils/tests/models.go?s=501:930#L5">User</a>
+				<a class="permalink" href="index.html#User">&#xb6;</a>
+				
+				
+			</h2>
+			<p>User has one `Account` (has one), many `Pets` (has many) and `Toys` (has many - polymorphic)
+He works in a Company (belongs to), he has a Manager (belongs to - single-table), and also managed a Team (has many - single-table)
+He speaks many languages (many to many) and has many friends (many to many - single-table)
+His pet also has one Toy (has one - polymorphic)
+NamedPet is a reference to a Named `Pets` (has many)
+
+			<pre>type User struct {
+    <a href="../../index.html">gorm</a>.<a href="../../index.html#Model">Model</a>
+<span id="User.Name"></span>    Name      <a href="../../../../builtin/index.html#string">string</a>
+<span id="User.Age"></span>    Age       <a href="../../../../builtin/index.html#uint">uint</a>
+<span id="User.Birthday"></span>    Birthday  *<a href="../../../../time/index.html">time</a>.<a href="../../../../time/index.html#Time">Time</a>
+<span id="User.Account"></span>    Account   <a href="index.html#Account">Account</a>
+<span id="User.Pets"></span>    Pets      []*<a href="index.html#Pet">Pet</a>
+<span id="User.NamedPet"></span>    NamedPet  *<a href="index.html#Pet">Pet</a>
+<span id="User.Toys"></span>    Toys      []<a href="index.html#Toy">Toy</a> `gorm:&#34;polymorphic:Owner&#34;`
+<span id="User.CompanyID"></span>    CompanyID *<a href="../../../../builtin/index.html#int">int</a>
+<span id="User.Company"></span>    Company   <a href="index.html#Company">Company</a>
+<span id="User.ManagerID"></span>    ManagerID *<a href="../../../../builtin/index.html#uint">uint</a>
+<span id="User.Manager"></span>    Manager   *<a href="index.html#User">User</a>
+<span id="User.Team"></span>    Team      []<a href="index.html#User">User</a>     `gorm:&#34;foreignkey:ManagerID&#34;`
+<span id="User.Languages"></span>    Languages []<a href="index.html#Language">Language</a> `gorm:&#34;many2many:UserSpeak;&#34;`
+<span id="User.Friends"></span>    Friends   []*<a href="index.html#User">User</a>    `gorm:&#34;many2many:user_friends;&#34;`
+<span id="User.Active"></span>    Active    <a href="../../../../builtin/index.html#bool">bool</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="http://localhost:8080/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

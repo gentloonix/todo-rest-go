@@ -1,0 +1,3388 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>gorm - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="../../../lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="../../../lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="../../../lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="../../index.html">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="../../index.html">GoDoc</a></div>
+<a href="index.html#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="http://localhost:8080/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package gorm
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "gorm.io/gorm"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="index.html#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="index.html#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+				<dd><a href="index.html#pkg-subdirectories">Subdirectories</a></dd>
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="index.html#pkg-variables">Variables</a></dd>
+			
+			
+				
+				<dd><a href="index.html#Expr">func Expr(expr string, args ...interface{}) clause.Expr</a></dd>
+			
+				
+				<dd><a href="index.html#Scan">func Scan(rows Rows, db *DB, mode ScanMode)</a></dd>
+			
+			
+				
+				<dd><a href="index.html#Association">type Association</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Association.Append">func (association *Association) Append(values ...interface{}) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Association.Clear">func (association *Association) Clear() error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Association.Count">func (association *Association) Count() (count int64)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Association.Delete">func (association *Association) Delete(values ...interface{}) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Association.Find">func (association *Association) Find(out interface{}, conds ...interface{}) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Association.Replace">func (association *Association) Replace(values ...interface{}) error</a></dd>
+				
+			
+				
+				<dd><a href="index.html#ColumnType">type ColumnType</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Config">type Config</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Config.AfterInitialize">func (c *Config) AfterInitialize(db *DB) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Config.Apply">func (c *Config) Apply(config *Config) error</a></dd>
+				
+			
+				
+				<dd><a href="index.html#ConnPool">type ConnPool</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#ConnPoolBeginner">type ConnPoolBeginner</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#DB">type DB</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Open">func Open(dialector Dialector, opts ...Option) (db *DB, err error)</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.AddError">func (db *DB) AddError(err error) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Assign">func (db *DB) Assign(attrs ...interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Association">func (db *DB) Association(column string) *Association</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Attrs">func (db *DB) Attrs(attrs ...interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.AutoMigrate">func (db *DB) AutoMigrate(dst ...interface{}) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Begin">func (db *DB) Begin(opts ...*sql.TxOptions) *DB</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Callback">func (db *DB) Callback() *callbacks</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Clauses">func (db *DB) Clauses(conds ...clause.Expression) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Commit">func (db *DB) Commit() *DB</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Connection">func (db *DB) Connection(fc func(tx *DB) error) (err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Count">func (db *DB) Count(count *int64) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Create">func (db *DB) Create(value interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.CreateInBatches">func (db *DB) CreateInBatches(value interface{}, batchSize int) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.DB">func (db *DB) DB() (*sql.DB, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Debug">func (db *DB) Debug() (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Delete">func (db *DB) Delete(value interface{}, conds ...interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Distinct">func (db *DB) Distinct(args ...interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Exec">func (db *DB) Exec(sql string, values ...interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Find">func (db *DB) Find(dest interface{}, conds ...interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.FindInBatches">func (db *DB) FindInBatches(dest interface{}, batchSize int, fc func(tx *DB, batch int) error) *DB</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.First">func (db *DB) First(dest interface{}, conds ...interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.FirstOrCreate">func (db *DB) FirstOrCreate(dest interface{}, conds ...interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.FirstOrInit">func (db *DB) FirstOrInit(dest interface{}, conds ...interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Get">func (db *DB) Get(key string) (interface{}, bool)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Group">func (db *DB) Group(name string) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Having">func (db *DB) Having(query interface{}, args ...interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.InstanceGet">func (db *DB) InstanceGet(key string) (interface{}, bool)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.InstanceSet">func (db *DB) InstanceSet(key string, value interface{}) *DB</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Joins">func (db *DB) Joins(query string, args ...interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Last">func (db *DB) Last(dest interface{}, conds ...interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Limit">func (db *DB) Limit(limit int) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Migrator">func (db *DB) Migrator() Migrator</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Model">func (db *DB) Model(value interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Not">func (db *DB) Not(query interface{}, args ...interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Offset">func (db *DB) Offset(offset int) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Omit">func (db *DB) Omit(columns ...string) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Or">func (db *DB) Or(query interface{}, args ...interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Order">func (db *DB) Order(value interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Pluck">func (db *DB) Pluck(column string, dest interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Preload">func (db *DB) Preload(query string, args ...interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Raw">func (db *DB) Raw(sql string, values ...interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Rollback">func (db *DB) Rollback() *DB</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.RollbackTo">func (db *DB) RollbackTo(name string) *DB</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Row">func (db *DB) Row() *sql.Row</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Rows">func (db *DB) Rows() (*sql.Rows, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Save">func (db *DB) Save(value interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.SavePoint">func (db *DB) SavePoint(name string) *DB</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Scan">func (db *DB) Scan(dest interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.ScanRows">func (db *DB) ScanRows(rows *sql.Rows, dest interface{}) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Scopes">func (db *DB) Scopes(funcs ...func(*DB) *DB) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Select">func (db *DB) Select(query interface{}, args ...interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Session">func (db *DB) Session(config *Session) *DB</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Set">func (db *DB) Set(key string, value interface{}) *DB</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.SetupJoinTable">func (db *DB) SetupJoinTable(model interface{}, field string, joinTable interface{}) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Table">func (db *DB) Table(name string, args ...interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Take">func (db *DB) Take(dest interface{}, conds ...interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.ToSQL">func (db *DB) ToSQL(queryFn func(tx *DB) *DB) string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Transaction">func (db *DB) Transaction(fc func(tx *DB) error, opts ...*sql.TxOptions) (err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Unscoped">func (db *DB) Unscoped() (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Update">func (db *DB) Update(column string, value interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.UpdateColumn">func (db *DB) UpdateColumn(column string, value interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.UpdateColumns">func (db *DB) UpdateColumns(values interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Updates">func (db *DB) Updates(values interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Use">func (db *DB) Use(plugin Plugin) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.Where">func (db *DB) Where(query interface{}, args ...interface{}) (tx *DB)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DB.WithContext">func (db *DB) WithContext(ctx context.Context) *DB</a></dd>
+				
+			
+				
+				<dd><a href="index.html#DeletedAt">type DeletedAt</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DeletedAt.DeleteClauses">func (DeletedAt) DeleteClauses(f *schema.Field) []clause.Interface</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DeletedAt.MarshalJSON">func (n DeletedAt) MarshalJSON() ([]byte, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DeletedAt.QueryClauses">func (DeletedAt) QueryClauses(f *schema.Field) []clause.Interface</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DeletedAt.Scan">func (n *DeletedAt) Scan(value interface{}) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DeletedAt.UnmarshalJSON">func (n *DeletedAt) UnmarshalJSON(b []byte) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DeletedAt.UpdateClauses">func (DeletedAt) UpdateClauses(f *schema.Field) []clause.Interface</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DeletedAt.Value">func (n DeletedAt) Value() (driver.Value, error)</a></dd>
+				
+			
+				
+				<dd><a href="index.html#Dialector">type Dialector</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#GetDBConnector">type GetDBConnector</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Index">type Index</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Migrator">type Migrator</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Model">type Model</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Option">type Option</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Plugin">type Plugin</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#PreparedStmtDB">type PreparedStmtDB</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#PreparedStmtDB.BeginTx">func (db *PreparedStmtDB) BeginTx(ctx context.Context, opt *sql.TxOptions) (ConnPool, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#PreparedStmtDB.Close">func (db *PreparedStmtDB) Close()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#PreparedStmtDB.ExecContext">func (db *PreparedStmtDB) ExecContext(ctx context.Context, query string, args ...interface{}) (result sql.Result, err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#PreparedStmtDB.GetDBConn">func (db *PreparedStmtDB) GetDBConn() (*sql.DB, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#PreparedStmtDB.QueryContext">func (db *PreparedStmtDB) QueryContext(ctx context.Context, query string, args ...interface{}) (rows *sql.Rows, err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#PreparedStmtDB.QueryRowContext">func (db *PreparedStmtDB) QueryRowContext(ctx context.Context, query string, args ...interface{}) *sql.Row</a></dd>
+				
+			
+				
+				<dd><a href="index.html#PreparedStmtTX">type PreparedStmtTX</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#PreparedStmtTX.Commit">func (tx *PreparedStmtTX) Commit() error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#PreparedStmtTX.ExecContext">func (tx *PreparedStmtTX) ExecContext(ctx context.Context, query string, args ...interface{}) (result sql.Result, err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#PreparedStmtTX.QueryContext">func (tx *PreparedStmtTX) QueryContext(ctx context.Context, query string, args ...interface{}) (rows *sql.Rows, err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#PreparedStmtTX.QueryRowContext">func (tx *PreparedStmtTX) QueryRowContext(ctx context.Context, query string, args ...interface{}) *sql.Row</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#PreparedStmtTX.Rollback">func (tx *PreparedStmtTX) Rollback() error</a></dd>
+				
+			
+				
+				<dd><a href="index.html#Rows">type Rows</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#SavePointerDialectorInterface">type SavePointerDialectorInterface</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#ScanMode">type ScanMode</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Session">type Session</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#SoftDeleteDeleteClause">type SoftDeleteDeleteClause</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#SoftDeleteDeleteClause.Build">func (sd SoftDeleteDeleteClause) Build(clause.Builder)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#SoftDeleteDeleteClause.MergeClause">func (sd SoftDeleteDeleteClause) MergeClause(*clause.Clause)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#SoftDeleteDeleteClause.ModifyStatement">func (sd SoftDeleteDeleteClause) ModifyStatement(stmt *Statement)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#SoftDeleteDeleteClause.Name">func (sd SoftDeleteDeleteClause) Name() string</a></dd>
+				
+			
+				
+				<dd><a href="index.html#SoftDeleteQueryClause">type SoftDeleteQueryClause</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#SoftDeleteQueryClause.Build">func (sd SoftDeleteQueryClause) Build(clause.Builder)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#SoftDeleteQueryClause.MergeClause">func (sd SoftDeleteQueryClause) MergeClause(*clause.Clause)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#SoftDeleteQueryClause.ModifyStatement">func (sd SoftDeleteQueryClause) ModifyStatement(stmt *Statement)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#SoftDeleteQueryClause.Name">func (sd SoftDeleteQueryClause) Name() string</a></dd>
+				
+			
+				
+				<dd><a href="index.html#SoftDeleteUpdateClause">type SoftDeleteUpdateClause</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#SoftDeleteUpdateClause.Build">func (sd SoftDeleteUpdateClause) Build(clause.Builder)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#SoftDeleteUpdateClause.MergeClause">func (sd SoftDeleteUpdateClause) MergeClause(*clause.Clause)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#SoftDeleteUpdateClause.ModifyStatement">func (sd SoftDeleteUpdateClause) ModifyStatement(stmt *Statement)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#SoftDeleteUpdateClause.Name">func (sd SoftDeleteUpdateClause) Name() string</a></dd>
+				
+			
+				
+				<dd><a href="index.html#Statement">type Statement</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Statement.AddClause">func (stmt *Statement) AddClause(v clause.Interface)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Statement.AddClauseIfNotExists">func (stmt *Statement) AddClauseIfNotExists(v clause.Interface)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Statement.AddVar">func (stmt *Statement) AddVar(writer clause.Writer, vars ...interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Statement.Build">func (stmt *Statement) Build(clauses ...string)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Statement.BuildCondition">func (stmt *Statement) BuildCondition(query interface{}, args ...interface{}) []clause.Expression</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Statement.Changed">func (stmt *Statement) Changed(fields ...string) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Statement.Parse">func (stmt *Statement) Parse(value interface{}) (err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Statement.ParseWithSpecialTableName">func (stmt *Statement) ParseWithSpecialTableName(value interface{}, specialTableName string) (err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Statement.Quote">func (stmt *Statement) Quote(field interface{}) string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Statement.QuoteTo">func (stmt *Statement) QuoteTo(writer clause.Writer, field interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Statement.SelectAndOmitColumns">func (stmt *Statement) SelectAndOmitColumns(requireCreate, requireUpdate bool) (map[string]bool, bool)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Statement.SetColumn">func (stmt *Statement) SetColumn(name string, value interface{}, fromCallbacks ...bool)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Statement.WriteByte">func (stmt *Statement) WriteByte(c byte) error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Statement.WriteQuoted">func (stmt *Statement) WriteQuoted(value interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Statement.WriteString">func (stmt *Statement) WriteString(str string) (int, error)</a></dd>
+				
+			
+				
+				<dd><a href="index.html#StatementModifier">type StatementModifier</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Stmt">type Stmt</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Tx">type Tx</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#TxBeginner">type TxBeginner</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#TxCommitter">type TxCommitter</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Valuer">type Valuer</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#ViewOption">type ViewOption</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="http://localhost:8080/src/gorm.io/gorm/association.go">association.go</a>
+			
+				<a href="http://localhost:8080/src/gorm.io/gorm/callbacks.go">callbacks.go</a>
+			
+				<a href="http://localhost:8080/src/gorm.io/gorm/chainable_api.go">chainable_api.go</a>
+			
+				<a href="http://localhost:8080/src/gorm.io/gorm/errors.go">errors.go</a>
+			
+				<a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go">finisher_api.go</a>
+			
+				<a href="http://localhost:8080/src/gorm.io/gorm/gorm.go">gorm.go</a>
+			
+				<a href="http://localhost:8080/src/gorm.io/gorm/interfaces.go">interfaces.go</a>
+			
+				<a href="http://localhost:8080/src/gorm.io/gorm/migrator.go">migrator.go</a>
+			
+				<a href="http://localhost:8080/src/gorm.io/gorm/model.go">model.go</a>
+			
+				<a href="http://localhost:8080/src/gorm.io/gorm/prepare_stmt.go">prepare_stmt.go</a>
+			
+				<a href="http://localhost:8080/src/gorm.io/gorm/scan.go">scan.go</a>
+			
+				<a href="http://localhost:8080/src/gorm.io/gorm/soft_delete.go">soft_delete.go</a>
+			
+				<a href="http://localhost:8080/src/gorm.io/gorm/statement.go">statement.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				
+				<pre>var (
+    <span class="comment">// ErrRecordNotFound record not found error</span>
+    <span id="ErrRecordNotFound">ErrRecordNotFound</span> = <a href="logger/index.html">logger</a>.<a href="logger/index.html#ErrRecordNotFound">ErrRecordNotFound</a>
+    <span class="comment">// ErrInvalidTransaction invalid transaction when you are trying to `Commit` or `Rollback`</span>
+    <span id="ErrInvalidTransaction">ErrInvalidTransaction</span> = <a href="../../errors/index.html">errors</a>.<a href="../../errors/index.html#New">New</a>(&#34;invalid transaction&#34;)
+    <span class="comment">// ErrNotImplemented not implemented</span>
+    <span id="ErrNotImplemented">ErrNotImplemented</span> = <a href="../../errors/index.html">errors</a>.<a href="../../errors/index.html#New">New</a>(&#34;not implemented&#34;)
+    <span class="comment">// ErrMissingWhereClause missing where clause</span>
+    <span id="ErrMissingWhereClause">ErrMissingWhereClause</span> = <a href="../../errors/index.html">errors</a>.<a href="../../errors/index.html#New">New</a>(&#34;WHERE conditions required&#34;)
+    <span class="comment">// ErrUnsupportedRelation unsupported relations</span>
+    <span id="ErrUnsupportedRelation">ErrUnsupportedRelation</span> = <a href="../../errors/index.html">errors</a>.<a href="../../errors/index.html#New">New</a>(&#34;unsupported relations&#34;)
+    <span class="comment">// ErrPrimaryKeyRequired primary keys required</span>
+    <span id="ErrPrimaryKeyRequired">ErrPrimaryKeyRequired</span> = <a href="../../errors/index.html">errors</a>.<a href="../../errors/index.html#New">New</a>(&#34;primary key required&#34;)
+    <span class="comment">// ErrModelValueRequired model value required</span>
+    <span id="ErrModelValueRequired">ErrModelValueRequired</span> = <a href="../../errors/index.html">errors</a>.<a href="../../errors/index.html#New">New</a>(&#34;model value required&#34;)
+    <span class="comment">// ErrInvalidData unsupported data</span>
+    <span id="ErrInvalidData">ErrInvalidData</span> = <a href="../../errors/index.html">errors</a>.<a href="../../errors/index.html#New">New</a>(&#34;unsupported data&#34;)
+    <span class="comment">// ErrUnsupportedDriver unsupported driver</span>
+    <span id="ErrUnsupportedDriver">ErrUnsupportedDriver</span> = <a href="../../errors/index.html">errors</a>.<a href="../../errors/index.html#New">New</a>(&#34;unsupported driver&#34;)
+    <span class="comment">// ErrRegistered registered</span>
+    <span id="ErrRegistered">ErrRegistered</span> = <a href="../../errors/index.html">errors</a>.<a href="../../errors/index.html#New">New</a>(&#34;registered&#34;)
+    <span class="comment">// ErrInvalidField invalid field</span>
+    <span id="ErrInvalidField">ErrInvalidField</span> = <a href="../../errors/index.html">errors</a>.<a href="../../errors/index.html#New">New</a>(&#34;invalid field&#34;)
+    <span class="comment">// ErrEmptySlice empty slice found</span>
+    <span id="ErrEmptySlice">ErrEmptySlice</span> = <a href="../../errors/index.html">errors</a>.<a href="../../errors/index.html#New">New</a>(&#34;empty slice found&#34;)
+    <span class="comment">// ErrDryRunModeUnsupported dry run mode unsupported</span>
+    <span id="ErrDryRunModeUnsupported">ErrDryRunModeUnsupported</span> = <a href="../../errors/index.html">errors</a>.<a href="../../errors/index.html#New">New</a>(&#34;dry run mode unsupported&#34;)
+    <span class="comment">// ErrInvalidDB invalid db</span>
+    <span id="ErrInvalidDB">ErrInvalidDB</span> = <a href="../../errors/index.html">errors</a>.<a href="../../errors/index.html#New">New</a>(&#34;invalid db&#34;)
+    <span class="comment">// ErrInvalidValue invalid value</span>
+    <span id="ErrInvalidValue">ErrInvalidValue</span> = <a href="../../errors/index.html">errors</a>.<a href="../../errors/index.html#New">New</a>(&#34;invalid value, should be pointer to struct or slice&#34;)
+    <span class="comment">// ErrInvalidValueOfLength invalid values do not match length</span>
+    <span id="ErrInvalidValueOfLength">ErrInvalidValueOfLength</span> = <a href="../../errors/index.html">errors</a>.<a href="../../errors/index.html#New">New</a>(&#34;invalid association values, length doesn&#39;t match&#34;)
+    <span class="comment">// ErrPreloadNotAllowed preload is not allowed when count is used</span>
+    <span id="ErrPreloadNotAllowed">ErrPreloadNotAllowed</span> = <a href="../../errors/index.html">errors</a>.<a href="../../errors/index.html#New">New</a>(&#34;preload is not allowed when count is used&#34;)
+)</pre>
+			
+		
+		
+			
+			
+			<h2 id="Expr">func <a href="http://localhost:8080/src/gorm.io/gorm/gorm.go?s=9008:9063#L387">Expr</a>
+				<a class="permalink" href="index.html#Expr">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Expr(expr <a href="../../builtin/index.html#string">string</a>, args ...interface{}) <a href="clause/index.html">clause</a>.<a href="clause/index.html#Expr">Expr</a></pre>
+			<p>Expr returns clause.Expr, which can be used to pass SQL expression as params
+
+			
+			
+
+		
+			
+			
+			<h2 id="Scan">func <a href="http://localhost:8080/src/gorm.io/gorm/scan.go?s=2983:3026#L99">Scan</a>
+				<a class="permalink" href="index.html#Scan">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Scan(rows <a href="index.html#Rows">Rows</a>, db *<a href="index.html#DB">DB</a>, mode <a href="index.html#ScanMode">ScanMode</a>)</pre>
+			<p>Scan scan rows into db statement
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Association">type <a href="http://localhost:8080/src/gorm.io/gorm/association.go?s=211:311#L4">Association</a>
+				<a class="permalink" href="index.html#Association">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Association Mode contains some helper methods to handle relationship things easily.
+
+			<pre>type Association struct {
+<span id="Association.DB"></span>    DB           *<a href="index.html#DB">DB</a>
+<span id="Association.Relationship"></span>    Relationship *<a href="schema/index.html">schema</a>.<a href="schema/index.html#Relationship">Relationship</a>
+<span id="Association.Error"></span>    Error        <a href="../../builtin/index.html#error">error</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Association.Append">func (*Association) <a href="http://localhost:8080/src/gorm.io/gorm/association.go?s=1208:1275#L40">Append</a>
+					<a class="permalink" href="index.html#Association.Append">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (association *<a href="index.html#Association">Association</a>) Append(values ...interface{}) <a href="../../builtin/index.html#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Association.Clear">func (*Association) <a href="http://localhost:8080/src/gorm.io/gorm/association.go?s=11968:12013#L302">Clear</a>
+					<a class="permalink" href="index.html#Association.Clear">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (association *<a href="index.html#Association">Association</a>) Clear() <a href="../../builtin/index.html#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Association.Count">func (*Association) <a href="http://localhost:8080/src/gorm.io/gorm/association.go?s=12049:12102#L306">Count</a>
+					<a class="permalink" href="index.html#Association.Count">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (association *<a href="index.html#Association">Association</a>) Count() (count <a href="../../builtin/index.html#int64">int64</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Association.Delete">func (*Association) <a href="http://localhost:8080/src/gorm.io/gorm/association.go?s=5653:5720#L154">Delete</a>
+					<a class="permalink" href="index.html#Association.Delete">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (association *<a href="index.html#Association">Association</a>) Delete(values ...interface{}) <a href="../../builtin/index.html#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Association.Find">func (*Association) <a href="http://localhost:8080/src/gorm.io/gorm/association.go?s=984:1065#L33">Find</a>
+					<a class="permalink" href="index.html#Association.Find">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (association *<a href="index.html#Association">Association</a>) Find(out interface{}, conds ...interface{}) <a href="../../builtin/index.html#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Association.Replace">func (*Association) <a href="http://localhost:8080/src/gorm.io/gorm/association.go?s=1582:1650#L55">Replace</a>
+					<a class="permalink" href="index.html#Association.Replace">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (association *<a href="index.html#Association">Association</a>) Replace(values ...interface{}) <a href="../../builtin/index.html#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ColumnType">type <a href="http://localhost:8080/src/gorm.io/gorm/migrator.go?s=710:1217#L29">ColumnType</a>
+				<a class="permalink" href="index.html#ColumnType">&#xb6;</a>
+				
+				
+			</h2>
+			<p>ColumnType column type interface
+
+			<pre>type ColumnType interface {
+    Name() <a href="../../builtin/index.html#string">string</a>
+    DatabaseTypeName() <a href="../../builtin/index.html#string">string</a>                 <span class="comment">// varchar</span>
+    ColumnType() (columnType <a href="../../builtin/index.html#string">string</a>, ok <a href="../../builtin/index.html#bool">bool</a>) <span class="comment">// varchar(64)</span>
+    PrimaryKey() (isPrimaryKey <a href="../../builtin/index.html#bool">bool</a>, ok <a href="../../builtin/index.html#bool">bool</a>)
+    AutoIncrement() (isAutoIncrement <a href="../../builtin/index.html#bool">bool</a>, ok <a href="../../builtin/index.html#bool">bool</a>)
+    Length() (length <a href="../../builtin/index.html#int64">int64</a>, ok <a href="../../builtin/index.html#bool">bool</a>)
+    DecimalSize() (precision <a href="../../builtin/index.html#int64">int64</a>, scale <a href="../../builtin/index.html#int64">int64</a>, ok <a href="../../builtin/index.html#bool">bool</a>)
+    Nullable() (nullable <a href="../../builtin/index.html#bool">bool</a>, ok <a href="../../builtin/index.html#bool">bool</a>)
+    Unique() (unique <a href="../../builtin/index.html#bool">bool</a>, ok <a href="../../builtin/index.html#bool">bool</a>)
+    ScanType() <a href="../../reflect/index.html">reflect</a>.<a href="../../reflect/index.html#Type">Type</a>
+    Comment() (value <a href="../../builtin/index.html#string">string</a>, ok <a href="../../builtin/index.html#bool">bool</a>)
+    DefaultValue() (value <a href="../../builtin/index.html#string">string</a>, ok <a href="../../builtin/index.html#bool">bool</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Config">type <a href="http://localhost:8080/src/gorm.io/gorm/gorm.go?s=268:1646#L10">Config</a>
+				<a class="permalink" href="index.html#Config">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Config GORM config
+
+			<pre>type Config struct {
+    <span class="comment">// GORM perform single create, update, delete operations in transactions by default to ensure database data integrity</span>
+    <span class="comment">// You can disable it by setting `SkipDefaultTransaction` to true</span>
+<span id="Config.SkipDefaultTransaction"></span>    SkipDefaultTransaction <a href="../../builtin/index.html#bool">bool</a>
+<span id="Config.NamingStrategy"></span>    <span class="comment">// NamingStrategy tables, columns naming strategy</span>
+    NamingStrategy <a href="schema/index.html">schema</a>.<a href="schema/index.html#Namer">Namer</a>
+<span id="Config.FullSaveAssociations"></span>    <span class="comment">// FullSaveAssociations full save associations</span>
+    FullSaveAssociations <a href="../../builtin/index.html#bool">bool</a>
+<span id="Config.Logger"></span>    <span class="comment">// Logger</span>
+    Logger <a href="logger/index.html">logger</a>.<a href="logger/index.html#Interface">Interface</a>
+<span id="Config.NowFunc"></span>    <span class="comment">// NowFunc the function to be used when creating a new timestamp</span>
+    NowFunc func() <a href="../../time/index.html">time</a>.<a href="../../time/index.html#Time">Time</a>
+<span id="Config.DryRun"></span>    <span class="comment">// DryRun generate sql without execute</span>
+    DryRun <a href="../../builtin/index.html#bool">bool</a>
+<span id="Config.PrepareStmt"></span>    <span class="comment">// PrepareStmt executes the given query in cached statement</span>
+    PrepareStmt <a href="../../builtin/index.html#bool">bool</a>
+<span id="Config.DisableAutomaticPing"></span>    <span class="comment">// DisableAutomaticPing</span>
+    DisableAutomaticPing <a href="../../builtin/index.html#bool">bool</a>
+<span id="Config.DisableForeignKeyConstraintWhenMigrating"></span>    <span class="comment">// DisableForeignKeyConstraintWhenMigrating</span>
+    DisableForeignKeyConstraintWhenMigrating <a href="../../builtin/index.html#bool">bool</a>
+<span id="Config.DisableNestedTransaction"></span>    <span class="comment">// DisableNestedTransaction disable nested transaction</span>
+    DisableNestedTransaction <a href="../../builtin/index.html#bool">bool</a>
+<span id="Config.AllowGlobalUpdate"></span>    <span class="comment">// AllowGlobalUpdate allow global update</span>
+    AllowGlobalUpdate <a href="../../builtin/index.html#bool">bool</a>
+<span id="Config.QueryFields"></span>    <span class="comment">// QueryFields executes the SQL query with all fields of the table</span>
+    QueryFields <a href="../../builtin/index.html#bool">bool</a>
+<span id="Config.CreateBatchSize"></span>    <span class="comment">// CreateBatchSize default create batch size</span>
+    CreateBatchSize <a href="../../builtin/index.html#int">int</a>
+
+<span id="Config.ClauseBuilders"></span>    <span class="comment">// ClauseBuilders clause builder</span>
+    ClauseBuilders map[<a href="../../builtin/index.html#string">string</a>]<a href="clause/index.html">clause</a>.<a href="clause/index.html#ClauseBuilder">ClauseBuilder</a>
+<span id="Config.ConnPool"></span>    <span class="comment">// ConnPool db conn pool</span>
+    ConnPool <a href="index.html#ConnPool">ConnPool</a>
+    <span class="comment">// Dialector database dialector</span>
+    <a href="index.html#Dialector">Dialector</a>
+<span id="Config.Plugins"></span>    <span class="comment">// Plugins registered plugins</span>
+    Plugins map[<a href="../../builtin/index.html#string">string</a>]<a href="index.html#Plugin">Plugin</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Config.AfterInitialize">func (*Config) <a href="http://localhost:8080/src/gorm.io/gorm/gorm.go?s=1840:1886#L61">AfterInitialize</a>
+					<a class="permalink" href="index.html#Config.AfterInitialize">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="index.html#Config">Config</a>) AfterInitialize(db *<a href="index.html#DB">DB</a>) <a href="../../builtin/index.html#error">error</a></pre>
+				<p>AfterInitialize initialize plugins after db connected
+
+				
+				
+				
+			
+				
+				<h3 id="Config.Apply">func (*Config) <a href="http://localhost:8080/src/gorm.io/gorm/gorm.go?s=1685:1729#L53">Apply</a>
+					<a class="permalink" href="index.html#Config.Apply">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="index.html#Config">Config</a>) Apply(config *<a href="index.html#Config">Config</a>) <a href="../../builtin/index.html#error">error</a></pre>
+				<p>Apply update config to new config
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ConnPool">type <a href="http://localhost:8080/src/gorm.io/gorm/interfaces.go?s=594:951#L20">ConnPool</a>
+				<a class="permalink" href="index.html#ConnPool">&#xb6;</a>
+				
+				
+			</h2>
+			<p>ConnPool db conns pool interface
+
+			<pre>type ConnPool interface {
+    PrepareContext(ctx <a href="../../context/index.html">context</a>.<a href="../../context/index.html#Context">Context</a>, query <a href="../../builtin/index.html#string">string</a>) (*<a href="../../database/sql/index.html">sql</a>.<a href="../../database/sql/index.html#Stmt">Stmt</a>, <a href="../../builtin/index.html#error">error</a>)
+    ExecContext(ctx <a href="../../context/index.html">context</a>.<a href="../../context/index.html#Context">Context</a>, query <a href="../../builtin/index.html#string">string</a>, args ...interface{}) (<a href="../../database/sql/index.html">sql</a>.<a href="../../database/sql/index.html#Result">Result</a>, <a href="../../builtin/index.html#error">error</a>)
+    QueryContext(ctx <a href="../../context/index.html">context</a>.<a href="../../context/index.html#Context">Context</a>, query <a href="../../builtin/index.html#string">string</a>, args ...interface{}) (*<a href="../../database/sql/index.html">sql</a>.<a href="../../database/sql/index.html#Rows">Rows</a>, <a href="../../builtin/index.html#error">error</a>)
+    QueryRowContext(ctx <a href="../../context/index.html">context</a>.<a href="../../context/index.html#Context">Context</a>, query <a href="../../builtin/index.html#string">string</a>, args ...interface{}) *<a href="../../database/sql/index.html">sql</a>.<a href="../../database/sql/index.html#Row">Row</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ConnPoolBeginner">type <a href="http://localhost:8080/src/gorm.io/gorm/interfaces.go?s=1300:1404#L39">ConnPoolBeginner</a>
+				<a class="permalink" href="index.html#ConnPoolBeginner">&#xb6;</a>
+				
+				
+			</h2>
+			<p>ConnPoolBeginner conn pool beginner
+
+			<pre>type ConnPoolBeginner interface {
+    BeginTx(ctx <a href="../../context/index.html">context</a>.<a href="../../context/index.html#Context">Context</a>, opts *<a href="../../database/sql/index.html">sql</a>.<a href="../../database/sql/index.html#TxOptions">TxOptions</a>) (<a href="index.html#ConnPool">ConnPool</a>, <a href="../../builtin/index.html#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="DB">type <a href="http://localhost:8080/src/gorm.io/gorm/gorm.go?s=2167:2277#L79">DB</a>
+				<a class="permalink" href="index.html#DB">&#xb6;</a>
+				
+				
+			</h2>
+			<p>DB GORM DB definition
+
+			<pre>type DB struct {
+    *<a href="index.html#Config">Config</a>
+<span id="DB.Error"></span>    Error        <a href="../../builtin/index.html#error">error</a>
+<span id="DB.RowsAffected"></span>    RowsAffected <a href="../../builtin/index.html#int64">int64</a>
+<span id="DB.Statement"></span>    Statement    *<a href="index.html#Statement">Statement</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="Open">func <a href="http://localhost:8080/src/gorm.io/gorm/gorm.go?s=2889:2955#L106">Open</a>
+					<a class="permalink" href="index.html#Open">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func Open(dialector <a href="index.html#Dialector">Dialector</a>, opts ...<a href="index.html#Option">Option</a>) (db *<a href="index.html#DB">DB</a>, err <a href="../../builtin/index.html#error">error</a>)</pre>
+				<p>Open initialize db session based on dialector
+
+				
+				
+			
+
+			
+				
+				<h3 id="DB.AddError">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/gorm.go?s=7955:7994#L337">AddError</a>
+					<a class="permalink" href="index.html#DB.AddError">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) AddError(err <a href="../../builtin/index.html#error">error</a>) <a href="../../builtin/index.html#error">error</a></pre>
+				<p>AddError add error to db
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Assign">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/chainable_api.go?s=8645:8696#L283">Assign</a>
+					<a class="permalink" href="index.html#DB.Assign">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Assign(attrs ...interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="DB.Association">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/association.go?s=313:366#L10">Association</a>
+					<a class="permalink" href="index.html#DB.Association">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Association(column <a href="../../builtin/index.html#string">string</a>) *<a href="index.html#Association">Association</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="DB.Attrs">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/chainable_api.go?s=8530:8580#L277">Attrs</a>
+					<a class="permalink" href="index.html#DB.Attrs">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Attrs(attrs ...interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="DB.AutoMigrate">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/migrator.go?s=466:517#L17">AutoMigrate</a>
+					<a class="permalink" href="index.html#DB.AutoMigrate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) AutoMigrate(dst ...interface{}) <a href="../../builtin/index.html#error">error</a></pre>
+				<p>AutoMigrate run auto migration for given models
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Begin">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=18730:18777#L618">Begin</a>
+					<a class="permalink" href="index.html#DB.Begin">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Begin(opts ...*<a href="../../database/sql/index.html">sql</a>.<a href="../../database/sql/index.html#TxOptions">TxOptions</a>) *<a href="index.html#DB">DB</a></pre>
+				<p>Begin begins a transaction with any transaction options opts
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Callback">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/gorm.go?s=7865:7900#L332">Callback</a>
+					<a class="permalink" href="index.html#DB.Callback">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Callback() *callbacks</pre>
+				<p>Callback returns callback manager
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Clauses">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/chainable_api.go?s=556:614#L14">Clauses</a>
+					<a class="permalink" href="index.html#DB.Clauses">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Clauses(conds ...<a href="clause/index.html">clause</a>.<a href="clause/index.html#Expression">Expression</a>) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Clauses Add clauses
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Commit">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=19369:19395#L647">Commit</a>
+					<a class="permalink" href="index.html#DB.Commit">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Commit() *<a href="index.html#DB">DB</a></pre>
+				<p>Commit commits the changes in a transaction
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Connection">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=17157:17216#L551">Connection</a>
+					<a class="permalink" href="index.html#DB.Connection">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Connection(fc func(tx *<a href="index.html#DB">DB</a>) <a href="../../builtin/index.html#error">error</a>) (err <a href="../../builtin/index.html#error">error</a>)</pre>
+				<p>Connection uses a db connection to execute an arbitrary number of commands in fc. When finished, the connection is
+returned to the connection pool.
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Count">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=12702:12744#L399">Count</a>
+					<a class="permalink" href="index.html#DB.Count">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Count(count *<a href="../../builtin/index.html#int64">int64</a>) (tx *<a href="index.html#DB">DB</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="DB.Create">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=254:302#L7">Create</a>
+					<a class="permalink" href="index.html#DB.Create">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Create(value interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Create inserts value, returning the inserted data&apos;s primary key in value&apos;s id
+
+				
+				
+				
+			
+				
+				<h3 id="DB.CreateInBatches">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=545:617#L18">CreateInBatches</a>
+					<a class="permalink" href="index.html#DB.CreateInBatches">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) CreateInBatches(value interface{}, batchSize <a href="../../builtin/index.html#int">int</a>) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>CreateInBatches inserts value in batches of batchSize
+
+				
+				
+				
+			
+				
+				<h3 id="DB.DB">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/gorm.go?s=8156:8191#L347">DB</a>
+					<a class="permalink" href="index.html#DB.DB">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) DB() (*<a href="../../database/sql/index.html">sql</a>.<a href="../../database/sql/index.html#DB">DB</a>, <a href="../../builtin/index.html#error">error</a>)</pre>
+				<p>DB returns `*sql.DB`
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Debug">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/gorm.go?s=6890:6920#L300">Debug</a>
+					<a class="permalink" href="index.html#DB.Debug">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Debug() (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Debug start debug mode
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Delete">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=12368:12438#L388">Delete</a>
+					<a class="permalink" href="index.html#DB.Delete">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Delete(value interface{}, conds ...interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Delete deletes value matching given conditions. If value contains primary key it is included in the conditions. If
+value includes a deleted_at field, then Delete performs a soft delete instead by setting deleted_at with the current
+time if null.
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Distinct">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/chainable_api.go?s=1996:2048#L58">Distinct</a>
+					<a class="permalink" href="index.html#DB.Distinct">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Distinct(args ...interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Distinct specify distinct fields that you want querying
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Exec">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=20412:20474#L687">Exec</a>
+					<a class="permalink" href="index.html#DB.Exec">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Exec(sql <a href="../../builtin/index.html#string">string</a>, values ...interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Exec executes raw sql
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Find">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=4802:4869#L152">Find</a>
+					<a class="permalink" href="index.html#DB.Find">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Find(dest interface{}, conds ...interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Find finds all records matching given conditions conds
+
+				
+				
+				
+			
+				
+				<h3 id="DB.FindInBatches">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=5190:5288#L164">FindInBatches</a>
+					<a class="permalink" href="index.html#DB.FindInBatches">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) FindInBatches(dest interface{}, batchSize <a href="../../builtin/index.html#int">int</a>, fc func(tx *<a href="index.html#DB">DB</a>, batch <a href="../../builtin/index.html#int">int</a>) <a href="../../builtin/index.html#error">error</a>) *<a href="index.html#DB">DB</a></pre>
+				<p>FindInBatches finds all records in batches of batchSize
+
+				
+				
+				
+			
+				
+				<h3 id="DB.First">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=3212:3280#L108">First</a>
+					<a class="permalink" href="index.html#DB.First">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) First(dest interface{}, conds ...interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>First finds the first record ordered by primary key, matching given conditions conds
+
+				
+				
+				
+			
+				
+				<h3 id="DB.FirstOrCreate">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=9731:9807#L310">FirstOrCreate</a>
+					<a class="permalink" href="index.html#DB.FirstOrCreate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) FirstOrCreate(dest interface{}, conds ...interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>FirstOrCreate finds the first matching record, otherwise if not found creates a new instance with given conds.
+Each conds must be a struct or map.
+
+				
+				
+				
+			
+				
+				<h3 id="DB.FirstOrInit">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=8880:8954#L283">FirstOrInit</a>
+					<a class="permalink" href="index.html#DB.FirstOrInit">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) FirstOrInit(dest interface{}, conds ...interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>FirstOrInit finds the first matching record, otherwise if not found initializes a new instance with given conds.
+Each conds must be a struct or map.
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Get">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/gorm.go?s=7282:7331#L315">Get</a>
+					<a class="permalink" href="index.html#DB.Get">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Get(key <a href="../../builtin/index.html#string">string</a>) (interface{}, <a href="../../builtin/index.html#bool">bool</a>)</pre>
+				<p>Get get value with key from current db instance&apos;s context
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Group">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/chainable_api.go?s=5971:6012#L192">Group</a>
+					<a class="permalink" href="index.html#DB.Group">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Group(name <a href="../../builtin/index.html#string">string</a>) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Group specify the group method on the find
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Having">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/chainable_api.go?s=6269:6338#L203">Having</a>
+					<a class="permalink" href="index.html#DB.Having">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Having(query interface{}, args ...interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Having specify HAVING conditions for GROUP BY
+
+				
+				
+				
+			
+				
+				<h3 id="DB.InstanceGet">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/gorm.go?s=7691:7748#L327">InstanceGet</a>
+					<a class="permalink" href="index.html#DB.InstanceGet">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) InstanceGet(key <a href="../../builtin/index.html#string">string</a>) (interface{}, <a href="../../builtin/index.html#bool">bool</a>)</pre>
+				<p>InstanceGet get value with key from current db instance&apos;s context
+
+				
+				
+				
+			
+				
+				<h3 id="DB.InstanceSet">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/gorm.go?s=7448:7508#L320">InstanceSet</a>
+					<a class="permalink" href="index.html#DB.InstanceSet">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) InstanceSet(key <a href="../../builtin/index.html#string">string</a>, value interface{}) *<a href="index.html#DB">DB</a></pre>
+				<p>InstanceSet store value with key into current db instance&apos;s context
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Joins">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/chainable_api.go?s=5486:5549#L175">Joins</a>
+					<a class="permalink" href="index.html#DB.Joins">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Joins(query <a href="../../builtin/index.html#string">string</a>, args ...interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Joins specify Joins conditions
+<pre>db.Joins(&quot;Account&quot;).Find(&amp;user)
+db.Joins(&quot;JOIN emails ON emails.user_id = users.id AND emails.email = ?&quot;, &quot;jinzhu@example.org&quot;).Find(&amp;user)
+db.Joins(&quot;Account&quot;, DB.Select(&quot;id&quot;).Where(&quot;user_id = users.id AND name = ?&quot;, &quot;someName&quot;).Model(&amp;Account{}))
+</pre>
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Last">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=4252:4319#L136">Last</a>
+					<a class="permalink" href="index.html#DB.Last">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Last(dest interface{}, conds ...interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Last finds the last record ordered by primary key, matching given conditions conds
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Limit">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/chainable_api.go?s=7108:7147#L235">Limit</a>
+					<a class="permalink" href="index.html#DB.Limit">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Limit(limit <a href="../../builtin/index.html#int">int</a>) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Limit specify the number of records to be retrieved
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Migrator">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/migrator.go?s=113:146#L1">Migrator</a>
+					<a class="permalink" href="index.html#DB.Migrator">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Migrator() <a href="index.html#Migrator">Migrator</a></pre>
+				<p>Migrator returns migrator
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Model">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/chainable_api.go?s=421:468#L7">Model</a>
+					<a class="permalink" href="index.html#DB.Model">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Model(value interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Model specify the model you would like to run db operations
+<pre>// update all users&apos;s name to `hello`
+db.Model(&amp;User{}).Update(&quot;name&quot;, &quot;hello&quot;)
+// if user&apos;s primary key is non-blank, will use it as condition, then will only update the user&apos;s name to `hello`
+db.Model(&amp;user).Update(&quot;name&quot;, &quot;hello&quot;)
+</pre>
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Not">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/chainable_api.go?s=4609:4675#L154">Not</a>
+					<a class="permalink" href="index.html#DB.Not">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Not(query interface{}, args ...interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Not add NOT conditions
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Offset">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/chainable_api.go?s=7323:7364#L242">Offset</a>
+					<a class="permalink" href="index.html#DB.Offset">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Offset(offset <a href="../../builtin/index.html#int">int</a>) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Offset specify the number of records to skip before starting to return the records
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Omit">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/chainable_api.go?s=4051:4097#L133">Omit</a>
+					<a class="permalink" href="index.html#DB.Omit">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Omit(columns ...<a href="../../builtin/index.html#string">string</a>) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Omit specify fields that you want to ignore when creating, updating and querying
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Or">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/chainable_api.go?s=4903:4968#L163">Or</a>
+					<a class="permalink" href="index.html#DB.Or">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Or(query interface{}, args ...interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Or add OR conditions
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Order">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/chainable_api.go?s=6649:6696#L214">Order</a>
+					<a class="permalink" href="index.html#DB.Order">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Order(value interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Order specify order when retrieve records from database
+<pre>db.Order(&quot;name DESC&quot;)
+db.Order(clause.OrderByColumn{Column: clause.Column{Name: &quot;name&quot;}, Desc: true})
+</pre>
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Pluck">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=15806:15867#L509">Pluck</a>
+					<a class="permalink" href="index.html#DB.Pluck">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Pluck(column <a href="../../builtin/index.html#string">string</a>, dest interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Pluck queries a single column from a model, returning in the slice dest. E.g.:
+<pre>var ages []int64
+db.Model(&amp;users).Pluck(&quot;age&quot;, &amp;ages)
+</pre>
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Preload">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/chainable_api.go?s=8300:8365#L268">Preload</a>
+					<a class="permalink" href="index.html#DB.Preload">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Preload(query <a href="../../builtin/index.html#string">string</a>, args ...interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Preload preload associations with given conditions
+<pre>db.Preload(&quot;Orders&quot;, &quot;state NOT IN (?)&quot;, &quot;cancelled&quot;).Find(&amp;users)
+</pre>
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Raw">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/chainable_api.go?s=8863:8924#L295">Raw</a>
+					<a class="permalink" href="index.html#DB.Raw">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Raw(sql <a href="../../builtin/index.html#string">string</a>, values ...interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="DB.Rollback">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=19669:19697#L657">Rollback</a>
+					<a class="permalink" href="index.html#DB.Rollback">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Rollback() *<a href="index.html#DB">DB</a></pre>
+				<p>Rollback rollbacks the changes in a transaction
+
+				
+				
+				
+			
+				
+				<h3 id="DB.RollbackTo">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=20158:20199#L677">RollbackTo</a>
+					<a class="permalink" href="index.html#DB.RollbackTo">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) RollbackTo(name <a href="../../builtin/index.html#string">string</a>) *<a href="index.html#DB">DB</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="DB.Row">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=14523:14551#L461">Row</a>
+					<a class="permalink" href="index.html#DB.Row">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Row() *<a href="../../database/sql/index.html">sql</a>.<a href="../../database/sql/index.html#Row">Row</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="DB.Rows">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=14790:14829#L471">Rows</a>
+					<a class="permalink" href="index.html#DB.Rows">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Rows() (*<a href="../../database/sql/index.html">sql</a>.<a href="../../database/sql/index.html#Rows">Rows</a>, <a href="../../builtin/index.html#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="DB.Save">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=1705:1751#L62">Save</a>
+					<a class="permalink" href="index.html#DB.Save">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Save(value interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Save updates value in database. If value doesn&apos;t contain a matching primary key, value is inserted.
+
+				
+				
+				
+			
+				
+				<h3 id="DB.SavePoint">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=19931:19971#L668">SavePoint</a>
+					<a class="permalink" href="index.html#DB.SavePoint">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) SavePoint(name <a href="../../builtin/index.html#string">string</a>) *<a href="index.html#DB">DB</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="DB.Scan">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=15111:15156#L482">Scan</a>
+					<a class="permalink" href="index.html#DB.Scan">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Scan(dest interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Scan scans selected value to the struct dest
+
+				
+				
+				
+			
+				
+				<h3 id="DB.ScanRows">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=16411:16473#L530">ScanRows</a>
+					<a class="permalink" href="index.html#DB.ScanRows">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) ScanRows(rows *<a href="../../database/sql/index.html">sql</a>.<a href="../../database/sql/index.html#Rows">Rows</a>, dest interface{}) <a href="../../builtin/index.html#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="DB.Scopes">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/chainable_api.go?s=8019:8072#L260">Scopes</a>
+					<a class="permalink" href="index.html#DB.Scopes">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Scopes(funcs ...func(*<a href="index.html#DB">DB</a>) *<a href="index.html#DB">DB</a>) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Scopes pass current database connection to arguments `func(DB) DB`, which could be used to add conditions dynamically
+<pre>func AmountGreaterThan1000(db *gorm.DB) *gorm.DB {
+    return db.Where(&quot;amount &gt; ?&quot;, 1000)
+}
+
+func OrderStatus(status []string) func (db *gorm.DB) *gorm.DB {
+    return func (db *gorm.DB) *gorm.DB {
+        return db.Scopes(AmountGreaterThan1000).Where(&quot;status in (?)&quot;, status)
+    }
+}
+
+db.Scopes(AmountGreaterThan1000, OrderStatus([]string{&quot;paid&quot;, &quot;shipped&quot;})).Find(&amp;orders)
+</pre>
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Select">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/chainable_api.go?s=2250:2319#L68">Select</a>
+					<a class="permalink" href="index.html#DB.Select">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Select(query interface{}, args ...interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Select specify fields that you want when querying, creating, updating
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Session">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/gorm.go?s=4944:4986#L203">Session</a>
+					<a class="permalink" href="index.html#DB.Session">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Session(config *<a href="index.html#Session">Session</a>) *<a href="index.html#DB">DB</a></pre>
+				<p>Session create new db session
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Set">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/gorm.go?s=7087:7139#L308">Set</a>
+					<a class="permalink" href="index.html#DB.Set">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Set(key <a href="../../builtin/index.html#string">string</a>, value interface{}) *<a href="index.html#DB">DB</a></pre>
+				<p>Set store value with key into current db instance&apos;s context
+
+				
+				
+				
+			
+				
+				<h3 id="DB.SetupJoinTable">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/gorm.go?s=9154:9244#L392">SetupJoinTable</a>
+					<a class="permalink" href="index.html#DB.SetupJoinTable">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) SetupJoinTable(model interface{}, field <a href="../../builtin/index.html#string">string</a>, joinTable interface{}) <a href="../../builtin/index.html#error">error</a></pre>
+				<p>SetupJoinTable setup join table schema
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Table">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/chainable_api.go?s=1217:1279#L37">Table</a>
+					<a class="permalink" href="index.html#DB.Table">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Table(name <a href="../../builtin/index.html#string">string</a>, args ...interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Table specify the table you would like to run db operations
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Take">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=3800:3867#L123">Take</a>
+					<a class="permalink" href="index.html#DB.Take">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Take(dest interface{}, conds ...interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Take finds the first record returned by the database in no specified order, matching given conditions conds
+
+				
+				
+				
+			
+				
+				<h3 id="DB.ToSQL">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/gorm.go?s=10844:10896#L463">ToSQL</a>
+					<a class="permalink" href="index.html#DB.ToSQL">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) ToSQL(queryFn func(tx *<a href="index.html#DB">DB</a>) *<a href="index.html#DB">DB</a>) <a href="../../builtin/index.html#string">string</a></pre>
+				<p>ToSQL for generate SQL string.
+<pre>db.ToSQL(func(tx *gorm.DB) *gorm.DB {
+		return tx.Model(&amp;User{}).Where(&amp;User{Name: &quot;foo&quot;, Age: 20})
+			.Limit(10).Offset(5)
+			.Order(&quot;name ASC&quot;)
+			.First(&amp;User{})
+})
+</pre>
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Transaction">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=17747:17831#L575">Transaction</a>
+					<a class="permalink" href="index.html#DB.Transaction">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Transaction(fc func(tx *<a href="index.html#DB">DB</a>) <a href="../../builtin/index.html#error">error</a>, opts ...*<a href="../../database/sql/index.html">sql</a>.<a href="../../database/sql/index.html#TxOptions">TxOptions</a>) (err <a href="../../builtin/index.html#error">error</a>)</pre>
+				<p>Transaction start a transaction as a block, return error will rollback, otherwise to commit. Transaction executes an
+arbitrary number of commands in fc within a transaction. On success the changes are committed; if an error occurs
+they are rolled back.
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Unscoped">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/chainable_api.go?s=8763:8796#L289">Unscoped</a>
+					<a class="permalink" href="index.html#DB.Unscoped">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Unscoped() (tx *<a href="index.html#DB">DB</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="DB.Update">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=11210:11273#L358">Update</a>
+					<a class="permalink" href="index.html#DB.Update">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Update(column <a href="../../builtin/index.html#string">string</a>, value interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Update updates column with value using callbacks. Reference: <a href="https://gorm.io/docs/update.html#Update-Changed-Fields">https://gorm.io/docs/update.html#Update-Changed-Fields</a>
+
+				
+				
+				
+			
+				
+				<h3 id="DB.UpdateColumn">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=11697:11766#L371">UpdateColumn</a>
+					<a class="permalink" href="index.html#DB.UpdateColumn">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) UpdateColumn(column <a href="../../builtin/index.html#string">string</a>, value interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="DB.UpdateColumns">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=11927:11983#L378">UpdateColumns</a>
+					<a class="permalink" href="index.html#DB.UpdateColumns">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) UpdateColumns(values interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="DB.Updates">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/finisher_api.go?s=11548:11598#L365">Updates</a>
+					<a class="permalink" href="index.html#DB.Updates">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Updates(values interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Updates updates attributes using callbacks. values must be a struct or map. Reference: <a href="https://gorm.io/docs/update.html#Update-Changed-Fields">https://gorm.io/docs/update.html#Update-Changed-Fields</a>
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Use">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/gorm.go?s=10392:10430#L443">Use</a>
+					<a class="permalink" href="index.html#DB.Use">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Use(plugin <a href="index.html#Plugin">Plugin</a>) <a href="../../builtin/index.html#error">error</a></pre>
+				<p>Use use plugin
+
+				
+				
+				
+			
+				
+				<h3 id="DB.Where">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/chainable_api.go?s=4347:4415#L145">Where</a>
+					<a class="permalink" href="index.html#DB.Where">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) Where(query interface{}, args ...interface{}) (tx *<a href="index.html#DB">DB</a>)</pre>
+				<p>Where add conditions
+
+				
+				
+				
+			
+				
+				<h3 id="DB.WithContext">func (*DB) <a href="http://localhost:8080/src/gorm.io/gorm/gorm.go?s=6765:6815#L295">WithContext</a>
+					<a class="permalink" href="index.html#DB.WithContext">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#DB">DB</a>) WithContext(ctx <a href="../../context/index.html">context</a>.<a href="../../context/index.html#Context">Context</a>) *<a href="index.html#DB">DB</a></pre>
+				<p>WithContext change current instance db&apos;s context to ctx
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="DeletedAt">type <a href="http://localhost:8080/src/gorm.io/gorm/soft_delete.go?s=140:167#L3">DeletedAt</a>
+				<a class="permalink" href="index.html#DeletedAt">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type DeletedAt <a href="../../database/sql/index.html">sql</a>.<a href="../../database/sql/index.html#NullTime">NullTime</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="DeletedAt.DeleteClauses">func (DeletedAt) <a href="http://localhost:8080/src/gorm.io/gorm/soft_delete.go?s=2507:2573#L101">DeleteClauses</a>
+					<a class="permalink" href="index.html#DeletedAt.DeleteClauses">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="index.html#DeletedAt">DeletedAt</a>) DeleteClauses(f *<a href="schema/index.html">schema</a>.<a href="schema/index.html#Field">Field</a>) []<a href="clause/index.html">clause</a>.<a href="clause/index.html#Interface">Interface</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="DeletedAt.MarshalJSON">func (DeletedAt) <a href="http://localhost:8080/src/gorm.io/gorm/soft_delete.go?s=464:512#L18">MarshalJSON</a>
+					<a class="permalink" href="index.html#DeletedAt.MarshalJSON">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (n <a href="index.html#DeletedAt">DeletedAt</a>) MarshalJSON() ([]<a href="../../builtin/index.html#byte">byte</a>, <a href="../../builtin/index.html#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="DeletedAt.QueryClauses">func (DeletedAt) <a href="http://localhost:8080/src/gorm.io/gorm/soft_delete.go?s=790:855#L37">QueryClauses</a>
+					<a class="permalink" href="index.html#DeletedAt.QueryClauses">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="index.html#DeletedAt">DeletedAt</a>) QueryClauses(f *<a href="schema/index.html">schema</a>.<a href="schema/index.html#Field">Field</a>) []<a href="clause/index.html">clause</a>.<a href="clause/index.html#Interface">Interface</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="DeletedAt.Scan">func (*DeletedAt) <a href="http://localhost:8080/src/gorm.io/gorm/soft_delete.go?s=211:260#L6">Scan</a>
+					<a class="permalink" href="index.html#DeletedAt.Scan">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (n *<a href="index.html#DeletedAt">DeletedAt</a>) Scan(value interface{}) <a href="../../builtin/index.html#error">error</a></pre>
+				<p>Scan implements the Scanner interface.
+
+				
+				
+				
+			
+				
+				<h3 id="DeletedAt.UnmarshalJSON">func (*DeletedAt) <a href="http://localhost:8080/src/gorm.io/gorm/soft_delete.go?s=591:640#L25">UnmarshalJSON</a>
+					<a class="permalink" href="index.html#DeletedAt.UnmarshalJSON">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (n *<a href="index.html#DeletedAt">DeletedAt</a>) UnmarshalJSON(b []<a href="../../builtin/index.html#byte">byte</a>) <a href="../../builtin/index.html#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="DeletedAt.UpdateClauses">func (DeletedAt) <a href="http://localhost:8080/src/gorm.io/gorm/soft_delete.go?s=1946:2012#L77">UpdateClauses</a>
+					<a class="permalink" href="index.html#DeletedAt.UpdateClauses">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (<a href="index.html#DeletedAt">DeletedAt</a>) UpdateClauses(f *<a href="schema/index.html">schema</a>.<a href="schema/index.html#Field">Field</a>) []<a href="clause/index.html">clause</a>.<a href="clause/index.html#Interface">Interface</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="DeletedAt.Value">func (DeletedAt) <a href="http://localhost:8080/src/gorm.io/gorm/soft_delete.go?s=354:402#L11">Value</a>
+					<a class="permalink" href="index.html#DeletedAt.Value">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (n <a href="index.html#DeletedAt">DeletedAt</a>) Value() (<a href="../../database/sql/driver/index.html">driver</a>.<a href="../../database/sql/driver/index.html#Value">Value</a>, <a href="../../builtin/index.html#error">error</a>)</pre>
+				<p>Value implements the driver Valuer interface.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Dialector">type <a href="http://localhost:8080/src/gorm.io/gorm/interfaces.go?s=137:459#L2">Dialector</a>
+				<a class="permalink" href="index.html#Dialector">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Dialector GORM database dialector
+
+			<pre>type Dialector interface {
+    Name() <a href="../../builtin/index.html#string">string</a>
+    Initialize(*<a href="index.html#DB">DB</a>) <a href="../../builtin/index.html#error">error</a>
+    Migrator(db *<a href="index.html#DB">DB</a>) <a href="index.html#Migrator">Migrator</a>
+    DataTypeOf(*<a href="schema/index.html">schema</a>.<a href="schema/index.html#Field">Field</a>) <a href="../../builtin/index.html#string">string</a>
+    DefaultValueOf(*<a href="schema/index.html">schema</a>.<a href="schema/index.html#Field">Field</a>) <a href="clause/index.html">clause</a>.<a href="clause/index.html#Expression">Expression</a>
+    BindVarTo(writer <a href="clause/index.html">clause</a>.<a href="clause/index.html#Writer">Writer</a>, stmt *<a href="index.html#Statement">Statement</a>, v interface{})
+    QuoteTo(<a href="clause/index.html">clause</a>.<a href="clause/index.html#Writer">Writer</a>, <a href="../../builtin/index.html#string">string</a>)
+    Explain(sql <a href="../../builtin/index.html#string">string</a>, vars ...interface{}) <a href="../../builtin/index.html#string">string</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="GetDBConnector">type <a href="http://localhost:8080/src/gorm.io/gorm/interfaces.go?s=1768:1831#L62">GetDBConnector</a>
+				<a class="permalink" href="index.html#GetDBConnector">&#xb6;</a>
+				
+				
+			</h2>
+			<p>GetDBConnector SQL db connector
+
+			<pre>type GetDBConnector interface {
+    GetDBConn() (*<a href="../../database/sql/index.html">sql</a>.<a href="../../database/sql/index.html#DB">DB</a>, <a href="../../builtin/index.html#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Index">type <a href="http://localhost:8080/src/gorm.io/gorm/migrator.go?s=1219:1387#L44">Index</a>
+				<a class="permalink" href="index.html#Index">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Index interface {
+    Table() <a href="../../builtin/index.html#string">string</a>
+    Name() <a href="../../builtin/index.html#string">string</a>
+    Columns() []<a href="../../builtin/index.html#string">string</a>
+    PrimaryKey() (isPrimaryKey <a href="../../builtin/index.html#bool">bool</a>, ok <a href="../../builtin/index.html#bool">bool</a>)
+    Unique() (unique <a href="../../builtin/index.html#bool">bool</a>, ok <a href="../../builtin/index.html#bool">bool</a>)
+    Option() <a href="../../builtin/index.html#string">string</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Migrator">type <a href="http://localhost:8080/src/gorm.io/gorm/migrator.go?s=1420:2774#L54">Migrator</a>
+				<a class="permalink" href="index.html#Migrator">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Migrator migrator interface
+
+			<pre>type Migrator interface {
+    <span class="comment">// AutoMigrate</span>
+    AutoMigrate(dst ...interface{}) <a href="../../builtin/index.html#error">error</a>
+
+    <span class="comment">// Database</span>
+    CurrentDatabase() <a href="../../builtin/index.html#string">string</a>
+    FullDataTypeOf(*<a href="schema/index.html">schema</a>.<a href="schema/index.html#Field">Field</a>) <a href="clause/index.html">clause</a>.<a href="clause/index.html#Expr">Expr</a>
+    GetTypeAliases(databaseTypeName <a href="../../builtin/index.html#string">string</a>) []<a href="../../builtin/index.html#string">string</a>
+
+    <span class="comment">// Tables</span>
+    CreateTable(dst ...interface{}) <a href="../../builtin/index.html#error">error</a>
+    DropTable(dst ...interface{}) <a href="../../builtin/index.html#error">error</a>
+    HasTable(dst interface{}) <a href="../../builtin/index.html#bool">bool</a>
+    RenameTable(oldName, newName interface{}) <a href="../../builtin/index.html#error">error</a>
+    GetTables() (tableList []<a href="../../builtin/index.html#string">string</a>, err <a href="../../builtin/index.html#error">error</a>)
+
+    <span class="comment">// Columns</span>
+    AddColumn(dst interface{}, field <a href="../../builtin/index.html#string">string</a>) <a href="../../builtin/index.html#error">error</a>
+    DropColumn(dst interface{}, field <a href="../../builtin/index.html#string">string</a>) <a href="../../builtin/index.html#error">error</a>
+    AlterColumn(dst interface{}, field <a href="../../builtin/index.html#string">string</a>) <a href="../../builtin/index.html#error">error</a>
+    MigrateColumn(dst interface{}, field *<a href="schema/index.html">schema</a>.<a href="schema/index.html#Field">Field</a>, columnType <a href="index.html#ColumnType">ColumnType</a>) <a href="../../builtin/index.html#error">error</a>
+    HasColumn(dst interface{}, field <a href="../../builtin/index.html#string">string</a>) <a href="../../builtin/index.html#bool">bool</a>
+    RenameColumn(dst interface{}, oldName, field <a href="../../builtin/index.html#string">string</a>) <a href="../../builtin/index.html#error">error</a>
+    ColumnTypes(dst interface{}) ([]<a href="index.html#ColumnType">ColumnType</a>, <a href="../../builtin/index.html#error">error</a>)
+
+    <span class="comment">// Views</span>
+    CreateView(name <a href="../../builtin/index.html#string">string</a>, option <a href="index.html#ViewOption">ViewOption</a>) <a href="../../builtin/index.html#error">error</a>
+    DropView(name <a href="../../builtin/index.html#string">string</a>) <a href="../../builtin/index.html#error">error</a>
+
+    <span class="comment">// Constraints</span>
+    CreateConstraint(dst interface{}, name <a href="../../builtin/index.html#string">string</a>) <a href="../../builtin/index.html#error">error</a>
+    DropConstraint(dst interface{}, name <a href="../../builtin/index.html#string">string</a>) <a href="../../builtin/index.html#error">error</a>
+    HasConstraint(dst interface{}, name <a href="../../builtin/index.html#string">string</a>) <a href="../../builtin/index.html#bool">bool</a>
+
+    <span class="comment">// Indexes</span>
+    CreateIndex(dst interface{}, name <a href="../../builtin/index.html#string">string</a>) <a href="../../builtin/index.html#error">error</a>
+    DropIndex(dst interface{}, name <a href="../../builtin/index.html#string">string</a>) <a href="../../builtin/index.html#error">error</a>
+    HasIndex(dst interface{}, name <a href="../../builtin/index.html#string">string</a>) <a href="../../builtin/index.html#bool">bool</a>
+    RenameIndex(dst interface{}, oldName, newName <a href="../../builtin/index.html#string">string</a>) <a href="../../builtin/index.html#error">error</a>
+    GetIndexes(dst interface{}) ([]<a href="index.html#Index">Index</a>, <a href="../../builtin/index.html#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Model">type <a href="http://localhost:8080/src/gorm.io/gorm/model.go?s=266:401#L1">Model</a>
+				<a class="permalink" href="index.html#Model">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Model a basic GoLang struct which includes the following fields: ID, CreatedAt, UpdatedAt, DeletedAt
+It may be embedded into your model or you may build your own model without it
+<pre>type User struct {
+  gorm.Model
+}
+</pre>
+
+			<pre>type Model struct {
+<span id="Model.ID"></span>    ID        <a href="../../builtin/index.html#uint">uint</a> `gorm:&#34;primarykey&#34;`
+<span id="Model.CreatedAt"></span>    CreatedAt <a href="../../time/index.html">time</a>.<a href="../../time/index.html#Time">Time</a>
+<span id="Model.UpdatedAt"></span>    UpdatedAt <a href="../../time/index.html">time</a>.<a href="../../time/index.html#Time">Time</a>
+<span id="Model.DeletedAt"></span>    DeletedAt <a href="index.html#DeletedAt">DeletedAt</a> `gorm:&#34;index&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Option">type <a href="http://localhost:8080/src/gorm.io/gorm/gorm.go?s=2065:2140#L73">Option</a>
+				<a class="permalink" href="index.html#Option">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Option gorm option interface
+
+			<pre>type Option interface {
+    Apply(*<a href="index.html#Config">Config</a>) <a href="../../builtin/index.html#error">error</a>
+    AfterInitialize(*<a href="index.html#DB">DB</a>) <a href="../../builtin/index.html#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Plugin">type <a href="http://localhost:8080/src/gorm.io/gorm/interfaces.go?s=493:556#L14">Plugin</a>
+				<a class="permalink" href="index.html#Plugin">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Plugin GORM plugin interface
+
+			<pre>type Plugin interface {
+    Name() <a href="../../builtin/index.html#string">string</a>
+    Initialize(*<a href="index.html#DB">DB</a>) <a href="../../builtin/index.html#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PreparedStmtDB">type <a href="http://localhost:8080/src/gorm.io/gorm/prepare_stmt.go?s=158:277#L6">PreparedStmtDB</a>
+				<a class="permalink" href="index.html#PreparedStmtDB">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type PreparedStmtDB struct {
+<span id="PreparedStmtDB.Stmts"></span>    Stmts       map[<a href="../../builtin/index.html#string">string</a>]*<a href="index.html#Stmt">Stmt</a>
+<span id="PreparedStmtDB.PreparedSQL"></span>    PreparedSQL []<a href="../../builtin/index.html#string">string</a>
+<span id="PreparedStmtDB.Mux"></span>    Mux         *<a href="../../sync/index.html">sync</a>.<a href="../../sync/index.html#RWMutex">RWMutex</a>
+    <a href="index.html#ConnPool">ConnPool</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="PreparedStmtDB.BeginTx">func (*PreparedStmtDB) <a href="http://localhost:8080/src/gorm.io/gorm/prepare_stmt.go?s=2406:2498#L94">BeginTx</a>
+					<a class="permalink" href="index.html#PreparedStmtDB.BeginTx">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#PreparedStmtDB">PreparedStmtDB</a>) BeginTx(ctx <a href="../../context/index.html">context</a>.<a href="../../context/index.html#Context">Context</a>, opt *<a href="../../database/sql/index.html">sql</a>.<a href="../../database/sql/index.html#TxOptions">TxOptions</a>) (<a href="index.html#ConnPool">ConnPool</a>, <a href="../../builtin/index.html#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="PreparedStmtDB.Close">func (*PreparedStmtDB) <a href="http://localhost:8080/src/gorm.io/gorm/prepare_stmt.go?s=551:584#L25">Close</a>
+					<a class="permalink" href="index.html#PreparedStmtDB.Close">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#PreparedStmtDB">PreparedStmtDB</a>) Close()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="PreparedStmtDB.ExecContext">func (*PreparedStmtDB) <a href="http://localhost:8080/src/gorm.io/gorm/prepare_stmt.go?s=2691:2815#L102">ExecContext</a>
+					<a class="permalink" href="index.html#PreparedStmtDB.ExecContext">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#PreparedStmtDB">PreparedStmtDB</a>) ExecContext(ctx <a href="../../context/index.html">context</a>.<a href="../../context/index.html#Context">Context</a>, query <a href="../../builtin/index.html#string">string</a>, args ...interface{}) (result <a href="../../database/sql/index.html">sql</a>.<a href="../../database/sql/index.html#Result">Result</a>, err <a href="../../builtin/index.html#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="PreparedStmtDB.GetDBConn">func (*PreparedStmtDB) <a href="http://localhost:8080/src/gorm.io/gorm/prepare_stmt.go?s=279:333#L13">GetDBConn</a>
+					<a class="permalink" href="index.html#PreparedStmtDB.GetDBConn">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#PreparedStmtDB">PreparedStmtDB</a>) GetDBConn() (*<a href="../../database/sql/index.html">sql</a>.<a href="../../database/sql/index.html#DB">DB</a>, <a href="../../builtin/index.html#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="PreparedStmtDB.QueryContext">func (*PreparedStmtDB) <a href="http://localhost:8080/src/gorm.io/gorm/prepare_stmt.go?s=3075:3197#L116">QueryContext</a>
+					<a class="permalink" href="index.html#PreparedStmtDB.QueryContext">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#PreparedStmtDB">PreparedStmtDB</a>) QueryContext(ctx <a href="../../context/index.html">context</a>.<a href="../../context/index.html#Context">Context</a>, query <a href="../../builtin/index.html#string">string</a>, args ...interface{}) (rows *<a href="../../database/sql/index.html">sql</a>.<a href="../../database/sql/index.html#Rows">Rows</a>, err <a href="../../builtin/index.html#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="PreparedStmtDB.QueryRowContext">func (*PreparedStmtDB) <a href="http://localhost:8080/src/gorm.io/gorm/prepare_stmt.go?s=3455:3561#L131">QueryRowContext</a>
+					<a class="permalink" href="index.html#PreparedStmtDB.QueryRowContext">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (db *<a href="index.html#PreparedStmtDB">PreparedStmtDB</a>) QueryRowContext(ctx <a href="../../context/index.html">context</a>.<a href="../../context/index.html#Context">Context</a>, query <a href="../../builtin/index.html#string">string</a>, args ...interface{}) *<a href="../../database/sql/index.html">sql</a>.<a href="../../database/sql/index.html#Row">Row</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="PreparedStmtTX">type <a href="http://localhost:8080/src/gorm.io/gorm/prepare_stmt.go?s=3707:3773#L139">PreparedStmtTX</a>
+				<a class="permalink" href="index.html#PreparedStmtTX">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type PreparedStmtTX struct {
+    <a href="index.html#Tx">Tx</a>
+<span id="PreparedStmtTX.PreparedStmtDB"></span>    PreparedStmtDB *<a href="index.html#PreparedStmtDB">PreparedStmtDB</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="PreparedStmtTX.Commit">func (*PreparedStmtTX) <a href="http://localhost:8080/src/gorm.io/gorm/prepare_stmt.go?s=3775:3815#L144">Commit</a>
+					<a class="permalink" href="index.html#PreparedStmtTX.Commit">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (tx *<a href="index.html#PreparedStmtTX">PreparedStmtTX</a>) Commit() <a href="../../builtin/index.html#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="PreparedStmtTX.ExecContext">func (*PreparedStmtTX) <a href="http://localhost:8080/src/gorm.io/gorm/prepare_stmt.go?s=4023:4147#L158">ExecContext</a>
+					<a class="permalink" href="index.html#PreparedStmtTX.ExecContext">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (tx *<a href="index.html#PreparedStmtTX">PreparedStmtTX</a>) ExecContext(ctx <a href="../../context/index.html">context</a>.<a href="../../context/index.html#Context">Context</a>, query <a href="../../builtin/index.html#string">string</a>, args ...interface{}) (result <a href="../../database/sql/index.html">sql</a>.<a href="../../database/sql/index.html#Result">Result</a>, err <a href="../../builtin/index.html#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="PreparedStmtTX.QueryContext">func (*PreparedStmtTX) <a href="http://localhost:8080/src/gorm.io/gorm/prepare_stmt.go?s=4490:4612#L173">QueryContext</a>
+					<a class="permalink" href="index.html#PreparedStmtTX.QueryContext">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (tx *<a href="index.html#PreparedStmtTX">PreparedStmtTX</a>) QueryContext(ctx <a href="../../context/index.html">context</a>.<a href="../../context/index.html#Context">Context</a>, query <a href="../../builtin/index.html#string">string</a>, args ...interface{}) (rows *<a href="../../database/sql/index.html">sql</a>.<a href="../../database/sql/index.html#Rows">Rows</a>, err <a href="../../builtin/index.html#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="PreparedStmtTX.QueryRowContext">func (*PreparedStmtTX) <a href="http://localhost:8080/src/gorm.io/gorm/prepare_stmt.go?s=4952:5058#L188">QueryRowContext</a>
+					<a class="permalink" href="index.html#PreparedStmtTX.QueryRowContext">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (tx *<a href="index.html#PreparedStmtTX">PreparedStmtTX</a>) QueryRowContext(ctx <a href="../../context/index.html">context</a>.<a href="../../context/index.html#Context">Context</a>, query <a href="../../builtin/index.html#string">string</a>, args ...interface{}) *<a href="../../database/sql/index.html">sql</a>.<a href="../../database/sql/index.html#Row">Row</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="PreparedStmtTX.Rollback">func (*PreparedStmtTX) <a href="http://localhost:8080/src/gorm.io/gorm/prepare_stmt.go?s=3897:3939#L151">Rollback</a>
+					<a class="permalink" href="index.html#PreparedStmtTX.Rollback">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (tx *<a href="index.html#PreparedStmtTX">PreparedStmtTX</a>) Rollback() <a href="../../builtin/index.html#error">error</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Rows">type <a href="http://localhost:8080/src/gorm.io/gorm/interfaces.go?s=1856:2024#L67">Rows</a>
+				<a class="permalink" href="index.html#Rows">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Rows rows interface
+
+			<pre>type Rows interface {
+    Columns() ([]<a href="../../builtin/index.html#string">string</a>, <a href="../../builtin/index.html#error">error</a>)
+    ColumnTypes() ([]*<a href="../../database/sql/index.html">sql</a>.<a href="../../database/sql/index.html#ColumnType">ColumnType</a>, <a href="../../builtin/index.html#error">error</a>)
+    Next() <a href="../../builtin/index.html#bool">bool</a>
+    Scan(dest ...interface{}) <a href="../../builtin/index.html#error">error</a>
+    Err() <a href="../../builtin/index.html#error">error</a>
+    Close() <a href="../../builtin/index.html#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="SavePointerDialectorInterface">type <a href="http://localhost:8080/src/gorm.io/gorm/interfaces.go?s=1009:1134#L28">SavePointerDialectorInterface</a>
+				<a class="permalink" href="index.html#SavePointerDialectorInterface">&#xb6;</a>
+				
+				
+			</h2>
+			<p>SavePointerDialectorInterface save pointer interface
+
+			<pre>type SavePointerDialectorInterface interface {
+    SavePoint(tx *<a href="index.html#DB">DB</a>, name <a href="../../builtin/index.html#string">string</a>) <a href="../../builtin/index.html#error">error</a>
+    RollbackTo(tx *<a href="index.html#DB">DB</a>, name <a href="../../builtin/index.html#string">string</a>) <a href="../../builtin/index.html#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ScanMode">type <a href="http://localhost:8080/src/gorm.io/gorm/scan.go?s=2757:2776#L89">ScanMode</a>
+				<a class="permalink" href="index.html#ScanMode">&#xb6;</a>
+				
+				
+			</h2>
+			<p>ScanMode scan data mode
+
+			<pre>type ScanMode <a href="../../builtin/index.html#uint8">uint8</a></pre>
+
+			
+				<p>scan modes
+
+				<pre>const (
+    <span id="ScanInitialized">ScanInitialized</span>         <a href="index.html#ScanMode">ScanMode</a> = 1 &lt;&lt; 0 <span class="comment">// 1</span>
+    <span id="ScanUpdate">ScanUpdate</span>              <a href="index.html#ScanMode">ScanMode</a> = 1 &lt;&lt; 1 <span class="comment">// 2</span>
+    <span id="ScanOnConflictDoNothing">ScanOnConflictDoNothing</span> <a href="index.html#ScanMode">ScanMode</a> = 1 &lt;&lt; 2 <span class="comment">// 4</span>
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Session">type <a href="http://localhost:8080/src/gorm.io/gorm/gorm.go?s=2347:2838#L88">Session</a>
+				<a class="permalink" href="index.html#Session">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Session session config when create session with Session() method
+
+			<pre>type Session struct {
+<span id="Session.DryRun"></span>    DryRun                   <a href="../../builtin/index.html#bool">bool</a>
+<span id="Session.PrepareStmt"></span>    PrepareStmt              <a href="../../builtin/index.html#bool">bool</a>
+<span id="Session.NewDB"></span>    NewDB                    <a href="../../builtin/index.html#bool">bool</a>
+<span id="Session.Initialized"></span>    Initialized              <a href="../../builtin/index.html#bool">bool</a>
+<span id="Session.SkipHooks"></span>    SkipHooks                <a href="../../builtin/index.html#bool">bool</a>
+<span id="Session.SkipDefaultTransaction"></span>    SkipDefaultTransaction   <a href="../../builtin/index.html#bool">bool</a>
+<span id="Session.DisableNestedTransaction"></span>    DisableNestedTransaction <a href="../../builtin/index.html#bool">bool</a>
+<span id="Session.AllowGlobalUpdate"></span>    AllowGlobalUpdate        <a href="../../builtin/index.html#bool">bool</a>
+<span id="Session.FullSaveAssociations"></span>    FullSaveAssociations     <a href="../../builtin/index.html#bool">bool</a>
+<span id="Session.QueryFields"></span>    QueryFields              <a href="../../builtin/index.html#bool">bool</a>
+<span id="Session.Context"></span>    Context                  <a href="../../context/index.html">context</a>.<a href="../../context/index.html#Context">Context</a>
+<span id="Session.Logger"></span>    Logger                   <a href="logger/index.html">logger</a>.<a href="logger/index.html#Interface">Interface</a>
+<span id="Session.NowFunc"></span>    NowFunc                  func() <a href="../../time/index.html">time</a>.<a href="../../time/index.html#Time">Time</a>
+<span id="Session.CreateBatchSize"></span>    CreateBatchSize          <a href="../../builtin/index.html#int">int</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="SoftDeleteDeleteClause">type <a href="http://localhost:8080/src/gorm.io/gorm/soft_delete.go?s=2640:2699#L105">SoftDeleteDeleteClause</a>
+				<a class="permalink" href="index.html#SoftDeleteDeleteClause">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type SoftDeleteDeleteClause struct {
+<span id="SoftDeleteDeleteClause.Field"></span>    Field *<a href="schema/index.html">schema</a>.<a href="schema/index.html#Field">Field</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="SoftDeleteDeleteClause.Build">func (SoftDeleteDeleteClause) <a href="http://localhost:8080/src/gorm.io/gorm/soft_delete.go?s=2764:2818#L113">Build</a>
+					<a class="permalink" href="index.html#SoftDeleteDeleteClause.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (sd <a href="index.html#SoftDeleteDeleteClause">SoftDeleteDeleteClause</a>) Build(<a href="clause/index.html">clause</a>.<a href="clause/index.html#Builder">Builder</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="SoftDeleteDeleteClause.MergeClause">func (SoftDeleteDeleteClause) <a href="http://localhost:8080/src/gorm.io/gorm/soft_delete.go?s=2824:2884#L116">MergeClause</a>
+					<a class="permalink" href="index.html#SoftDeleteDeleteClause.MergeClause">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (sd <a href="index.html#SoftDeleteDeleteClause">SoftDeleteDeleteClause</a>) MergeClause(*<a href="clause/index.html">clause</a>.<a href="clause/index.html#Clause">Clause</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="SoftDeleteDeleteClause.ModifyStatement">func (SoftDeleteDeleteClause) <a href="http://localhost:8080/src/gorm.io/gorm/soft_delete.go?s=2890:2955#L119">ModifyStatement</a>
+					<a class="permalink" href="index.html#SoftDeleteDeleteClause.ModifyStatement">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (sd <a href="index.html#SoftDeleteDeleteClause">SoftDeleteDeleteClause</a>) ModifyStatement(stmt *<a href="index.html#Statement">Statement</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="SoftDeleteDeleteClause.Name">func (SoftDeleteDeleteClause) <a href="http://localhost:8080/src/gorm.io/gorm/soft_delete.go?s=2701:2747#L109">Name</a>
+					<a class="permalink" href="index.html#SoftDeleteDeleteClause.Name">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (sd <a href="index.html#SoftDeleteDeleteClause">SoftDeleteDeleteClause</a>) Name() <a href="../../builtin/index.html#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="SoftDeleteQueryClause">type <a href="http://localhost:8080/src/gorm.io/gorm/soft_delete.go?s=921:979#L41">SoftDeleteQueryClause</a>
+				<a class="permalink" href="index.html#SoftDeleteQueryClause">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type SoftDeleteQueryClause struct {
+<span id="SoftDeleteQueryClause.Field"></span>    Field *<a href="schema/index.html">schema</a>.<a href="schema/index.html#Field">Field</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="SoftDeleteQueryClause.Build">func (SoftDeleteQueryClause) <a href="http://localhost:8080/src/gorm.io/gorm/soft_delete.go?s=1043:1096#L49">Build</a>
+					<a class="permalink" href="index.html#SoftDeleteQueryClause.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (sd <a href="index.html#SoftDeleteQueryClause">SoftDeleteQueryClause</a>) Build(<a href="clause/index.html">clause</a>.<a href="clause/index.html#Builder">Builder</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="SoftDeleteQueryClause.MergeClause">func (SoftDeleteQueryClause) <a href="http://localhost:8080/src/gorm.io/gorm/soft_delete.go?s=1102:1161#L52">MergeClause</a>
+					<a class="permalink" href="index.html#SoftDeleteQueryClause.MergeClause">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (sd <a href="index.html#SoftDeleteQueryClause">SoftDeleteQueryClause</a>) MergeClause(*<a href="clause/index.html">clause</a>.<a href="clause/index.html#Clause">Clause</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="SoftDeleteQueryClause.ModifyStatement">func (SoftDeleteQueryClause) <a href="http://localhost:8080/src/gorm.io/gorm/soft_delete.go?s=1167:1231#L55">ModifyStatement</a>
+					<a class="permalink" href="index.html#SoftDeleteQueryClause.ModifyStatement">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (sd <a href="index.html#SoftDeleteQueryClause">SoftDeleteQueryClause</a>) ModifyStatement(stmt *<a href="index.html#Statement">Statement</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="SoftDeleteQueryClause.Name">func (SoftDeleteQueryClause) <a href="http://localhost:8080/src/gorm.io/gorm/soft_delete.go?s=981:1026#L45">Name</a>
+					<a class="permalink" href="index.html#SoftDeleteQueryClause.Name">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (sd <a href="index.html#SoftDeleteQueryClause">SoftDeleteQueryClause</a>) Name() <a href="../../builtin/index.html#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="SoftDeleteUpdateClause">type <a href="http://localhost:8080/src/gorm.io/gorm/soft_delete.go?s=2079:2138#L81">SoftDeleteUpdateClause</a>
+				<a class="permalink" href="index.html#SoftDeleteUpdateClause">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type SoftDeleteUpdateClause struct {
+<span id="SoftDeleteUpdateClause.Field"></span>    Field *<a href="schema/index.html">schema</a>.<a href="schema/index.html#Field">Field</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="SoftDeleteUpdateClause.Build">func (SoftDeleteUpdateClause) <a href="http://localhost:8080/src/gorm.io/gorm/soft_delete.go?s=2203:2257#L89">Build</a>
+					<a class="permalink" href="index.html#SoftDeleteUpdateClause.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (sd <a href="index.html#SoftDeleteUpdateClause">SoftDeleteUpdateClause</a>) Build(<a href="clause/index.html">clause</a>.<a href="clause/index.html#Builder">Builder</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="SoftDeleteUpdateClause.MergeClause">func (SoftDeleteUpdateClause) <a href="http://localhost:8080/src/gorm.io/gorm/soft_delete.go?s=2263:2323#L92">MergeClause</a>
+					<a class="permalink" href="index.html#SoftDeleteUpdateClause.MergeClause">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (sd <a href="index.html#SoftDeleteUpdateClause">SoftDeleteUpdateClause</a>) MergeClause(*<a href="clause/index.html">clause</a>.<a href="clause/index.html#Clause">Clause</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="SoftDeleteUpdateClause.ModifyStatement">func (SoftDeleteUpdateClause) <a href="http://localhost:8080/src/gorm.io/gorm/soft_delete.go?s=2329:2394#L95">ModifyStatement</a>
+					<a class="permalink" href="index.html#SoftDeleteUpdateClause.ModifyStatement">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (sd <a href="index.html#SoftDeleteUpdateClause">SoftDeleteUpdateClause</a>) ModifyStatement(stmt *<a href="index.html#Statement">Statement</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="SoftDeleteUpdateClause.Name">func (SoftDeleteUpdateClause) <a href="http://localhost:8080/src/gorm.io/gorm/soft_delete.go?s=2140:2186#L85">Name</a>
+					<a class="permalink" href="index.html#SoftDeleteUpdateClause.Name">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (sd <a href="index.html#SoftDeleteUpdateClause">SoftDeleteUpdateClause</a>) Name() <a href="../../builtin/index.html#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Statement">type <a href="http://localhost:8080/src/gorm.io/gorm/statement.go?s=257:1162#L12">Statement</a>
+				<a class="permalink" href="index.html#Statement">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Statement statement
+
+			<pre>type Statement struct {
+    *<a href="index.html#DB">DB</a>
+<span id="Statement.TableExpr"></span>    TableExpr            *<a href="clause/index.html">clause</a>.<a href="clause/index.html#Expr">Expr</a>
+<span id="Statement.Table"></span>    Table                <a href="../../builtin/index.html#string">string</a>
+<span id="Statement.Model"></span>    Model                interface{}
+<span id="Statement.Unscoped"></span>    Unscoped             <a href="../../builtin/index.html#bool">bool</a>
+<span id="Statement.Dest"></span>    Dest                 interface{}
+<span id="Statement.ReflectValue"></span>    ReflectValue         <a href="../../reflect/index.html">reflect</a>.<a href="../../reflect/index.html#Value">Value</a>
+<span id="Statement.Clauses"></span>    Clauses              map[<a href="../../builtin/index.html#string">string</a>]<a href="clause/index.html">clause</a>.<a href="clause/index.html#Clause">Clause</a>
+<span id="Statement.BuildClauses"></span>    BuildClauses         []<a href="../../builtin/index.html#string">string</a>
+<span id="Statement.Distinct"></span>    Distinct             <a href="../../builtin/index.html#bool">bool</a>
+<span id="Statement.Selects"></span>    Selects              []<a href="../../builtin/index.html#string">string</a> <span class="comment">// selected columns</span>
+<span id="Statement.Omits"></span>    Omits                []<a href="../../builtin/index.html#string">string</a> <span class="comment">// omit columns</span>
+<span id="Statement.Joins"></span>    Joins                []join
+<span id="Statement.Preloads"></span>    Preloads             map[<a href="../../builtin/index.html#string">string</a>][]interface{}
+<span id="Statement.Settings"></span>    Settings             <a href="../../sync/index.html">sync</a>.<a href="../../sync/index.html#Map">Map</a>
+<span id="Statement.ConnPool"></span>    ConnPool             <a href="index.html#ConnPool">ConnPool</a>
+<span id="Statement.Schema"></span>    Schema               *<a href="schema/index.html">schema</a>.<a href="schema/index.html#Schema">Schema</a>
+<span id="Statement.Context"></span>    Context              <a href="../../context/index.html">context</a>.<a href="../../context/index.html#Context">Context</a>
+<span id="Statement.RaiseErrorOnNotFound"></span>    RaiseErrorOnNotFound <a href="../../builtin/index.html#bool">bool</a>
+<span id="Statement.SkipHooks"></span>    SkipHooks            <a href="../../builtin/index.html#bool">bool</a>
+<span id="Statement.SQL"></span>    SQL                  <a href="../../strings/index.html">strings</a>.<a href="../../strings/index.html#Builder">Builder</a>
+<span id="Statement.Vars"></span>    Vars                 []interface{}
+<span id="Statement.CurDestIndex"></span>    CurDestIndex         <a href="../../builtin/index.html#int">int</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Statement.AddClause">func (*Statement) <a href="http://localhost:8080/src/gorm.io/gorm/statement.go?s=6208:6260#L245">AddClause</a>
+					<a class="permalink" href="index.html#Statement.AddClause">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stmt *<a href="index.html#Statement">Statement</a>) AddClause(v <a href="clause/index.html">clause</a>.<a href="clause/index.html#Interface">Interface</a>)</pre>
+				<p>AddClause add clause
+
+				
+				
+				
+			
+				
+				<h3 id="Statement.AddClauseIfNotExists">func (*Statement) <a href="http://localhost:8080/src/gorm.io/gorm/statement.go?s=6517:6580#L258">AddClauseIfNotExists</a>
+					<a class="permalink" href="index.html#Statement.AddClauseIfNotExists">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stmt *<a href="index.html#Statement">Statement</a>) AddClauseIfNotExists(v <a href="clause/index.html">clause</a>.<a href="clause/index.html#Interface">Interface</a>)</pre>
+				<p>AddClauseIfNotExists add clause if not exists
+
+				
+				
+				
+			
+				
+				<h3 id="Statement.AddVar">func (*Statement) <a href="http://localhost:8080/src/gorm.io/gorm/statement.go?s=3602:3674#L154">AddVar</a>
+					<a class="permalink" href="index.html#Statement.AddVar">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stmt *<a href="index.html#Statement">Statement</a>) AddVar(writer <a href="clause/index.html">clause</a>.<a href="clause/index.html#Writer">Writer</a>, vars ...interface{})</pre>
+				<p>AddVar add var
+
+				
+				
+				
+			
+				
+				<h3 id="Statement.Build">func (*Statement) <a href="http://localhost:8080/src/gorm.io/gorm/statement.go?s=12313:12360#L444">Build</a>
+					<a class="permalink" href="index.html#Statement.Build">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stmt *<a href="index.html#Statement">Statement</a>) Build(clauses ...<a href="../../builtin/index.html#string">string</a>)</pre>
+				<p>Build build sql with clauses names
+
+				
+				
+				
+			
+				
+				<h3 id="Statement.BuildCondition">func (*Statement) <a href="http://localhost:8080/src/gorm.io/gorm/statement.go?s=6709:6806#L265">BuildCondition</a>
+					<a class="permalink" href="index.html#Statement.BuildCondition">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stmt *<a href="index.html#Statement">Statement</a>) BuildCondition(query interface{}, args ...interface{}) []<a href="clause/index.html">clause</a>.<a href="clause/index.html#Expression">Expression</a></pre>
+				<p>BuildCondition build condition
+
+				
+				
+				
+			
+				
+				<h3 id="Statement.Changed">func (*Statement) <a href="http://localhost:8080/src/gorm.io/gorm/statement.go?s=16443:16496#L591">Changed</a>
+					<a class="permalink" href="index.html#Statement.Changed">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stmt *<a href="index.html#Statement">Statement</a>) Changed(fields ...<a href="../../builtin/index.html#string">string</a>) <a href="../../builtin/index.html#bool">bool</a></pre>
+				<p>Changed check model changed or not when updating
+
+				
+				
+				
+			
+				
+				<h3 id="Statement.Parse">func (*Statement) <a href="http://localhost:8080/src/gorm.io/gorm/statement.go?s=12660:12719#L463">Parse</a>
+					<a class="permalink" href="index.html#Statement.Parse">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stmt *<a href="index.html#Statement">Statement</a>) Parse(value interface{}) (err <a href="../../builtin/index.html#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Statement.ParseWithSpecialTableName">func (*Statement) <a href="http://localhost:8080/src/gorm.io/gorm/statement.go?s=12775:12879#L467">ParseWithSpecialTableName</a>
+					<a class="permalink" href="index.html#Statement.ParseWithSpecialTableName">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stmt *<a href="index.html#Statement">Statement</a>) ParseWithSpecialTableName(value interface{}, specialTableName <a href="../../builtin/index.html#string">string</a>) (err <a href="../../builtin/index.html#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Statement.Quote">func (*Statement) <a href="http://localhost:8080/src/gorm.io/gorm/statement.go?s=3439:3493#L147">Quote</a>
+					<a class="permalink" href="index.html#Statement.Quote">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stmt *<a href="index.html#Statement">Statement</a>) Quote(field interface{}) <a href="../../builtin/index.html#string">string</a></pre>
+				<p>Quote returns quoted value
+
+				
+				
+				
+			
+				
+				<h3 id="Statement.QuoteTo">func (*Statement) <a href="http://localhost:8080/src/gorm.io/gorm/statement.go?s=1757:1828#L68">QuoteTo</a>
+					<a class="permalink" href="index.html#Statement.QuoteTo">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stmt *<a href="index.html#Statement">Statement</a>) QuoteTo(writer <a href="clause/index.html">clause</a>.<a href="clause/index.html#Writer">Writer</a>, field interface{})</pre>
+				<p>QuoteTo write quoted value to writer
+
+				
+				
+				
+			
+				
+				<h3 id="Statement.SelectAndOmitColumns">func (*Statement) <a href="http://localhost:8080/src/gorm.io/gorm/statement.go?s=17987:18089#L646">SelectAndOmitColumns</a>
+					<a class="permalink" href="index.html#Statement.SelectAndOmitColumns">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stmt *<a href="index.html#Statement">Statement</a>) SelectAndOmitColumns(requireCreate, requireUpdate <a href="../../builtin/index.html#bool">bool</a>) (map[<a href="../../builtin/index.html#string">string</a>]<a href="../../builtin/index.html#bool">bool</a>, <a href="../../builtin/index.html#bool">bool</a>)</pre>
+				<p>SelectAndOmitColumns get select and omit columns, select -&gt; true, omit -&gt; false
+
+				
+				
+				
+			
+				
+				<h3 id="Statement.SetColumn">func (*Statement) <a href="http://localhost:8080/src/gorm.io/gorm/statement.go?s=14816:14903#L535">SetColumn</a>
+					<a class="permalink" href="index.html#Statement.SetColumn">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stmt *<a href="index.html#Statement">Statement</a>) SetColumn(name <a href="../../builtin/index.html#string">string</a>, value interface{}, fromCallbacks ...<a href="../../builtin/index.html#bool">bool</a>)</pre>
+				<p>SetColumn set column&apos;s value
+<pre>stmt.SetColumn(&quot;Name&quot;, &quot;jinzhu&quot;) // Hooks Method
+stmt.SetColumn(&quot;Name&quot;, &quot;jinzhu&quot;, true) // Callbacks Method
+</pre>
+
+				
+				
+				
+			
+				
+				<h3 id="Statement.WriteByte">func (*Statement) <a href="http://localhost:8080/src/gorm.io/gorm/statement.go?s=1510:1556#L58">WriteByte</a>
+					<a class="permalink" href="index.html#Statement.WriteByte">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stmt *<a href="index.html#Statement">Statement</a>) WriteByte(c <a href="../../builtin/index.html#byte">byte</a>) <a href="../../builtin/index.html#error">error</a></pre>
+				<p>WriteByte write byte
+
+				
+				
+				
+			
+				
+				<h3 id="Statement.WriteQuoted">func (*Statement) <a href="http://localhost:8080/src/gorm.io/gorm/statement.go?s=1626:1679#L63">WriteQuoted</a>
+					<a class="permalink" href="index.html#Statement.WriteQuoted">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stmt *<a href="index.html#Statement">Statement</a>) WriteQuoted(value interface{})</pre>
+				<p>WriteQuoted write quoted value
+
+				
+				
+				
+			
+				
+				<h3 id="Statement.WriteString">func (*Statement) <a href="http://localhost:8080/src/gorm.io/gorm/statement.go?s=1387:1446#L53">WriteString</a>
+					<a class="permalink" href="index.html#Statement.WriteString">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (stmt *<a href="index.html#Statement">Statement</a>) WriteString(str <a href="../../builtin/index.html#string">string</a>) (<a href="../../builtin/index.html#int">int</a>, <a href="../../builtin/index.html#error">error</a>)</pre>
+				<p>WriteString write string
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="StatementModifier">type <a href="http://localhost:8080/src/gorm.io/gorm/statement.go?s=1292:1357#L48">StatementModifier</a>
+				<a class="permalink" href="index.html#StatementModifier">&#xb6;</a>
+				
+				
+			</h2>
+			<p>StatementModifier statement modifier interface
+
+			<pre>type StatementModifier interface {
+    ModifyStatement(*<a href="index.html#Statement">Statement</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Stmt">type <a href="http://localhost:8080/src/gorm.io/gorm/prepare_stmt.go?s=61:156#L1">Stmt</a>
+				<a class="permalink" href="index.html#Stmt">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Stmt struct {
+    *<a href="../../database/sql/index.html">sql</a>.<a href="../../database/sql/index.html#Stmt">Stmt</a>
+<span id="Stmt.Transaction"></span>    Transaction <a href="../../builtin/index.html#bool">bool</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Tx">type <a href="http://localhost:8080/src/gorm.io/gorm/interfaces.go?s=1523:1627#L50">Tx</a>
+				<a class="permalink" href="index.html#Tx">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Tx sql.Tx interface
+
+			<pre>type Tx interface {
+    <a href="index.html#ConnPool">ConnPool</a>
+    <a href="index.html#TxCommitter">TxCommitter</a>
+    StmtContext(ctx <a href="../../context/index.html">context</a>.<a href="../../context/index.html#Context">Context</a>, stmt *<a href="../../database/sql/index.html">sql</a>.<a href="../../database/sql/index.html#Stmt">Stmt</a>) *<a href="../../database/sql/index.html">sql</a>.<a href="../../database/sql/index.html#Stmt">Stmt</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="TxBeginner">type <a href="http://localhost:8080/src/gorm.io/gorm/interfaces.go?s=1162:1259#L34">TxBeginner</a>
+				<a class="permalink" href="index.html#TxBeginner">&#xb6;</a>
+				
+				
+			</h2>
+			<p>TxBeginner tx beginner
+
+			<pre>type TxBeginner interface {
+    BeginTx(ctx <a href="../../context/index.html">context</a>.<a href="../../context/index.html#Context">Context</a>, opts *<a href="../../database/sql/index.html">sql</a>.<a href="../../database/sql/index.html#TxOptions">TxOptions</a>) (*<a href="../../database/sql/index.html">sql</a>.<a href="../../database/sql/index.html#Tx">Tx</a>, <a href="../../builtin/index.html#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="TxCommitter">type <a href="http://localhost:8080/src/gorm.io/gorm/interfaces.go?s=1434:1498#L44">TxCommitter</a>
+				<a class="permalink" href="index.html#TxCommitter">&#xb6;</a>
+				
+				
+			</h2>
+			<p>TxCommitter tx committer
+
+			<pre>type TxCommitter interface {
+    Commit() <a href="../../builtin/index.html#error">error</a>
+    Rollback() <a href="../../builtin/index.html#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Valuer">type <a href="http://localhost:8080/src/gorm.io/gorm/interfaces.go?s=1661:1731#L57">Valuer</a>
+				<a class="permalink" href="index.html#Valuer">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Valuer gorm valuer interface
+
+			<pre>type Valuer interface {
+    GormValue(<a href="../../context/index.html">context</a>.<a href="../../context/index.html#Context">Context</a>, *<a href="index.html#DB">DB</a>) <a href="clause/index.html">clause</a>.<a href="clause/index.html#Expr">Expr</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ViewOption">type <a href="http://localhost:8080/src/gorm.io/gorm/migrator.go?s=591:672#L22">ViewOption</a>
+				<a class="permalink" href="index.html#ViewOption">&#xb6;</a>
+				
+				
+			</h2>
+			<p>ViewOption view option
+
+			<pre>type ViewOption struct {
+<span id="ViewOption.Replace"></span>    Replace     <a href="../../builtin/index.html#bool">bool</a>
+<span id="ViewOption.CheckOption"></span>    CheckOption <a href="../../builtin/index.html#string">string</a>
+<span id="ViewOption.Query"></span>    Query       *<a href="index.html#DB">DB</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+	
+	
+		<h2 id="pkg-subdirectories">Subdirectories</h2>
+	
+	<div class="pkg-dir">
+		<table>
+			<tr>
+				<th class="pkg-name">Name</th>
+				<th class="pkg-synopsis">Synopsis</th>
+			</tr>
+
+			
+			<tr>
+				<td colspan="2"><a href="http://localhost:8080/pkg/gorm.io/">..</a></td>
+			</tr>
+			
+
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="callbacks/index.html">callbacks</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="clause/index.html">clause</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="logger/index.html">logger</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="migrator/index.html">migrator</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="schema/index.html">schema</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="utils/index.html">utils</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="utils/tests/index.html">tests</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+		</table>
+	</div>
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="http://localhost:8080/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

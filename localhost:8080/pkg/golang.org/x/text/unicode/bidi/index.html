@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>bidi - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="../../../../../../lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="../../../../../../lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="../../../../../../lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="../../../../../index.html">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="../../../../../index.html">GoDoc</a></div>
+<a href="index.html#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="http://localhost:8080/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package bidi
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "golang.org/x/text/unicode/bidi"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="index.html#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="index.html#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>Package bidi contains functionality for bidirectional text support.
+<p>See <a href="https://www.unicode.org/reports/tr9">https://www.unicode.org/reports/tr9</a>.
+<p>NOTE: UNDER CONSTRUCTION. This API may change in backwards incompatible ways
+and without notice.
+
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+				<dd><a href="index.html#pkg-constants">Constants</a></dd>
+			
+			
+			
+				
+				<dd><a href="index.html#AppendReverse">func AppendReverse(out, in []byte) []byte</a></dd>
+			
+				
+				<dd><a href="index.html#ReverseString">func ReverseString(s string) string</a></dd>
+			
+			
+				
+				<dd><a href="index.html#Class">type Class</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Direction">type Direction</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Option">type Option</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#DefaultDirection">func DefaultDirection(d Direction) Option</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Ordering">type Ordering</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Ordering.Direction">func (o *Ordering) Direction() Direction</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Ordering.NumRuns">func (o *Ordering) NumRuns() int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Ordering.Run">func (o *Ordering) Run(i int) Run</a></dd>
+				
+			
+				
+				<dd><a href="index.html#Paragraph">type Paragraph</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Paragraph.Direction">func (p *Paragraph) Direction() Direction</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Paragraph.IsLeftToRight">func (p *Paragraph) IsLeftToRight() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Paragraph.Line">func (p *Paragraph) Line(start, end int) (Ordering, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Paragraph.Order">func (p *Paragraph) Order() (Ordering, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Paragraph.RunAt">func (p *Paragraph) RunAt(pos int) Run</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Paragraph.SetBytes">func (p *Paragraph) SetBytes(b []byte, opts ...Option) (n int, err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Paragraph.SetString">func (p *Paragraph) SetString(s string, opts ...Option) (n int, err error)</a></dd>
+				
+			
+				
+				<dd><a href="index.html#Properties">type Properties</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Lookup">func Lookup(s []byte) (p Properties, sz int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#LookupRune">func LookupRune(r rune) (p Properties, size int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#LookupString">func LookupString(s string) (p Properties, sz int)</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Properties.Class">func (p Properties) Class() Class</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Properties.IsBracket">func (p Properties) IsBracket() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Properties.IsOpeningBracket">func (p Properties) IsOpeningBracket() bool</a></dd>
+				
+			
+				
+				<dd><a href="index.html#Run">type Run</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Run.Bytes">func (r *Run) Bytes() []byte</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Run.Direction">func (r *Run) Direction() Direction</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Run.Pos">func (r *Run) Pos() (start, end int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Run.String">func (r *Run) String() string</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/bidi.go">bidi.go</a>
+			
+				<a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/bracket.go">bracket.go</a>
+			
+				<a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/core.go">core.go</a>
+			
+				<a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/prop.go">prop.go</a>
+			
+				<a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/tables13.0.0.go">tables13.0.0.go</a>
+			
+				<a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/trieval.go">trieval.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+			<h2 id="pkg-constants">Constants</h2>
+			
+				<p>UnicodeVersion is the Unicode version from which the tables in this package are derived.
+
+				<pre>const <span id="UnicodeVersion">UnicodeVersion</span> = &#34;13.0.0&#34;</pre>
+			
+		
+		
+		
+			
+			
+			<h2 id="AppendReverse">func <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/bidi.go?s=9682:9723#L313">AppendReverse</a>
+				<a class="permalink" href="index.html#AppendReverse">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func AppendReverse(out, in []<a href="../../../../../builtin/index.html#byte">byte</a>) []<a href="../../../../../builtin/index.html#byte">byte</a></pre>
+			<p>AppendReverse reverses the order of characters of in, appends them to out,
+and returns the result. Modifiers will still follow the runes they modify.
+Brackets are replaced with their counterparts.
+
+			
+			
+
+		
+			
+			
+			<h2 id="ReverseString">func <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/bidi.go?s=10287:10322#L336">ReverseString</a>
+				<a class="permalink" href="index.html#ReverseString">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ReverseString(s <a href="../../../../../builtin/index.html#string">string</a>) <a href="../../../../../builtin/index.html#string">string</a></pre>
+			<p>ReverseString reverses the order of characters in s and returns a new string.
+Modifiers will still follow the runes they modify. Brackets are replaced with
+their counterparts.
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Class">type <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/trieval.go?s=159:174#L1">Class</a>
+				<a class="permalink" href="index.html#Class">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Class is the Unicode BiDi class. Each rune has a single class.
+
+			<pre>type Class <a href="../../../../../builtin/index.html#uint">uint</a></pre>
+
+			
+				
+				<pre>const (
+    <span id="L">L</span>       <a href="index.html#Class">Class</a> = <a href="../../../../../builtin/index.html#iota">iota</a> <span class="comment">// LeftToRight</span>
+    <span id="R">R</span>                    <span class="comment">// RightToLeft</span>
+    <span id="EN">EN</span>                   <span class="comment">// EuropeanNumber</span>
+    <span id="ES">ES</span>                   <span class="comment">// EuropeanSeparator</span>
+    <span id="ET">ET</span>                   <span class="comment">// EuropeanTerminator</span>
+    <span id="AN">AN</span>                   <span class="comment">// ArabicNumber</span>
+    <span id="CS">CS</span>                   <span class="comment">// CommonSeparator</span>
+    <span id="B">B</span>                    <span class="comment">// ParagraphSeparator</span>
+    <span id="S">S</span>                    <span class="comment">// SegmentSeparator</span>
+    <span id="WS">WS</span>                   <span class="comment">// WhiteSpace</span>
+    <span id="ON">ON</span>                   <span class="comment">// OtherNeutral</span>
+    <span id="BN">BN</span>                   <span class="comment">// BoundaryNeutral</span>
+    <span id="NSM">NSM</span>                  <span class="comment">// NonspacingMark</span>
+    <span id="AL">AL</span>                   <span class="comment">// ArabicLetter</span>
+    <span id="Control">Control</span>              <span class="comment">// Control LRO - PDI</span>
+
+    <span id="LRO">LRO</span> <span class="comment">// LeftToRightOverride</span>
+    <span id="RLO">RLO</span> <span class="comment">// RightToLeftOverride</span>
+    <span id="LRE">LRE</span> <span class="comment">// LeftToRightEmbedding</span>
+    <span id="RLE">RLE</span> <span class="comment">// RightToLeftEmbedding</span>
+    <span id="PDF">PDF</span> <span class="comment">// PopDirectionalFormat</span>
+    <span id="LRI">LRI</span> <span class="comment">// LeftToRightIsolate</span>
+    <span id="RLI">RLI</span> <span class="comment">// RightToLeftIsolate</span>
+    <span id="FSI">FSI</span> <span class="comment">// FirstStrongIsolate</span>
+    <span id="PDI">PDI</span> <span class="comment">// PopDirectionalIsolate</span>
+
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Direction">type <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/bidi.go?s=931:949#L19">Direction</a>
+				<a class="permalink" href="index.html#Direction">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A Direction indicates the overall flow of text.
+
+			<pre>type Direction <a href="../../../../../builtin/index.html#int">int</a></pre>
+
+			
+				
+				<pre>const (
+    <span class="comment">// LeftToRight indicates the text contains no right-to-left characters and</span>
+    <span class="comment">// that either there are some left-to-right characters or the option</span>
+    <span class="comment">// DefaultDirection(LeftToRight) was passed.</span>
+    <span id="LeftToRight">LeftToRight</span> <a href="index.html#Direction">Direction</a> = <a href="../../../../../builtin/index.html#iota">iota</a>
+
+    <span class="comment">// RightToLeft indicates the text contains no left-to-right characters and</span>
+    <span class="comment">// that either there are some right-to-left characters or the option</span>
+    <span class="comment">// DefaultDirection(RightToLeft) was passed.</span>
+    <span id="RightToLeft">RightToLeft</span>
+
+    <span class="comment">// Mixed indicates text contains both left-to-right and right-to-left</span>
+    <span class="comment">// characters.</span>
+    <span id="Mixed">Mixed</span>
+
+    <span class="comment">// Neutral means that text contains no left-to-right and right-to-left</span>
+    <span class="comment">// characters and that no default direction has been set.</span>
+    <span id="Neutral">Neutral</span>
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Option">type <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/bidi.go?s=1726:1752#L46">Option</a>
+				<a class="permalink" href="index.html#Option">&#xb6;</a>
+				
+				
+			</h2>
+			<p>An Option is an option for Bidi processing.
+
+			<pre>type Option func(*options)</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="DefaultDirection">func <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/bidi.go?s=2383:2424#L59">DefaultDirection</a>
+					<a class="permalink" href="index.html#DefaultDirection">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func DefaultDirection(d <a href="index.html#Direction">Direction</a>) <a href="index.html#Option">Option</a></pre>
+				<p>DefaultDirection sets the default direction for a Paragraph. The direction is
+overridden if the text contains directional characters.
+
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="Ordering">type <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/bidi.go?s=7856:7943#L242">Ordering</a>
+				<a class="permalink" href="index.html#Ordering">&#xb6;</a>
+				
+				
+			</h2>
+			<p>An Ordering holds the computed visual order of runs of a Paragraph. Calling
+SetBytes or SetString on the originating Paragraph invalidates an Ordering.
+The methods of an Ordering should only be called by one goroutine at a time.
+
+			<pre>type Ordering struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Ordering.Direction">func (*Ordering) <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/bidi.go?s=8070:8110#L251">Direction</a>
+					<a class="permalink" href="index.html#Ordering.Direction">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (o *<a href="index.html#Ordering">Ordering</a>) Direction() <a href="index.html#Direction">Direction</a></pre>
+				<p>Direction reports the directionality of the runs.
+<p>The direction may be LeftToRight, RightToLeft, Mixed, or Neutral.
+
+				
+				
+				
+			
+				
+				<h3 id="Ordering.NumRuns">func (*Ordering) <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/bidi.go?s=8179:8211#L256">NumRuns</a>
+					<a class="permalink" href="index.html#Ordering.NumRuns">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (o *<a href="index.html#Ordering">Ordering</a>) NumRuns() <a href="../../../../../builtin/index.html#int">int</a></pre>
+				<p>NumRuns returns the number of runs.
+
+				
+				
+				
+			
+				
+				<h3 id="Ordering.Run">func (*Ordering) <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/bidi.go?s=8286:8319#L261">Run</a>
+					<a class="permalink" href="index.html#Ordering.Run">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (o *<a href="index.html#Ordering">Ordering</a>) Run(i <a href="../../../../../builtin/index.html#int">int</a>) <a href="index.html#Run">Run</a></pre>
+				<p>Run returns the ith run within the ordering.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Paragraph">type <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/bidi.go?s=2552:2742#L66">Paragraph</a>
+				<a class="permalink" href="index.html#Paragraph">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A Paragraph holds a single Paragraph for Bidi processing.
+
+			<pre>type Paragraph struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Paragraph.Direction">func (*Paragraph) <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/bidi.go?s=5462:5503#L150">Direction</a>
+					<a class="permalink" href="index.html#Paragraph.Direction">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p *<a href="index.html#Paragraph">Paragraph</a>) Direction() <a href="index.html#Direction">Direction</a></pre>
+				<p>Direction returns the direction of the text of this paragraph.
+<p>The direction may be LeftToRight, RightToLeft, Mixed, or Neutral.
+
+				
+				
+				
+			
+				
+				<h3 id="Paragraph.IsLeftToRight">func (*Paragraph) <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/bidi.go?s=5241:5281#L143">IsLeftToRight</a>
+					<a class="permalink" href="index.html#Paragraph.IsLeftToRight">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p *<a href="index.html#Paragraph">Paragraph</a>) IsLeftToRight() <a href="../../../../../builtin/index.html#bool">bool</a></pre>
+				<p>IsLeftToRight reports whether the principle direction of rendering for this
+paragraphs is left-to-right. If this returns false, the principle direction
+of rendering is right-to-left.
+
+				
+				
+				
+			
+				
+				<h3 id="Paragraph.Line">func (*Paragraph) <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/bidi.go?s=7269:7327#L228">Line</a>
+					<a class="permalink" href="index.html#Paragraph.Line">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p *<a href="index.html#Paragraph">Paragraph</a>) Line(start, end <a href="../../../../../builtin/index.html#int">int</a>) (<a href="index.html#Ordering">Ordering</a>, <a href="../../../../../builtin/index.html#error">error</a>)</pre>
+				<p>Line computes the visual ordering of runs for a single line starting and
+ending at the given positions in the original text.
+
+				
+				
+				
+			
+				
+				<h3 id="Paragraph.Order">func (*Paragraph) <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/bidi.go?s=6685:6730#L203">Order</a>
+					<a class="permalink" href="index.html#Paragraph.Order">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p *<a href="index.html#Paragraph">Paragraph</a>) Order() (<a href="index.html#Ordering">Ordering</a>, <a href="../../../../../builtin/index.html#error">error</a>)</pre>
+				<p>Order computes the visual ordering of all the runs in a Paragraph.
+
+				
+				
+				
+			
+				
+				<h3 id="Paragraph.RunAt">func (*Paragraph) <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/bidi.go?s=5755:5793#L159">RunAt</a>
+					<a class="permalink" href="index.html#Paragraph.RunAt">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p *<a href="index.html#Paragraph">Paragraph</a>) RunAt(pos <a href="../../../../../builtin/index.html#int">int</a>) <a href="index.html#Run">Run</a></pre>
+				<p>RunAt reports the Run at the given position of the input text.
+<p>This method can be used for computing line breaks on paragraphs.
+
+				
+				
+				
+			
+				
+				<h3 id="Paragraph.SetBytes">func (*Paragraph) <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/bidi.go?s=4465:4538#L123">SetBytes</a>
+					<a class="permalink" href="index.html#Paragraph.SetBytes">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p *<a href="index.html#Paragraph">Paragraph</a>) SetBytes(b []<a href="../../../../../builtin/index.html#byte">byte</a>, opts ...<a href="index.html#Option">Option</a>) (n <a href="../../../../../builtin/index.html#int">int</a>, err <a href="../../../../../builtin/index.html#error">error</a>)</pre>
+				<p>SetBytes configures p for the given paragraph text. It replaces text
+previously set by SetBytes or SetString. If b contains a paragraph separator
+it will only process the first paragraph and report the number of bytes
+consumed from b including this separator. Error may be non-nil if options are
+given.
+
+				
+				
+				
+			
+				
+				<h3 id="Paragraph.SetString">func (*Paragraph) <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/bidi.go?s=4912:4986#L134">SetString</a>
+					<a class="permalink" href="index.html#Paragraph.SetString">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p *<a href="index.html#Paragraph">Paragraph</a>) SetString(s <a href="../../../../../builtin/index.html#string">string</a>, opts ...<a href="index.html#Option">Option</a>) (n <a href="../../../../../builtin/index.html#int">int</a>, err <a href="../../../../../builtin/index.html#error">error</a>)</pre>
+				<p>SetString configures s for the given paragraph text. It replaces text
+previously set by SetBytes or SetString. If s contains a paragraph separator
+it will only process the first paragraph and report the number of bytes
+consumed from s including this separator. Error may be non-nil if options are
+given.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Properties">type <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/prop.go?s=256:308#L1">Properties</a>
+				<a class="permalink" href="index.html#Properties">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Properties provides access to BiDi properties of runes.
+
+			<pre>type Properties struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="Lookup">func <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/prop.go?s=3001:3045#L75">Lookup</a>
+					<a class="permalink" href="index.html#Lookup">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func Lookup(s []<a href="../../../../../builtin/index.html#byte">byte</a>) (p <a href="index.html#Properties">Properties</a>, sz <a href="../../../../../builtin/index.html#int">int</a>)</pre>
+				<p>Lookup returns properties for the first rune in s and the width in bytes of
+its encoding. The size will be 0 if s does not hold enough bytes to complete
+the encoding.
+
+				
+				
+			
+				
+				<h3 id="LookupRune">func <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/prop.go?s=1806:1854#L51">LookupRune</a>
+					<a class="permalink" href="index.html#LookupRune">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func LookupRune(r <a href="../../../../../builtin/index.html#rune">rune</a>) (p <a href="index.html#Properties">Properties</a>, size <a href="../../../../../builtin/index.html#int">int</a>)</pre>
+				<p>LookupRune returns properties for r.
+
+				
+				
+			
+				
+				<h3 id="LookupString">func <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/prop.go?s=4520:4570#L138">LookupString</a>
+					<a class="permalink" href="index.html#LookupString">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func LookupString(s <a href="../../../../../builtin/index.html#string">string</a>) (p <a href="index.html#Properties">Properties</a>, sz <a href="../../../../../builtin/index.html#int">int</a>)</pre>
+				<p>LookupString returns properties for the first rune in s and the width in
+bytes of its encoding. The size will be 0 if s does not hold enough bytes to
+complete the encoding.
+
+				
+				
+			
+
+			
+				
+				<h3 id="Properties.Class">func (Properties) <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/prop.go?s=779:812#L18">Class</a>
+					<a class="permalink" href="index.html#Properties.Class">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p <a href="index.html#Properties">Properties</a>) Class() <a href="index.html#Class">Class</a></pre>
+				<p>Class returns the Bidi class for p.
+
+				
+				
+				
+			
+				
+				<h3 id="Properties.IsBracket">func (Properties) <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/prop.go?s=967:1003#L27">IsBracket</a>
+					<a class="permalink" href="index.html#Properties.IsBracket">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p <a href="index.html#Properties">Properties</a>) IsBracket() <a href="../../../../../builtin/index.html#bool">bool</a></pre>
+				<p>IsBracket reports whether the rune is a bracket.
+
+				
+				
+				
+			
+				
+				<h3 id="Properties.IsOpeningBracket">func (Properties) <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/prop.go?s=1133:1176#L31">IsOpeningBracket</a>
+					<a class="permalink" href="index.html#Properties.IsOpeningBracket">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p <a href="index.html#Properties">Properties</a>) IsOpeningBracket() <a href="../../../../../builtin/index.html#bool">bool</a></pre>
+				<p>IsOpeningBracket reports whether the rune is an opening bracket.
+IsBracket must return true.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Run">type <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/bidi.go?s=8742:8815#L278">Run</a>
+				<a class="permalink" href="index.html#Run">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A Run is a continuous sequence of characters of a single direction.
+
+			<pre>type Run struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Run.Bytes">func (*Run) <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/bidi.go?s=8997:9025#L290">Bytes</a>
+					<a class="permalink" href="index.html#Run.Bytes">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="index.html#Run">Run</a>) Bytes() []<a href="../../../../../builtin/index.html#byte">byte</a></pre>
+				<p>Bytes returns the text of the run in its original order.
+
+				
+				
+				
+			
+				
+				<h3 id="Run.Direction">func (*Run) <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/bidi.go?s=9197:9232#L300">Direction</a>
+					<a class="permalink" href="index.html#Run.Direction">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="index.html#Run">Run</a>) Direction() <a href="index.html#Direction">Direction</a></pre>
+				<p>Direction reports the direction of the run.
+
+				
+				
+				
+			
+				
+				<h3 id="Run.Pos">func (*Run) <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/bidi.go?s=9384:9420#L306">Pos</a>
+					<a class="permalink" href="index.html#Run.Pos">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="index.html#Run">Run</a>) Pos() (start, end <a href="../../../../../builtin/index.html#int">int</a>)</pre>
+				<p>Pos returns the position of the Run within the text passed to SetBytes or SetString of the
+originating Paragraph value.
+
+				
+				
+				
+			
+				
+				<h3 id="Run.String">func (*Run) <a href="http://localhost:8080/src/golang.org/x/text/unicode/bidi/bidi.go?s=8878:8907#L285">String</a>
+					<a class="permalink" href="index.html#Run.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="index.html#Run">Run</a>) String() <a href="../../../../../builtin/index.html#string">string</a></pre>
+				<p>String returns the text of the run in its original order.
+
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="http://localhost:8080/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

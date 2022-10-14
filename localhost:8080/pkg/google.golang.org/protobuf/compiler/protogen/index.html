@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>protogen - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="../../../../../lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="../../../../../lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="../../../../../lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="../../../../index.html">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="../../../../index.html">GoDoc</a></div>
+<a href="index.html#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="http://localhost:8080/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package protogen
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "google.golang.org/protobuf/compiler/protogen"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="index.html#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="index.html#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>Package protogen provides support for writing protoc plugins.
+<p>Plugins for protoc, the Protocol Buffer compiler,
+are programs which read a CodeGeneratorRequest message from standard input
+and write a CodeGeneratorResponse message to standard output.
+This package provides support for writing plugins which generate Go code.
+
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+			
+				
+				<dd><a href="index.html#CommentSet">type CommentSet</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Comments">type Comments</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Comments.String">func (c Comments) String() string</a></dd>
+				
+			
+				
+				<dd><a href="index.html#Enum">type Enum</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#EnumValue">type EnumValue</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Extension">type Extension</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Field">type Field</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#File">type File</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#GeneratedFile">type GeneratedFile</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#GeneratedFile.Annotate">func (g *GeneratedFile) Annotate(symbol string, loc Location)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#GeneratedFile.Content">func (g *GeneratedFile) Content() ([]byte, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#GeneratedFile.Import">func (g *GeneratedFile) Import(importPath GoImportPath)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#GeneratedFile.P">func (g *GeneratedFile) P(v ...interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#GeneratedFile.QualifiedGoIdent">func (g *GeneratedFile) QualifiedGoIdent(ident GoIdent) string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#GeneratedFile.Skip">func (g *GeneratedFile) Skip()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#GeneratedFile.Unskip">func (g *GeneratedFile) Unskip()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#GeneratedFile.Write">func (g *GeneratedFile) Write(p []byte) (n int, err error)</a></dd>
+				
+			
+				
+				<dd><a href="index.html#GoIdent">type GoIdent</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#GoIdent.String">func (id GoIdent) String() string</a></dd>
+				
+			
+				
+				<dd><a href="index.html#GoImportPath">type GoImportPath</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#GoImportPath.Ident">func (p GoImportPath) Ident(s string) GoIdent</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#GoImportPath.String">func (p GoImportPath) String() string</a></dd>
+				
+			
+				
+				<dd><a href="index.html#GoPackageName">type GoPackageName</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Location">type Location</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Message">type Message</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Method">type Method</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Oneof">type Oneof</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Options">type Options</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Options.New">func (opts Options) New(req *pluginpb.CodeGeneratorRequest) (*Plugin, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Options.Run">func (opts Options) Run(f func(*Plugin) error)</a></dd>
+				
+			
+				
+				<dd><a href="index.html#Plugin">type Plugin</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Plugin.Error">func (gen *Plugin) Error(err error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Plugin.NewGeneratedFile">func (gen *Plugin) NewGeneratedFile(filename string, goImportPath GoImportPath) *GeneratedFile</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Plugin.Response">func (gen *Plugin) Response() *pluginpb.CodeGeneratorResponse</a></dd>
+				
+			
+				
+				<dd><a href="index.html#Service">type Service</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go">protogen.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+		
+			
+			
+			<h2 id="CommentSet">type <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=39702:39808#L1216">CommentSet</a>
+				<a class="permalink" href="index.html#CommentSet">&#xb6;</a>
+				
+				
+			</h2>
+			<p>CommentSet is a set of leading and trailing comments associated
+with a .proto descriptor declaration.
+
+			<pre>type CommentSet struct {
+<span id="CommentSet.LeadingDetached"></span>    LeadingDetached []<a href="index.html#Comments">Comments</a>
+<span id="CommentSet.Leading"></span>    Leading         <a href="index.html#Comments">Comments</a>
+<span id="CommentSet.Trailing"></span>    Trailing        <a href="index.html#Comments">Comments</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Comments">type <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=40236:40256#L1235">Comments</a>
+				<a class="permalink" href="index.html#Comments">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Comments is a comments string as provided by protoc.
+
+			<pre>type Comments <a href="../../../../builtin/index.html#string">string</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Comments.String">func (Comments) <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=40431:40464#L1240">String</a>
+					<a class="permalink" href="index.html#Comments.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c <a href="index.html#Comments">Comments</a>) String() <a href="../../../../builtin/index.html#string">string</a></pre>
+				<p>String formats the comments by inserting // to the start of each line,
+ensuring that there is a trailing newline.
+An empty comment is formatted as an empty string.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Enum">type <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=15985:16245#L474">Enum</a>
+				<a class="permalink" href="index.html#Enum">&#xb6;</a>
+				
+				
+			</h2>
+			<p>An Enum describes an enum.
+
+			<pre>type Enum struct {
+<span id="Enum.Desc"></span>    Desc <a href="../../reflect/protoreflect/index.html">protoreflect</a>.<a href="../../reflect/protoreflect/index.html#EnumDescriptor">EnumDescriptor</a>
+
+<span id="Enum.GoIdent"></span>    GoIdent <a href="index.html#GoIdent">GoIdent</a> <span class="comment">// name of the generated Go type</span>
+
+<span id="Enum.Values"></span>    Values []*<a href="index.html#EnumValue">EnumValue</a> <span class="comment">// enum value declarations</span>
+
+<span id="Enum.Location"></span>    Location <a href="index.html#Location">Location</a>   <span class="comment">// location of this enum</span>
+<span id="Enum.Comments"></span>    Comments <a href="index.html#CommentSet">CommentSet</a> <span class="comment">// comments associated with this enum</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="EnumValue">type <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=16983:17278#L506">EnumValue</a>
+				<a class="permalink" href="index.html#EnumValue">&#xb6;</a>
+				
+				
+			</h2>
+			<p>An EnumValue describes an enum value.
+
+			<pre>type EnumValue struct {
+<span id="EnumValue.Desc"></span>    Desc <a href="../../reflect/protoreflect/index.html">protoreflect</a>.<a href="../../reflect/protoreflect/index.html#EnumValueDescriptor">EnumValueDescriptor</a>
+
+<span id="EnumValue.GoIdent"></span>    GoIdent <a href="index.html#GoIdent">GoIdent</a> <span class="comment">// name of the generated Go declaration</span>
+
+<span id="EnumValue.Parent"></span>    Parent *<a href="index.html#Enum">Enum</a> <span class="comment">// enum in which this value is declared</span>
+
+<span id="EnumValue.Location"></span>    Location <a href="index.html#Location">Location</a>   <span class="comment">// location of this enum value</span>
+<span id="EnumValue.Comments"></span>    Comments <a href="index.html#CommentSet">CommentSet</a> <span class="comment">// comments associated with this enum value</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Extension">type <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=27240:27262#L807">Extension</a>
+				<a class="permalink" href="index.html#Extension">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Extension is an alias of Field for documentation.
+
+			<pre>type Extension = <a href="index.html#Field">Field</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Field">type <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=23099:24160#L686">Field</a>
+				<a class="permalink" href="index.html#Field">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A Field describes a message field.
+
+			<pre>type Field struct {
+<span id="Field.Desc"></span>    Desc <a href="../../reflect/protoreflect/index.html">protoreflect</a>.<a href="../../reflect/protoreflect/index.html#FieldDescriptor">FieldDescriptor</a>
+
+<span id="Field.GoName"></span>    <span class="comment">// GoName is the base name of this field&#39;s Go field and methods.</span>
+    <span class="comment">// For code generated by protoc-gen-go, this means a field named</span>
+    <span class="comment">// &#39;{{GoName}}&#39; and a getter method named &#39;Get{{GoName}}&#39;.</span>
+    GoName <a href="../../../../builtin/index.html#string">string</a> <span class="comment">// e.g., &#34;FieldName&#34;</span>
+
+<span id="Field.GoIdent"></span>    <span class="comment">// GoIdent is the base name of a top-level declaration for this field.</span>
+    <span class="comment">// For code generated by protoc-gen-go, this means a wrapper type named</span>
+    <span class="comment">// &#39;{{GoIdent}}&#39; for members fields of a oneof, and a variable named</span>
+    <span class="comment">// &#39;E_{{GoIdent}}&#39; for extension fields.</span>
+    GoIdent <a href="index.html#GoIdent">GoIdent</a> <span class="comment">// e.g., &#34;MessageName_FieldName&#34;</span>
+
+<span id="Field.Parent"></span>    Parent   *<a href="index.html#Message">Message</a> <span class="comment">// message in which this field is declared; nil if top-level extension</span>
+<span id="Field.Oneof"></span>    Oneof    *<a href="index.html#Oneof">Oneof</a>   <span class="comment">// containing oneof; nil if not part of a oneof</span>
+<span id="Field.Extendee"></span>    Extendee *<a href="index.html#Message">Message</a> <span class="comment">// extended message for extension fields; nil otherwise</span>
+
+<span id="Field.Enum"></span>    Enum    *<a href="index.html#Enum">Enum</a>    <span class="comment">// type for enum fields; nil otherwise</span>
+<span id="Field.Message"></span>    Message *<a href="index.html#Message">Message</a> <span class="comment">// type for message or group fields; nil otherwise</span>
+
+<span id="Field.Location"></span>    Location <a href="index.html#Location">Location</a>   <span class="comment">// location of this field</span>
+<span id="Field.Comments"></span>    Comments <a href="index.html#CommentSet">CommentSet</a> <span class="comment">// comments associated with this field</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="File">type <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=12461:13413#L372">File</a>
+				<a class="permalink" href="index.html#File">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A File describes a .proto source file.
+
+			<pre>type File struct {
+<span id="File.Desc"></span>    Desc  <a href="../../reflect/protoreflect/index.html">protoreflect</a>.<a href="../../reflect/protoreflect/index.html#FileDescriptor">FileDescriptor</a>
+<span id="File.Proto"></span>    Proto *<a href="../../types/descriptorpb/index.html">descriptorpb</a>.<a href="../../types/descriptorpb/index.html#FileDescriptorProto">FileDescriptorProto</a>
+
+<span id="File.GoDescriptorIdent"></span>    GoDescriptorIdent <a href="index.html#GoIdent">GoIdent</a>       <span class="comment">// name of Go variable for the file descriptor</span>
+<span id="File.GoPackageName"></span>    GoPackageName     <a href="index.html#GoPackageName">GoPackageName</a> <span class="comment">// name of this file&#39;s Go package</span>
+<span id="File.GoImportPath"></span>    GoImportPath      <a href="index.html#GoImportPath">GoImportPath</a>  <span class="comment">// import path of this file&#39;s Go package</span>
+
+<span id="File.Enums"></span>    Enums      []*<a href="index.html#Enum">Enum</a>      <span class="comment">// top-level enum declarations</span>
+<span id="File.Messages"></span>    Messages   []*<a href="index.html#Message">Message</a>   <span class="comment">// top-level message declarations</span>
+<span id="File.Extensions"></span>    Extensions []*<a href="index.html#Extension">Extension</a> <span class="comment">// top-level extension declarations</span>
+<span id="File.Services"></span>    Services   []*<a href="index.html#Service">Service</a>   <span class="comment">// top-level service declarations</span>
+
+<span id="File.Generate"></span>    Generate <a href="../../../../builtin/index.html#bool">bool</a> <span class="comment">// true if we should generate code for this file</span>
+
+<span id="File.GeneratedFilenamePrefix"></span>    <span class="comment">// GeneratedFilenamePrefix is used to construct filenames for generated</span>
+    <span class="comment">// files associated with this source file.</span>
+    <span class="comment">//</span>
+    <span class="comment">// For example, the source file &#34;dir/foo.proto&#34; might have a filename prefix</span>
+    <span class="comment">// of &#34;dir/foo&#34;. Appending &#34;.pb.go&#34; produces an output file of &#34;dir/foo.pb.go&#34;.</span>
+    GeneratedFilenamePrefix <a href="../../../../builtin/index.html#string">string</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="GeneratedFile">type <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=29341:29676#L883">GeneratedFile</a>
+				<a class="permalink" href="index.html#GeneratedFile">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A GeneratedFile is a generated file.
+
+			<pre>type GeneratedFile struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="GeneratedFile.Annotate">func (*GeneratedFile) <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=32688:32749#L984">Annotate</a>
+					<a class="permalink" href="index.html#GeneratedFile.Annotate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (g *<a href="index.html#GeneratedFile">GeneratedFile</a>) Annotate(symbol <a href="../../../../builtin/index.html#string">string</a>, loc <a href="index.html#Location">Location</a>)</pre>
+				<p>Annotate associates a symbol in a generated Go file with a location in a
+source .proto file.
+<p>The symbol may refer to a type, constant, variable, function, method, or
+struct field.  The &quot;T.sel&quot; syntax is used to identify the method or field
+&apos;sel&apos; on type &apos;T&apos;.
+
+				
+				
+				
+			
+				
+				<h3 id="GeneratedFile.Content">func (*GeneratedFile) <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=32870:32919#L989">Content</a>
+					<a class="permalink" href="index.html#GeneratedFile.Content">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (g *<a href="index.html#GeneratedFile">GeneratedFile</a>) Content() ([]<a href="../../../../builtin/index.html#byte">byte</a>, <a href="../../../../builtin/index.html#error">error</a>)</pre>
+				<p>Content returns the contents of the generated file.
+
+				
+				
+				
+			
+				
+				<h3 id="GeneratedFile.Import">func (*GeneratedFile) <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=31932:31987#L958">Import</a>
+					<a class="permalink" href="index.html#GeneratedFile.Import">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (g *<a href="index.html#GeneratedFile">GeneratedFile</a>) Import(importPath <a href="index.html#GoImportPath">GoImportPath</a>)</pre>
+				<p>Import ensures a package is imported by the generated file.
+<p>Packages referenced by QualifiedGoIdent are automatically imported.
+Explicitly importing a package with Import is generally only necessary
+when the import will be blank (import _ &quot;package&quot;).
+
+				
+				
+				
+			
+				
+				<h3 id="GeneratedFile.P">func (*GeneratedFile) <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=30564:30607#L920">P</a>
+					<a class="permalink" href="index.html#GeneratedFile.P">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (g *<a href="index.html#GeneratedFile">GeneratedFile</a>) P(v ...interface{})</pre>
+				<p>P prints a line to the generated output. It converts each parameter to a
+string following the same rules as fmt.Print. It never inserts spaces
+between parameters.
+
+				
+				
+				
+			
+				
+				<h3 id="GeneratedFile.QualifiedGoIdent">func (*GeneratedFile) <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=31074:31136#L937">QualifiedGoIdent</a>
+					<a class="permalink" href="index.html#GeneratedFile.QualifiedGoIdent">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (g *<a href="index.html#GeneratedFile">GeneratedFile</a>) QualifiedGoIdent(ident <a href="index.html#GoIdent">GoIdent</a>) <a href="../../../../builtin/index.html#string">string</a></pre>
+				<p>QualifiedGoIdent returns the string to use for a Go identifier.
+<p>If the identifier is from a different Go package than the generated file,
+the returned name will be qualified (package.name) and an import statement
+for the identifier&apos;s package will be included in the file.
+
+				
+				
+				
+			
+				
+				<h3 id="GeneratedFile.Skip">func (*GeneratedFile) <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=32206:32236#L968">Skip</a>
+					<a class="permalink" href="index.html#GeneratedFile.Skip">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (g *<a href="index.html#GeneratedFile">GeneratedFile</a>) Skip()</pre>
+				<p>Skip removes the generated file from the plugin output.
+
+				
+				
+				
+			
+				
+				<h3 id="GeneratedFile.Unskip">func (*GeneratedFile) <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=32357:32389#L974">Unskip</a>
+					<a class="permalink" href="index.html#GeneratedFile.Unskip">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (g *<a href="index.html#GeneratedFile">GeneratedFile</a>) Unskip()</pre>
+				<p>Unskip reverts a previous call to Skip, re-including the generated file in
+the plugin output.
+
+				
+				
+				
+			
+				
+				<h3 id="GeneratedFile.Write">func (*GeneratedFile) <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=32060:32118#L963">Write</a>
+					<a class="permalink" href="index.html#GeneratedFile.Write">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (g *<a href="index.html#GeneratedFile">GeneratedFile</a>) Write(p []<a href="../../../../builtin/index.html#byte">byte</a>) (n <a href="../../../../builtin/index.html#int">int</a>, err <a href="../../../../builtin/index.html#error">error</a>)</pre>
+				<p>Write implements io.Writer.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="GoIdent">type <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=37870:37941#L1156">GoIdent</a>
+				<a class="permalink" href="index.html#GoIdent">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A GoIdent is a Go identifier, consisting of a name and import path.
+The name is a single identifier and may not be a dot-qualified selector.
+
+			<pre>type GoIdent struct {
+<span id="GoIdent.GoName"></span>    GoName       <a href="../../../../builtin/index.html#string">string</a>
+<span id="GoIdent.GoImportPath"></span>    GoImportPath <a href="index.html#GoImportPath">GoImportPath</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="GoIdent.String">func (GoIdent) <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=37943:37976#L1161">String</a>
+					<a class="permalink" href="index.html#GoIdent.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (id <a href="index.html#GoIdent">GoIdent</a>) String() <a href="../../../../builtin/index.html#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="GoImportPath">type <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=38450:38474#L1174">GoImportPath</a>
+				<a class="permalink" href="index.html#GoImportPath">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A GoImportPath is the import path of a Go package.
+For example: &quot;google.golang.org/protobuf/compiler/protogen&quot;
+
+			<pre>type GoImportPath <a href="../../../../builtin/index.html#string">string</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="GoImportPath.Ident">func (GoImportPath) <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=38626:38671#L1179">Ident</a>
+					<a class="permalink" href="index.html#GoImportPath.Ident">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p <a href="index.html#GoImportPath">GoImportPath</a>) Ident(s <a href="../../../../builtin/index.html#string">string</a>) <a href="index.html#GoIdent">GoIdent</a></pre>
+				<p>Ident returns a GoIdent with s as the GoName and p as the GoImportPath.
+
+				
+				
+				
+			
+				
+				<h3 id="GoImportPath.String">func (GoImportPath) <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=38476:38513#L1176">String</a>
+					<a class="permalink" href="index.html#GoImportPath.String">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (p <a href="index.html#GoImportPath">GoImportPath</a>) String() <a href="../../../../builtin/index.html#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="GoPackageName">type <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=38787:38812#L1184">GoPackageName</a>
+				<a class="permalink" href="index.html#GoPackageName">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A GoPackageName is the name of a Go package. e.g., &quot;protobuf&quot;.
+
+			<pre>type GoPackageName <a href="../../../../builtin/index.html#string">string</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Location">type <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=39214:39293#L1202">Location</a>
+				<a class="permalink" href="index.html#Location">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A Location is a location in a .proto source file.
+<p>See the google.protobuf.SourceCodeInfo documentation in descriptor.proto
+for details.
+
+			<pre>type Location struct {
+<span id="Location.SourceFile"></span>    SourceFile <a href="../../../../builtin/index.html#string">string</a>
+<span id="Location.Path"></span>    Path       <a href="../../reflect/protoreflect/index.html">protoreflect</a>.<a href="../../reflect/protoreflect/index.html#SourcePath">SourcePath</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Message">type <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=18056:18542#L538">Message</a>
+				<a class="permalink" href="index.html#Message">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A Message describes a message.
+
+			<pre>type Message struct {
+<span id="Message.Desc"></span>    Desc <a href="../../reflect/protoreflect/index.html">protoreflect</a>.<a href="../../reflect/protoreflect/index.html#MessageDescriptor">MessageDescriptor</a>
+
+<span id="Message.GoIdent"></span>    GoIdent <a href="index.html#GoIdent">GoIdent</a> <span class="comment">// name of the generated Go type</span>
+
+<span id="Message.Fields"></span>    Fields []*<a href="index.html#Field">Field</a> <span class="comment">// message field declarations</span>
+<span id="Message.Oneofs"></span>    Oneofs []*<a href="index.html#Oneof">Oneof</a> <span class="comment">// message oneof declarations</span>
+
+<span id="Message.Enums"></span>    Enums      []*<a href="index.html#Enum">Enum</a>      <span class="comment">// nested enum declarations</span>
+<span id="Message.Messages"></span>    Messages   []*<a href="index.html#Message">Message</a>   <span class="comment">// nested message declarations</span>
+<span id="Message.Extensions"></span>    Extensions []*<a href="index.html#Extension">Extension</a> <span class="comment">// nested extension declarations</span>
+
+<span id="Message.Location"></span>    Location <a href="index.html#Location">Location</a>   <span class="comment">// location of this message</span>
+<span id="Message.Comments"></span>    Comments <a href="index.html#CommentSet">CommentSet</a> <span class="comment">// comments associated with this message</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Method">type <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=28107:28388#L836">Method</a>
+				<a class="permalink" href="index.html#Method">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A Method describes a method in a service.
+
+			<pre>type Method struct {
+<span id="Method.Desc"></span>    Desc <a href="../../reflect/protoreflect/index.html">protoreflect</a>.<a href="../../reflect/protoreflect/index.html#MethodDescriptor">MethodDescriptor</a>
+
+<span id="Method.GoName"></span>    GoName <a href="../../../../builtin/index.html#string">string</a>
+
+<span id="Method.Parent"></span>    Parent *<a href="index.html#Service">Service</a> <span class="comment">// service in which this method is declared</span>
+
+<span id="Method.Input"></span>    Input  *<a href="index.html#Message">Message</a>
+<span id="Method.Output"></span>    Output *<a href="index.html#Message">Message</a>
+
+<span id="Method.Location"></span>    Location <a href="index.html#Location">Location</a>   <span class="comment">// location of this method</span>
+<span id="Method.Comments"></span>    Comments <a href="index.html#CommentSet">CommentSet</a> <span class="comment">// comments associated with this method</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Oneof">type <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=25988:26621#L770">Oneof</a>
+				<a class="permalink" href="index.html#Oneof">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A Oneof describes a message oneof.
+
+			<pre>type Oneof struct {
+<span id="Oneof.Desc"></span>    Desc <a href="../../reflect/protoreflect/index.html">protoreflect</a>.<a href="../../reflect/protoreflect/index.html#OneofDescriptor">OneofDescriptor</a>
+
+<span id="Oneof.GoName"></span>    <span class="comment">// GoName is the base name of this oneof&#39;s Go field and methods.</span>
+    <span class="comment">// For code generated by protoc-gen-go, this means a field named</span>
+    <span class="comment">// &#39;{{GoName}}&#39; and a getter method named &#39;Get{{GoName}}&#39;.</span>
+    GoName <a href="../../../../builtin/index.html#string">string</a> <span class="comment">// e.g., &#34;OneofName&#34;</span>
+
+<span id="Oneof.GoIdent"></span>    <span class="comment">// GoIdent is the base name of a top-level declaration for this oneof.</span>
+    GoIdent <a href="index.html#GoIdent">GoIdent</a> <span class="comment">// e.g., &#34;MessageName_OneofName&#34;</span>
+
+<span id="Oneof.Parent"></span>    Parent *<a href="index.html#Message">Message</a> <span class="comment">// message in which this oneof is declared</span>
+
+<span id="Oneof.Fields"></span>    Fields []*<a href="index.html#Field">Field</a> <span class="comment">// fields that are part of this oneof</span>
+
+<span id="Oneof.Location"></span>    Location <a href="index.html#Location">Location</a>   <span class="comment">// location of this oneof</span>
+<span id="Oneof.Comments"></span>    Comments <a href="index.html#CommentSet">CommentSet</a> <span class="comment">// comments associated with this oneof</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Options">type <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=3506:4622#L111">Options</a>
+				<a class="permalink" href="index.html#Options">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Options struct {
+    <span class="comment">// If ParamFunc is non-nil, it will be called with each unknown</span>
+    <span class="comment">// generator parameter.</span>
+    <span class="comment">//</span>
+    <span class="comment">// Plugins for protoc can accept parameters from the command line,</span>
+    <span class="comment">// passed in the --&lt;lang&gt;_out protoc, separated from the output</span>
+    <span class="comment">// directory with a colon; e.g.,</span>
+    <span class="comment">//</span>
+    <span class="comment">//   --go_out=&lt;param1&gt;=&lt;value1&gt;,&lt;param2&gt;=&lt;value2&gt;:&lt;output_directory&gt;</span>
+    <span class="comment">//</span>
+    <span class="comment">// Parameters passed in this fashion as a comma-separated list of</span>
+    <span class="comment">// key=value pairs will be passed to the ParamFunc.</span>
+    <span class="comment">//</span>
+    <span class="comment">// The (flag.FlagSet).Set method matches this function signature,</span>
+    <span class="comment">// so parameters can be converted into flags as in the following:</span>
+    <span class="comment">//</span>
+    <span class="comment">//   var flags flag.FlagSet</span>
+    <span class="comment">//   value := flags.Bool(&#34;param&#34;, false, &#34;&#34;)</span>
+    <span class="comment">//   opts := &amp;protogen.Options{</span>
+    <span class="comment">//     ParamFunc: flags.Set,</span>
+    <span class="comment">//   }</span>
+    <span class="comment">//   protogen.Run(opts, func(p *protogen.Plugin) error {</span>
+    <span class="comment">//     if *value { ... }</span>
+    <span class="comment">//   })</span>
+<span id="Options.ParamFunc"></span>    ParamFunc func(name, value <a href="../../../../builtin/index.html#string">string</a>) <a href="../../../../builtin/index.html#error">error</a>
+
+<span id="Options.ImportRewriteFunc"></span>    <span class="comment">// ImportRewriteFunc is called with the import path of each package</span>
+    <span class="comment">// imported by a generated file. It returns the import path to use</span>
+    <span class="comment">// for this package.</span>
+    ImportRewriteFunc func(<a href="index.html#GoImportPath">GoImportPath</a>) <a href="index.html#GoImportPath">GoImportPath</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Options.New">func (Options) <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=4653:4729#L144">New</a>
+					<a class="permalink" href="index.html#Options.New">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (opts <a href="index.html#Options">Options</a>) New(req *<a href="../../types/pluginpb/index.html">pluginpb</a>.<a href="../../types/pluginpb/index.html#CodeGeneratorRequest">CodeGeneratorRequest</a>) (*<a href="index.html#Plugin">Plugin</a>, <a href="../../../../builtin/index.html#error">error</a>)</pre>
+				<p>New returns a new Plugin.
+
+				
+				
+				
+			
+				
+				<h3 id="Options.Run">func (Options) <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=1529:1575#L41">Run</a>
+					<a class="permalink" href="index.html#Options.Run">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (opts <a href="index.html#Options">Options</a>) Run(f func(*<a href="index.html#Plugin">Plugin</a>) <a href="../../../../builtin/index.html#error">error</a>)</pre>
+				<p>Run executes a function as a protoc plugin.
+<p>It reads a CodeGeneratorRequest message from os.Stdin, invokes the plugin
+function, and writes a CodeGeneratorResponse message to os.Stdout.
+<p>If a failure occurs while reading or writing, Run prints an error to
+os.Stderr and calls os.Exit(1).
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Plugin">type <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=2648:3504#L85">Plugin</a>
+				<a class="permalink" href="index.html#Plugin">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A Plugin is a protoc plugin invocation.
+
+			<pre>type Plugin struct {
+<span id="Plugin.Request"></span>    <span class="comment">// Request is the CodeGeneratorRequest provided by protoc.</span>
+    Request *<a href="../../types/pluginpb/index.html">pluginpb</a>.<a href="../../types/pluginpb/index.html#CodeGeneratorRequest">CodeGeneratorRequest</a>
+
+<span id="Plugin.Files"></span>    <span class="comment">// Files is the set of files to generate and everything they import.</span>
+    <span class="comment">// Files appear in topological order, so each file appears before any</span>
+    <span class="comment">// file that imports it.</span>
+    Files       []*<a href="index.html#File">File</a>
+<span id="Plugin.FilesByPath"></span>    FilesByPath map[<a href="../../../../builtin/index.html#string">string</a>]*<a href="index.html#File">File</a>
+
+<span id="Plugin.SupportedFeatures"></span>    <span class="comment">// SupportedFeatures is the set of protobuf language features supported by</span>
+    <span class="comment">// this generator plugin. See the documentation for</span>
+    <span class="comment">// google.protobuf.CodeGeneratorResponse.supported_features for details.</span>
+    SupportedFeatures <a href="../../../../builtin/index.html#uint64">uint64</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Plugin.Error">func (*Plugin) <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=10923:10958#L315">Error</a>
+					<a class="permalink" href="index.html#Plugin.Error">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (gen *<a href="index.html#Plugin">Plugin</a>) Error(err <a href="../../../../builtin/index.html#error">error</a>)</pre>
+				<p>Error records an error in code generation. The generator will report the
+error back to protoc and will not produce output.
+
+				
+				
+				
+			
+				
+				<h3 id="Plugin.NewGeneratedFile">func (*Plugin) <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=29771:29865#L897">NewGeneratedFile</a>
+					<a class="permalink" href="index.html#Plugin.NewGeneratedFile">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (gen *<a href="index.html#Plugin">Plugin</a>) NewGeneratedFile(filename <a href="../../../../builtin/index.html#string">string</a>, goImportPath <a href="index.html#GoImportPath">GoImportPath</a>) *<a href="index.html#GeneratedFile">GeneratedFile</a></pre>
+				<p>NewGeneratedFile creates a new generated file with the given filename
+and import path.
+
+				
+				
+				
+			
+				
+				<h3 id="Plugin.Response">func (*Plugin) <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=11046:11107#L322">Response</a>
+					<a class="permalink" href="index.html#Plugin.Response">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (gen *<a href="index.html#Plugin">Plugin</a>) Response() *<a href="../../types/pluginpb/index.html">pluginpb</a>.<a href="../../types/pluginpb/index.html#CodeGeneratorResponse">CodeGeneratorResponse</a></pre>
+				<p>Response returns the generator output.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Service">type <a href="http://localhost:8080/src/google.golang.org/protobuf/compiler/protogen/protogen.go?s=27298:27537#L810">Service</a>
+				<a class="permalink" href="index.html#Service">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A Service describes a service.
+
+			<pre>type Service struct {
+<span id="Service.Desc"></span>    Desc <a href="../../reflect/protoreflect/index.html">protoreflect</a>.<a href="../../reflect/protoreflect/index.html#ServiceDescriptor">ServiceDescriptor</a>
+
+<span id="Service.GoName"></span>    GoName <a href="../../../../builtin/index.html#string">string</a>
+
+<span id="Service.Methods"></span>    Methods []*<a href="index.html#Method">Method</a> <span class="comment">// service method declarations</span>
+
+<span id="Service.Location"></span>    Location <a href="index.html#Location">Location</a>   <span class="comment">// location of this service</span>
+<span id="Service.Comments"></span>    Comments <a href="index.html#CommentSet">CommentSet</a> <span class="comment">// comments associated with this service</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="http://localhost:8080/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>binding - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="../../../../../lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="../../../../../lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="../../../../../lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="../../../../index.html">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="../../../../index.html">GoDoc</a></div>
+<a href="index.html#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="http://localhost:8080/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package binding
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/gin-gonic/gin/binding"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="index.html#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="index.html#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+				<dd><a href="index.html#pkg-constants">Constants</a></dd>
+			
+			
+				<dd><a href="index.html#pkg-variables">Variables</a></dd>
+			
+			
+				
+				<dd><a href="index.html#MapFormWithTag">func MapFormWithTag(ptr any, form map[string][]string, tag string) error</a></dd>
+			
+			
+				
+				<dd><a href="index.html#Binding">type Binding</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Default">func Default(method, contentType string) Binding</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#BindingBody">type BindingBody</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#BindingUri">type BindingUri</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#SliceValidationError">type SliceValidationError</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#SliceValidationError.Error">func (err SliceValidationError) Error() string</a></dd>
+				
+			
+				
+				<dd><a href="index.html#StructValidator">type StructValidator</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="http://localhost:8080/src/github.com/gin-gonic/gin/binding/binding.go">binding.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/gin-gonic/gin/binding/default_validator.go">default_validator.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/gin-gonic/gin/binding/form.go">form.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/gin-gonic/gin/binding/form_mapping.go">form_mapping.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/gin-gonic/gin/binding/header.go">header.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/gin-gonic/gin/binding/json.go">json.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/gin-gonic/gin/binding/msgpack.go">msgpack.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/gin-gonic/gin/binding/multipart_form_mapping.go">multipart_form_mapping.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/gin-gonic/gin/binding/protobuf.go">protobuf.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/gin-gonic/gin/binding/query.go">query.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/gin-gonic/gin/binding/toml.go">toml.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/gin-gonic/gin/binding/uri.go">uri.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/gin-gonic/gin/binding/xml.go">xml.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/gin-gonic/gin/binding/yaml.go">yaml.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+			<h2 id="pkg-constants">Constants</h2>
+			
+				<p>Content-Type MIME of the most common data formats.
+
+				<pre>const (
+    <span id="MIMEJSON">MIMEJSON</span>              = &#34;application/json&#34;
+    <span id="MIMEHTML">MIMEHTML</span>              = &#34;text/html&#34;
+    <span id="MIMEXML">MIMEXML</span>               = &#34;application/xml&#34;
+    <span id="MIMEXML2">MIMEXML2</span>              = &#34;text/xml&#34;
+    <span id="MIMEPlain">MIMEPlain</span>             = &#34;text/plain&#34;
+    <span id="MIMEPOSTForm">MIMEPOSTForm</span>          = &#34;application/x-www-form-urlencoded&#34;
+    <span id="MIMEMultipartPOSTForm">MIMEMultipartPOSTForm</span> = &#34;multipart/form-data&#34;
+    <span id="MIMEPROTOBUF">MIMEPROTOBUF</span>          = &#34;application/x-protobuf&#34;
+    <span id="MIMEMSGPACK">MIMEMSGPACK</span>           = &#34;application/x-msgpack&#34;
+    <span id="MIMEMSGPACK2">MIMEMSGPACK2</span>          = &#34;application/msgpack&#34;
+    <span id="MIMEYAML">MIMEYAML</span>              = &#34;application/x-yaml&#34;
+    <span id="MIMETOML">MIMETOML</span>              = &#34;application/toml&#34;
+)</pre>
+			
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				<p>These implement the Binding interface and can be used to bind the data
+present in the request to struct instances.
+
+				<pre>var (
+    <span id="JSON">JSON</span>          = jsonBinding{}
+    <span id="XML">XML</span>           = xmlBinding{}
+    <span id="Form">Form</span>          = formBinding{}
+    <span id="Query">Query</span>         = queryBinding{}
+    <span id="FormPost">FormPost</span>      = formPostBinding{}
+    <span id="FormMultipart">FormMultipart</span> = formMultipartBinding{}
+    <span id="ProtoBuf">ProtoBuf</span>      = protobufBinding{}
+    <span id="MsgPack">MsgPack</span>       = msgpackBinding{}
+    <span id="YAML">YAML</span>          = yamlBinding{}
+    <span id="Uri">Uri</span>           = uriBinding{}
+    <span id="Header">Header</span>        = headerBinding{}
+    <span id="TOML">TOML</span>          = tomlBinding{}
+)</pre>
+			
+				
+				<pre>var (
+
+    <span class="comment">// ErrConvertMapStringSlice can not covert to map[string][]string</span>
+    <span id="ErrConvertMapStringSlice">ErrConvertMapStringSlice</span> = <a href="../../../../errors/index.html">errors</a>.<a href="../../../../errors/index.html#New">New</a>(&#34;can not convert to map slices of strings&#34;)
+
+    <span class="comment">// ErrConvertToMapString can not convert to map[string]string</span>
+    <span id="ErrConvertToMapString">ErrConvertToMapString</span> = <a href="../../../../errors/index.html">errors</a>.<a href="../../../../errors/index.html#New">New</a>(&#34;can not convert to map of strings&#34;)
+)</pre>
+			
+				
+				<pre>var (
+    <span class="comment">// ErrMultiFileHeader multipart.FileHeader invalid</span>
+    <span id="ErrMultiFileHeader">ErrMultiFileHeader</span> = <a href="../../../../errors/index.html">errors</a>.<a href="../../../../errors/index.html#New">New</a>(&#34;unsupported field type for multipart.FileHeader&#34;)
+
+    <span class="comment">// ErrMultiFileHeaderLenInvalid array for []*multipart.FileHeader len invalid</span>
+    <span id="ErrMultiFileHeaderLenInvalid">ErrMultiFileHeaderLenInvalid</span> = <a href="../../../../errors/index.html">errors</a>.<a href="../../../../errors/index.html#New">New</a>(&#34;unsupported len of array for []*multipart.FileHeader&#34;)
+)</pre>
+			
+				<p>EnableDecoderDisallowUnknownFields is used to call the DisallowUnknownFields method
+on the JSON Decoder instance. DisallowUnknownFields causes the Decoder to
+return an error when the destination is a struct and the input contains object
+keys which do not match any non-ignored, exported fields in the destination.
+
+				<pre>var <span id="EnableDecoderDisallowUnknownFields">EnableDecoderDisallowUnknownFields</span> = <a href="../../../../builtin/index.html#false">false</a></pre>
+			
+				<p>EnableDecoderUseNumber is used to call the UseNumber method on the JSON
+Decoder instance. UseNumber causes the Decoder to unmarshal a number into an
+interface{} as a Number instead of as a float64.
+
+				<pre>var <span id="EnableDecoderUseNumber">EnableDecoderUseNumber</span> = <a href="../../../../builtin/index.html#false">false</a></pre>
+			
+		
+		
+			
+			
+			<h2 id="MapFormWithTag">func <a href="http://localhost:8080/src/github.com/gin-gonic/gin/binding/form_mapping.go?s=876:948#L27">MapFormWithTag</a>
+				<a class="permalink" href="index.html#MapFormWithTag">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func MapFormWithTag(ptr <a href="../../../../builtin/index.html#any">any</a>, form map[<a href="../../../../builtin/index.html#string">string</a>][]<a href="../../../../builtin/index.html#string">string</a>, tag <a href="../../../../builtin/index.html#string">string</a>) <a href="../../../../builtin/index.html#error">error</a></pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Binding">type <a href="http://localhost:8080/src/github.com/gin-gonic/gin/binding/binding.go?s=1031:1104#L21">Binding</a>
+				<a class="permalink" href="index.html#Binding">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Binding describes the interface which needs to be implemented for binding the
+data present in the request such as JSON request body, query parameters or
+the form POST.
+
+			<pre>type Binding interface {
+    Name() <a href="../../../../builtin/index.html#string">string</a>
+    Bind(*<a href="../../../../net/http/index.html">http</a>.<a href="../../../../net/http/index.html#Request">Request</a>, <a href="../../../../builtin/index.html#any">any</a>) <a href="../../../../builtin/index.html#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="Default">func <a href="http://localhost:8080/src/github.com/gin-gonic/gin/binding/binding.go?s=3403:3451#L82">Default</a>
+					<a class="permalink" href="index.html#Default">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func Default(method, contentType <a href="../../../../builtin/index.html#string">string</a>) <a href="index.html#Binding">Binding</a></pre>
+				<p>Default returns the appropriate Binding instance based on the HTTP method
+and the content type.
+
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="BindingBody">type <a href="http://localhost:8080/src/github.com/gin-gonic/gin/binding/binding.go?s=1251:1319#L28">BindingBody</a>
+				<a class="permalink" href="index.html#BindingBody">&#xb6;</a>
+				
+				
+			</h2>
+			<p>BindingBody adds BindBody method to Binding. BindBody is similar with Bind,
+but it reads the body from supplied bytes instead of req.Body.
+
+			<pre>type BindingBody interface {
+    <a href="index.html#Binding">Binding</a>
+    BindBody([]<a href="../../../../builtin/index.html#byte">byte</a>, <a href="../../../../builtin/index.html#any">any</a>) <a href="../../../../builtin/index.html#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="BindingUri">type <a href="http://localhost:8080/src/github.com/gin-gonic/gin/binding/binding.go?s=1425:1510#L35">BindingUri</a>
+				<a class="permalink" href="index.html#BindingUri">&#xb6;</a>
+				
+				
+			</h2>
+			<p>BindingUri adds BindUri method to Binding. BindUri is similar with Bind,
+but it reads the Params.
+
+			<pre>type BindingUri interface {
+    Name() <a href="../../../../builtin/index.html#string">string</a>
+    BindUri(map[<a href="../../../../builtin/index.html#string">string</a>][]<a href="../../../../builtin/index.html#string">string</a>, <a href="../../../../builtin/index.html#any">any</a>) <a href="../../../../builtin/index.html#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="SliceValidationError">type <a href="http://localhost:8080/src/github.com/gin-gonic/gin/binding/default_validator.go?s=360:393#L11">SliceValidationError</a>
+				<a class="permalink" href="index.html#SliceValidationError">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type SliceValidationError []<a href="../../../../builtin/index.html#error">error</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="SliceValidationError.Error">func (SliceValidationError) <a href="http://localhost:8080/src/github.com/gin-gonic/gin/binding/default_validator.go?s=498:544#L14">Error</a>
+					<a class="permalink" href="index.html#SliceValidationError.Error">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (err <a href="index.html#SliceValidationError">SliceValidationError</a>) Error() <a href="../../../../builtin/index.html#string">string</a></pre>
+				<p>Error concatenates all error elements in SliceValidationError into a single string separated by \n.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="StructValidator">type <a href="http://localhost:8080/src/github.com/gin-gonic/gin/binding/binding.go?s=1801:2551#L44">StructValidator</a>
+				<a class="permalink" href="index.html#StructValidator">&#xb6;</a>
+				
+				
+			</h2>
+			<p>StructValidator is the minimal interface which needs to be implemented in
+order for it to be used as the validator engine for ensuring the correctness
+of the request. Gin provides a default implementation for this using
+<a href="https://github.com/go-playground/validator/tree/v10.6.1">https://github.com/go-playground/validator/tree/v10.6.1</a>.
+
+			<pre>type StructValidator interface {
+    <span class="comment">// ValidateStruct can receive any kind of type and it should never panic, even if the configuration is not right.</span>
+    <span class="comment">// If the received type is a slice|array, the validation should be performed travel on every element.</span>
+    <span class="comment">// If the received type is not a struct or slice|array, any validation should be skipped and nil must be returned.</span>
+    <span class="comment">// If the received type is a struct or pointer to a struct, the validation should be performed.</span>
+    <span class="comment">// If the struct is not valid or the validation itself fails, a descriptive error should be returned.</span>
+    <span class="comment">// Otherwise nil must be returned.</span>
+    ValidateStruct(<a href="../../../../builtin/index.html#any">any</a>) <a href="../../../../builtin/index.html#error">error</a>
+
+    <span class="comment">// Engine returns the underlying validator engine which powers the</span>
+    <span class="comment">// StructValidator implementation.</span>
+    Engine() <a href="../../../../builtin/index.html#any">any</a>
+}</pre>
+
+			
+
+			
+				<p>Validator is the default validator which implements the StructValidator
+interface. It uses <a href="https://github.com/go-playground/validator/tree/v10.6.1">https://github.com/go-playground/validator/tree/v10.6.1</a>
+under the hood.
+
+				<pre>var <span id="Validator">Validator</span> <a href="index.html#StructValidator">StructValidator</a> = &amp;defaultValidator{}</pre>
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="http://localhost:8080/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

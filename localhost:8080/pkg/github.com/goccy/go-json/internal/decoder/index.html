@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>decoder - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="../../../../../../lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="../../../../../../lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.19.2";</script>
+<script src="../../../../../../lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="../../../../../index.html">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="../../../../../index.html">GoDoc</a></div>
+<a href="index.html#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="http://localhost:8080/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package decoder
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/goccy/go-json/internal/decoder"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="index.html#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="index.html#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="index.html#ReleaseRuntimeContext">func ReleaseRuntimeContext(ctx *RuntimeContext)</a></dd>
+			
+			
+				
+				<dd><a href="index.html#Decoder">type Decoder</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#CompileToGetDecoder">func CompileToGetDecoder(typ *runtime.Type) (Decoder, error)</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Option">type Option</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#OptionFlags">type OptionFlags</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#RuntimeContext">type RuntimeContext</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#TakeRuntimeContext">func TakeRuntimeContext() *RuntimeContext</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Stream">type Stream</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#NewStream">func NewStream(r io.Reader) *Stream</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Stream.Buffered">func (s *Stream) Buffered() io.Reader</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Stream.More">func (s *Stream) More() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Stream.PrepareForDecode">func (s *Stream) PrepareForDecode() error</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Stream.Reset">func (s *Stream) Reset()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Stream.Token">func (s *Stream) Token() (interface{}, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Stream.TotalOffset">func (s *Stream) TotalOffset() int64</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/anonymous_field.go">anonymous_field.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/array.go">array.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/bool.go">bool.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/bytes.go">bytes.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/compile.go">compile.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/compile_norace.go">compile_norace.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/context.go">context.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/float.go">float.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/func.go">func.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/int.go">int.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/interface.go">interface.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/invalid.go">invalid.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/map.go">map.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/number.go">number.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/option.go">option.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/ptr.go">ptr.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/slice.go">slice.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/stream.go">stream.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/string.go">string.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/struct.go">struct.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/type.go">type.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/uint.go">uint.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/unmarshal_json.go">unmarshal_json.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/unmarshal_text.go">unmarshal_text.go</a>
+			
+				<a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/wrapped_string.go">wrapped_string.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+			
+			
+			<h2 id="ReleaseRuntimeContext">func <a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/context.go?s=386:433#L19">ReleaseRuntimeContext</a>
+				<a class="permalink" href="index.html#ReleaseRuntimeContext">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func ReleaseRuntimeContext(ctx *<a href="index.html#RuntimeContext">RuntimeContext</a>)</pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Decoder">type <a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/type.go?s=90:238#L1">Decoder</a>
+				<a class="permalink" href="index.html#Decoder">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Decoder interface {
+    Decode(*<a href="index.html#RuntimeContext">RuntimeContext</a>, <a href="../../../../../builtin/index.html#int64">int64</a>, <a href="../../../../../builtin/index.html#int64">int64</a>, <a href="../../../../../unsafe/index.html">unsafe</a>.<a href="../../../../../unsafe/index.html#Pointer">Pointer</a>) (<a href="../../../../../builtin/index.html#int64">int64</a>, <a href="../../../../../builtin/index.html#error">error</a>)
+    DecodeStream(*<a href="index.html#Stream">Stream</a>, <a href="../../../../../builtin/index.html#int64">int64</a>, <a href="../../../../../unsafe/index.html">unsafe</a>.<a href="../../../../../unsafe/index.html#Pointer">Pointer</a>) <a href="../../../../../builtin/index.html#error">error</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="CompileToGetDecoder">func <a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/compile_norace.go?s=119:179#L2">CompileToGetDecoder</a>
+					<a class="permalink" href="index.html#CompileToGetDecoder">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func CompileToGetDecoder(typ *<a href="../runtime/index.html">runtime</a>.<a href="../runtime/index.html#Type">Type</a>) (<a href="index.html#Decoder">Decoder</a>, <a href="../../../../../builtin/index.html#error">error</a>)</pre>
+				
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="Option">type <a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/option.go?s=125:193#L2">Option</a>
+				<a class="permalink" href="index.html#Option">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Option struct {
+<span id="Option.Flags"></span>    Flags   <a href="index.html#OptionFlags">OptionFlags</a>
+<span id="Option.Context"></span>    Context <a href="../../../../../context/index.html">context</a>.<a href="../../../../../context/index.html#Context">Context</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="OptionFlags">type <a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/option.go?s=35:57#L1">OptionFlags</a>
+				<a class="permalink" href="index.html#OptionFlags">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type OptionFlags <a href="../../../../../builtin/index.html#uint8">uint8</a></pre>
+
+			
+				
+				<pre>const (
+    <span id="FirstWinOption">FirstWinOption</span> <a href="index.html#OptionFlags">OptionFlags</a> = 1 &lt;&lt; <a href="../../../../../builtin/index.html#iota">iota</a>
+    <span id="ContextOption">ContextOption</span>
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="RuntimeContext">type <a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/context.go?s=92:153#L1">RuntimeContext</a>
+				<a class="permalink" href="index.html#RuntimeContext">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type RuntimeContext struct {
+<span id="RuntimeContext.Buf"></span>    Buf    []<a href="../../../../../builtin/index.html#byte">byte</a>
+<span id="RuntimeContext.Option"></span>    Option *<a href="index.html#Option">Option</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="TakeRuntimeContext">func <a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/context.go?s=288:329#L15">TakeRuntimeContext</a>
+					<a class="permalink" href="index.html#TakeRuntimeContext">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func TakeRuntimeContext() *<a href="index.html#RuntimeContext">RuntimeContext</a></pre>
+				
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="Stream">type <a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/stream.go?s=157:501#L7">Stream</a>
+				<a class="permalink" href="index.html#Stream">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Stream struct {
+<span id="Stream.UseNumber"></span>    UseNumber             <a href="../../../../../builtin/index.html#bool">bool</a>
+<span id="Stream.DisallowUnknownFields"></span>    DisallowUnknownFields <a href="../../../../../builtin/index.html#bool">bool</a>
+<span id="Stream.Option"></span>    Option                *<a href="index.html#Option">Option</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewStream">func <a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/stream.go?s=503:538#L21">NewStream</a>
+					<a class="permalink" href="index.html#NewStream">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewStream(r <a href="../../../../../io/index.html">io</a>.<a href="../../../../../io/index.html#Reader">Reader</a>) *<a href="index.html#Stream">Stream</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="Stream.Buffered">func (*Stream) <a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/stream.go?s=728:765#L34">Buffered</a>
+					<a class="permalink" href="index.html#Stream.Buffered">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s *<a href="index.html#Stream">Stream</a>) Buffered() <a href="../../../../../io/index.html">io</a>.<a href="../../../../../io/index.html#Reader">Reader</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Stream.More">func (*Stream) <a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/stream.go?s=2010:2038#L99">More</a>
+					<a class="permalink" href="index.html#Stream.More">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s *<a href="index.html#Stream">Stream</a>) More() <a href="../../../../../builtin/index.html#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Stream.PrepareForDecode">func (*Stream) <a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/stream.go?s=955:996#L44">PrepareForDecode</a>
+					<a class="permalink" href="index.html#Stream.PrepareForDecode">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s *<a href="index.html#Stream">Stream</a>) PrepareForDecode() <a href="../../../../../builtin/index.html#error">error</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Stream.Reset">func (*Stream) <a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/stream.go?s=1938:1962#L94">Reset</a>
+					<a class="permalink" href="index.html#Stream.Reset">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s *<a href="index.html#Stream">Stream</a>) Reset()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Stream.Token">func (*Stream) <a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/stream.go?s=2251:2296#L118">Token</a>
+					<a class="permalink" href="index.html#Stream.Token">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s *<a href="index.html#Stream">Stream</a>) Token() (interface{}, <a href="../../../../../builtin/index.html#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Stream.TotalOffset">func (*Stream) <a href="http://localhost:8080/src/github.com/goccy/go-json/internal/decoder/stream.go?s=662:698#L30">TotalOffset</a>
+					<a class="permalink" href="index.html#Stream.TotalOffset">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s *<a href="index.html#Stream">Stream</a>) TotalOffset() <a href="../../../../../builtin/index.html#int64">int64</a></pre>
+				
+				
+				
+				
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.19.2.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="http://localhost:8080/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

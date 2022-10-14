@@ -12,14 +12,13 @@ import (
 )
 
 var (
-	// Close close channel
+	// Close channel
 	Close chan struct{} = make(chan struct{}, 1)
-	// Router pointer to router
+	// Router pointer
 	Router *gin.Engine = nil
 )
 
-// Initialize initializes server submodule as daemon;
-// stops on Close signal, decrements wg on exit;
+// Initialize server submodule as daemon
 func Initialize(wg *sync.WaitGroup) {
 	if wg == nil {
 		log.Println("api::server::Initialize: nil wg")
